@@ -56039,8 +56039,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2004718023}
-  - component: {fileID: 2004718024}
   - component: {fileID: 2004718025}
+  - component: {fileID: 2004718024}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -56077,8 +56077,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  mouseSensitivity: 1
-  viewCam: {fileID: 519420032}
+  mouseSensitivity: 5
 --- !u!50 &2004718025
 Rigidbody2D:
   serializedVersion: 5
