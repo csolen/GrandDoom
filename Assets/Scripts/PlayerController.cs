@@ -11,10 +11,11 @@ public class PlayerController : MonoBehaviour
 
     public float mouseSensitivity = 1f;
 
-    public Transform viewCam;
+    private Transform viewCam;
 
     private void Awake()
     {
+        viewCam = Camera.main.transform;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -33,5 +34,7 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z - mouseInput.x);
 
         viewCam.localRotation = Quaternion.Euler(viewCam.localRotation.eulerAngles + new Vector3(0f, mouseInput.y, 0f));
+
+
     }
 }
