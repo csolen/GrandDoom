@@ -15,7 +15,7 @@ public class GameTester : MonoBehaviour
     {
         explainerText.text = "Press TAB for UI";
 
-        UI_Holder.SetActive(false);
+        UI_Holder.SetActive(true);
     }
 
     public void Update()

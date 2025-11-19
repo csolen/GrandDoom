@@ -54,8 +54,6 @@ public class PlayerController : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    Debug.Log(hit.transform.name);
-
                     Vector3 bulletImpactOffset = new (-0.1f, 0f, 0f);
                     Instantiate(bulletImpact, hit.point + bulletImpactOffset, transform.rotation);
 
