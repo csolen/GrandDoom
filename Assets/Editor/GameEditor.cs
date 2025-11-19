@@ -1,6 +1,6 @@
 using UnityEditor;
-using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 
 public class GameEditor : EditorWindow
@@ -24,28 +24,38 @@ public class GameEditor : EditorWindow
         PlayerPrefs.DeleteAll();
     }
 
-    [MenuItem("DOOM/Player/Immortal Mode")]
+    [MenuItem("DOOM/Player/Mode/Immortal Mode")]
     private static void MakePlayerImmortal()
     {
-
+        PlayerController.instance.health = 10000;
+        PlayerController.instance.ammoAmount = 10000;
+        PlayerController.instance.goldAmount = 10000;
     }
 
-    [MenuItem("DOOM/Player/Unlimited Ammo")]
-    private static void GivePlayerUnlimitedAmmos()
+    [MenuItem("DOOM/Player/Mode/Normal Mode")]
+    private static void MakePlayerMortal()
     {
-
+        PlayerController.instance.health = 100;
+        PlayerController.instance.ammoAmount = 15;
+        PlayerController.instance.goldAmount = 50;
     }
 
-    [MenuItem("DOOM/Player/Unlimited Health")]
-    private static void GivePlayerUnlimitedHealth()
+    [MenuItem("DOOM/Player/Add Ammo")]
+    private static void GivePlayerAmmos()
     {
-
+        PlayerController.instance.ammoAmount = 100;
     }
 
-    [MenuItem("DOOM/Player/Unlimited Coin")]
-    private static void GivePlayerUnlimitedCoin()
+    [MenuItem("DOOM/Player/Add Health")]
+    private static void GivePlayeHealth()
     {
+        PlayerController.instance.health = 100;
+    }
 
+    [MenuItem("DOOM/Player/Add Coin")]
+    private static void GivePlayerCoin()
+    {
+        PlayerController.instance.goldAmount = 100;
     }
 
     [MenuItem("DOOM/Load Level")]

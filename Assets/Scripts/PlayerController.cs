@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
+
     private Rigidbody2D rb;
 
     public float moveSpeed = 5f;
@@ -11,11 +13,19 @@ public class PlayerController : MonoBehaviour
 
     public float mouseSensitivity = 1f;
 
-    private Transform viewCam;
+    private Camera viewCam;
+
+    public GameObject bulletImpact;
+
+    public int health = 100;
+    public int goldAmount = 50;
+    public int ammoAmount = 15;
 
     private void Awake()
     {
-        viewCam = Camera.main.transform;
+        instance = this;
+
+        viewCam = Camera.main;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -33,8 +43,27 @@ public class PlayerController : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z - mouseInput.x);
 
-        viewCam.localRotation = Quaternion.Euler(viewCam.localRotation.eulerAngles + new Vector3(0f, mouseInput.y, 0f));
+        viewCam.transform.localRotation = Quaternion.Euler(viewCam.transform.localRotation.eulerAngles + new Vector3(0f, mouseInput.y, 0f));
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (ammoAmount > 0)
+            {
+                Ray ray = viewCam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
+                RaycastHit hit;
 
+                if (Physics.Raycast(ray, out hit))
+                {
+                    Debug.Log(hit.transform.name);
+
+                    Vector3 bulletImpactOffset = new (-0.1f, 0f, 0f);
+                    Instantiate(bulletImpact, hit.point + bulletImpactOffset, transform.rotation);
+
+                }
+
+                ammoAmount--;
+
+            }
+        }
     }
 }
