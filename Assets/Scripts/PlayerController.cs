@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject bulletImpact;
 
+    public int maxHealth = 200;
     public int health = 100;
     public int goldAmount = 50;
     public int ammoAmount = 15;

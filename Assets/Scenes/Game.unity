@@ -2546,11 +2546,11 @@ PrefabInstance:
     - target: {fileID: -1504981713932161579, guid: 06386c6e2c76a424cade2af9cc6ec392, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fad726567cda6412abe0b91d4ac06fc9, type: 2}
+      objectReference: {fileID: 2100000, guid: 3680f499a9ae94bf182dbc3044579de4, type: 2}
     - target: {fileID: -1504981713932161579, guid: 06386c6e2c76a424cade2af9cc6ec392, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: fad726567cda6412abe0b91d4ac06fc9, type: 2}
+      objectReference: {fileID: 2100000, guid: 3680f499a9ae94bf182dbc3044579de4, type: 2}
     - target: {fileID: -927199367670048503, guid: 06386c6e2c76a424cade2af9cc6ec392, type: 3}
       propertyPath: m_Name
       value: Cube
@@ -7156,7 +7156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 4.100006, y: -1.6900024}
+  m_AnchoredPosition: {x: 4.100006, y: -1.76}
   m_SizeDelta: {x: 7.01051, y: 0.52161}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1321281345
@@ -11426,7 +11426,7 @@ GameObject:
   - component: {fileID: 2004718024}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11462,6 +11462,7 @@ MonoBehaviour:
   moveSpeed: 3
   mouseSensitivity: 2
   bulletImpact: {fileID: 3599007365352187487, guid: 6b234b5f964774848bab788a6b423d94, type: 3}
+  maxHealth: 200
   health: 100
   goldAmount: 50
   ammoAmount: 15
