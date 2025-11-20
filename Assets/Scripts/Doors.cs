@@ -24,9 +24,9 @@ public class Doors : MonoBehaviour
         {
             doorPos.position = Vector3.MoveTowards(doorPos.position, new Vector3(doorPos.position.x, doorPos.position.y, 0f), openSpeed * Time.deltaTime);
 
-            if (doorPos.position.z >= .1f)
+            if (doorPos.position.z <= .8f)
             {
-                colliderObj.SetActive(false);
+                colliderObj.SetActive(true);
             }
         }
     }
