@@ -4,6 +4,7 @@ public class Doors : MonoBehaviour
 {
     public Transform doorPos;
     public GameObject colliderObj;
+    public GameObject colliderObj2;
 
     public float openSpeed = 1f;
 
@@ -18,6 +19,7 @@ public class Doors : MonoBehaviour
             if (doorPos.position.z >= .2f)
             {
                 colliderObj.SetActive(false);
+                colliderObj2.SetActive(false);
             }
         }
         else if (!shouldOpen && doorPos.position.z != 0f)
@@ -27,6 +29,7 @@ public class Doors : MonoBehaviour
             if (doorPos.position.z <= .8f)
             {
                 colliderObj.SetActive(true);
+                colliderObj2.SetActive(true);
             }
         }
     }
