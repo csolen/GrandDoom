@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 8207277156204521902, guid: 7260b01f091b0f745bc8b76fdf29c0a8, type: 3}
+  m_Sprite: {fileID: -540890723560283404, guid: 45d38aca36523e745b81c6e6d57dd28d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 4768817123360871444}
   - component: {fileID: 1540223786958135287}
   m_Layer: 0
-  m_Name: Wall
+  m_Name: Wall_Bloody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,11 +218,11 @@ PrefabInstance:
     - target: {fileID: -1504981713932161579, guid: 06386c6e2c76a424cade2af9cc6ec392, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 3680f499a9ae94bf182dbc3044579de4, type: 2}
+      objectReference: {fileID: 2100000, guid: fad726567cda6412abe0b91d4ac06fc9, type: 2}
     - target: {fileID: -1504981713932161579, guid: 06386c6e2c76a424cade2af9cc6ec392, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: 57b14c43482494cf195e9f9d9d395efe, type: 2}
+      objectReference: {fileID: 2100000, guid: b6ab3b1d190a144cf88c76f7a3bfa095, type: 2}
     - target: {fileID: -927199367670048503, guid: 06386c6e2c76a424cade2af9cc6ec392, type: 3}
       propertyPath: m_Name
       value: Cube
