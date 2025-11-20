@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public int ammoAmount = 15;
 
     public Animator gunAnim;
+    public Animator anim;
 
     private void Awake()
     {
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
 
         viewCam = Camera.main;
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -65,10 +67,24 @@ public class PlayerController : MonoBehaviour
                 {
                     Vector3 bulletImpactOffset = new(-0.1f, 0f, 0f);
                     Instantiate(bulletImpact, hit.point + bulletImpactOffset, transform.rotation);
+
+                    if (hit.transform.CompareTag("Enemy"))
+                    {
+                        hit.transform.GetComponent<EnemyController>().TakeDamage();
+                    }
                 }
 
                 ammoAmount--;
             }
+        }
+
+        if (moveInput != Vector2.zero)
+        {
+            anim.SetBool("isMoving",true);
+        }
+        else
+        {
+            anim.SetBool("isMoving", false);
         }
     }
 

@@ -52,5 +52,7 @@ public class GameTester : MonoBehaviour
             PlayerController.instance.goldAmount = 100;
         }
 
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }

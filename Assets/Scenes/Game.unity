@@ -23570,6 +23570,7 @@ GameObject:
   - component: {fileID: 2004718025}
   - component: {fileID: 2004718026}
   - component: {fileID: 2004718024}
+  - component: {fileID: 2004718027}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -23606,13 +23607,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  mouseSensitivity: 5
+  mouseSensitivity: 10
   bulletImpact: {fileID: 3599007365352187487, guid: 6b234b5f964774848bab788a6b423d94, type: 3}
   maxHealth: 200
   health: 100
   goldAmount: 50
   ammoAmount: 15
   gunAnim: {fileID: 991796060}
+  anim: {fileID: 0}
 --- !u!50 &2004718025
 Rigidbody2D:
   serializedVersion: 5
@@ -23676,6 +23678,28 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.4
+--- !u!95 &2004718027
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004718022}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5aa1eafffa472492d8685f30f8107aed, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2044656006
 GameObject:
   m_ObjectHideFlags: 0
