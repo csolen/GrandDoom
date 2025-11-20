@@ -5,6 +5,12 @@ public class GameTester : MonoBehaviour
 {
     private bool seeCursor;
 
+    private void Start()
+    {
+        QualitySettings.vSyncCount = 1;
+        Application.targetFrameRate = 60;
+    }
+
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
@@ -36,6 +42,7 @@ public class GameTester : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+
 
     }
 }
