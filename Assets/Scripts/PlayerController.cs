@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     public int ammoAmount = 15;
 
     public Animator gunAnim;
-    public Animator anim;
+    private Animator anim;
 
     private void Awake()
     {
@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
                     if (hit.transform.CompareTag("Enemy"))
                     {
-                        hit.transform.GetComponent<EnemyController>().TakeDamage();
+                        hit.transform.parent.GetComponent<EnemyController>().TakeDamage();
                     }
                 }
 
