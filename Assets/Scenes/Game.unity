@@ -11236,6 +11236,7 @@ GameObject:
   - component: {fileID: 991796057}
   - component: {fileID: 991796059}
   - component: {fileID: 991796058}
+  - component: {fileID: 991796060}
   m_Layer: 5
   m_Name: Gun
   m_TagString: Untagged
@@ -11259,8 +11260,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1.85411, y: 3.13192}
+  m_AnchoredPosition: {x: 0, y: -0.19000244}
+  m_SizeDelta: {x: 2.31199, y: 4.62398}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &991796058
 MonoBehaviour:
@@ -11282,7 +11283,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1891999988885890096, guid: 55fabf48e782e3e4da9aa98ed640c336, type: 3}
+  m_Sprite: {fileID: -543834816767564932, guid: 55fabf48e782e3e4da9aa98ed640c336, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11300,6 +11301,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 991796056}
   m_CullTransparentMesh: 1
+--- !u!95 &991796060
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991796056}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 96be4b0bb27054a8781e7bd36be9a9f9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &998186157
 GameObject:
   m_ObjectHideFlags: 0
@@ -23133,6 +23156,7 @@ MonoBehaviour:
   health: 100
   goldAmount: 50
   ammoAmount: 15
+  gunAnim: {fileID: 991796060}
 --- !u!50 &2004718025
 Rigidbody2D:
   serializedVersion: 5

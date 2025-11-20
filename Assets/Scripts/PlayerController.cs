@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     public int goldAmount = 50;
     public int ammoAmount = 15;
 
+    public Animator gunAnim;
+
     private void Awake()
     {
         instance = this;
@@ -51,7 +53,10 @@ public class PlayerController : MonoBehaviour
             if (ammoAmount > 0)
             {
                 if (CrosshairRecoil.instance != null)
+                {
+                    gunAnim.SetTrigger("isShooting");
                     CrosshairRecoil.instance.OnShoot();
+                }
 
                 Ray ray = viewCam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
                 RaycastHit hit;

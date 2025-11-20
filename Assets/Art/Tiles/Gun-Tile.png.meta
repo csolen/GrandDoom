@@ -132,10 +132,10 @@ TextureImporter:
       name: Gun-Tile_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 141
-        height: 250
+        width: 160
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,9 +154,9 @@ TextureImporter:
       name: Gun-Tile_1
       rect:
         serializedVersion: 2
-        x: 171
+        x: 160
         y: 0
-        width: 146
+        width: 160
         height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -176,7 +176,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 279d9672b63134744967deb97d174904
     internalID: 0
     vertices: []
     indices: 
