@@ -50,18 +50,19 @@ public class PlayerController : MonoBehaviour
         {
             if (ammoAmount > 0)
             {
+                if (CrosshairRecoil.instance != null)
+                    CrosshairRecoil.instance.OnShoot();
+
                 Ray ray = viewCam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
                 RaycastHit hit;
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    Vector3 bulletImpactOffset = new (-0.1f, 0f, 0f);
+                    Vector3 bulletImpactOffset = new(-0.1f, 0f, 0f);
                     Instantiate(bulletImpact, hit.point + bulletImpactOffset, transform.rotation);
-
                 }
 
                 ammoAmount--;
-
             }
         }
     }
