@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject bulletImpact;
 
-    public int maxHealth = 200;
+    public int maxHealth = 100;
     public int health = 100;
     public int goldAmount = 50;
     public int ammoAmount = 15;
@@ -63,6 +63,18 @@ public class PlayerController : MonoBehaviour
                 ammoAmount--;
 
             }
+        }
+    }
+
+    public void TakeDamage(int damageAmount)
+    {
+        if (health - damageAmount > 0)
+        {
+            health -= damageAmount;
+        }
+        else
+        {
+            // Death
         }
     }
 }

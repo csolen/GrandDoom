@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f78e9edd06fb3ee43949f0f209270b24
+guid: 7fbd1f3d414504376867ff637316496e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7110782532751761427
-    second: Door-tile_0
+      213: 2832874796925326377
+    second: Wall-Tile-Bloody-Dark_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 320
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Door-tile_0
+      name: Wall-Tile-Bloody-Dark_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 310a8bbf9039ea260800000000000000
-      internalID: 7110782532751761427
+      spriteID: 92414eb5e94605720800000000000000
+      internalID: 2832874796925326377
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Door-tile_0: 7110782532751761427
+      Wall-Tile-Bloody-Dark_0: 2832874796925326377
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

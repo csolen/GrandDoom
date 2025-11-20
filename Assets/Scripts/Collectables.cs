@@ -29,7 +29,6 @@ public class Collectables : MonoBehaviour
                     PlayerController.instance.health =
                         Mathf.Min(PlayerController.instance.health + amount,
                                   PlayerController.instance.maxHealth);
-
                     break;
 
                 case CollectableType.Gold:
