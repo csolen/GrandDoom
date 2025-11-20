@@ -1,0 +1,34 @@
+using UnityEngine;
+using TMPro;
+
+public class Developer_UI_Text : MonoBehaviour
+{
+    public string currencyName;
+
+    private TextMeshProUGUI text;
+
+    private void Awake()
+    {
+        text = GetComponent<TextMeshProUGUI>();
+    }
+
+    private void Update()
+    {
+        if (currencyName == "health")
+        {
+            text.text = "Health: " + PlayerController.instance.health.ToString();
+        }
+        else if (currencyName == "gold")
+        {
+            text.text = "Gold: " + PlayerController.instance.goldAmount.ToString();
+        }
+        else if (currencyName == "ammo")
+        {
+            text.text = "Ammo: " + PlayerController.instance.ammoAmount.ToString();
+        }
+        else
+        {
+            Debug.LogWarning("No such thing as " + currencyName);
+        }
+    }
+}
