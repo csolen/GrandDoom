@@ -44,5 +44,13 @@ public class GameTester : MonoBehaviour
         {
             explainerText.gameObject.SetActive(true);
         }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            PlayerController.instance.health = 100;
+            PlayerController.instance.ammoAmount = 100;
+            PlayerController.instance.goldAmount = 100;
+        }
+
     }
 }
