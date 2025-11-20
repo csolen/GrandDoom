@@ -3,8 +3,11 @@ guid: 55fabf48e782e3e4da9aa98ed640c336
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1891999988885890096
-    second: gun-tile_0
+      213: -543834816767564932
+    second: Gun-Tile_0
+  - first:
+      213: -1353991604849495445
+    second: Gun-Tile_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -126,12 +129,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gun-tile_0
+      name: Gun-Tile_0
       rect:
         serializedVersion: 2
         x: 1
         y: 0
-        width: 148
+        width: 141
         height: 250
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -141,8 +144,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 034269437fbb14a10800000000000000
-      internalID: 1891999988885890096
+      spriteID: c7364129d19e378f0800000000000000
+      internalID: -543834816767564932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun-Tile_1
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 0
+        width: 146
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b62b5142fc7a53de0800000000000000
+      internalID: -1353991604849495445
       vertices: []
       indices: 
       edges: []
@@ -161,7 +186,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      gun-tile_0: 1891999988885890096
+      Gun-Tile_0: -543834816767564932
+      Gun-Tile_1: -1353991604849495445
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
