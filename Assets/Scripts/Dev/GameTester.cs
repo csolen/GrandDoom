@@ -22,7 +22,6 @@ public class GameTester : MonoBehaviour
         }
     }
 
-
     public void Update()
     {
         if (!firstTimeOpener)
@@ -32,14 +31,12 @@ public class GameTester : MonoBehaviour
             firstTimeOpener = true;
         }
 
-        /*
         if (Input.GetKeyDown(KeyCode.Q))
         {
             PlayerController.instance.health = PlayerController.instance.maxHealth;
-            PlayerController.instance.ammoAmount = 100;
+            PlayerController.instance.ammoAmount = PlayerController.instance.maxAmmoAmount;
             PlayerController.instance.goldAmount = 100;
         }
-        */
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {

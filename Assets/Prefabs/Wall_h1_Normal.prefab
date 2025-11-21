@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 4768817123360871444}
   - component: {fileID: 1540223786958135287}
   m_Layer: 0
-  m_Name: Wall_Normal
+  m_Name: Wall_h1_Normal
   m_TagString: Obstacle_Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
