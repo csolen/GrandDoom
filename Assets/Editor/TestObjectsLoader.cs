@@ -6,7 +6,8 @@ public class TestObjectsLoader : MonoBehaviour
 {
     private static readonly string[] prefabPaths =
     {
-        "Assets/Prefabs/Dev/GameTester.prefab"
+        "Assets/Prefabs/Dev/GameTester.prefab",
+        "Assets/Prefabs/Dev/FirstVariablesLoader.prefab"
     };
 
     private static readonly System.Collections.Generic.List<GameObject> instantiatedObjects = new();

@@ -97,8 +97,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.5}
-  m_Radius: 0.35
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.45
 --- !u!114 &8248812712397689083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,8 +113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyHealth: 3
   deathAnim: {fileID: 3599007365352187487, guid: 6b234b5f964774848bab788a6b423d94, type: 3}
-  playerRange: 5
-  moveSpeed: 1.7
+  playerRange: 10
+  moveSpeed: 1.4
   wanderRadius: 10
   wanderChangeTime: 2.2
   turnSpeed: 3
@@ -245,9 +245,9 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.46
   m_Height: 1.15
-  m_Direction: 2
+  m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!95 &2162194785106957218
 Animator:

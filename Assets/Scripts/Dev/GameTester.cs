@@ -20,17 +20,11 @@ public class GameTester : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        QualitySettings.vSyncCount = 1;
-        Application.targetFrameRate = 60;
-    }
-
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            PlayerController.instance.health = 100;
+            PlayerController.instance.health = PlayerController.instance.maxHealth;
             PlayerController.instance.ammoAmount = 100;
             PlayerController.instance.goldAmount = 100;
         }

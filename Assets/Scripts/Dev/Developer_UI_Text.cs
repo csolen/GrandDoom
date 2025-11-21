@@ -26,6 +26,10 @@ public class Developer_UI_Text : MonoBehaviour
         {
             text.text = "Ammo: " + PlayerController.instance.ammoAmount.ToString();
         }
+        else if (currencyName == "enemies")
+        {
+            text.text = "Enemies: " + PlayerPrefs.GetInt("KilledEnemies").ToString() + " / " + PlayerPrefs.GetInt("TotalEnemyCount").ToString();
+        }
         else
         {
             Debug.LogWarning("No such thing as " + currencyName);

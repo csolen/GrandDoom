@@ -17,7 +17,7 @@ public class EnemyController : MonoBehaviour
     private Vector2 wanderTarget;
     private float wanderTimer;
 
-    public float turnSpeed = 5f;
+    public float turnSpeed = 3f;
     private Vector2 moveDirection;
     private Vector2 targetDirection;
 
@@ -31,10 +31,16 @@ public class EnemyController : MonoBehaviour
     public GameObject bullet;
     public Transform firePoint;
 
+    private int enemyCount;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         currentMaterial = enemySr.material;
+
+        enemyCount = PlayerPrefs.GetInt("TotalEnemyCount", 0);
+        enemyCount++;
+        PlayerPrefs.SetInt("TotalEnemyCount", enemyCount);
     }
 
     private void Start()
@@ -112,6 +118,10 @@ public class EnemyController : MonoBehaviour
 
         if (EnemyHealth <= 0)
         {
+            int killedEnemyCount = PlayerPrefs.GetInt("KilledEnemies");
+            killedEnemyCount++;
+            PlayerPrefs.SetInt("KilledEnemies", killedEnemyCount);
+
             Destroy(gameObject);
             Instantiate(deathAnim, transform.position, transform.rotation);
         }
