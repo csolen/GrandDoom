@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6bc218f76299d274d9a312dd8764d3c0
+guid: abba6f9d84584bc46a9e85445cabf443
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -137,7 +137,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 321
+        width: 320
         height: 320
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -147,8 +147,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fc6cbb46052e8e4eb9e2f77f239929f
-      internalID: -947905270
+      spriteID: ca1a7a2090af70d4aa61da76c8c228de
+      internalID: -527468461
       vertices: []
       indices: 
       edges: []
@@ -157,9 +157,9 @@ TextureImporter:
       name: SpriteSheet_Collectibles_Ammo_1
       rect:
         serializedVersion: 2
-        x: 321
+        x: 320
         y: 0
-        width: 321
+        width: 320
         height: 320
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -169,8 +169,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31632686918d9a742ab69ff13829fe76
-      internalID: 466997287
+      spriteID: 46579c90abdf61344a2ad427a7ce66be
+      internalID: 1507660976
       vertices: []
       indices: 
       edges: []
@@ -179,9 +179,9 @@ TextureImporter:
       name: SpriteSheet_Collectibles_Ammo_2
       rect:
         serializedVersion: 2
-        x: 642
+        x: 640
         y: 0
-        width: 321
+        width: 320
         height: 320
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -191,8 +191,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32afd4d15c1b0fc4a8589a94d96f50c3
-      internalID: 12751181
+      spriteID: ab750c2a56ade2140abce0932941aa69
+      internalID: -1333152611
       vertices: []
       indices: 
       edges: []
@@ -201,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 913cf46766bd27744bbce5ea0832318e
+    spriteID: 18e7ed1ebc4c3f6489a348abcd72a718
     internalID: 0
     vertices: []
     indices: 
@@ -211,9 +211,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SpriteSheet_Collectibles_Ammo_0: -947905270
-      SpriteSheet_Collectibles_Ammo_1: 466997287
-      SpriteSheet_Collectibles_Ammo_2: 12751181
+      SpriteSheet_Collectibles_Ammo_0: -527468461
+      SpriteSheet_Collectibles_Ammo_1: 1507660976
+      SpriteSheet_Collectibles_Ammo_2: -1333152611
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

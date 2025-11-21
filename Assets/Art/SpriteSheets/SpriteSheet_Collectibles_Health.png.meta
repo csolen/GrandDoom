@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1fc9ec33819153e4c84580e1c1c46770
+guid: 12b1d5ea7a920e94bbbaac9d86462819
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -137,7 +137,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 321
+        width: 320
         height: 320
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -147,8 +147,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 571f9561fa91c43499475bc2c10032fb
-      internalID: -230133553
+      spriteID: f9db5cc4a9769cb42a314157c8237c1a
+      internalID: 443754087
       vertices: []
       indices: 
       edges: []
@@ -157,9 +157,9 @@ TextureImporter:
       name: SpriteSheet_Collectibles_Health_1
       rect:
         serializedVersion: 2
-        x: 321
+        x: 320
         y: 0
-        width: 321
+        width: 320
         height: 320
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -169,8 +169,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 066874b7204fd764698b5f92b914a24c
-      internalID: -1440833433
+      spriteID: 31d4fe891e57d9343841b13e74edc0eb
+      internalID: -654277186
       vertices: []
       indices: 
       edges: []
@@ -179,9 +179,9 @@ TextureImporter:
       name: SpriteSheet_Collectibles_Health_2
       rect:
         serializedVersion: 2
-        x: 642
+        x: 640
         y: 0
-        width: 321
+        width: 320
         height: 320
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -191,8 +191,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca10ae195fb25144fa53e2bca0f32109
-      internalID: -1900074536
+      spriteID: 3b6e4ebed2715c544aa18b247e54d2d5
+      internalID: -868649927
       vertices: []
       indices: 
       edges: []
@@ -201,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7c84f88ab8877a94ca2cd6e13bc31755
+    spriteID: b7ce333cd6a2dfe44b36fecc6b0b23c7
     internalID: 0
     vertices: []
     indices: 
@@ -211,9 +211,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SpriteSheet_Collectibles_Health_0: -230133553
-      SpriteSheet_Collectibles_Health_1: -1440833433
-      SpriteSheet_Collectibles_Health_2: -1900074536
+      SpriteSheet_Collectibles_Health_0: 443754087
+      SpriteSheet_Collectibles_Health_1: -654277186
+      SpriteSheet_Collectibles_Health_2: -868649927
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
