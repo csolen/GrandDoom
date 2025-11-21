@@ -117,8 +117,8 @@ MonoBehaviour:
   wanderRadius: 10
   wanderChangeTime: 2.2
   turnSpeed: 3
-  enemySr: {fileID: 0}
-  takeDamageMaterial: {fileID: 0}
+  enemySr: {fileID: 9152783578272327212}
+  takeDamageMaterial: {fileID: 2100000, guid: e00e30c44c99f4a478ef226052813788, type: 2}
 --- !u!1 &6433463159747178607
 GameObject:
   m_ObjectHideFlags: 0
