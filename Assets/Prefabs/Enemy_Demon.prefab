@@ -114,7 +114,7 @@ MonoBehaviour:
   EnemyHealth: 3
   deathAnim: {fileID: 3599007365352187487, guid: 6b234b5f964774848bab788a6b423d94, type: 3}
   playerRange: 5
-  moveSpeed: 2
+  moveSpeed: 1.7
   wanderRadius: 10
   wanderChangeTime: 2.2
   turnSpeed: 3
