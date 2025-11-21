@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public int health = 100;
     public int goldAmount = 50;
     public int ammoAmount = 15;
+    public int maxAmmoAmount = 60;
 
     public Animator gunAnim;
     private Animator anim;

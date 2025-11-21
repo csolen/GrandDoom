@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: abba6f9d84584bc46a9e85445cabf443
+guid: ea7dbafd519c4447ebcc6fe8af30df00
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -57,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 320
+  spritePixelsToUnits: 640
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -147,8 +147,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca1a7a2090af70d4aa61da76c8c228de
-      internalID: -527468461
+      spriteID: bfd3bf11053154c3aad0756f5d5c7a67
+      internalID: 808126880
       vertices: []
       indices: 
       edges: []
@@ -157,7 +157,7 @@ TextureImporter:
       name: SpriteSheet_Collectibles_Ammo_1
       rect:
         serializedVersion: 2
-        x: 320
+        x: 318
         y: 0
         width: 320
         height: 320
@@ -169,8 +169,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46579c90abdf61344a2ad427a7ce66be
-      internalID: 1507660976
+      spriteID: ff5a6229bf228401e979f26ee4e3479e
+      internalID: 1590114224
       vertices: []
       indices: 
       edges: []
@@ -191,8 +191,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab750c2a56ade2140abce0932941aa69
-      internalID: -1333152611
+      spriteID: 9a9302f485bf54186a68e20d0eae1279
+      internalID: 994501859
       vertices: []
       indices: 
       edges: []
@@ -201,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 18e7ed1ebc4c3f6489a348abcd72a718
+    spriteID: ef97373e8e18b47f6a2077a39804e4d0
     internalID: 0
     vertices: []
     indices: 
@@ -211,9 +211,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SpriteSheet_Collectibles_Ammo_0: -527468461
-      SpriteSheet_Collectibles_Ammo_1: 1507660976
-      SpriteSheet_Collectibles_Ammo_2: -1333152611
+      SpriteSheet_Collectibles_Ammo_0: 808126880
+      SpriteSheet_Collectibles_Ammo_1: 1590114224
+      SpriteSheet_Collectibles_Ammo_2: 994501859
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -36,7 +36,16 @@ public class Collectables : MonoBehaviour
                     break;
 
                 case CollectableType.Ammo:
-                    PlayerController.instance.ammoAmount += amount;
+
+                    if (PlayerController.instance.ammoAmount >= PlayerController.instance.maxAmmoAmount)
+                    {
+                        return;
+                    }
+
+                    PlayerController.instance.ammoAmount =
+                        Mathf.Min(PlayerController.instance.ammoAmount + amount,
+                                  PlayerController.instance.maxAmmoAmount);
+
                     break;
             }
 

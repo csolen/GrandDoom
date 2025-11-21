@@ -6,6 +6,8 @@ public class GameTester : MonoBehaviour
     private static GameTester instance;
     private bool seeCursor;
 
+    private bool firstTimeOpener;
+
     private void Awake()
     {
         if (instance == null)
@@ -20,14 +22,24 @@ public class GameTester : MonoBehaviour
         }
     }
 
+
     public void Update()
     {
+        if (!firstTimeOpener)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            firstTimeOpener = true;
+        }
+
+        /*
         if (Input.GetKeyDown(KeyCode.Q))
         {
             PlayerController.instance.health = PlayerController.instance.maxHealth;
             PlayerController.instance.ammoAmount = 100;
             PlayerController.instance.goldAmount = 100;
         }
+        */
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
