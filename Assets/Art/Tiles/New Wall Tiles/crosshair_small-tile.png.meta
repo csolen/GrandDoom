@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: b5c335ce96a43534e9a5e013d2a11699
+guid: 8d27e245c30ff2346ae76fa94f8d3bbd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8041576698695601219
-    second: Wall-Text-tile_0
+      213: 1448713518468428900
+    second: crosshair_small-tile_0
+  - first:
+      213: -6496721774189996465
+    second: crosshair_small-tile_1
+  - first:
+      213: 5327364629267533651
+    second: crosshair_small-tile_2
+  - first:
+      213: -5880177213685450000
+    second: crosshair_small-tile_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,9 +49,9 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -126,13 +135,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wall-Text-tile_0
+      name: crosshair_small-tile_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 320
-        height: 320
+        x: 155
+        y: 169
+        width: 9
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +150,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 34c4fcfb66b699f60800000000000000
-      internalID: 8041576698695601219
+      spriteID: 464fd99f44dda1410800000000000000
+      internalID: 1448713518468428900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crosshair_small-tile_1
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 155
+        width: 32
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f461cdca7f107d5a0800000000000000
+      internalID: -6496721774189996465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crosshair_small-tile_2
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 155
+        width: 32
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35fc87c97e99ee940800000000000000
+      internalID: 5327364629267533651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crosshair_small-tile_3
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 118
+        width: 9
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fabee98af9656ea0800000000000000
+      internalID: -5880177213685450000
       vertices: []
       indices: 
       edges: []
@@ -161,7 +236,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Wall-Text-tile_0: 8041576698695601219
+      crosshair_small-tile_0: 1448713518468428900
+      crosshair_small-tile_1: -6496721774189996465
+      crosshair_small-tile_2: 5327364629267533651
+      crosshair_small-tile_3: -5880177213685450000
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
