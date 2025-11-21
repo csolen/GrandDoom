@@ -225,55 +225,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
---- !u!1001 &56265374
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.21
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_Name
-      value: Enemy_Demon (31)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8248812712397689083, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: moveSpeed
-      value: 1.4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
 --- !u!1001 &63916019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -561,11 +512,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.84
+      value: -1.21
       objectReference: {fileID: 0}
     - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.5
+      value: 8.44
       objectReference: {fileID: 0}
     - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -794,6 +745,55 @@ PrefabInstance:
     - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
       propertyPath: m_Name
       value: Enemy_Demon (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8248812712397689083, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
+      propertyPath: moveSpeed
+      value: 1.4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
+--- !u!1001 &393455746
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
+      propertyPath: m_Name
+      value: Enemy_Demon (19)
       objectReference: {fileID: 0}
     - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
       propertyPath: m_IsActive
@@ -1107,55 +1107,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 423231747}
   m_CullTransparentMesh: 1
---- !u!1001 &446807920
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 12.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_Name
-      value: Enemy_Demon (19)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8248812712397689083, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: moveSpeed
-      value: 1.4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
 --- !u!1001 &455431410
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1777,55 +1728,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currencyName: health
---- !u!1001 &578924618
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -9.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 19.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_Name
-      value: Enemy_Demon (29)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8248812712397689083, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: moveSpeed
-      value: 1.4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
 --- !u!1001 &607095673
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2606,55 +2508,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 102c91ba9961f41dcb7eded5ef4dd5cb, type: 3}
---- !u!1001 &813517890
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.17
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_Name
-      value: Enemy_Demon (18)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8248812712397689083, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: moveSpeed
-      value: 1.4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
 --- !u!1001 &828592928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3032,11 +2885,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.32
+      value: 0.29
       objectReference: {fileID: 0}
     - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.98
+      value: 8.35
       objectReference: {fileID: 0}
     - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3081,11 +2934,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8014248341344774214, guid: 102c91ba9961f41dcb7eded5ef4dd5cb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.65
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: 8014248341344774214, guid: 102c91ba9961f41dcb7eded5ef4dd5cb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.11
+      value: 22.42
       objectReference: {fileID: 0}
     - target: {fileID: 8014248341344774214, guid: 102c91ba9961f41dcb7eded5ef4dd5cb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3283,6 +3136,55 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 102c91ba9961f41dcb7eded5ef4dd5cb, type: 3}
+--- !u!1001 &1013196241
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 21.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
+      propertyPath: m_Name
+      value: Enemy_Demon (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8248812712397689083, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
+      propertyPath: moveSpeed
+      value: 1.4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
 --- !u!1001 &1089621650
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3342,11 +3244,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.39
+      value: -14.4
       objectReference: {fileID: 0}
     - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.97
+      value: 10.99
       objectReference: {fileID: 0}
     - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3438,251 +3340,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 102c91ba9961f41dcb7eded5ef4dd5cb, type: 3}
---- !u!1001 &1108134665
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -11.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 20.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_Name
-      value: Enemy_Demon (30)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8248812712397689083, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: moveSpeed
-      value: 1.4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
---- !u!1001 &1110081483
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_Name
-      value: Enemy_Demon (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8248812712397689083, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: moveSpeed
-      value: 1.4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
---- !u!1001 &1141429784
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 15.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_Name
-      value: Enemy_Demon (23)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8248812712397689083, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: moveSpeed
-      value: 1.4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
---- !u!1001 &1156154147
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 11.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_Name
-      value: Enemy_Demon (27)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8248812712397689083, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: moveSpeed
-      value: 1.4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
---- !u!1001 &1165035775
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.64
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_Name
-      value: Enemy_Demon (15)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8248812712397689083, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: moveSpeed
-      value: 1.4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
 --- !u!1001 &1216894568
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3750,11 +3407,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.32
+      value: 2.28
       objectReference: {fileID: 0}
     - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16.67
+      value: 18.69
       objectReference: {fileID: 0}
     - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3775,55 +3432,6 @@ PrefabInstance:
     - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
       propertyPath: m_Name
       value: Enemy_Demon (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8248812712397689083, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: moveSpeed
-      value: 1.4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
---- !u!1001 &1258599270
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.29
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 15.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_Name
-      value: Enemy_Demon (25)
       objectReference: {fileID: 0}
     - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
       propertyPath: m_IsActive
@@ -3905,11 +3513,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.18
+      value: -4.23
       objectReference: {fileID: 0}
     - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.42
+      value: 11.51
       objectReference: {fileID: 0}
     - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11141,63 +10749,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1531894107}
   m_CullTransparentMesh: 1
---- !u!1001 &1555037347
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3441535354856443318, guid: 6c0a2593347274d4590d03bceffc2876, type: 3}
-      propertyPath: m_Name
-      value: Collectables_Health (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 9162174256736184008, guid: 6c0a2593347274d4590d03bceffc2876, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 9162174256736184008, guid: 6c0a2593347274d4590d03bceffc2876, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 14.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 9162174256736184008, guid: 6c0a2593347274d4590d03bceffc2876, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9162174256736184008, guid: 6c0a2593347274d4590d03bceffc2876, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9162174256736184008, guid: 6c0a2593347274d4590d03bceffc2876, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9162174256736184008, guid: 6c0a2593347274d4590d03bceffc2876, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9162174256736184008, guid: 6c0a2593347274d4590d03bceffc2876, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9162174256736184008, guid: 6c0a2593347274d4590d03bceffc2876, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9162174256736184008, guid: 6c0a2593347274d4590d03bceffc2876, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9162174256736184008, guid: 6c0a2593347274d4590d03bceffc2876, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6c0a2593347274d4590d03bceffc2876, type: 3}
 --- !u!1001 &1583076734
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11646,11 +11197,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.42
+      value: -13.96
       objectReference: {fileID: 0}
     - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.1
+      value: 5.18
       objectReference: {fileID: 0}
     - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11695,11 +11246,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.08
+      value: -0.59
       objectReference: {fileID: 0}
     - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.13
+      value: 3.11
       objectReference: {fileID: 0}
     - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11992,55 +11543,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1001 &2079768007
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 8.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285015127665272567, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_Name
-      value: Enemy_Demon (7)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606903823317310915, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8248812712397689083, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
-      propertyPath: moveSpeed
-      value: 1.4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 58201b4168d434d449dc9e0d56fb37f4, type: 3}
 --- !u!1001 &2090404408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12159,35 +11661,26 @@ SceneRoots:
   - {fileID: 2090404408}
   - {fileID: 828592928}
   - {fileID: 523522895}
-  - {fileID: 56265374}
   - {fileID: 10754081}
   - {fileID: 891736598}
-  - {fileID: 1165035775}
   - {fileID: 1368915439}
   - {fileID: 1388079079}
   - {fileID: 369938366}
-  - {fileID: 813517890}
-  - {fileID: 446807920}
   - {fileID: 1626872083}
   - {fileID: 1089621650}
   - {fileID: 1417937836}
   - {fileID: 132577641}
-  - {fileID: 1141429784}
   - {fileID: 1227914509}
+  - {fileID: 1013196241}
   - {fileID: 721018786}
-  - {fileID: 1110081483}
-  - {fileID: 578924618}
-  - {fileID: 1108134665}
-  - {fileID: 1258599270}
   - {fileID: 1266756761}
-  - {fileID: 1156154147}
   - {fileID: 186478092}
-  - {fileID: 2079768007}
   - {fileID: 969279743}
   - {fileID: 1095326488}
   - {fileID: 686041306}
   - {fileID: 1892159993}
   - {fileID: 1453167373}
+  - {fileID: 393455746}
   - {fileID: 1943229164}
   - {fileID: 607095673}
   - {fileID: 694523020}
@@ -12225,4 +11718,3 @@ SceneRoots:
   - {fileID: 1304936988}
   - {fileID: 421775542}
   - {fileID: 749053054}
-  - {fileID: 1555037347}
