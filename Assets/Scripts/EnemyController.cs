@@ -21,9 +21,15 @@ public class EnemyController : MonoBehaviour
     private Vector2 moveDirection;
     private Vector2 targetDirection;
 
+    public SpriteRenderer enemySr;
+    private Material currentMaterial;
+    public Material takeDamageMaterial;
+
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        currentMaterial = enemySr.material;
     }
 
     private void Start()
@@ -85,10 +91,18 @@ public class EnemyController : MonoBehaviour
     {
         EnemyHealth--;
 
+        enemySr.material = takeDamageMaterial;
+        Invoke(nameof(ChangeMaterialBack), .05f);
+
         if (EnemyHealth <= 0)
         {
             Destroy(gameObject);
             Instantiate(deathAnim, transform.position, transform.rotation);
         }
+    }
+
+    private void ChangeMaterialBack()
+    {
+        enemySr.material = currentMaterial;
     }
 }
