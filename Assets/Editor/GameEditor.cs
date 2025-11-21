@@ -13,8 +13,8 @@ public class GameEditor : EditorWindow
     {
         if (EditorApplication.isPlaying)
         {
-            string sceneName = SceneManager.GetActiveScene().name;
-            SceneManager.LoadScene(sceneName);
+            string sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
         }
     }
 
@@ -101,7 +101,7 @@ public class GameEditor : EditorWindow
     {
         if (isEditorWorking)
         {
-            SceneManager.LoadScene(levelName);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(levelName);
         }
         else
         {

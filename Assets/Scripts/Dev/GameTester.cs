@@ -3,7 +3,22 @@ using TMPro;
 
 public class GameTester : MonoBehaviour
 {
+    private static GameTester instance;
     private bool seeCursor;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
 
     private void Start()
     {

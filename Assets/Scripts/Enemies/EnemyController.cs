@@ -25,6 +25,11 @@ public class EnemyController : MonoBehaviour
     private Material currentMaterial;
     public Material takeDamageMaterial;
 
+    public bool shouldShoot;
+    public float fireRate = .5f;
+    private float shotCounter;
+    public GameObject bullet;
+    public Transform firePoint;
 
     private void Awake()
     {
@@ -46,6 +51,17 @@ public class EnemyController : MonoBehaviour
         {
             Vector3 dir = PlayerController.instance.transform.position - transform.position;
             targetDirection = dir.normalized;
+
+            if (shouldShoot)
+            {
+                shotCounter -= Time.deltaTime;
+
+                if (shotCounter <= 0)
+                {
+                    Instantiate(bullet, firePoint.position, firePoint.rotation);
+                    shotCounter = fireRate;
+                }
+            }
         }
         else
         {

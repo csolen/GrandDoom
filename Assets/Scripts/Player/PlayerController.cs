@@ -25,6 +25,11 @@ public class PlayerController : MonoBehaviour
     public Animator gunAnim;
     private Animator anim;
 
+    public GameObject deadScreen;
+    public GameObject playerTakeHitScreen;
+
+    private bool hasDied;
+
     private void Awake()
     {
         instance = this;
@@ -34,8 +39,18 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
+    private void Start()
+    {
+        health = maxHealth;
+    }
+
     private void Update()
     {
+        if (hasDied)
+        {
+            return;
+        }
+
         moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
         Vector3 moveHorizontal = transform.up * -moveInput.x;
@@ -80,7 +95,7 @@ public class PlayerController : MonoBehaviour
 
         if (moveInput != Vector2.zero)
         {
-            anim.SetBool("isMoving",true);
+            anim.SetBool("isMoving", true);
         }
         else
         {
@@ -93,10 +108,28 @@ public class PlayerController : MonoBehaviour
         if (health - damageAmount > 0)
         {
             health -= damageAmount;
+            playerTakeHitScreen.SetActive(true);
+            Invoke(nameof(CloseHitAnimation) , .4f);
         }
         else
         {
-            // Death
+            deadScreen.SetActive(true);
+            hasDied = true;
         }
+    }
+
+    public void AddHealth(int healAmount)
+    {
+        health += healAmount;
+
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+    }
+
+    private void CloseHitAnimation()
+    {
+        playerTakeHitScreen.SetActive(false);
     }
 }
