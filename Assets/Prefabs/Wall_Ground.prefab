@@ -84,7 +84,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &4765762263842300338
@@ -222,7 +222,7 @@ PrefabInstance:
     - target: {fileID: -1504981713932161579, guid: 06386c6e2c76a424cade2af9cc6ec392, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: 2fee5d0d0c5434d20a17deeca16da876, type: 2}
+      objectReference: {fileID: 2100000, guid: a4fcbd09e19b74228bf70a52e7553265, type: 2}
     - target: {fileID: -927199367670048503, guid: 06386c6e2c76a424cade2af9cc6ec392, type: 3}
       propertyPath: m_Name
       value: Cube
