@@ -61,6 +61,9 @@ public class GameTester : MonoBehaviour
             Cursor.visible = true;
         }
 
-
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            UnityEditor.EditorApplication.isPlaying = false;
+        }
     }
 }

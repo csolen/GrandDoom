@@ -152,11 +152,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5962939723978179302}
   - {fileID: 5394993719178722280}
   - {fileID: 6486644409137272799}
   - {fileID: 2827987712877557738}
   - {fileID: 928646546311404953}
+  - {fileID: 5962939723978179302}
   - {fileID: 7115585348227407294}
   - {fileID: 8147060286936784737}
   m_Father: {fileID: 0}
@@ -348,7 +348,7 @@ PrefabInstance:
     - target: {fileID: -1504981713932161579, guid: 06386c6e2c76a424cade2af9cc6ec392, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: 77cbfb9bac25f429e99bcdb9dee9674c, type: 2}
+      objectReference: {fileID: 2100000, guid: 2107e4fd98a474445a436cf7bfdb342d, type: 2}
     - target: {fileID: -927199367670048503, guid: 06386c6e2c76a424cade2af9cc6ec392, type: 3}
       propertyPath: m_Name
       value: Cube
