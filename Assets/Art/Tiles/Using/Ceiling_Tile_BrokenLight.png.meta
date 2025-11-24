@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c6f1682693a3ffb4f8b45e58b498a302
+guid: 265410c6d9c4b4cc1ad035f265346b38
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2994870436227912625
-    second: Ceiling_Tile_Light_0
+      213: -1633932759417763615
+    second: Ceiling_Tile_BrokenLight_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ceiling_Tile_Light_0
+      name: Ceiling_Tile_BrokenLight_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f4ce05ca4351076d0800000000000000
-      internalID: -2994870436227912625
+      spriteID: 1e8c700ffca1359e0800000000000000
+      internalID: -1633932759417763615
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ceiling_Tile_Light_0: -2994870436227912625
+      Ceiling_Tile_BrokenLight_0: -1633932759417763615
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

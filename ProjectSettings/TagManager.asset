@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Obstacle_Door
   - Obstacle_Wall
+  - Wall_Ceiling_Light
   layers:
   - Default
   - TransparentFX
