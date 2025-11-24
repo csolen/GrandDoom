@@ -63,7 +63,7 @@ public class GameTester : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            UnityEditor.EditorApplication.isPlaying = false;
+            UnityEditor.EditorApplication.isPaused = true;
         }
     }
 }
