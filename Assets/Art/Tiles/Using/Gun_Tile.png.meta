@@ -1,19 +1,13 @@
 fileFormatVersion: 2
-guid: 8d27e245c30ff2346ae76fa94f8d3bbd
+guid: 2560ea96058434b11950769b57f4fb6b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1448713518468428900
-    second: crosshair_small-tile_0
+      213: 1094317862304039112
+    second: Gun_Tile_0
   - first:
-      213: -6496721774189996465
-    second: crosshair_small-tile_1
-  - first:
-      213: 5327364629267533651
-    second: crosshair_small-tile_2
-  - first:
-      213: -5880177213685450000
-    second: crosshair_small-tile_3
+      213: 3465735167009780173
+    second: Gun_Tile_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -55,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -135,89 +129,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: crosshair_small-tile_0
+      name: Gun_Tile_0
       rect:
         serializedVersion: 2
-        x: 155
-        y: 169
-        width: 9
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 160
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 464fd99f44dda1410800000000000000
-      internalID: 1448713518468428900
+      spriteID: 8c04ffd3c4ccf2f00800000000000000
+      internalID: 1094317862304039112
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crosshair_small-tile_1
+      name: Gun_Tile_1
       rect:
         serializedVersion: 2
-        x: 118
-        y: 155
-        width: 32
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 160
+        y: 0
+        width: 160
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f461cdca7f107d5a0800000000000000
-      internalID: -6496721774189996465
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: crosshair_small-tile_2
-      rect:
-        serializedVersion: 2
-        x: 169
-        y: 155
-        width: 32
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 35fc87c97e99ee940800000000000000
-      internalID: 5327364629267533651
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: crosshair_small-tile_3
-      rect:
-        serializedVersion: 2
-        x: 155
-        y: 118
-        width: 9
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0fabee98af9656ea0800000000000000
-      internalID: -5880177213685450000
+      spriteID: dc1723ba5c3c81030800000000000000
+      internalID: 3465735167009780173
       vertices: []
       indices: 
       edges: []
@@ -226,7 +176,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 9883cde89f045401eb00d336e5dc8dc5
     internalID: 0
     vertices: []
     indices: 
@@ -236,10 +186,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      crosshair_small-tile_0: 1448713518468428900
-      crosshair_small-tile_1: -6496721774189996465
-      crosshair_small-tile_2: 5327364629267533651
-      crosshair_small-tile_3: -5880177213685450000
+      Gun_Tile_0: 1094317862304039112
+      Gun_Tile_1: 3465735167009780173
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
