@@ -203,6 +203,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 1
       dummyAlignment: 0
       m_AllTileFlags: 2
+  - first: {x: 1, y: -2, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 20
+      m_TileSpriteIndex: 7
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 18
+      dummyAlignment: 0
+      m_AllTileFlags: 2
   - first: {x: 0, y: 0, z: 0}
     second:
       serializedVersion: 2
@@ -285,6 +295,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 3e1ee7805f8f744b7ab70761cbf47e68, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 69eed0e816ce4446ebc7944787bb87f2, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 669dbb99a16e64520adb2518ec95e213, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: b28d5c1860acb8440adcf3a009fc722f, type: 3}
@@ -300,8 +312,10 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 925d1533fc91f09499869786ec8127e8, type: 3}
   - m_RefCount: 5
     m_Data: {fileID: 21300000, guid: 25a5c62521952134f9e8c0e09a8c54b2, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 7110782532751761427, guid: f78e9edd06fb3ee43949f0f209270b24, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 20
+  - m_RefCount: 21
     m_Data:
       e00: 1
       e01: 0
@@ -320,7 +334,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 20
+  - m_RefCount: 21
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray:
   - m_RefCount: 1
@@ -359,6 +373,8 @@ Tilemap:
     m_Data: {fileID: 4765762263842300338, guid: dc9f257fc40f64e7f83002ea6a6b639f, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 4765762263842300338, guid: 804121382708c478a90b900e71850986, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 9156472112360728302, guid: 485f0bd587d474d3681959a9f42ce629, type: 3}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: 0, y: -5, z: 0}
@@ -510,7 +526,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7653148214494551987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3579858613515443936
+--- !u!114 &5539103428250135397
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
