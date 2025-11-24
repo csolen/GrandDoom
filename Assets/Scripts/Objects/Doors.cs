@@ -12,11 +12,11 @@ public class Doors : MonoBehaviour
 
     public void Update()
     {
-        if (shouldOpen && doorPos.position.z != 1f)
+        if (shouldOpen && doorPos.position.z != -1f)
         {
-            doorPos.position = Vector3.MoveTowards(doorPos.position, new Vector3(doorPos.position.x, doorPos.position.y, 1f), openSpeed * Time.deltaTime);
+            doorPos.position = Vector3.MoveTowards(doorPos.position, new Vector3(doorPos.position.x, doorPos.position.y, -1f), openSpeed * Time.deltaTime);
 
-            if (doorPos.position.z >= .2f)
+            if (doorPos.position.z <= .2f)
             {
                 colliderObj.SetActive(false);
                 colliderObj2.SetActive(false);
@@ -26,7 +26,7 @@ public class Doors : MonoBehaviour
         {
             doorPos.position = Vector3.MoveTowards(doorPos.position, new Vector3(doorPos.position.x, doorPos.position.y, 0f), openSpeed * Time.deltaTime);
 
-            if (doorPos.position.z <= .8f)
+            if (doorPos.position.z >= .8f)
             {
                 colliderObj.SetActive(true);
                 colliderObj2.SetActive(true);

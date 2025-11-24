@@ -1,5 +1,4 @@
 using UnityEngine;
-using TMPro;
 
 public class GameTester : MonoBehaviour
 {
@@ -61,6 +60,9 @@ public class GameTester : MonoBehaviour
             Cursor.visible = true;
         }
 
-
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            UnityEditor.EditorApplication.isPaused = true;
+        }
     }
 }

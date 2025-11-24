@@ -88,6 +88,12 @@ public class PlayerController : MonoBehaviour
                     {
                         hit.transform.parent.GetComponent<EnemyController>().TakeDamage();
                     }
+
+                    if (hit.transform.CompareTag("Wall_Ceiling_Light"))
+                    {
+                        hit.transform.GetComponent<Design_TileChanger>().ChangeSprite();
+                    }
+
                 }
 
                 ammoAmount--;
