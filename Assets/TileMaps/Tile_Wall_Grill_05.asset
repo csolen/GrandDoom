@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
-  m_Name: Tile_Ground
+  m_Name: Tile_Wall_Grill_05
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: 21300000, guid: 3211c6f458cec384dbfb2b6de801d36c, type: 3}
-  m_DefaultGameObject: {fileID: 4765762263842300338, guid: 0ed7eb687caa847cea583ffd6d915c9e, type: 3}
+  m_DefaultSprite: {fileID: 21300000, guid: 1bbe637a89a597c41839778f43a9211b, type: 3}
+  m_DefaultGameObject: {fileID: 4765762263842300338, guid: d2c184c5db4674072b2272f9c34306e3, type: 3}
   m_DefaultColliderType: 0
   m_TilingRules: []
