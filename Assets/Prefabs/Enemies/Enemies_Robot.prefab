@@ -632,17 +632,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb69c15f3844e481793e9bac793b096d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 1
   EnemyHealth: 3
   deathAnim: {fileID: 3599007365352187487, guid: 6b234b5f964774848bab788a6b423d94, type: 3}
-  playerRange: 10
-  moveSpeed: 1.4
-  wanderRadius: 10
-  wanderChangeTime: 2.2
+  wanderSpeed: 1.5
+  chaseSpeed: 2.3
+  sightRange: 7
+  loseSightRange: 6
+  meleeStopDistance: 0.6
+  rangedStopDistance: 4
   turnSpeed: 3
-  shouldShoot: 1
-  fireRate: 0.5
+  wanderChangeTime: 2.2
   bullet: {fileID: 896349609577071788, guid: 355ef1c6fdeb54b89ab064374eedf813, type: 3}
   firePoint: {fileID: 5483672039452115129}
+  fireRate: 0.5
+  shootRange: 8
+  stuckPositionThreshold: 0.02
+  stuckCheckDelay: 0.4
+  unstuckDuration: 0.5
 --- !u!1 &3399776466548158068
 GameObject:
   m_ObjectHideFlags: 0

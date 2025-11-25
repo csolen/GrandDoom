@@ -2,17 +2,11 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public enum EnemyType
-    {
-        Melee,
-        Ranged
-    }
+    public enum EnemyType { Melee, Ranged }
+    private enum EnemyState { Wandering, Chasing }
 
-    private enum EnemyState
-    {
-        Wandering,
-        Chasing
-    }
+    [Header("FOR TESTING")]
+    public bool Move;
 
     [Header("General")]
     public EnemyType enemyType = EnemyType.Melee;
@@ -26,7 +20,6 @@ public class EnemyController : MonoBehaviour
     [Header("Movement")]
     public float wanderSpeed = 1.5f;
     public float chaseSpeed = 2.3f;
-
     public float sightRange = 7f;
     public float loseSightRange = 10f;
     public float meleeStopDistance = 0.6f;
@@ -46,18 +39,21 @@ public class EnemyController : MonoBehaviour
     public float shootRange = 8f;
     private float shotCounter;
 
+    [Header("Stuck Fix")]
+    public float stuckPositionThreshold = 0.02f;
+    public float stuckCheckDelay = 0.4f;
+    public float unstuckDuration = 0.5f;
+
     private EnemyState currentState = EnemyState.Wandering;
     private Vector2 moveDirection;
-
-    private int enemyCount;
+    private Vector2 lastPosition;
+    private float stuckTimer;
+    private float unstuckTimer;
+    private Vector2 unstuckDirection;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-
-        enemyCount = PlayerPrefs.GetInt("TotalEnemyCount", 0);
-        enemyCount++;
-        PlayerPrefs.SetInt("TotalEnemyCount", enemyCount);
     }
 
     private void Start()
@@ -78,10 +74,20 @@ public class EnemyController : MonoBehaviour
 
         PickNewWanderDirection();
         shotCounter = fireRate;
+        lastPosition = rb.position;
     }
 
     private void Update()
     {
+        if (!Move)
+        {
+            rb.freezeRotation = true;
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX |
+                         RigidbodyConstraints2D.FreezePositionY;
+            shouldShoot = false;
+            return;
+        }
+
         if (player == null)
         {
             if (PlayerController.instance != null)
@@ -102,6 +108,8 @@ public class EnemyController : MonoBehaviour
                 HandleChasing(distanceToPlayer);
                 break;
         }
+
+        UpdateStuckLogic(distanceToPlayer);
 
         if (moveDirection.sqrMagnitude > 0.001f)
         {
@@ -213,6 +221,48 @@ public class EnemyController : MonoBehaviour
         wanderDirection = Random.insideUnitCircle.normalized;
     }
 
+    private void UpdateStuckLogic(float distanceToPlayer)
+    {
+        Vector2 currentPos = rb.position;
+        float moved = Vector2.Distance(currentPos, lastPosition);
+        lastPosition = currentPos;
+
+        float stopDistance = enemyType == EnemyType.Melee ? meleeStopDistance : rangedStopDistance;
+        bool shouldBeMovingToPlayer =
+            currentState == EnemyState.Chasing &&
+            distanceToPlayer > stopDistance + 0.1f;
+
+        if (unstuckTimer > 0f)
+        {
+            unstuckTimer -= Time.deltaTime;
+            moveDirection = unstuckDirection;
+
+            if (unstuckTimer <= 0f)
+            {
+                unstuckDirection = Vector2.zero;
+            }
+
+            return;
+        }
+
+        if (shouldBeMovingToPlayer && moved < stuckPositionThreshold)
+        {
+            stuckTimer += Time.deltaTime;
+
+            if (stuckTimer >= stuckCheckDelay)
+            {
+                stuckTimer = 0f;
+                unstuckDirection = Random.insideUnitCircle.normalized;
+                if (unstuckDirection.sqrMagnitude < 0.01f)
+                    unstuckDirection = Vector2.right;
+                unstuckTimer = unstuckDuration;
+            }
+        }
+        else
+        {
+            stuckTimer = 0f;
+        }
+    }
 
     public void TakeDamage()
     {
@@ -220,10 +270,6 @@ public class EnemyController : MonoBehaviour
 
         if (EnemyHealth <= 0)
         {
-            int killedEnemyCount = PlayerPrefs.GetInt("KilledEnemies", 0);
-            killedEnemyCount++;
-            PlayerPrefs.SetInt("KilledEnemies", killedEnemyCount);
-
             if (deathAnim != null)
             {
                 Instantiate(deathAnim, transform.position, transform.rotation);

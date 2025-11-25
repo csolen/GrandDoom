@@ -14474,7 +14474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2819015789874179225, guid: 7eea8a3df04484df3b1474211af46567, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3217262219866818044, guid: 7eea8a3df04484df3b1474211af46567, type: 3}
       propertyPath: m_SortingOrder
@@ -14520,14 +14520,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6999914903867248842, guid: 7eea8a3df04484df3b1474211af46567, type: 3}
-      propertyPath: enemyType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6999914903867248842, guid: 7eea8a3df04484df3b1474211af46567, type: 3}
-      propertyPath: loseSightRange
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 7648741562476673159, guid: 7eea8a3df04484df3b1474211af46567, type: 3}
       propertyPath: m_SortingOrder
       value: 6
@@ -14558,8 +14550,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2004718023}
     - target: {fileID: 781765370947704238, guid: 4f45913d2b1cd4033944ad6355c4d9c1, type: 3}
-      propertyPath: loseSightRange
-      value: 6
+      propertyPath: avoidRadius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 781765370947704238, guid: 4f45913d2b1cd4033944ad6355c4d9c1, type: 3}
+      propertyPath: avoidStrength
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 781765370947704238, guid: 4f45913d2b1cd4033944ad6355c4d9c1, type: 3}
+      propertyPath: avoidCheckDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 781765370947704238, guid: 4f45913d2b1cd4033944ad6355c4d9c1, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 1563785429247283204, guid: 4f45913d2b1cd4033944ad6355c4d9c1, type: 3}
       propertyPath: m_Name
@@ -14628,7 +14632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4453344238553417195, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7722612050517647413, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14669,14 +14673,6 @@ PrefabInstance:
     - target: {fileID: 7722612050517647413, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8007202467538963898, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
-      propertyPath: enemyType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8007202467538963898, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
-      propertyPath: loseSightRange
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
