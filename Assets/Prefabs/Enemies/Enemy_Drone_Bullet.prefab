@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7155411894533186751}
   - component: {fileID: 6756838888899966024}
   m_Layer: 0
-  m_Name: Enemy_Demon_Bullet
+  m_Name: Enemy_Drone_Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 1934508355011357036}
   - component: {fileID: 2659127541946072118}
   m_Layer: 0
-  m_Name: Enemy_Demon_Bullet_Img
+  m_Name: Enemy_Drone_Bullet_Img
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,7 +202,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 10
   m_Sprite: {fileID: -7043093039775728085, guid: 03d601603491743e586d068289f1e8ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

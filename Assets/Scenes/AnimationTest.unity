@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemies_RoboSpider
       objectReference: {fileID: 0}
+    - target: {fileID: 1563785429247283204, guid: 4f45913d2b1cd4033944ad6355c4d9c1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7643394648482017519, guid: 4f45913d2b1cd4033944ad6355c4d9c1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.4799995
@@ -475,6 +479,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2088578830710004202, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 4453344238553417195, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
       propertyPath: m_Name
       value: Enemies_Drone
@@ -522,6 +530,22 @@ PrefabInstance:
     - target: {fileID: 8007202467538963898, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
       propertyPath: Move
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8007202467538963898, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
+      propertyPath: sightRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8007202467538963898, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
+      propertyPath: shouldShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8007202467538963898, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
+      propertyPath: loseSightRange
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8007202467538963898, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
+      propertyPath: rangedStopDistance
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -826,6 +850,10 @@ PrefabInstance:
     - target: {fileID: 2819015789874179225, guid: 7eea8a3df04484df3b1474211af46567, type: 3}
       propertyPath: m_Name
       value: Enemies_Robot
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819015789874179225, guid: 7eea8a3df04484df3b1474211af46567, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6861468750686369340, guid: 7eea8a3df04484df3b1474211af46567, type: 3}
       propertyPath: m_LocalPosition.x

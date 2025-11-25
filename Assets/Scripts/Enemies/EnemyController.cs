@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour
     [Header("References")]
     private Transform player;
     private Rigidbody2D rb;
+    public Animator anim;
 
     [Header("Movement")]
     public float wanderSpeed = 1.5f;
@@ -198,7 +199,7 @@ public class EnemyController : MonoBehaviour
         {
             float angle = Mathf.Atan2(dirToPlayer.y, dirToPlayer.x) * Mathf.Rad2Deg;
             firePoint.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
+            anim.SetTrigger("shouldAttack");
             Instantiate(bullet, firePoint.position, firePoint.rotation);
             shotCounter = fireRate;
         }
