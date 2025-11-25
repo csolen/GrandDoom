@@ -5,9 +5,6 @@ public class EnemyController : MonoBehaviour
     public enum EnemyType { Melee, Ranged }
     private enum EnemyState { Wandering, Chasing }
 
-    [Header("FOR TESTING")]
-    public bool Move;
-
     [Header("General")]
     public EnemyType enemyType = EnemyType.Melee;
     public int EnemyHealth = 3;
@@ -32,7 +29,7 @@ public class EnemyController : MonoBehaviour
     private Vector2 wanderDirection;
 
     [Header("Shooting (Ranged)")]
-    private bool shouldShoot = false;
+    public bool shouldShoot = false;
     public GameObject bullet;
     public Transform firePoint;
     public float fireRate = 0.5f;
@@ -79,14 +76,6 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        if (!Move)
-        {
-            rb.freezeRotation = true;
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX |
-                         RigidbodyConstraints2D.FreezePositionY;
-            shouldShoot = false;
-            return;
-        }
 
         if (player == null)
         {

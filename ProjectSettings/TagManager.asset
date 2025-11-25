@@ -10,6 +10,7 @@ TagManager:
   - Wall_Ceiling_Light
   - Player_Bullet
   - Ladder
+  - Enemy_Holder
   layers:
   - Default
   - TransparentFX
