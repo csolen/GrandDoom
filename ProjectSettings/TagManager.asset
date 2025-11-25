@@ -8,6 +8,8 @@ TagManager:
   - Obstacle_Door
   - Obstacle_Wall
   - Wall_Ceiling_Light
+  - Player_Bullet
+  - Ladder
   layers:
   - Default
   - TransparentFX

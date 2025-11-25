@@ -31,6 +31,12 @@ public class PlayerController : MonoBehaviour
 
     private bool hasDied;
 
+    public float climbSpeed = 2f;
+    private bool isOnLadder = false;
+    private Ladder currentLadder;
+    private float ladderTargetZ;
+    private float ladderStartZ;
+
     private void Awake()
     {
         instance = this;
@@ -55,16 +61,34 @@ public class PlayerController : MonoBehaviour
         moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
         Vector3 moveHorizontal = transform.up * -moveInput.x;
-
         Vector3 moveVertical = transform.right * moveInput.y;
 
         rb.linearVelocity = (moveHorizontal + moveVertical) * moveSpeed;
 
+        if (isOnLadder && currentLadder != null && moveInput.y > 0.1f)
+        {
+            Vector3 pos = transform.position;
+            pos.z = Mathf.MoveTowards(pos.z, ladderTargetZ, climbSpeed * Time.deltaTime);
+            transform.position = pos;
+
+            if (Mathf.Approximately(pos.z, ladderTargetZ))
+            {
+                isOnLadder = false;
+                currentLadder = null;
+            }
+        }
+
         mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y")) * mouseSensitivity;
 
-        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z - mouseInput.x);
+        transform.rotation = Quaternion.Euler(
+            transform.rotation.eulerAngles.x,
+            transform.rotation.eulerAngles.y,
+            transform.rotation.eulerAngles.z - mouseInput.x
+        );
 
-        viewCam.transform.localRotation = Quaternion.Euler(viewCam.transform.localRotation.eulerAngles + new Vector3(0f, mouseInput.y, 0f));
+        viewCam.transform.localRotation = Quaternion.Euler(
+            viewCam.transform.localRotation.eulerAngles + new Vector3(0f, mouseInput.y, 0f)
+        );
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -93,7 +117,6 @@ public class PlayerController : MonoBehaviour
                     {
                         hit.transform.GetComponent<Design_TileChanger>().ChangeSprite();
                     }
-
                 }
 
                 ammoAmount--;
@@ -116,7 +139,7 @@ public class PlayerController : MonoBehaviour
         {
             health -= damageAmount;
             playerTakeHitScreen.SetActive(true);
-            Invoke(nameof(CloseHitAnimation) , .4f);
+            Invoke(nameof(CloseHitAnimation), .4f);
         }
         else
         {
@@ -138,5 +161,35 @@ public class PlayerController : MonoBehaviour
     private void CloseHitAnimation()
     {
         playerTakeHitScreen.SetActive(false);
+    }
+
+    public void EnterLadder(Ladder ladder, float targetZ)
+    {
+        currentLadder = ladder;
+        ladderTargetZ = targetZ;
+
+        ladderStartZ = transform.position.z;
+
+        isOnLadder = true;
+    }
+
+    public void ExitLadder(Ladder ladder)
+    {
+        if (currentLadder == ladder)
+        {
+            float currentZ = transform.position.z;
+
+            float distToStart = Mathf.Abs(currentZ - ladderStartZ);
+            float distToTarget = Mathf.Abs(currentZ - ladderTargetZ);
+
+            float finalZ = distToStart < distToTarget ? ladderStartZ : ladderTargetZ;
+
+            Vector3 pos = transform.position;
+            pos.z = finalZ;
+            transform.position = pos;
+
+            isOnLadder = false;
+            currentLadder = null;
+        }
     }
 }

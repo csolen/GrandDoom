@@ -3,8 +3,10 @@ using UnityEngine;
 public class GameTester : MonoBehaviour
 {
     private static GameTester instance;
-    private bool seeCursor;
 
+    private GameObject TileMap;
+
+    private bool seeCursor;
     private bool firstTimeOpener;
 
     private void Awake()
@@ -23,18 +25,42 @@ public class GameTester : MonoBehaviour
 
     public void Update()
     {
+        OpenTileMapsWhenGameStarts();
+
+        PauseEditor();
+
+        LockCursor();
+
+        MakePlayerImmortal();
+    }
+
+    private void OpenTileMapsWhenGameStarts()
+    {
+        if (TileMap == null)
+        {
+            TileMap = GameObject.Find("Tilemap");
+            for (int i = 0; i < TileMap.transform.childCount; i++)
+            {
+                TileMap.transform.GetChild(i).transform.gameObject.SetActive(true);
+            }
+        }
+    }
+
+    private void PauseEditor()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            UnityEditor.EditorApplication.isPaused = true;
+        }
+    }
+
+    private void LockCursor()
+    {
         if (!firstTimeOpener)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             firstTimeOpener = true;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            PlayerController.instance.health = PlayerController.instance.maxHealth;
-            PlayerController.instance.ammoAmount = PlayerController.instance.maxAmmoAmount;
-            PlayerController.instance.goldAmount = 100;
         }
 
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -59,10 +85,16 @@ public class GameTester : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.E))
+    private void MakePlayerImmortal()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            UnityEditor.EditorApplication.isPaused = true;
+            PlayerController.instance.health = PlayerController.instance.maxHealth;
+            PlayerController.instance.ammoAmount = PlayerController.instance.maxAmmoAmount;
+            PlayerController.instance.goldAmount = 100;
         }
     }
+
 }
