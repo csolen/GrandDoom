@@ -2,30 +2,52 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public int EnemyHealth;
+    public enum EnemyType
+    {
+        Melee,
+        Ranged
+    }
 
+    private enum EnemyState
+    {
+        Wandering,
+        Chasing
+    }
+
+    [Header("General")]
+    public EnemyType enemyType = EnemyType.Melee;
+    public int EnemyHealth = 3;
     public GameObject deathAnim;
 
-    public float playerRange = 5f;
-    public float moveSpeed = 1.7f;
-
+    [Header("References")]
+    private Transform player;
     private Rigidbody2D rb;
 
-    public float wanderRadius = 10f;
-    public float wanderChangeTime = 1.5f;
+    [Header("Movement")]
+    public float wanderSpeed = 1.5f;
+    public float chaseSpeed = 2.3f;
 
-    private Vector2 wanderTarget;
+    public float sightRange = 7f;
+    public float loseSightRange = 10f;
+    public float meleeStopDistance = 0.6f;
+    public float rangedStopDistance = 4f;
+    public float turnSpeed = 8f;
+
+    [Header("Wander")]
+    public float wanderChangeTime = 2f;
     private float wanderTimer;
+    private Vector2 wanderDirection;
 
-    public float turnSpeed = 3f;
-    private Vector2 moveDirection;
-    private Vector2 targetDirection;
-
-    public bool shouldShoot;
-    public float fireRate = .5f;
-    private float shotCounter;
+    [Header("Shooting (Ranged)")]
+    private bool shouldShoot = false;
     public GameObject bullet;
     public Transform firePoint;
+    public float fireRate = 0.5f;
+    public float shootRange = 8f;
+    private float shotCounter;
+
+    private EnemyState currentState = EnemyState.Wandering;
+    private Vector2 moveDirection;
 
     private int enemyCount;
 
@@ -40,73 +62,157 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
-        PickNewWanderTarget();
-        moveDirection = Random.insideUnitCircle.normalized;
+        if (player == null)
+        {
+            if (PlayerController.instance != null)
+            {
+                player = PlayerController.instance.transform;
+            }
+            else
+            {
+                GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+                if (playerObj != null)
+                    player = playerObj.transform;
+            }
+        }
+
+        PickNewWanderDirection();
+        shotCounter = fireRate;
     }
 
     private void Update()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, PlayerController.instance.transform.position);
-
-        if (distanceToPlayer < playerRange)
+        if (player == null)
         {
-            Vector3 dir = PlayerController.instance.transform.position - transform.position;
-            targetDirection = dir.normalized;
-
-            if (shouldShoot)
-            {
-                shotCounter -= Time.deltaTime;
-
-                if (shotCounter <= 0)
-                {
-                    if (firePoint != null)
-                    {
-                        Instantiate(bullet, firePoint.position, firePoint.rotation);
-                    }
-
-                    shotCounter = fireRate;
-                }
-            }
-        }
-        else
-        {
-            wanderTimer -= Time.deltaTime;
-
-            if (wanderTimer <= 0f || Vector2.Distance(transform.position, wanderTarget) < 0.5f)
-            {
-                PickNewWanderTarget();
-            }
-
-            Vector3 dir = wanderTarget - (Vector2)transform.position;
-            targetDirection = dir.normalized;
+            if (PlayerController.instance != null)
+                player = PlayerController.instance.transform;
+            else
+                return;
         }
 
-        moveDirection = Vector2.Lerp(
-            moveDirection,
-            targetDirection,
-            turnSpeed * Time.deltaTime
-        );
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+        switch (currentState)
+        {
+            case EnemyState.Wandering:
+                HandleWandering(distanceToPlayer);
+                break;
+
+            case EnemyState.Chasing:
+                HandleChasing(distanceToPlayer);
+                break;
+        }
+
+        if (moveDirection.sqrMagnitude > 0.001f)
+        {
+            moveDirection = Vector2.Lerp(
+                moveDirection,
+                moveDirection.normalized,
+                turnSpeed * Time.deltaTime
+            );
+        }
     }
 
     private void FixedUpdate()
     {
-        if (targetDirection.sqrMagnitude < 0.001f)
+        float speed = (currentState == EnemyState.Chasing) ? chaseSpeed : wanderSpeed;
+
+        if (moveDirection.sqrMagnitude < 0.001f)
         {
             rb.linearVelocity = Vector2.zero;
         }
         else
         {
-            rb.linearVelocity = moveDirection * moveSpeed;
+            rb.linearVelocity = moveDirection.normalized * speed;
         }
     }
 
-    private void PickNewWanderTarget()
+    private void HandleWandering(float distanceToPlayer)
+    {
+        if (distanceToPlayer <= sightRange)
+        {
+            currentState = EnemyState.Chasing;
+            return;
+        }
+
+        wanderTimer -= Time.deltaTime;
+        if (wanderTimer <= 0f)
+        {
+            PickNewWanderDirection();
+        }
+
+        moveDirection = wanderDirection;
+    }
+
+    private void HandleChasing(float distanceToPlayer)
+    {
+        if (distanceToPlayer > loseSightRange)
+        {
+            currentState = EnemyState.Wandering;
+            PickNewWanderDirection();
+            return;
+        }
+
+        Vector2 dirToPlayer = (player.position - transform.position).normalized;
+
+        if (enemyType == EnemyType.Melee)
+        {
+            if (distanceToPlayer > meleeStopDistance)
+            {
+                moveDirection = dirToPlayer;
+            }
+            else
+            {
+                moveDirection = Vector2.zero;
+            }
+        }
+        else
+        {
+            float targetDist = rangedStopDistance;
+            float distDiff = distanceToPlayer - targetDist;
+
+            if (Mathf.Abs(distDiff) > 0.3f)
+            {
+                moveDirection = distDiff > 0 ? dirToPlayer : -dirToPlayer;
+            }
+            else
+            {
+                moveDirection = Vector2.zero;
+            }
+
+            if (shouldShoot)
+            {
+                HandleShooting(distanceToPlayer, dirToPlayer);
+            }
+        }
+    }
+
+    private void HandleShooting(float distanceToPlayer, Vector2 dirToPlayer)
+    {
+        if (bullet == null || firePoint == null)
+            return;
+
+        if (distanceToPlayer > shootRange)
+            return;
+
+        shotCounter -= Time.deltaTime;
+
+        if (shotCounter <= 0f)
+        {
+            float angle = Mathf.Atan2(dirToPlayer.y, dirToPlayer.x) * Mathf.Rad2Deg;
+            firePoint.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+            Instantiate(bullet, firePoint.position, firePoint.rotation);
+            shotCounter = fireRate;
+        }
+    }
+
+    private void PickNewWanderDirection()
     {
         wanderTimer = wanderChangeTime;
-
-        Vector2 randomCircle = Random.insideUnitCircle * wanderRadius;
-        wanderTarget = (Vector2)transform.position + randomCircle;
+        wanderDirection = Random.insideUnitCircle.normalized;
     }
+
 
     public void TakeDamage()
     {
@@ -114,13 +220,16 @@ public class EnemyController : MonoBehaviour
 
         if (EnemyHealth <= 0)
         {
-            int killedEnemyCount = PlayerPrefs.GetInt("KilledEnemies");
+            int killedEnemyCount = PlayerPrefs.GetInt("KilledEnemies", 0);
             killedEnemyCount++;
             PlayerPrefs.SetInt("KilledEnemies", killedEnemyCount);
 
+            if (deathAnim != null)
+            {
+                Instantiate(deathAnim, transform.position, transform.rotation);
+            }
+
             Destroy(gameObject);
-            Instantiate(deathAnim, transform.position, transform.rotation);
         }
     }
-
 }
