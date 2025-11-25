@@ -48,6 +48,7 @@ public class EnemyController : MonoBehaviour
     private float stuckTimer;
     private float unstuckTimer;
     private Vector2 unstuckDirection;
+    private bool isChasing;
 
     private void Awake()
     {
@@ -77,7 +78,6 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-
         if (player == null)
         {
             if (PlayerController.instance != null)
@@ -115,13 +115,24 @@ public class EnemyController : MonoBehaviour
     {
         float speed = (currentState == EnemyState.Chasing) ? chaseSpeed : wanderSpeed;
 
-        if (moveDirection.sqrMagnitude < 0.001f)
+        if (moveDirection.sqrMagnitude < 0.01f)
         {
             rb.linearVelocity = Vector2.zero;
+            anim.SetTrigger("shouldIdle");
+
         }
         else
         {
             rb.linearVelocity = moveDirection.normalized * speed;
+
+            if (!isChasing)
+            {
+                anim.SetTrigger("shouldWalk");
+            }
+            else
+            {
+                anim.SetTrigger("shouldChase");
+            }
         }
     }
 
@@ -157,6 +168,7 @@ public class EnemyController : MonoBehaviour
         {
             if (distanceToPlayer > meleeStopDistance)
             {
+                isChasing = true;
                 moveDirection = dirToPlayer;
             }
             else
@@ -209,6 +221,7 @@ public class EnemyController : MonoBehaviour
     {
         wanderTimer = wanderChangeTime;
         wanderDirection = Random.insideUnitCircle.normalized;
+        isChasing = false;
     }
 
     private void UpdateStuckLogic(float distanceToPlayer)

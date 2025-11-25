@@ -185,7 +185,7 @@ ScriptedImporter:
     spritePosition: {x: 109, y: 101}
   - name: L_Leg
     originalName: 
-    pivot: {x: 0.8515567, y: 0.37372985}
+    pivot: {x: 0.82249504, y: 0.36793056}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 

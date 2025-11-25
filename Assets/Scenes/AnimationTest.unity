@@ -487,6 +487,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemies_Drone
       objectReference: {fileID: 0}
+    - target: {fileID: 4453344238553417195, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7722612050517647413, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.06
