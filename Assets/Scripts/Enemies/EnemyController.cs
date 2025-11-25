@@ -21,10 +21,6 @@ public class EnemyController : MonoBehaviour
     private Vector2 moveDirection;
     private Vector2 targetDirection;
 
-    public SpriteRenderer enemySr;
-    private Material currentMaterial;
-    public Material takeDamageMaterial;
-
     public bool shouldShoot;
     public float fireRate = .5f;
     private float shotCounter;
@@ -36,7 +32,6 @@ public class EnemyController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        currentMaterial = enemySr.material;
 
         enemyCount = PlayerPrefs.GetInt("TotalEnemyCount", 0);
         enemyCount++;
@@ -64,7 +59,11 @@ public class EnemyController : MonoBehaviour
 
                 if (shotCounter <= 0)
                 {
-                    Instantiate(bullet, firePoint.position, firePoint.rotation);
+                    if (firePoint != null)
+                    {
+                        Instantiate(bullet, firePoint.position, firePoint.rotation);
+                    }
+
                     shotCounter = fireRate;
                 }
             }
@@ -113,9 +112,6 @@ public class EnemyController : MonoBehaviour
     {
         EnemyHealth--;
 
-        enemySr.material = takeDamageMaterial;
-        Invoke(nameof(ChangeMaterialBack), .05f);
-
         if (EnemyHealth <= 0)
         {
             int killedEnemyCount = PlayerPrefs.GetInt("KilledEnemies");
@@ -127,8 +123,4 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void ChangeMaterialBack()
-    {
-        enemySr.material = currentMaterial;
-    }
 }

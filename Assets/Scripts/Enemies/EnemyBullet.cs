@@ -37,7 +37,8 @@ public class EnemyBullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (other.CompareTag("Obstacle_Wall") || other.CompareTag("Obstacle_Door"))
+        if (other.CompareTag("Obstacle_Wall") || other.CompareTag("Obstacle_Door")
+            || other.CompareTag("Wall_Ceiling_Light"))
         {
             Destroy(gameObject);
         }
