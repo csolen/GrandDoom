@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d2a20cfac01646e4cae9e68a8b2360b5
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 306090
+  packageName: RPG GUI Pack 1
+  packageVersion: 1.0
+  assetPath: Assets/yyart/RPG GUI Pack 01/Animation/UI/PopupRewards/PopupRewards.controller
+  uploadId: 724743

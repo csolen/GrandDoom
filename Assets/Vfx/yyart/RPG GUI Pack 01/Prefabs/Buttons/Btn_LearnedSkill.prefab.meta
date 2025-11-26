@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e3ddec2ab5a399d4b8ce29f6ed652ba1
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 306090
+  packageName: RPG GUI Pack 1
+  packageVersion: 1.0
+  assetPath: Assets/yyart/RPG GUI Pack 01/Prefabs/Buttons/Btn_LearnedSkill.prefab
+  uploadId: 724743
