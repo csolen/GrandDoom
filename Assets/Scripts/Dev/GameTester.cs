@@ -42,9 +42,13 @@ public class GameTester : MonoBehaviour
         if (TileMap == null)
         {
             TileMap = GameObject.Find("Tilemap");
-            for (int i = 0; i < TileMap.transform.childCount; i++)
+
+            if (TileMap != null)
             {
-                TileMap.transform.GetChild(i).transform.gameObject.SetActive(true);
+                for (int i = 0; i < TileMap.transform.childCount; i++)
+                {
+                    TileMap.transform.GetChild(i).transform.gameObject.SetActive(true);
+                }
             }
         }
     }

@@ -947,7 +947,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 698893121}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 366127a97343c41939db421eccf11db4, type: 3}
+  m_Script: {fileID: 11500000, guid: c86f97e81b4294104b70088c8f2e6a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &743202778
@@ -1034,7 +1034,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 698893125}
-        m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: LetsLoadScene, Assembly-CSharp
         m_MethodName: RestartScene
         m_Mode: 1
         m_Arguments:
