@@ -116,8 +116,8 @@ MonoBehaviour:
   anim: {fileID: 4116134603032078212}
   wanderSpeed: 1.5
   chaseSpeed: 2.3
-  sightRange: 7
-  loseSightRange: 6
+  sightRange: 10
+  loseSightRange: 16
   meleeStopDistance: 0.6
   rangedStopDistance: 4
   turnSpeed: 3

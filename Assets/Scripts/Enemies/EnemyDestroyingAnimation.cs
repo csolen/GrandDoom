@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class EnemyDestroyingAnimation : MonoBehaviour
 {
+    public GameObject deathParticle;
 
-    private void Start()
+    public void OpenDeathParticle()
     {
-        Debug.Log(gameObject.transform.position);
+        deathParticle.SetActive(true);
     }
 
     public void RemoveAnimationObject()
