@@ -8,7 +8,6 @@ public class EnemyController : MonoBehaviour
     [Header("General")]
     public EnemyType enemyType = EnemyType.Melee;
     public int EnemyHealth = 3;
-    public int EnemyDamage = 3;
     public GameObject deathAnim;
 
     [Header("References")]
@@ -301,14 +300,4 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void DealMeleeDamage()
-    {
-        if (player == null) return;
-
-        PlayerController pc = player.GetComponent<PlayerController>();
-        if (pc != null)
-        {
-            pc.TakeDamage(EnemyDamage);
-        }
-    }
 }

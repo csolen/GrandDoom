@@ -112,7 +112,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 0
   EnemyHealth: 3
-  EnemyDamage: 30
   deathAnim: {fileID: 3599007365352187487, guid: 6b234b5f964774848bab788a6b423d94, type: 3}
   anim: {fileID: 4116134603032078212}
   wanderSpeed: 1.5
@@ -317,6 +316,7 @@ GameObject:
   - component: {fileID: 6806155759037751398}
   - component: {fileID: 546818976598936899}
   - component: {fileID: 4116134603032078212}
+  - component: {fileID: 8158183778375878804}
   m_Layer: 0
   m_Name: Hit Collider
   m_TagString: Enemy
@@ -400,6 +400,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8158183778375878804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4172689829234511922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1811001d42034b709fbdc64f3c25443, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDamage: 5
 --- !u!1 &8227040247150816331
 GameObject:
   m_ObjectHideFlags: 0
