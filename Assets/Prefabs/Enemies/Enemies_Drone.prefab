@@ -404,12 +404,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 1
   EnemyHealth: 3
-  deathAnim: {fileID: 3599007365352187487, guid: 6b234b5f964774848bab788a6b423d94, type: 3}
+  deathAnim: {fileID: 6911088536147646728, guid: 6d8cf0e1132264b6982117aa75c3ba77, type: 3}
   anim: {fileID: 5285022621085959212}
   wanderSpeed: 1.5
   chaseSpeed: 2.3
-  sightRange: 7
-  loseSightRange: 6
+  sightRange: 10
+  loseSightRange: 12
   meleeStopDistance: 0.6
   rangedStopDistance: 4
   turnSpeed: 3
@@ -860,7 +860,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 0b27d4d26f9919b44a72e89ea67c95d2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
