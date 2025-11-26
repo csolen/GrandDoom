@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameTester : MonoBehaviour
 {
@@ -33,6 +34,8 @@ public class GameTester : MonoBehaviour
         LockCursor();
 
         MakePlayerImmortal();
+
+        RestartScene();
 
         StopAllEnemies();
     }
@@ -142,5 +145,11 @@ public class GameTester : MonoBehaviour
         }
     }
 
-
+    private void RestartScene()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
 }
