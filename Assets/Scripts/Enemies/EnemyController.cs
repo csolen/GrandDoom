@@ -29,6 +29,9 @@ public class EnemyController : MonoBehaviour
     private float wanderTimer;
     private Vector2 wanderDirection;
 
+    private bool allowIdleWhileWandering = true;
+    private readonly float idleChance = 0.4f;
+
     [Header("Shooting (Ranged)")]
     public bool shouldShoot = false;
     public GameObject bullet;
@@ -189,6 +192,7 @@ public class EnemyController : MonoBehaviour
                     anim.ResetTrigger("shouldIdle");
                     anim.ResetTrigger("shouldWalk");
                     anim.ResetTrigger("shouldChase");
+                    anim.ResetTrigger("shouldAttack");
                     anim.SetTrigger("shouldAttack");
                 }
             }
@@ -237,7 +241,16 @@ public class EnemyController : MonoBehaviour
     private void PickNewWanderDirection()
     {
         wanderTimer = wanderChangeTime;
-        wanderDirection = Random.insideUnitCircle.normalized;
+
+        if (allowIdleWhileWandering && Random.value < idleChance)
+        {
+            wanderDirection = Vector2.zero;
+        }
+        else
+        {
+            wanderDirection = Random.insideUnitCircle.normalized;
+        }
+
         isChasing = false;
         isAttacking = false;
     }
@@ -305,6 +318,4 @@ public class EnemyController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-
 }
