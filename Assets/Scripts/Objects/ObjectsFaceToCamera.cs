@@ -8,7 +8,6 @@ public class ObjectsFaceToCamera : MonoBehaviour
     {
         if (sr != null)
         {
-            Debug.Log("GİRDİ");
             sr = GetComponent<SpriteRenderer>();
             sr.flipX = true;
         }

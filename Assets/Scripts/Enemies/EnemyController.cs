@@ -49,10 +49,12 @@ public class EnemyController : MonoBehaviour
     private float unstuckTimer;
     private Vector2 unstuckDirection;
     private bool isChasing;
+    private bool isAttacking;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        transform.rotation = Quaternion.Euler(0f, 90f, -90f);
     }
 
     private void Start()
@@ -115,11 +117,14 @@ public class EnemyController : MonoBehaviour
     {
         float speed = (currentState == EnemyState.Chasing) ? chaseSpeed : wanderSpeed;
 
-        if (moveDirection.sqrMagnitude < 0.0001f)
+        if (moveDirection.sqrMagnitude < 0.01f)
         {
             rb.linearVelocity = Vector2.zero;
-            anim.SetTrigger("shouldIdle");
 
+            if (!isAttacking)
+            {
+                anim.SetTrigger("shouldIdle");
+            }
         }
         else
         {
@@ -159,6 +164,8 @@ public class EnemyController : MonoBehaviour
         {
             currentState = EnemyState.Wandering;
             PickNewWanderDirection();
+            isChasing = false;
+            isAttacking = false;
             return;
         }
 
@@ -169,12 +176,21 @@ public class EnemyController : MonoBehaviour
             if (distanceToPlayer > meleeStopDistance)
             {
                 isChasing = true;
+                isAttacking = false;
                 moveDirection = dirToPlayer;
             }
             else
             {
                 moveDirection = Vector2.zero;
-                anim.SetTrigger("shouldAttack");
+
+                if (!isAttacking)
+                {
+                    isAttacking = true;
+                    anim.ResetTrigger("shouldIdle");
+                    anim.ResetTrigger("shouldWalk");
+                    anim.ResetTrigger("shouldChase");
+                    anim.SetTrigger("shouldAttack");
+                }
             }
         }
         else
@@ -223,6 +239,7 @@ public class EnemyController : MonoBehaviour
         wanderTimer = wanderChangeTime;
         wanderDirection = Random.insideUnitCircle.normalized;
         isChasing = false;
+        isAttacking = false;
     }
 
     private void UpdateStuckLogic(float distanceToPlayer)
