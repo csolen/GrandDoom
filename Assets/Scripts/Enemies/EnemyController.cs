@@ -115,7 +115,7 @@ public class EnemyController : MonoBehaviour
     {
         float speed = (currentState == EnemyState.Chasing) ? chaseSpeed : wanderSpeed;
 
-        if (moveDirection.sqrMagnitude < 0.01f)
+        if (moveDirection.sqrMagnitude < 0.0001f)
         {
             rb.linearVelocity = Vector2.zero;
             anim.SetTrigger("shouldIdle");
@@ -174,6 +174,7 @@ public class EnemyController : MonoBehaviour
             else
             {
                 moveDirection = Vector2.zero;
+                anim.SetTrigger("shouldAttack");
             }
         }
         else
