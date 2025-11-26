@@ -289,6 +289,12 @@ public class EnemyController : MonoBehaviour
     {
         EnemyHealth--;
 
+        anim.ResetTrigger("shouldIdle");
+        anim.ResetTrigger("shouldWalk");
+        anim.ResetTrigger("shouldChase");
+        anim.ResetTrigger("shouldAttack");
+        anim.SetTrigger("shouldTakeDamage");
+
         if (EnemyHealth <= 0)
         {
             if (deathAnim != null)
@@ -299,5 +305,6 @@ public class EnemyController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 
 }
