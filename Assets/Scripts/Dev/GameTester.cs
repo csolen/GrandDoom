@@ -8,6 +8,7 @@ public class GameTester : MonoBehaviour
 
     private bool seeCursor;
     private bool firstTimeOpener;
+    private bool enemiesStopped = false;
 
     private void Awake()
     {
@@ -32,6 +33,8 @@ public class GameTester : MonoBehaviour
         LockCursor();
 
         MakePlayerImmortal();
+
+        StopAllEnemies();
     }
 
     private void OpenTileMapsWhenGameStarts()
@@ -39,9 +42,13 @@ public class GameTester : MonoBehaviour
         if (TileMap == null)
         {
             TileMap = GameObject.Find("Tilemap");
-            for (int i = 0; i < TileMap.transform.childCount; i++)
+
+            if (TileMap != null)
             {
-                TileMap.transform.GetChild(i).transform.gameObject.SetActive(true);
+                for (int i = 0; i < TileMap.transform.childCount; i++)
+                {
+                    TileMap.transform.GetChild(i).transform.gameObject.SetActive(true);
+                }
             }
         }
     }
@@ -96,5 +103,44 @@ public class GameTester : MonoBehaviour
             PlayerController.instance.goldAmount = 100;
         }
     }
+
+    private void StopAllEnemies()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            enemiesStopped = !enemiesStopped;
+
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy_Holder");
+
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                GameObject enemy = enemies[i];
+
+                Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
+                EnemyController enemyController = enemy.GetComponent<EnemyController>();
+
+                if (rb != null)
+                {
+                    if (enemiesStopped)
+                    {
+                        rb.freezeRotation = true;
+                        rb.constraints = RigidbodyConstraints2D.FreezePositionX |
+                                         RigidbodyConstraints2D.FreezePositionY;
+                    }
+                    else
+                    {
+                        rb.freezeRotation = false;
+                        rb.constraints = RigidbodyConstraints2D.None;
+                    }
+                }
+
+                if (enemyController != null)
+                {
+                    enemyController.shouldShoot = !enemiesStopped;
+                }
+            }
+        }
+    }
+
 
 }

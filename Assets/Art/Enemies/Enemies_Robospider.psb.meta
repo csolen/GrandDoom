@@ -141,8 +141,8 @@ ScriptedImporter:
     spritePosition: {x: 133, y: 175}
   - name: Head
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -163,8 +163,8 @@ ScriptedImporter:
     spritePosition: {x: 102, y: 131}
   - name: Body
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 1}
+    alignment: 2
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -185,8 +185,8 @@ ScriptedImporter:
     spritePosition: {x: 109, y: 101}
   - name: L_Leg
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.82249504, y: 0.36793056}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -207,8 +207,8 @@ ScriptedImporter:
     spritePosition: {x: 44, y: 65}
   - name: R_Leg
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.14844346, y: 0.39617795}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:

@@ -163,8 +163,8 @@ ScriptedImporter:
     spritePosition: {x: 82, y: 93}
   - name: R_Leg
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.3470729, y: 0.7600965}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -185,8 +185,8 @@ ScriptedImporter:
     spritePosition: {x: 183, y: 31}
   - name: L_Leg
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.67929393, y: 0.82271236}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -207,8 +207,8 @@ ScriptedImporter:
     spritePosition: {x: 21, y: 31}
   - name: R_Wing
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.2323777, y: 0.35372195}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -229,8 +229,8 @@ ScriptedImporter:
     spritePosition: {x: 178, y: 197}
   - name: L_Wing
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.7931104, y: 0.32712588}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
