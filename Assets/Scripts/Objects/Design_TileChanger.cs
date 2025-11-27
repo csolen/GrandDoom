@@ -15,8 +15,10 @@ public class Design_TileChanger : MonoBehaviour
 
     public void ChangeSprite()
     {
-        sr.sprite = newSprite;
-        destroyingParticle.SetActive(true);
-        this.enabled = false;
+        if (sr.sprite != newSprite)
+        {
+            sr.sprite = newSprite;
+            destroyingParticle.SetActive(true);
+        }
     }
 }
