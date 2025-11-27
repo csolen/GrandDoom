@@ -54,6 +54,8 @@ public class EnemyController : MonoBehaviour
     private bool isChasing;
     private bool isAttacking;
 
+    private int enemyCount;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -79,6 +81,11 @@ public class EnemyController : MonoBehaviour
         PickNewWanderDirection();
         shotCounter = fireRate;
         lastPosition = rb.position;
+
+
+        enemyCount = PlayerPrefs.GetInt("TotalEnemyCount", 0);
+        enemyCount++;
+        PlayerPrefs.SetInt("TotalEnemyCount", enemyCount);
     }
 
     private void Update()
@@ -314,6 +321,10 @@ public class EnemyController : MonoBehaviour
             {
                 Instantiate(deathAnim, transform.position, transform.rotation);
             }
+
+            int killedEnemyCount = PlayerPrefs.GetInt("KilledEnemies");
+            killedEnemyCount++;
+            PlayerPrefs.SetInt("KilledEnemies", killedEnemyCount);
 
             Destroy(gameObject);
         }
