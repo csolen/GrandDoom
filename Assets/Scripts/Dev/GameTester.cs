@@ -27,17 +27,19 @@ public class GameTester : MonoBehaviour
 
     public void Update()
     {
+        FirstTimeOpener();
+
         OpenTileMapsWhenGameStarts();
-
-        PauseEditor();
-
-        LockCursor();
-
-        MakePlayerImmortal();
 
         RestartScene();
 
         StopAllEnemies();
+
+        PauseTheGame();
+
+        ReloadAmmo();
+
+        GivePlayerHealth();
     }
 
     private void OpenTileMapsWhenGameStarts()
@@ -56,15 +58,7 @@ public class GameTester : MonoBehaviour
         }
     }
 
-    private void PauseEditor()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            UnityEditor.EditorApplication.isPaused = true;
-        }
-    }
-
-    private void LockCursor()
+    private void FirstTimeOpener()
     {
         if (!firstTimeOpener)
         {
@@ -72,44 +66,20 @@ public class GameTester : MonoBehaviour
             Cursor.visible = false;
             firstTimeOpener = true;
         }
-
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            if (!seeCursor)
-            {
-                seeCursor = true;
-            }
-            else
-            {
-                seeCursor = false;
-            }
-        }
-
-        if (!seeCursor)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
     }
 
-    private void MakePlayerImmortal()
+
+    private void PauseTheGame()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
-            PlayerController.instance.health = PlayerController.instance.maxHealth;
-            PlayerController.instance.ammoAmount = PlayerController.instance.maxAmmoAmount;
-            PlayerController.instance.goldAmount = 100;
+            UnityEditor.EditorApplication.isPaused = true;
         }
     }
 
     private void StopAllEnemies()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             enemiesStopped = !enemiesStopped;
 
@@ -147,9 +117,28 @@ public class GameTester : MonoBehaviour
 
     private void RestartScene()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+
+
+    private void ReloadAmmo()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            PlayerController.instance.ammoAmount = PlayerController.instance.maxAmmoAmount;
+        }
+    }
+
+
+    private void GivePlayerHealth()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            PlayerController.instance.health = PlayerController.instance.maxHealth;
+            PlayerController.instance.goldAmount = 100;
         }
     }
 }
