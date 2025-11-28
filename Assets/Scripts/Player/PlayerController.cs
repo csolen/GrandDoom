@@ -37,6 +37,9 @@ public class PlayerController : MonoBehaviour
     private float ladderTargetZ;
     private float ladderStartZ;
 
+    public GameObject muzzleFlash;
+    public Transform muzzleFlashPoint;
+
     private void Awake()
     {
         instance = this;
@@ -99,6 +102,8 @@ public class PlayerController : MonoBehaviour
                     gunAnim.SetTrigger("isShooting");
                     CrosshairRecoil.instance.OnShoot();
                 }
+
+                Instantiate(muzzleFlash, muzzleFlashPoint.position, muzzleFlashPoint.rotation);
 
                 Ray ray = viewCam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
                 RaycastHit hit;
