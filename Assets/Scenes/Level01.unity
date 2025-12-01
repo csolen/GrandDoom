@@ -21396,6 +21396,8 @@ MonoBehaviour:
   climbSpeed: 2
   muzzleFlash: {fileID: 145172, guid: dbc886d3433d6aa4786fa9807aed6a71, type: 3}
   muzzleFlashPoint: {fileID: 2145224898}
+  camYMin: 30
+  camYMax: 120
 --- !u!50 &2004718025
 Rigidbody2D:
   serializedVersion: 5

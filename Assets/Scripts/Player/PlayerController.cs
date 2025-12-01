@@ -40,6 +40,10 @@ public class PlayerController : MonoBehaviour
     public GameObject muzzleFlash;
     public Transform muzzleFlashPoint;
 
+    private float camY;
+    public float camLimiterYMin = 40f;
+    public float camLimiterYMax = 120f;
+
     private void Awake()
     {
         instance = this;
@@ -47,6 +51,8 @@ public class PlayerController : MonoBehaviour
         viewCam = Camera.main;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        camY = viewCam.transform.localEulerAngles.y;
     }
 
     private void Start()
@@ -89,9 +95,12 @@ public class PlayerController : MonoBehaviour
             transform.rotation.eulerAngles.z - mouseInput.x
         );
 
-        viewCam.transform.localRotation = Quaternion.Euler(
-            viewCam.transform.localRotation.eulerAngles + new Vector3(0f, mouseInput.y, 0f)
-        );
+        camY += mouseInput.y;
+        camY = Mathf.Clamp(camY, camLimiterYMin, camLimiterYMax);
+
+        Vector3 camRot = viewCam.transform.localEulerAngles;
+        camRot.y = camY;
+        viewCam.transform.localEulerAngles = camRot;
 
         if (Input.GetMouseButtonDown(0))
         {
