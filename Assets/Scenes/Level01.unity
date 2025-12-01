@@ -615,7 +615,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 519420031}
-  m_PlaneDistance: 0.3
+  m_PlaneDistance: 0.1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -1004,7 +1004,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 50
+  m_FocalLength: 23.051785
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -1017,9 +1017,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 40
-  field of view: 34
+  near clip plane: 0.01
+  far clip plane: 35
+  field of view: 75
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1638,7 +1638,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1.55, y: 1.55, z: 1.55}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 2145224898}
   m_Father: {fileID: 408796490}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &767480062
@@ -2308,8 +2309,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -0.19000244}
-  m_SizeDelta: {x: 2.31199, y: 4.62398}
+  m_AnchoredPosition: {x: 3.09, y: -0.010009766}
+  m_SizeDelta: {x: 5.37544, y: 5.37544}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &991796058
 MonoBehaviour:
@@ -2331,7 +2332,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1094317862304039112, guid: 2560ea96058434b11950769b57f4fb6b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0123d331f8a051c4fb3a9a77f8e90d76, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5003,7 +5004,7 @@ Tilemap:
       m_TileSpriteIndex: 3
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 2
+      m_TileObjectToInstantiateIndex: 9
       dummyAlignment: 0
       m_AllTileFlags: 2
   - first: {x: 3, y: -9, z: 0}
@@ -8178,8 +8179,8 @@ Tilemap:
     m_Data: {fileID: 4765762263842300338, guid: 35f07ee8fc6114e63aa2031ead607e19, type: 3}
   - m_RefCount: 7
     m_Data: {fileID: 4765762263842300338, guid: 8d4e88fd9c9654177b7a0d7b72f69a59, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 4765762263842300338, guid: c50a0ed5df4c945dc98d65b8f57ec191, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 15
     m_Data: {fileID: 4765762263842300338, guid: 323e044e3228a49fc87c98867580b5a0, type: 3}
   - m_RefCount: 1
@@ -8192,8 +8193,8 @@ Tilemap:
     m_Data: {fileID: 4765762263842300338, guid: ea93dbea0fbbf4dc4858e03f63c471e0, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 4765762263842300338, guid: 73e0b82cc91d84a92b5fa7f738d236ca, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 4765762263842300338, guid: c50a0ed5df4c945dc98d65b8f57ec191, type: 3}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -5, y: -16, z: 0}
@@ -21383,7 +21384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   mouseSensitivity: 10
-  bulletImpact: {fileID: 3599007365352187487, guid: 6b234b5f964774848bab788a6b423d94, type: 3}
+  bulletImpact: {fileID: 149344, guid: 617378de28fbaa64c96485d5b0d9169b, type: 3}
   maxHealth: 200
   health: 100
   goldAmount: 50
@@ -21393,6 +21394,8 @@ MonoBehaviour:
   deadScreen: {fileID: 698893121}
   playerTakeHitScreen: {fileID: 855508695}
   climbSpeed: 2
+  muzzleFlash: {fileID: 145172, guid: dbc886d3433d6aa4786fa9807aed6a71, type: 3}
+  muzzleFlashPoint: {fileID: 2145224898}
 --- !u!50 &2004718025
 Rigidbody2D:
   serializedVersion: 5
@@ -21478,6 +21481,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &2145224897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2145224898}
+  m_Layer: 5
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2145224898
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145224897}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 767480061}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
