@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
 
     public GameObject deadScreen;
+    public GameObject winScreen;
     public GameObject playerTakeHitScreen;
 
     private bool hasDied;
@@ -147,6 +148,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Level_Pass_Trigger"))
+        {
+            LevelPassed();
+        }
+    }
+
     public void TakeDamage(int damageAmount)
     {
         if (health - damageAmount > 0)
@@ -205,5 +214,11 @@ public class PlayerController : MonoBehaviour
             isOnLadder = false;
             currentLadder = null;
         }
+    }
+
+    private void LevelPassed()
+    {
+        winScreen.SetActive(true);
+        hasDied = true;
     }
 }

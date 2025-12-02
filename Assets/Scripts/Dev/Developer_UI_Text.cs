@@ -30,6 +30,10 @@ public class Developer_UI_Text : MonoBehaviour
         {
             text.text = "Enemies: " + PlayerPrefs.GetInt("KilledEnemies").ToString() + " / " + PlayerPrefs.GetInt("TotalEnemyCount").ToString();
         }
+        else if (currencyName == "killedEnemies")
+        {
+            text.text = "Enemies Killed: " + PlayerPrefs.GetInt("KilledEnemies").ToString();
+        }
         else
         {
             Debug.LogWarning("No such thing as " + currencyName);
