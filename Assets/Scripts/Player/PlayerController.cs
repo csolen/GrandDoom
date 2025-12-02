@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        ShowCursorInEditor(false);
         instance = this;
 
         viewCam = Camera.main;
@@ -168,6 +169,8 @@ public class PlayerController : MonoBehaviour
         {
             deadScreen.SetActive(true);
             hasDied = true;
+
+            ShowCursorInEditor(true);
         }
     }
 
@@ -220,5 +223,24 @@ public class PlayerController : MonoBehaviour
     {
         winScreen.SetActive(true);
         hasDied = true;
+
+        ShowCursorInEditor(true);
+    }
+
+
+    private void ShowCursorInEditor(bool state)
+    {
+#if UNITY_EDITOR
+        if (state)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+#endif
     }
 }
