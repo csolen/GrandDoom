@@ -34,6 +34,10 @@ public class Developer_UI_Text : MonoBehaviour
         {
             text.text = "Enemies Killed: " + PlayerPrefs.GetInt("KilledEnemies").ToString();
         }
+        else if (currencyName == "xp")
+        {
+            text.text = "Xp: " + PlayerPrefs.GetInt("Roguelike_Xp").ToString() + " / " + 100;
+        }
         else
         {
             Debug.LogWarning("No such thing as " + currencyName);

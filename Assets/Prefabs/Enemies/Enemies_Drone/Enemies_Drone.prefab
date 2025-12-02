@@ -422,6 +422,7 @@ MonoBehaviour:
   stuckPositionThreshold: 0.02
   stuckCheckDelay: 0.4
   unstuckDuration: 0.5
+  xpGive: 10
 --- !u!1 &6487870602573874538
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,5 +9,6 @@ public class Loader : MonoBehaviour
 
         PlayerPrefs.SetInt("TotalEnemyCount", 0);
         PlayerPrefs.SetInt("KilledEnemies", 0);
+        PlayerPrefs.SetInt("Rouglike_Xp", 0);
     }
 }

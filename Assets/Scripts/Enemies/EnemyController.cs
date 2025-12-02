@@ -45,6 +45,9 @@ public class EnemyController : MonoBehaviour
     public float stuckCheckDelay = 0.4f;
     public float unstuckDuration = 0.5f;
 
+    [Header("Xp")]
+    public int xpGive = 10;
+
     private EnemyState currentState = EnemyState.Wandering;
     private Vector2 moveDirection;
     private Vector2 lastPosition;
@@ -325,6 +328,10 @@ public class EnemyController : MonoBehaviour
             int killedEnemyCount = PlayerPrefs.GetInt("KilledEnemies");
             killedEnemyCount++;
             PlayerPrefs.SetInt("KilledEnemies", killedEnemyCount);
+
+            int xp = PlayerPrefs.GetInt("Roguelike_Xp");
+            xp += xpGive;
+            PlayerPrefs.SetInt("Roguelike_Xp", xp);
 
             Destroy(gameObject);
         }
