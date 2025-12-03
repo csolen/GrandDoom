@@ -85,7 +85,6 @@ public class EnemyController : MonoBehaviour
         shotCounter = fireRate;
         lastPosition = rb.position;
 
-
         enemyCount = PlayerPrefs.GetInt("TotalEnemyCount", 0);
         enemyCount++;
         PlayerPrefs.SetInt("TotalEnemyCount", enemyCount);
@@ -101,11 +100,7 @@ public class EnemyController : MonoBehaviour
                 return;
         }
 
-        if (PlayerPrefs.GetInt("ShouldStopTheGame") == 1)
-        {
-            anim.SetTrigger("shouldIdle");
-            return;
-        }
+        ShouldStopTheGame();
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
@@ -134,13 +129,7 @@ public class EnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (PlayerPrefs.GetInt("ShouldStopTheGame") == 1)
-
-        {
-
-            anim.SetTrigger("shouldIdle");
-            return;
-        }
+        ShouldStopTheGame();
 
         float speed = (currentState == EnemyState.Chasing) ? chaseSpeed : wanderSpeed;
 
@@ -213,10 +202,7 @@ public class EnemyController : MonoBehaviour
                 if (!isAttacking)
                 {
                     isAttacking = true;
-                    anim.ResetTrigger("shouldIdle");
-                    anim.ResetTrigger("shouldWalk");
-                    anim.ResetTrigger("shouldChase");
-                    anim.ResetTrigger("shouldAttack");
+                    ResetTriggers();
                     anim.SetTrigger("shouldAttack");
                 }
             }
@@ -325,11 +311,7 @@ public class EnemyController : MonoBehaviour
     public void TakeDamage()
     {
         EnemyHealth--;
-
-        anim.ResetTrigger("shouldIdle");
-        anim.ResetTrigger("shouldWalk");
-        anim.ResetTrigger("shouldChase");
-        anim.ResetTrigger("shouldAttack");
+        ResetTriggers();
         anim.SetTrigger("shouldTakeDamage");
 
         if (EnemyHealth <= 0)
@@ -348,6 +330,23 @@ public class EnemyController : MonoBehaviour
             PlayerPrefs.SetInt("Roguelike_Xp", xp);
 
             Destroy(gameObject);
+        }
+    }
+
+    private void ResetTriggers()
+    {
+        anim.ResetTrigger("shouldIdle");
+        anim.ResetTrigger("shouldWalk");
+        anim.ResetTrigger("shouldChase");
+        anim.ResetTrigger("shouldAttack");
+    }
+
+    private void ShouldStopTheGame()
+    {
+        if (PlayerPrefs.GetInt("ShouldStopTheGame") == 1)
+        {
+            anim.SetTrigger("shouldIdle");
+            return;
         }
     }
 }
