@@ -5,23 +5,33 @@ public enum SkillType
     Damage,
     AttackSpeed,
     MoveSpeed,
-    MaxAmmo,
     Health,
+    MaxAmmo,
     Custom
 }
 
-[CreateAssetMenu(menuName = "Skills", fileName = "NewSkill")]
+public enum SkillRarity
+{
+    Common,
+    Rare,
+    Legendary
+}
+
+[CreateAssetMenu(menuName = "MyGame/Skill", fileName = "NewSkill")]
 public class SkillData : ScriptableObject
 {
-    [Header("Genel")]
-    public string id; 
+    [Header("General")]
+    public string id;
     public string displayName;
     [TextArea] public string description;
 
-    [Header("Görsel")]
+    [Header("Visual")]
     public Sprite icon;
 
-    [Header("Değerler")]
+    [Header("Values")]
     public SkillType type;
-    public float value; 
+    public float value;
+
+    [Header("Rarity")]
+    public SkillRarity rarity = SkillRarity.Common;
 }

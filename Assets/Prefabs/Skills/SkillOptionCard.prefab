@@ -443,6 +443,8 @@ MonoBehaviour:
   iconImage: {fileID: 4668361947791790361}
   titleText: {fileID: 6681223036574063582}
   descriptionText: {fileID: 4959098337715685574}
+  rarityText: {fileID: 2698718835461676382}
+  backgroundImage: {fileID: 1011270223073869662}
   selectButton: {fileID: 5795505013737982583}
 --- !u!114 &5795505013737982583
 MonoBehaviour:

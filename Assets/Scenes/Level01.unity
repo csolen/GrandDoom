@@ -2743,7 +2743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8ec3aa7169b4d6a8e6998262229fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xpThreshold: 10
+  xpThreshold: 100
   selectionPanel: {fileID: 2143053363}
   cardsParent: {fileID: 1150719577}
   cardPrefab: {fileID: 140196888336656928, guid: 988d7743a2d2549308ccbf55a651c729, type: 3}

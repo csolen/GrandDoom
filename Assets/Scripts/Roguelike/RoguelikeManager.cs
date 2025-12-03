@@ -15,10 +15,9 @@ public class RoguelikeManager : MonoBehaviour
     public List<SkillData> allSkills;
 
     private bool isMenuOpen = false;
-    private readonly List<SkillOptionUI> spawnedCards = new List<SkillOptionUI>();
+    private readonly List<SkillOptionUI> spawnedCards = new();
 
     public GameObject delayerImg;
-
 
     private void Update()
     {
@@ -33,7 +32,6 @@ public class RoguelikeManager : MonoBehaviour
             delayerImg.SetActive(true);
             OpenSelectionMenu();
         }
-
     }
 
     private void ClickDelayer()
@@ -45,16 +43,13 @@ public class RoguelikeManager : MonoBehaviour
     {
         isMenuOpen = true;
 
-        Invoke(nameof(ClickDelayer), 1f);
+        Invoke(nameof(ClickDelayer), .45f);
 
         PlayerPrefs.SetInt("ShouldStopTheGame", 1);
-
-        //Time.timeScale = 0f;
 
         ShowCursorInEditor(true);
 
         selectionPanel.SetActive(true);
-
         RollCards();
     }
 
@@ -62,10 +57,7 @@ public class RoguelikeManager : MonoBehaviour
     {
         selectionPanel.SetActive(false);
 
-
         PlayerPrefs.SetInt("ShouldStopTheGame", 0);
-
-        //Time.timeScale = 1f;
 
         isMenuOpen = false;
 
@@ -85,7 +77,7 @@ public class RoguelikeManager : MonoBehaviour
 
     private void SpawnRandomSkillCards(int count)
     {
-        List<SkillData> pool = new List<SkillData>(allSkills);
+        List<SkillData> pool = new(allSkills);
 
         int finalCount = Mathf.Min(count, pool.Count);
 
