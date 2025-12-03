@@ -2748,9 +2748,21 @@ MonoBehaviour:
   cardsParent: {fileID: 1150719577}
   cardPrefab: {fileID: 140196888336656928, guid: 988d7743a2d2549308ccbf55a651c729, type: 3}
   allSkills:
+  - {fileID: 11400000, guid: 10585f92f3a554cb9aab834db2655246, type: 2}
+  - {fileID: 11400000, guid: 61a9352de0e104af88cb4777ac5d3c0c, type: 2}
+  - {fileID: 11400000, guid: 4e9bdb68f71644a0ca37b16dc75cba09, type: 2}
+  - {fileID: 11400000, guid: f4a430e10b3434a7294efac2d76d62ac, type: 2}
+  - {fileID: 11400000, guid: fbe71347683e444e491ff6aefacbd647, type: 2}
+  - {fileID: 11400000, guid: b01028fafc1884050a7d874627a647b0, type: 2}
+  - {fileID: 11400000, guid: cb28d648e48c94c8b9a619caa0308600, type: 2}
+  - {fileID: 11400000, guid: 8cf3335f94bfd4ba5a309a8cba2d94d0, type: 2}
+  - {fileID: 11400000, guid: 7142c676c64764fe5b7320c61aebb61b, type: 2}
+  - {fileID: 11400000, guid: 71f97ff47541e419bbfe433e6e91f056, type: 2}
+  - {fileID: 11400000, guid: b3806f80b9ff84390982446323f71c74, type: 2}
+  - {fileID: 11400000, guid: 570e7db9cfcd44b89ba981a197eaee07, type: 2}
   - {fileID: 11400000, guid: e0c7bb4844a9d4029a617303deb23605, type: 2}
-  - {fileID: 11400000, guid: f0194d691aa65496b802118708388374, type: 2}
-  - {fileID: 11400000, guid: ed68e495fa45d4541bda46cc92720ede, type: 2}
+  - {fileID: 11400000, guid: 1626cfbc068af4a05a6ed0c283a8303c, type: 2}
+  - {fileID: 11400000, guid: 0d57ce8b1ec904e6c99a1fbfc08f52b2, type: 2}
   delayerImg: {fileID: 1620958445}
 --- !u!1 &855508695
 GameObject:

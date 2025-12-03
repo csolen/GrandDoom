@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1075b986a655c4eaa96d8e7bc5a76bee, type: 3}
-  m_Name: Skills_Max_Ammo_15
+  m_Name: Skills_Max_Ammo_Lv_1
   m_EditorClassIdentifier: 
-  id: add_ammo_15
-  displayName: Add Ammo +15
-  description: Increases maximum ammo amount by +15
+  id: max_ammo_lv_1
+  displayName: Increase Max Ammo %5
+  description: Increases maximum ammo by +%5
   icon: {fileID: 21300000, guid: 82be8bf3268a3124c988b3d9b4154c48, type: 3}
-  type: 3
-  value: 15
-  rarity: 2
-  rarityColor: {r: 1, g: 1, b: 1, a: 1}
+  type: 4
+  value: 5
+  rarity: 0
+  levelGroupId: Max_Ammo
+  levelIndex: 1
+  maxLevel: 5

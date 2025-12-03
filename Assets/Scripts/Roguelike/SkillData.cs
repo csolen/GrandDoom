@@ -34,4 +34,9 @@ public class SkillData : ScriptableObject
 
     [Header("Rarity")]
     public SkillRarity rarity = SkillRarity.Common;
+
+    [Header("Level")]
+    public string levelGroupId;
+    public int levelIndex = 1;
+    public int maxLevel = 1;
 }
