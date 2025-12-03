@@ -19,6 +19,6 @@ MonoBehaviour:
   type: 1
   value: 9
   rarity: 2
-  levelGroupId: Max_Health
+  levelGroupId: Attack_Speed
   levelIndex: 3
   maxLevel: 3

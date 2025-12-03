@@ -40,6 +40,8 @@ public class GameTester : MonoBehaviour
         ReloadAmmo();
 
         GivePlayerHealth();
+
+        OpenSkillsSelectionPanel();
     }
 
     private void OpenTileMapsWhenGameStarts()
@@ -139,6 +141,14 @@ public class GameTester : MonoBehaviour
         {
             PlayerController.instance.health = PlayerController.instance.maxHealth;
             PlayerController.instance.goldAmount = 100;
+        }
+    }
+
+    private void OpenSkillsSelectionPanel()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            PlayerPrefs.SetInt("Roguelike_Xp", 10000);
         }
     }
 }

@@ -14,12 +14,29 @@ public class RoguelikeManager : MonoBehaviour
     [Header("Skill Pool")]
     public List<SkillData> allSkills;
 
-    private bool isMenuOpen = false;
-    private readonly List<SkillOptionUI> spawnedCards = new();
-
     public GameObject delayerImg;
 
-    private void Update()
+    bool isMenuOpen;
+    readonly List<SkillOptionUI> spawnedCards = new();
+
+    private void Awake()
+    {
+        ResetAllSkillLevels();
+    }
+
+    private void ResetAllSkillLevels()
+    {
+        foreach (var skill in allSkills)
+        {
+            if (!string.IsNullOrEmpty(skill.levelGroupId))
+            {
+                string key = "SkillLevel_" + skill.levelGroupId;
+                PlayerPrefs.SetInt(key, 0);
+            }
+        }
+    }
+
+    void Update()
     {
         if (isMenuOpen) return;
 
@@ -34,7 +51,7 @@ public class RoguelikeManager : MonoBehaviour
         }
     }
 
-    private void ClickDelayer()
+    void ClickDelayer()
     {
         delayerImg.SetActive(false);
     }
@@ -43,7 +60,7 @@ public class RoguelikeManager : MonoBehaviour
     {
         isMenuOpen = true;
 
-        Invoke(nameof(ClickDelayer), .45f);
+        Invoke(nameof(ClickDelayer), 0.45f);
 
         PlayerPrefs.SetInt("ShouldStopTheGame", 1);
 
@@ -65,7 +82,7 @@ public class RoguelikeManager : MonoBehaviour
         ClearOldCards();
     }
 
-    private void ClearOldCards()
+    void ClearOldCards()
     {
         foreach (var card in spawnedCards)
         {
@@ -75,9 +92,58 @@ public class RoguelikeManager : MonoBehaviour
         spawnedCards.Clear();
     }
 
-    private void SpawnRandomSkillCards(int count)
+    List<SkillData> GetAvailableSkills()
     {
-        List<SkillData> pool = new(allSkills);
+        List<SkillData> result = new();
+
+        foreach (var skill in allSkills)
+        {
+            if (CanSpawnSkill(skill))
+                result.Add(skill);
+        }
+
+        return result;
+    }
+
+    bool CanSpawnSkill(SkillData skill)
+    {
+        if (skill == null) return false;
+
+        if (string.IsNullOrEmpty(skill.levelGroupId))
+            return true;
+
+        int currentLevel = GetCurrentLevel(skill.levelGroupId);
+
+        if (currentLevel >= skill.maxLevel)
+            return false;
+
+        if (currentLevel <= 0)
+            return skill.levelIndex == 1;
+
+        return skill.levelIndex == currentLevel + 1;
+    }
+
+
+    int GetCurrentLevel(string groupId)
+    {
+        string key = "SkillLevel_" + groupId;
+        return PlayerPrefs.GetInt(key, 0);
+    }
+
+    void SetCurrentLevel(string groupId, int newLevel)
+    {
+        string key = "SkillLevel_" + groupId;
+        PlayerPrefs.SetInt(key, newLevel);
+    }
+
+    void SpawnRandomSkillCards(int count)
+    {
+        List<SkillData> pool = GetAvailableSkills();
+        if (pool.Count == 0)
+        {
+            CloseSelectionMenu();
+            return;
+        }
 
         int finalCount = Mathf.Min(count, pool.Count);
 
@@ -94,34 +160,36 @@ public class RoguelikeManager : MonoBehaviour
         }
     }
 
-    private void OnSkillSelected(SkillData chosenSkill)
+    void OnSkillSelected(SkillData chosenSkill)
     {
+        if (!string.IsNullOrEmpty(chosenSkill.levelGroupId))
+        {
+            int currentLevel = GetCurrentLevel(chosenSkill.levelGroupId);
+            if (chosenSkill.levelIndex > currentLevel)
+                SetCurrentLevel(chosenSkill.levelGroupId, chosenSkill.levelIndex);
+        }
+
         ApplySkillToPlayer(chosenSkill);
         CloseSelectionMenu();
     }
 
-    private void ApplySkillToPlayer(SkillData skill)
+    void ApplySkillToPlayer(SkillData skill)
     {
         switch (skill.type)
         {
             case SkillType.Health:
-                //PlayerController.instance.addHealth((int)skill.value);
                 break;
 
             case SkillType.MoveSpeed:
-                // PlayerController.instance.AddMoveSpeed(skill.value);
                 break;
 
             case SkillType.Damage:
-                // PlayerController.instance.AddDamage(skill.value);
                 break;
 
             case SkillType.AttackSpeed:
-                // PlayerController.instance.AddAttackSpeed(skill.value);
                 break;
 
             case SkillType.MaxAmmo:
-                // PlayerController.instance.AddAttackSpeed(skill.value);
                 break;
 
             case SkillType.Custom:
@@ -135,7 +203,7 @@ public class RoguelikeManager : MonoBehaviour
         SpawnRandomSkillCards(3);
     }
 
-    private void ShowCursorInEditor(bool state)
+    void ShowCursorInEditor(bool state)
     {
 #if UNITY_EDITOR
         if (state)
