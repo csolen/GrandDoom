@@ -101,6 +101,12 @@ public class EnemyController : MonoBehaviour
                 return;
         }
 
+        if (PlayerPrefs.GetInt("ShouldStopTheGame") == 1)
+        {
+            anim.SetTrigger("shouldIdle");
+            return;
+        }
+
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
         switch (currentState)
@@ -128,6 +134,14 @@ public class EnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (PlayerPrefs.GetInt("ShouldStopTheGame") == 1)
+
+        {
+
+            anim.SetTrigger("shouldIdle");
+            return;
+        }
+
         float speed = (currentState == EnemyState.Chasing) ? chaseSpeed : wanderSpeed;
 
         if (moveDirection.sqrMagnitude < 0.01f)

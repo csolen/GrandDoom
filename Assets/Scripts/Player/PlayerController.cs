@@ -69,6 +69,11 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        if (PlayerPrefs.GetInt("ShouldStopTheGame") == 1)
+        {
+            return;
+        }
+
         moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
         Vector3 moveHorizontal = transform.up * -moveInput.x;

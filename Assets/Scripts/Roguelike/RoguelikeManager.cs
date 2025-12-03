@@ -17,6 +17,9 @@ public class RoguelikeManager : MonoBehaviour
     private bool isMenuOpen = false;
     private readonly List<SkillOptionUI> spawnedCards = new List<SkillOptionUI>();
 
+    public GameObject delayerImg;
+
+
     private void Update()
     {
         if (isMenuOpen) return;
@@ -26,29 +29,44 @@ public class RoguelikeManager : MonoBehaviour
         if (xpCalculator >= xpThreshold)
         {
             PlayerPrefs.SetInt("Roguelike_Xp", 0);
+
+            delayerImg.SetActive(true);
             OpenSelectionMenu();
         }
+
+    }
+
+    private void ClickDelayer()
+    {
+        delayerImg.SetActive(false);
     }
 
     public void OpenSelectionMenu()
     {
         isMenuOpen = true;
 
-        Time.timeScale = 0f;
+        Invoke(nameof(ClickDelayer), 1f);
+
+        PlayerPrefs.SetInt("ShouldStopTheGame", 1);
+
+        //Time.timeScale = 0f;
 
         ShowCursorInEditor(true);
 
         selectionPanel.SetActive(true);
 
-        ClearOldCards();
-
-        SpawnRandomSkillCards(3);
+        RollCards();
     }
 
     public void CloseSelectionMenu()
     {
         selectionPanel.SetActive(false);
-        Time.timeScale = 1f;
+
+
+        PlayerPrefs.SetInt("ShouldStopTheGame", 0);
+
+        //Time.timeScale = 1f;
+
         isMenuOpen = false;
 
         ShowCursorInEditor(false);
@@ -119,6 +137,11 @@ public class RoguelikeManager : MonoBehaviour
         }
     }
 
+    public void RollCards()
+    {
+        ClearOldCards();
+        SpawnRandomSkillCards(3);
+    }
 
     private void ShowCursorInEditor(bool state)
     {
