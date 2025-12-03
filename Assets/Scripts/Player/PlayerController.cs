@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour
 
         if (PlayerPrefs.GetInt("ShouldStopTheGame") == 1)
         {
+            rb.linearVelocity = Vector2.zero;
             return;
         }
 
@@ -231,7 +232,6 @@ public class PlayerController : MonoBehaviour
 
         ShowCursorInEditor(true);
     }
-
 
     private void ShowCursorInEditor(bool state)
     {
