@@ -1,7 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System;
 
 public class SkillOptionUI : MonoBehaviour
 {
@@ -12,50 +12,88 @@ public class SkillOptionUI : MonoBehaviour
     public Image backgroundImage;
     public Button selectButton;
 
-    SkillData _skillData;
-    Action<SkillData> _onSelected;
+    public Image[] starImages;
+    public Sprite fullStarSprite;
 
-    public void Setup(SkillData data, Action<SkillData> onSelected)
+    SkillData skillData;
+    Action<SkillData> onSelected;
+
+    public void Setup(SkillData data, int currentLevel, Action<SkillData> onSelected)
     {
-        _skillData = data;
-        _onSelected = onSelected;
+        skillData = data;
+        this.onSelected = onSelected;
 
-        if (iconImage != null) iconImage.sprite = data.icon;
-        if (titleText != null) titleText.text = data.displayName;
-        if (descriptionText != null) descriptionText.text = data.description;
+        iconImage.sprite = data.icon;
+        titleText.text = data.displayName;
+        descriptionText.text = data.description;
 
         Color rarityColor = GetColorForRarity(data.rarity);
+        rarityText.text = data.rarity.ToString();
+        rarityText.color = rarityColor;
 
-        if (rarityText != null)
-        {
-            rarityText.text = data.rarity.ToString();
-            rarityText.color = rarityColor;
-        }
-
-        if (backgroundImage != null)
-        {
-            Color c = rarityColor;
-            c.a = 0.35f;
-            backgroundImage.color = c;
-        }
+        Color c = rarityColor;
+        c.a = 0.35f;
+        backgroundImage.color = c;
 
         selectButton.onClick.RemoveAllListeners();
         selectButton.onClick.AddListener(OnClick);
+
+        SetupStars(data, currentLevel);
+    }
+
+    void SetupStars(SkillData data, int currentLevel)
+    {
+        if (string.IsNullOrEmpty(data.levelGroupId))
+        {
+            for (int i = 0; i < starImages.Length; i++)
+                starImages[i].gameObject.SetActive(false);
+
+            return;
+        }
+
+        int maxStars = Mathf.Clamp(data.maxLevel, 1, starImages.Length);
+
+        if (currentLevel <= 0)
+        {
+            for (int i = 0; i < starImages.Length; i++)
+                starImages[i].gameObject.SetActive(false);
+
+            return;
+        }
+
+        int clampedLevel = Mathf.Clamp(currentLevel, 0, maxStars);
+
+        for (int i = 0; i < starImages.Length; i++)
+        {
+            if (i >= maxStars)
+            {
+                starImages[i].gameObject.SetActive(false);
+                continue;
+            }
+
+            starImages[i].gameObject.SetActive(true);
+
+            if (i < clampedLevel)
+                starImages[i].sprite = fullStarSprite;
+        }
     }
 
     Color GetColorForRarity(SkillRarity rarity)
     {
         switch (rarity)
         {
-            case SkillRarity.Common: return Color.blue;
-            case SkillRarity.Rare: return Color.green;
-            case SkillRarity.Legendary: return Color.yellow;
+            case SkillRarity.Common:
+                return Color.blue;
+            case SkillRarity.Rare:
+                return Color.green;
+            case SkillRarity.Legendary:
+                return Color.yellow;
         }
         return Color.white;
     }
 
     void OnClick()
     {
-        _onSelected?.Invoke(_skillData);
+        onSelected(skillData);
     }
 }

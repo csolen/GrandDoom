@@ -154,7 +154,12 @@ public class RoguelikeManager : MonoBehaviour
             pool.RemoveAt(index);
 
             SkillOptionUI card = Instantiate(cardPrefab, cardsParent);
-            card.Setup(chosenSkill, OnSkillSelected);
+
+            int currentLevel = string.IsNullOrEmpty(chosenSkill.levelGroupId)
+                ? 0
+                : GetCurrentLevel(chosenSkill.levelGroupId);
+
+            card.Setup(chosenSkill, currentLevel, OnSkillSelected);
 
             spawnedCards.Add(card);
         }
