@@ -339,10 +339,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -403,8 +403,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 1
-  EnemyHealth: 3
+  EnemyHealth: 100
   deathAnim: {fileID: 6911088536147646728, guid: 6d8cf0e1132264b6982117aa75c3ba77, type: 3}
+  enemyDamage: 15
   anim: {fileID: 5285022621085959212}
   wanderSpeed: 1.5
   chaseSpeed: 2.3
@@ -414,7 +415,7 @@ MonoBehaviour:
   rangedStopDistance: 4
   turnSpeed: 3
   wanderChangeTime: 2.2
-  shouldShoot: 0
+  shouldShoot: 1
   bullet: {fileID: 896349609577071788, guid: 355ef1c6fdeb54b89ab064374eedf813, type: 3}
   firePoint: {fileID: 2088578830710004202}
   fireRate: 0.5
@@ -422,6 +423,10 @@ MonoBehaviour:
   stuckPositionThreshold: 0.02
   stuckCheckDelay: 0.4
   unstuckDuration: 0.5
+  xpGive: 10
+  ammoPrefab: {fileID: 8028448484693758585, guid: 102c91ba9961f41dcb7eded5ef4dd5cb, type: 3}
+  healthPrefab: {fileID: 3441535354856443318, guid: 6c0a2593347274d4590d03bceffc2876, type: 3}
+  dropChance: 0.2
 --- !u!1 &6487870602573874538
 GameObject:
   m_ObjectHideFlags: 0

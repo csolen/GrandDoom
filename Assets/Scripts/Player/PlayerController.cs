@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public int goldAmount = 50;
     public int ammoAmount = 15;
     public int maxAmmoAmount = 60;
+    public int playerDamage = 40;
 
     public Animator gunAnim;
     private Animator anim;
@@ -45,8 +46,12 @@ public class PlayerController : MonoBehaviour
     public float camLimiterYMin = 40f;
     public float camLimiterYMax = 120f;
 
+    public int lifeStealAmount = 10;
+    public float lifeStealChance = 0.1f;
+
     private void Awake()
     {
+        ShowCursorInEditor(false);
         instance = this;
 
         viewCam = Camera.main;
@@ -58,13 +63,19 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        health = maxHealth;
+        //health = maxHealth;
     }
 
     private void Update()
     {
         if (hasDied)
         {
+            return;
+        }
+
+        if (PlayerPrefs.GetInt("ShouldStopTheGame") == 1)
+        {
+            rb.linearVelocity = Vector2.zero;
             return;
         }
 
@@ -168,6 +179,8 @@ public class PlayerController : MonoBehaviour
         {
             deadScreen.SetActive(true);
             hasDied = true;
+
+            ShowCursorInEditor(true);
         }
     }
 
@@ -178,6 +191,16 @@ public class PlayerController : MonoBehaviour
         if (health > maxHealth)
         {
             health = maxHealth;
+        }
+    }
+
+    public void AddAmmo(int aAmount)
+    {
+        ammoAmount += aAmount;
+
+        if (ammoAmount > maxAmmoAmount)
+        {
+            ammoAmount = maxAmmoAmount;
         }
     }
 
@@ -220,5 +243,40 @@ public class PlayerController : MonoBehaviour
     {
         winScreen.SetActive(true);
         hasDied = true;
+
+        ShowCursorInEditor(true);
     }
+
+    private void ShowCursorInEditor(bool state)
+    {
+#if UNITY_EDITOR
+        if (state)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+#endif
+    }
+
+    public int IncreaseByPercent(int value, int percent)
+    {
+        float result = value * (1f + percent / 100f);
+        return Mathf.RoundToInt(result);
+    }
+
+    public float IncreaseByPercent(float value, float percent)
+    {
+        return value * (1f + percent / 100f);
+    }
+
+    public void ChangeEnemyDropChance()
+    {
+
+    }
+
 }

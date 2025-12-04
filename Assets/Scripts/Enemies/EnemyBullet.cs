@@ -27,7 +27,6 @@ public class EnemyBullet : MonoBehaviour
         rb.linearVelocity = direction * bulletSpeed;
     }
 
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -43,4 +42,5 @@ public class EnemyBullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }

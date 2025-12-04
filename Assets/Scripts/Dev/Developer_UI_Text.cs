@@ -16,7 +16,7 @@ public class Developer_UI_Text : MonoBehaviour
     {
         if (currencyName == "health")
         {
-            text.text = "Health: " + PlayerController.instance.health.ToString();
+            text.text = "Health: " + PlayerController.instance.health.ToString() + " / " + PlayerController.instance.maxHealth.ToString();
         }
         else if (currencyName == "gold")
         {
@@ -24,7 +24,7 @@ public class Developer_UI_Text : MonoBehaviour
         }
         else if (currencyName == "ammo")
         {
-            text.text = "Ammo: " + PlayerController.instance.ammoAmount.ToString();
+            text.text = "Ammo: " + PlayerController.instance.ammoAmount.ToString() + " / " + PlayerController.instance.maxAmmoAmount.ToString();
         }
         else if (currencyName == "enemies")
         {
@@ -33,6 +33,10 @@ public class Developer_UI_Text : MonoBehaviour
         else if (currencyName == "killedEnemies")
         {
             text.text = "Enemies Killed: " + PlayerPrefs.GetInt("KilledEnemies").ToString();
+        }
+        else if (currencyName == "xp")
+        {
+            text.text = "Xp: " + PlayerPrefs.GetInt("Roguelike_Xp").ToString() + " / " + PlayerPrefs.GetInt("Roguelike_Required_Xp").ToString();
         }
         else
         {

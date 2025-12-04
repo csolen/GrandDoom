@@ -7,8 +7,9 @@ public class EnemyController : MonoBehaviour
 
     [Header("General")]
     public EnemyType enemyType = EnemyType.Melee;
-    public int EnemyHealth = 3;
+    public int EnemyHealth = 100;
     public GameObject deathAnim;
+    public int enemyDamage = 5;
 
     [Header("References")]
     private Transform player;
@@ -44,6 +45,15 @@ public class EnemyController : MonoBehaviour
     public float stuckPositionThreshold = 0.02f;
     public float stuckCheckDelay = 0.4f;
     public float unstuckDuration = 0.5f;
+
+    [Header("Xp")]
+    public int xpGive = 10;
+
+    [Header("Drops")]
+    public GameObject ammoPrefab;
+    public GameObject healthPrefab;
+    public float dropChance = 0.2f;
+
 
     private EnemyState currentState = EnemyState.Wandering;
     private Vector2 moveDirection;
@@ -82,7 +92,6 @@ public class EnemyController : MonoBehaviour
         shotCounter = fireRate;
         lastPosition = rb.position;
 
-
         enemyCount = PlayerPrefs.GetInt("TotalEnemyCount", 0);
         enemyCount++;
         PlayerPrefs.SetInt("TotalEnemyCount", enemyCount);
@@ -97,6 +106,8 @@ public class EnemyController : MonoBehaviour
             else
                 return;
         }
+
+        ShouldStopTheGame();
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
@@ -125,6 +136,8 @@ public class EnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        ShouldStopTheGame();
+
         float speed = (currentState == EnemyState.Chasing) ? chaseSpeed : wanderSpeed;
 
         if (moveDirection.sqrMagnitude < 0.01f)
@@ -196,10 +209,7 @@ public class EnemyController : MonoBehaviour
                 if (!isAttacking)
                 {
                     isAttacking = true;
-                    anim.ResetTrigger("shouldIdle");
-                    anim.ResetTrigger("shouldWalk");
-                    anim.ResetTrigger("shouldChase");
-                    anim.ResetTrigger("shouldAttack");
+                    ResetTriggers();
                     anim.SetTrigger("shouldAttack");
                 }
             }
@@ -240,7 +250,10 @@ public class EnemyController : MonoBehaviour
             float angle = Mathf.Atan2(dirToPlayer.y, dirToPlayer.x) * Mathf.Rad2Deg;
             firePoint.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             anim.SetTrigger("shouldAttack");
-            Instantiate(bullet, firePoint.position, firePoint.rotation);
+
+            GameObject enemyBulletObj = Instantiate(bullet, firePoint.position, firePoint.rotation);
+            EnemyBullet enemyBulletSr = enemyBulletObj.GetComponent<EnemyBullet>();
+            enemyBulletSr.bulletDamage = enemyDamage;
             shotCounter = fireRate;
         }
     }
@@ -307,16 +320,19 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage()
     {
-        EnemyHealth--;
-
-        anim.ResetTrigger("shouldIdle");
-        anim.ResetTrigger("shouldWalk");
-        anim.ResetTrigger("shouldChase");
-        anim.ResetTrigger("shouldAttack");
+        EnemyHealth -= PlayerController.instance.playerDamage;
+        ResetTriggers();
         anim.SetTrigger("shouldTakeDamage");
 
         if (EnemyHealth <= 0)
         {
+            float lifeStealChance = PlayerController.instance.lifeStealChance;
+
+            if (Random.value <= lifeStealChance)
+            {
+                PlayerController.instance.AddHealth((PlayerController.instance.playerDamage / PlayerController.instance.lifeStealAmount));
+            }
+
             if (deathAnim != null)
             {
                 Instantiate(deathAnim, transform.position, transform.rotation);
@@ -326,7 +342,47 @@ public class EnemyController : MonoBehaviour
             killedEnemyCount++;
             PlayerPrefs.SetInt("KilledEnemies", killedEnemyCount);
 
+            int xp = PlayerPrefs.GetInt("Roguelike_Xp");
+            xp += xpGive;
+            PlayerPrefs.SetInt("Roguelike_Xp", xp);
+
+            if (Random.value <= dropChance)
+            {
+                GameObject drop = (Random.value < 0.5f) ? ammoPrefab : healthPrefab;
+                if (drop != null)
+                    Instantiate(drop, transform.position, Quaternion.identity);
+            }
+
             Destroy(gameObject);
+        }
+
+    }
+
+    public int IncreaseByPercent(int value, int percent)
+    {
+        float result = value * (1f + percent / 100f);
+        return Mathf.RoundToInt(result);
+    }
+
+    public float IncreaseByPercent(float value, float percent)
+    {
+        return value * (1f + percent / 100f);
+    }
+
+    private void ResetTriggers()
+    {
+        anim.ResetTrigger("shouldIdle");
+        anim.ResetTrigger("shouldWalk");
+        anim.ResetTrigger("shouldChase");
+        anim.ResetTrigger("shouldAttack");
+    }
+
+    private void ShouldStopTheGame()
+    {
+        if (PlayerPrefs.GetInt("ShouldStopTheGame") == 1)
+        {
+            anim.SetTrigger("shouldIdle");
+            return;
         }
     }
 }

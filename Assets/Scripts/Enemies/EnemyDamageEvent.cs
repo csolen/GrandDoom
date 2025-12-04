@@ -2,7 +2,14 @@ using UnityEngine;
 
 public class EnemyDamageEvent : MonoBehaviour
 {
-    public int enemyDamage = 5;
+    private int enemyDamage;
+    EnemyController enemyController;
+
+    private void Awake()
+    {
+        enemyController = GetComponentInParent<EnemyController>();
+        enemyDamage = enemyController.enemyDamage;
+    }
 
     public void DealMeleeDamage()
     {
