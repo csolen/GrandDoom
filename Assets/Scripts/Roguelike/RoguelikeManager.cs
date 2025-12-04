@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class RoguelikeManager : MonoBehaviour
 {
@@ -10,30 +11,22 @@ public class RoguelikeManager : MonoBehaviour
     public GameObject selectionPanel;
     public Transform cardsParent;
     public SkillOptionUI cardPrefab;
-
-    [Header("Skill Pool")]
-    public List<SkillData> allSkills;
-
     public GameObject delayerImg;
 
     bool isMenuOpen;
     readonly List<SkillOptionUI> spawnedCards = new();
 
+    [Header("Re-Roll Button")]
+    public GameObject reRollButton;
+    public TextMeshProUGUI reRollButtonText;
+    private int reRollCount = 0;
+
+    [Header("Skill Pool")]
+    public List<SkillData> allSkills;
+
     private void Awake()
     {
         ResetAllSkillLevels();
-    }
-
-    private void ResetAllSkillLevels()
-    {
-        foreach (var skill in allSkills)
-        {
-            if (!string.IsNullOrEmpty(skill.levelGroupId))
-            {
-                string key = "SkillLevel_" + skill.levelGroupId;
-                PlayerPrefs.SetInt(key, 0);
-            }
-        }
     }
 
     void Update()
@@ -48,6 +41,23 @@ public class RoguelikeManager : MonoBehaviour
 
             delayerImg.SetActive(true);
             OpenSelectionMenu();
+        }
+    }
+
+    private void ResetAllSkillLevels()
+    {
+        if (PlayerPrefs.GetInt("RerollButtonFreeState") == 0)
+        {
+            reRollButtonText.text = "Re-roll (1)";
+        }
+
+        foreach (var skill in allSkills)
+        {
+            if (!string.IsNullOrEmpty(skill.levelGroupId))
+            {
+                string key = "SkillLevel_" + skill.levelGroupId;
+                PlayerPrefs.SetInt(key, 0);
+            }
         }
     }
 
@@ -67,6 +77,16 @@ public class RoguelikeManager : MonoBehaviour
         ShowCursorInEditor(true);
 
         selectionPanel.SetActive(true);
+
+        if (reRollCount >= 2)
+        {
+            reRollButton.SetActive(false);
+        }
+        else
+        {
+            reRollButton.SetActive(true);
+        }
+
         RollCards();
     }
 
@@ -202,10 +222,24 @@ public class RoguelikeManager : MonoBehaviour
         }
     }
 
-    public void RollCards()
+    private void RollCards()
     {
         ClearOldCards();
         SpawnRandomSkillCards(3);
+    }
+
+    public void ReRollCardsButton()
+    {
+        reRollCount++;
+        reRollButtonText.text = "Re-roll " + "20 Golds";
+
+        if (reRollCount >= 2)
+        {
+            reRollButton.SetActive(false);
+            reRollCount = 1;
+        }
+
+        RollCards();
     }
 
     void ShowCursorInEditor(bool state)

@@ -2764,6 +2764,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1626cfbc068af4a05a6ed0c283a8303c, type: 2}
   - {fileID: 11400000, guid: 0d57ce8b1ec904e6c99a1fbfc08f52b2, type: 2}
   delayerImg: {fileID: 1620958445}
+  reRollButton: {fileID: 1317653354}
+  reRollButtonText: {fileID: 1495427050}
 --- !u!1 &855508695
 GameObject:
   m_ObjectHideFlags: 0
@@ -17031,7 +17033,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 843172690}
         m_TargetAssemblyTypeName: RoguelikeManager, Assembly-CSharp
-        m_MethodName: RollCards
+        m_MethodName: ReRollCardsButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
