@@ -2,12 +2,17 @@ using UnityEngine;
 
 public enum SkillType
 {
-    Damage,
-    AttackSpeed,
-    MoveSpeed,
-    Health,
+    MaxHealth,
     MaxAmmo,
-    Custom
+    CurrentHealth,
+    CurrentAmmo,
+    PlayerDamage,
+    PlayerMoveSpeed,
+    RequiredXpAmount,
+    EnemyDropChance,
+    EnemyDamage,
+    Lifesteal,
+    EnemySpeed
 }
 
 public enum SkillRarity

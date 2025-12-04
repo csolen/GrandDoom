@@ -2751,9 +2751,6 @@ MonoBehaviour:
   reRollButton: {fileID: 1317653354}
   reRollButtonText: {fileID: 1495427050}
   allSkills:
-  - {fileID: 11400000, guid: 10585f92f3a554cb9aab834db2655246, type: 2}
-  - {fileID: 11400000, guid: 61a9352de0e104af88cb4777ac5d3c0c, type: 2}
-  - {fileID: 11400000, guid: 4e9bdb68f71644a0ca37b16dc75cba09, type: 2}
   - {fileID: 11400000, guid: f4a430e10b3434a7294efac2d76d62ac, type: 2}
   - {fileID: 11400000, guid: fbe71347683e444e491ff6aefacbd647, type: 2}
   - {fileID: 11400000, guid: b01028fafc1884050a7d874627a647b0, type: 2}
@@ -2766,6 +2763,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e0c7bb4844a9d4029a617303deb23605, type: 2}
   - {fileID: 11400000, guid: 1626cfbc068af4a05a6ed0c283a8303c, type: 2}
   - {fileID: 11400000, guid: 0d57ce8b1ec904e6c99a1fbfc08f52b2, type: 2}
+  - {fileID: 11400000, guid: b77100484feda43c9b9427650eae0177, type: 2}
+  - {fileID: 11400000, guid: 7f5a57c25d4fd4c71a2b02500d92db6f, type: 2}
+  - {fileID: 11400000, guid: 8a0e64d992053495797086abcbfff836, type: 2}
 --- !u!1 &855508695
 GameObject:
   m_ObjectHideFlags: 0

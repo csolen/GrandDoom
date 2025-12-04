@@ -143,7 +143,6 @@ public class RoguelikeManager : MonoBehaviour
         return skill.levelIndex == currentLevel + 1;
     }
 
-
     int GetCurrentLevel(string groupId)
     {
         string key = "SkillLevel_" + groupId;
@@ -202,22 +201,38 @@ public class RoguelikeManager : MonoBehaviour
     {
         switch (skill.type)
         {
-            case SkillType.Health:
+            case SkillType.MaxHealth:
+                Debug.Log("Max Health");
                 break;
-
-            case SkillType.MoveSpeed:
-                break;
-
-            case SkillType.Damage:
-                break;
-
-            case SkillType.AttackSpeed:
-                break;
-
             case SkillType.MaxAmmo:
+                Debug.Log("Max Ammo");
                 break;
-
-            case SkillType.Custom:
+            case SkillType.CurrentHealth:
+                Debug.Log("Current Health");
+                break;
+            case SkillType.CurrentAmmo:
+                Debug.Log("Current Ammo");
+                break;
+            case SkillType.PlayerDamage:
+                Debug.Log("Player Damage");
+                break;
+            case SkillType.PlayerMoveSpeed:
+                Debug.Log("Player Move Speed");
+                break;
+            case SkillType.RequiredXpAmount:
+                Debug.Log("Required XP Amount");
+                break;
+            case SkillType.EnemyDropChance:
+                Debug.Log("Enemy Drop Chance");
+                break;
+            case SkillType.EnemyDamage:
+                Debug.Log("Enemy Damage");
+                break;
+            case SkillType.Lifesteal:
+                Debug.Log("LifeSteal");
+                break;
+            case SkillType.EnemySpeed:
+                Debug.Log("Enemy Speed");
                 break;
         }
     }

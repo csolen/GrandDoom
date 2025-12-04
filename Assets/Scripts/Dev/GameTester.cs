@@ -146,7 +146,7 @@ public class GameTester : MonoBehaviour
 
     private void OpenSkillsSelectionPanel()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.M) || Input.GetMouseButtonDown(1))
         {
             PlayerPrefs.SetInt("Roguelike_Xp", 10000);
         }
