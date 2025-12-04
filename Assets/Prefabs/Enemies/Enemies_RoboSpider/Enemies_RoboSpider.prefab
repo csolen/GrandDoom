@@ -134,7 +134,7 @@ MonoBehaviour:
   xpGive: 15
   ammoPrefab: {fileID: 8028448484693758585, guid: 102c91ba9961f41dcb7eded5ef4dd5cb, type: 3}
   healthPrefab: {fileID: 3441535354856443318, guid: 6c0a2593347274d4590d03bceffc2876, type: 3}
-  dropChance: 0.2
+  dropChance: 0.4
 --- !u!1 &2645754053760453086
 GameObject:
   m_ObjectHideFlags: 0
