@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public int goldAmount = 50;
     public int ammoAmount = 15;
     public int maxAmmoAmount = 60;
+    public int playerDamage = 40;
 
     public Animator gunAnim;
     private Animator anim;
@@ -59,7 +60,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        health = maxHealth;
+        //health = maxHealth;
     }
 
     private void Update()
@@ -190,6 +191,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void AddAmmo(int aAmount)
+    {
+        ammoAmount += aAmount;
+
+        if (ammoAmount > maxAmmoAmount)
+        {
+            ammoAmount = maxAmmoAmount;
+        }
+    }
+
     private void CloseHitAnimation()
     {
         playerTakeHitScreen.SetActive(false);
@@ -248,4 +259,21 @@ public class PlayerController : MonoBehaviour
         }
 #endif
     }
+
+    public int IncreaseByPercent(int value, int percent)
+    {
+        float result = value * (1f + percent / 100f);
+        return Mathf.RoundToInt(result);
+    }
+
+    public float IncreaseByPercent(float value, float percent)
+    {
+        return value * (1f + percent / 100f);
+    }
+
+    public void ChangeEnemyDropChance()
+    {
+
+    }
+
 }

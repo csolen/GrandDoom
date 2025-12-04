@@ -36,7 +36,7 @@ public class Developer_UI_Text : MonoBehaviour
         }
         else if (currencyName == "xp")
         {
-            text.text = "Xp: " + PlayerPrefs.GetInt("Roguelike_Xp").ToString() + " / " + 100;
+            text.text = "Xp: " + PlayerPrefs.GetInt("Roguelike_Xp").ToString() + " / " + PlayerPrefs.GetInt("Roguelike_Required_Xp").ToString();
         }
         else
         {

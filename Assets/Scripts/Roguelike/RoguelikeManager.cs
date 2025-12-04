@@ -51,6 +51,8 @@ public class RoguelikeManager : MonoBehaviour
             reRollButtonText.text = "Re-roll (1)";
         }
 
+        xpThreshold = PlayerPrefs.GetInt("Roguelike_Required_Xp", xpThreshold);
+
         foreach (var skill in allSkills)
         {
             if (!string.IsNullOrEmpty(skill.levelGroupId))
@@ -202,31 +204,41 @@ public class RoguelikeManager : MonoBehaviour
         switch (skill.type)
         {
             case SkillType.MaxHealth:
-                Debug.Log("Max Health");
+                PlayerController.instance.maxHealth = PlayerController.instance.IncreaseByPercent(PlayerController.instance.maxHealth, (int)skill.value);
                 break;
             case SkillType.MaxAmmo:
-                Debug.Log("Max Ammo");
+                PlayerController.instance.maxAmmoAmount = PlayerController.instance.IncreaseByPercent(PlayerController.instance.maxAmmoAmount, (int)skill.value);
                 break;
             case SkillType.CurrentHealth:
-                Debug.Log("Current Health");
+                PlayerController.instance.AddHealth((int)skill.value);
                 break;
             case SkillType.CurrentAmmo:
-                Debug.Log("Current Ammo");
+                PlayerController.instance.AddAmmo((int)skill.value);
                 break;
             case SkillType.PlayerDamage:
-                Debug.Log("Player Damage");
+                PlayerController.instance.playerDamage = PlayerController.instance.IncreaseByPercent(PlayerController.instance.playerDamage, (int)skill.value);
                 break;
             case SkillType.PlayerMoveSpeed:
-                Debug.Log("Player Move Speed");
+                PlayerController.instance.moveSpeed = PlayerController.instance.IncreaseByPercent(PlayerController.instance.moveSpeed, skill.value);
                 break;
             case SkillType.RequiredXpAmount:
-                Debug.Log("Required XP Amount");
+                xpThreshold = IncreaseByPercent(PlayerPrefs.GetInt("Roguelike_Required_Xp"), -(int)skill.value);
+                PlayerPrefs.SetInt("Roguelike_Required_Xp", xpThreshold);
                 break;
             case SkillType.EnemyDropChance:
-                Debug.Log("Enemy Drop Chance");
+                List<EnemyController> allEnemies = GetAllEnemies();
+
+                foreach (var enemy in allEnemies)
+                {
+                    enemy.dropChance = enemy.IncreaseByPercent(enemy.dropChance, skill.value);
+                }
+
                 break;
             case SkillType.EnemyDamage:
                 Debug.Log("Enemy Damage");
+
+
+
                 break;
             case SkillType.Lifesteal:
                 Debug.Log("LifeSteal");
@@ -272,4 +284,30 @@ public class RoguelikeManager : MonoBehaviour
         }
 #endif
     }
+
+    public int IncreaseByPercent(int value, int percent)
+    {
+        float result = value * (1f + percent / 100f);
+        return Mathf.RoundToInt(result);
+
+    }
+
+    public List<EnemyController> GetAllEnemies()
+    {
+        List<EnemyController> enemies = new List<EnemyController>();
+
+        GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag("Enemy_Holder");
+
+        foreach (GameObject obj in enemyObjects)
+        {
+            EnemyController controller = obj.GetComponent<EnemyController>();
+            if (controller != null)
+            {
+               enemies.Add(controller);
+            }
+        }
+
+        return enemies;
+    }
+
 }

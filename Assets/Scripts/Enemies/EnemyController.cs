@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
 
     [Header("General")]
     public EnemyType enemyType = EnemyType.Melee;
-    public int EnemyHealth = 3;
+    public int EnemyHealth = 100;
     public GameObject deathAnim;
 
     [Header("References")]
@@ -51,7 +51,7 @@ public class EnemyController : MonoBehaviour
     [Header("Drops")]
     public GameObject ammoPrefab;
     public GameObject healthPrefab;
-    public float dropChance = 0.2f; // %20 ihtimal
+    public float dropChance = 0.2f;
 
 
     private EnemyState currentState = EnemyState.Wandering;
@@ -316,7 +316,7 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage()
     {
-        EnemyHealth--;
+        EnemyHealth -= PlayerController.instance.playerDamage;
         ResetTriggers();
         anim.SetTrigger("shouldTakeDamage");
 
@@ -335,7 +335,6 @@ public class EnemyController : MonoBehaviour
             xp += xpGive;
             PlayerPrefs.SetInt("Roguelike_Xp", xp);
 
-            // --- DROP SYSTEM ---
             if (Random.value <= dropChance)
             {
                 GameObject drop = (Random.value < 0.5f) ? ammoPrefab : healthPrefab;
@@ -346,6 +345,17 @@ public class EnemyController : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+
+    public int IncreaseByPercent(int value, int percent)
+    {
+        float result = value * (1f + percent / 100f);
+        return Mathf.RoundToInt(result);
+    }
+
+    public float IncreaseByPercent(float value, float percent)
+    {
+        return value * (1f + percent / 100f);
     }
 
     private void ResetTriggers()

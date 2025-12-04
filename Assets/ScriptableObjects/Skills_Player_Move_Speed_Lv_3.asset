@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1075b986a655c4eaa96d8e7bc5a76bee, type: 3}
-  m_Name: Skills_Restore_Health_Lv_1
+  m_Name: Skills_Player_Move_Speed_Lv_3
   m_EditorClassIdentifier: 
-  id: make_health_full_lv_1
-  displayName: Restore Health
-  description: It restores your health instantly
+  id: player_move_speed_lv_3
+  displayName: Increase speed by %7
+  description: Increases speed by +%7
   icon: {fileID: 21300000, guid: 82be8bf3268a3124c988b3d9b4154c48, type: 3}
-  type: 2
-  value: 500
-  rarity: 2
-  levelGroupId: Restore_Health
-  levelIndex: 1
-  maxLevel: 1
+  type: 5
+  value: 7
+  rarity: 0
+  levelGroupId: Increase_Damage
+  levelIndex: 3
+  maxLevel: 3

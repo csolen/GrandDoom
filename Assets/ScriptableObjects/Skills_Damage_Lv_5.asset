@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1075b986a655c4eaa96d8e7bc5a76bee, type: 3}
   m_Name: Skills_Damage_Lv_5
   m_EditorClassIdentifier: 
-  id: damage_lvl_5
+  id: damage_lv_5
   displayName: Increase damage %15
   description: Increases damage by +%15
   icon: {fileID: 21300000, guid: 82be8bf3268a3124c988b3d9b4154c48, type: 3}

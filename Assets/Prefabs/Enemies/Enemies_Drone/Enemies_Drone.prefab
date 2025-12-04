@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 1
-  EnemyHealth: 3
+  EnemyHealth: 100
   deathAnim: {fileID: 6911088536147646728, guid: 6d8cf0e1132264b6982117aa75c3ba77, type: 3}
   anim: {fileID: 5285022621085959212}
   wanderSpeed: 1.5
