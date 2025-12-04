@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: ea7dbafd519c4447ebcc6fe8af30df00
+guid: fbd8d7555ac97254f9da1df1bec9621c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 153841926039026659
-    second: ammo_box-animtile_0
-  - first:
-      213: 4126763952118950397
-    second: ammo_box-animtile_1
-  - first:
-      213: 5183194317875991903
-    second: ammo_box-animtile_2
+      213: 2118426640638087735
+    second: Collectables_Health_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 640
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0}
+  spritePixelsToUnits: 480
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -132,67 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpriteSheet_Collectibles_Ammo_0
+      name: Collectables_Health_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 32
         y: 0
-        width: 320
-        height: 320
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 252
+        height: 174
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: bfd3bf11053154c3aad0756f5d5c7a67
-      internalID: 808126880
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpriteSheet_Collectibles_Ammo_1
-      rect:
-        serializedVersion: 2
-        x: 318
-        y: 0
-        width: 320
-        height: 320
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ff5a6229bf228401e979f26ee4e3479e
-      internalID: 1590114224
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpriteSheet_Collectibles_Ammo_2
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 320
-        height: 320
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9a9302f485bf54186a68e20d0eae1279
-      internalID: 994501859
+      spriteID: 73215f54ec9266d10800000000000000
+      internalID: 2118426640638087735
       vertices: []
       indices: 
       edges: []
@@ -201,8 +151,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ef97373e8e18b47f6a2077a39804e4d0
-    internalID: 0
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -211,9 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SpriteSheet_Collectibles_Ammo_0: 808126880
-      SpriteSheet_Collectibles_Ammo_1: 1590114224
-      SpriteSheet_Collectibles_Ammo_2: 994501859
+      Collectables_Health_0: 2118426640638087735
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

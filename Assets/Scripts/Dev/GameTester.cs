@@ -128,7 +128,7 @@ public class GameTester : MonoBehaviour
 
     private void ReloadAmmo()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.B))
         {
             PlayerController.instance.ammoAmount = PlayerController.instance.maxAmmoAmount;
         }
@@ -137,7 +137,7 @@ public class GameTester : MonoBehaviour
 
     private void GivePlayerHealth()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.N))
         {
             PlayerController.instance.health = PlayerController.instance.maxHealth;
             PlayerController.instance.goldAmount = 100;
@@ -146,7 +146,7 @@ public class GameTester : MonoBehaviour
 
     private void OpenSkillsSelectionPanel()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetKeyDown(KeyCode.M))
         {
             PlayerPrefs.SetInt("Roguelike_Xp", 10000);
         }

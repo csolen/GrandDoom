@@ -423,6 +423,9 @@ MonoBehaviour:
   stuckCheckDelay: 0.4
   unstuckDuration: 0.5
   xpGive: 10
+  ammoPrefab: {fileID: 8028448484693758585, guid: 102c91ba9961f41dcb7eded5ef4dd5cb, type: 3}
+  healthPrefab: {fileID: 3441535354856443318, guid: 6c0a2593347274d4590d03bceffc2876, type: 3}
+  dropChance: 0.2
 --- !u!1 &6487870602573874538
 GameObject:
   m_ObjectHideFlags: 0

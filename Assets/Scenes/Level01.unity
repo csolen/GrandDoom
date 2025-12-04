@@ -2747,6 +2747,9 @@ MonoBehaviour:
   selectionPanel: {fileID: 2143053363}
   cardsParent: {fileID: 1150719577}
   cardPrefab: {fileID: 140196888336656928, guid: 988d7743a2d2549308ccbf55a651c729, type: 3}
+  delayerImg: {fileID: 1620958445}
+  reRollButton: {fileID: 1317653354}
+  reRollButtonText: {fileID: 1495427050}
   allSkills:
   - {fileID: 11400000, guid: 10585f92f3a554cb9aab834db2655246, type: 2}
   - {fileID: 11400000, guid: 61a9352de0e104af88cb4777ac5d3c0c, type: 2}
@@ -2763,9 +2766,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e0c7bb4844a9d4029a617303deb23605, type: 2}
   - {fileID: 11400000, guid: 1626cfbc068af4a05a6ed0c283a8303c, type: 2}
   - {fileID: 11400000, guid: 0d57ce8b1ec904e6c99a1fbfc08f52b2, type: 2}
-  delayerImg: {fileID: 1620958445}
-  reRollButton: {fileID: 1317653354}
-  reRollButtonText: {fileID: 1495427050}
 --- !u!1 &855508695
 GameObject:
   m_ObjectHideFlags: 0
@@ -23168,10 +23168,10 @@ MonoBehaviour:
   moveSpeed: 3
   mouseSensitivity: 10
   bulletImpact: {fileID: 149344, guid: 617378de28fbaa64c96485d5b0d9169b, type: 3}
-  maxHealth: 200
+  maxHealth: 100
   health: 100
   goldAmount: 50
-  ammoAmount: 15
+  ammoAmount: 60
   maxAmmoAmount: 60
   gunAnim: {fileID: 991796060}
   deadScreen: {fileID: 698893121}

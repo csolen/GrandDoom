@@ -48,6 +48,12 @@ public class EnemyController : MonoBehaviour
     [Header("Xp")]
     public int xpGive = 10;
 
+    [Header("Drops")]
+    public GameObject ammoPrefab;
+    public GameObject healthPrefab;
+    public float dropChance = 0.2f; // %20 ihtimal
+
+
     private EnemyState currentState = EnemyState.Wandering;
     private Vector2 moveDirection;
     private Vector2 lastPosition;
@@ -329,8 +335,17 @@ public class EnemyController : MonoBehaviour
             xp += xpGive;
             PlayerPrefs.SetInt("Roguelike_Xp", xp);
 
+            // --- DROP SYSTEM ---
+            if (Random.value <= dropChance)
+            {
+                GameObject drop = (Random.value < 0.5f) ? ammoPrefab : healthPrefab;
+                if (drop != null)
+                    Instantiate(drop, transform.position, Quaternion.identity);
+            }
+
             Destroy(gameObject);
         }
+
     }
 
     private void ResetTriggers()
