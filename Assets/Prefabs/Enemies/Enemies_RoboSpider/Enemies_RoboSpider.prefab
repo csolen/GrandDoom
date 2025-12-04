@@ -113,6 +113,7 @@ MonoBehaviour:
   enemyType: 0
   EnemyHealth: 100
   deathAnim: {fileID: 3599007365352187487, guid: 6b234b5f964774848bab788a6b423d94, type: 3}
+  enemyDamage: 5
   anim: {fileID: 4116134603032078212}
   wanderSpeed: 1.5
   chaseSpeed: 2.3
@@ -416,7 +417,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1811001d42034b709fbdc64f3c25443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDamage: 5
 --- !u!1 &8227040247150816331
 GameObject:
   m_ObjectHideFlags: 0

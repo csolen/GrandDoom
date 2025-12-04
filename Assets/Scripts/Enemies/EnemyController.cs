@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     public EnemyType enemyType = EnemyType.Melee;
     public int EnemyHealth = 100;
     public GameObject deathAnim;
+    public int enemyDamage = 5;
 
     [Header("References")]
     private Transform player;
@@ -249,7 +250,10 @@ public class EnemyController : MonoBehaviour
             float angle = Mathf.Atan2(dirToPlayer.y, dirToPlayer.x) * Mathf.Rad2Deg;
             firePoint.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             anim.SetTrigger("shouldAttack");
-            Instantiate(bullet, firePoint.position, firePoint.rotation);
+
+            GameObject enemyBulletObj = Instantiate(bullet, firePoint.position, firePoint.rotation);
+            EnemyBullet enemyBulletSr = enemyBulletObj.GetComponent<EnemyBullet>();
+            enemyBulletSr.bulletDamage = enemyDamage;
             shotCounter = fireRate;
         }
     }
@@ -322,6 +326,13 @@ public class EnemyController : MonoBehaviour
 
         if (EnemyHealth <= 0)
         {
+            float lifeStealChance = PlayerController.instance.lifeStealChance;
+
+            if (Random.value <= lifeStealChance)
+            {
+                PlayerController.instance.AddHealth((PlayerController.instance.playerDamage / PlayerController.instance.lifeStealAmount));
+            }
+
             if (deathAnim != null)
             {
                 Instantiate(deathAnim, transform.position, transform.rotation);

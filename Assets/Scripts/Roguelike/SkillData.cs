@@ -11,7 +11,8 @@ public enum SkillType
     RequiredXpAmount,
     EnemyDropChance,
     EnemyDamage,
-    Lifesteal,
+    LifeStealChance,
+    LifeStealAmount,
     EnemySpeed
 }
 

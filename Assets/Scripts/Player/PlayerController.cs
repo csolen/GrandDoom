@@ -46,6 +46,9 @@ public class PlayerController : MonoBehaviour
     public float camLimiterYMin = 40f;
     public float camLimiterYMax = 120f;
 
+    public int lifeStealAmount = 10;
+    public float lifeStealChance = 0.1f;
+
     private void Awake()
     {
         ShowCursorInEditor(false);

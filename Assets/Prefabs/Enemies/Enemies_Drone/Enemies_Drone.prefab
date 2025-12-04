@@ -405,6 +405,7 @@ MonoBehaviour:
   enemyType: 1
   EnemyHealth: 100
   deathAnim: {fileID: 6911088536147646728, guid: 6d8cf0e1132264b6982117aa75c3ba77, type: 3}
+  enemyDamage: 15
   anim: {fileID: 5285022621085959212}
   wanderSpeed: 1.5
   chaseSpeed: 2.3
@@ -414,7 +415,7 @@ MonoBehaviour:
   rangedStopDistance: 4
   turnSpeed: 3
   wanderChangeTime: 2.2
-  shouldShoot: 0
+  shouldShoot: 1
   bullet: {fileID: 896349609577071788, guid: 355ef1c6fdeb54b89ab064374eedf813, type: 3}
   firePoint: {fileID: 2088578830710004202}
   fireRate: 0.5

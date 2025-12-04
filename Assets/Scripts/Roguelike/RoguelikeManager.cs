@@ -201,6 +201,8 @@ public class RoguelikeManager : MonoBehaviour
 
     void ApplySkillToPlayer(SkillData skill)
     {
+        List<EnemyController> allEnemies = GetAllEnemies();
+
         switch (skill.type)
         {
             case SkillType.MaxHealth:
@@ -226,25 +228,29 @@ public class RoguelikeManager : MonoBehaviour
                 PlayerPrefs.SetInt("Roguelike_Required_Xp", xpThreshold);
                 break;
             case SkillType.EnemyDropChance:
-                List<EnemyController> allEnemies = GetAllEnemies();
-
                 foreach (var enemy in allEnemies)
                 {
                     enemy.dropChance = enemy.IncreaseByPercent(enemy.dropChance, skill.value);
                 }
-
                 break;
             case SkillType.EnemyDamage:
-                Debug.Log("Enemy Damage");
-
-
-
+                foreach (var enemy in allEnemies)
+                {
+                    enemy.enemyDamage = enemy.IncreaseByPercent(enemy.enemyDamage, -(int)skill.value);
+                }
                 break;
-            case SkillType.Lifesteal:
-                Debug.Log("LifeSteal");
+            case SkillType.LifeStealChance:
+                PlayerController.instance.lifeStealChance = PlayerController.instance.IncreaseByPercent(PlayerController.instance.lifeStealChance, skill.value);
+                break;
+
+            case SkillType.LifeStealAmount:
+                PlayerController.instance.lifeStealAmount = PlayerController.instance.IncreaseByPercent(PlayerController.instance.lifeStealAmount, (int)skill.value);
                 break;
             case SkillType.EnemySpeed:
-                Debug.Log("Enemy Speed");
+                foreach (var enemy in allEnemies)
+                {
+                    enemy.chaseSpeed = enemy.IncreaseByPercent(enemy.chaseSpeed, -skill.value);
+                }
                 break;
         }
     }
