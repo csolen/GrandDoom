@@ -1,5 +1,11 @@
 using UnityEngine;
 
+public enum WeaponType
+{
+    Gun,
+    Katana
+}
+
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
@@ -24,7 +30,8 @@ public class PlayerController : MonoBehaviour
     public int maxAmmoAmount = 60;
     public int playerDamage = 40;
 
-    public Animator gunAnim;
+    public Animator Gun_01_Anim;
+    public Animator Gun_02_Anim;
     private Animator anim;
 
     public GameObject deadScreen;
@@ -49,6 +56,16 @@ public class PlayerController : MonoBehaviour
     public int lifeStealAmount = 10;
     public float lifeStealChance = 0.1f;
 
+    public WeaponType currentWeapon = WeaponType.Katana;
+
+    public GameObject gunObject;
+    public GameObject katanaObject;
+
+    public int katanaDamage = 60;
+    public float katanaRange = 2f;
+    public float katanaAttackCooldown = 0.4f;
+    private float katanaAttackTimer = 0f;
+
     private void Awake()
     {
         ShowCursorInEditor(false);
@@ -57,13 +74,12 @@ public class PlayerController : MonoBehaviour
         viewCam = Camera.main;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-
         camY = viewCam.transform.localEulerAngles.y;
     }
 
     private void Start()
     {
-        //health = maxHealth;
+        SetWeapon(WeaponType.Katana);
     }
 
     private void Update()
@@ -78,6 +94,8 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
             return;
         }
+
+        katanaAttackTimer -= Time.deltaTime;
 
         moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
@@ -114,38 +132,26 @@ public class PlayerController : MonoBehaviour
         camRot.y = camY;
         viewCam.transform.localEulerAngles = camRot;
 
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SetWeapon(WeaponType.Katana);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SetWeapon(WeaponType.Gun);
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
-            if (ammoAmount > 0)
+            if (currentWeapon == WeaponType.Gun)
             {
-                if (CrosshairRecoil.instance != null)
-                {
-                    gunAnim.SetTrigger("isShooting");
-                    CrosshairRecoil.instance.OnShoot();
-                }
-
-                Instantiate(muzzleFlash, muzzleFlashPoint.position, muzzleFlashPoint.rotation);
-
-                Ray ray = viewCam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
-                RaycastHit hit;
-
-                if (Physics.Raycast(ray, out hit))
-                {
-                    Vector3 bulletImpactOffset = new(-0.1f, 0f, 0f);
-                    Instantiate(bulletImpact, hit.point + bulletImpactOffset, transform.rotation);
-
-                    if (hit.transform.CompareTag("Enemy"))
-                    {
-                        hit.transform.parent.GetComponent<EnemyController>().TakeDamage();
-                    }
-
-                    if (hit.transform.CompareTag("Wall_Ceiling_Light"))
-                    {
-                        hit.transform.GetComponent<Design_TileChanger>().ChangeSprite();
-                    }
-                }
-
-                ammoAmount--;
+                HandleGunShoot();
+            }
+            else if (currentWeapon == WeaponType.Katana)
+            {
+                HandleKatanaAttack();
             }
         }
 
@@ -156,6 +162,91 @@ public class PlayerController : MonoBehaviour
         else
         {
             anim.SetBool("isMoving", false);
+        }
+    }
+
+    public void SetWeapon(WeaponType weapon)
+    {
+        currentWeapon = weapon;
+
+        if (gunObject != null)
+            gunObject.SetActive(weapon == WeaponType.Gun);
+
+        if (katanaObject != null)
+            katanaObject.SetActive(weapon == WeaponType.Katana);
+    }
+
+    public void SelectGun()
+    {
+        SetWeapon(WeaponType.Gun);
+    }
+
+    public void SelectKatana()
+    {
+        SetWeapon(WeaponType.Katana);
+    }
+
+    private void HandleGunShoot()
+    {
+        if (ammoAmount <= 0)
+        {
+            SetWeapon(WeaponType.Katana);
+            return;
+        }
+
+        if (CrosshairRecoil.instance != null)
+        {
+            Gun_02_Anim.SetTrigger("isShooting");
+            CrosshairRecoil.instance.OnShoot();
+        }
+
+        Instantiate(muzzleFlash, muzzleFlashPoint.position, muzzleFlashPoint.rotation);
+
+        Ray ray = viewCam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            Vector3 bulletImpactOffset = new(-0.1f, 0f, 0f);
+            Instantiate(bulletImpact, hit.point + bulletImpactOffset, transform.rotation);
+
+            if (hit.transform.CompareTag("Enemy"))
+            {
+                hit.transform.parent.GetComponent<EnemyController>().TakeDamage();
+            }
+
+            if (hit.transform.CompareTag("Wall_Ceiling_Light"))
+            {
+                hit.transform.GetComponent<Design_TileChanger>().ChangeSprite();
+            }
+        }
+
+        ammoAmount--;
+
+        if (ammoAmount <= 0)
+        {
+            SetWeapon(WeaponType.Katana);
+        }
+    }
+
+    private void HandleKatanaAttack()
+    {
+        if (katanaAttackTimer > 0f)
+            return;
+
+        katanaAttackTimer = katanaAttackCooldown;
+
+        Gun_01_Anim.SetTrigger("isShooting");
+
+        Ray ray = viewCam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, katanaRange))
+        {
+            if (hit.transform.CompareTag("Enemy"))
+            {
+                hit.transform.parent.GetComponent<EnemyController>().TakeDamage();
+            }
         }
     }
 
@@ -272,11 +363,6 @@ public class PlayerController : MonoBehaviour
     public float IncreaseByPercent(float value, float percent)
     {
         return value * (1f + percent / 100f);
-    }
-
-    public void ChangeEnemyDropChance()
-    {
-
     }
 
 }
