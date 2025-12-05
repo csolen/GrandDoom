@@ -52,6 +52,7 @@ public class RoguelikeManager : MonoBehaviour
         }
 
         xpThreshold = PlayerPrefs.GetInt("Roguelike_Required_Xp", xpThreshold);
+        playerSaverEnemyCancellerObj.SetActive(false);
 
         foreach (var skill in allSkills)
         {
