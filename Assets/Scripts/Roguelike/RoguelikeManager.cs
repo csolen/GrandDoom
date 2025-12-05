@@ -12,6 +12,7 @@ public class RoguelikeManager : MonoBehaviour
     public Transform cardsParent;
     public SkillOptionUI cardPrefab;
     public GameObject delayerImg;
+    public GameObject playerSaverEnemyCancellerObj;
 
     bool isMenuOpen;
     readonly List<SkillOptionUI> spawnedCards = new();
@@ -38,7 +39,6 @@ public class RoguelikeManager : MonoBehaviour
         if (xpCalculator >= xpThreshold)
         {
             PlayerPrefs.SetInt("Roguelike_Xp", 0);
-
             delayerImg.SetActive(true);
             OpenSelectionMenu();
         }
@@ -72,6 +72,8 @@ public class RoguelikeManager : MonoBehaviour
     {
         isMenuOpen = true;
 
+        playerSaverEnemyCancellerObj.SetActive(true);
+
         Invoke(nameof(ClickDelayer), 0.45f);
 
         PlayerPrefs.SetInt("ShouldStopTheGame", 1);
@@ -99,6 +101,8 @@ public class RoguelikeManager : MonoBehaviour
         PlayerPrefs.SetInt("ShouldStopTheGame", 0);
 
         isMenuOpen = false;
+
+        Invoke(nameof(DelayPlayerSaverEnemyCancellerObj), .3f);
 
         ShowCursorInEditor(false);
         ClearOldCards();
@@ -242,7 +246,6 @@ public class RoguelikeManager : MonoBehaviour
             case SkillType.LifeStealChance:
                 PlayerController.instance.lifeStealChance = PlayerController.instance.IncreaseByPercent(PlayerController.instance.lifeStealChance, skill.value);
                 break;
-
             case SkillType.LifeStealAmount:
                 PlayerController.instance.lifeStealAmount = PlayerController.instance.IncreaseByPercent(PlayerController.instance.lifeStealAmount, (int)skill.value);
                 break;
@@ -253,6 +256,11 @@ public class RoguelikeManager : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    private void DelayPlayerSaverEnemyCancellerObj()
+    {
+        playerSaverEnemyCancellerObj.SetActive(false);
     }
 
     private void RollCards()
