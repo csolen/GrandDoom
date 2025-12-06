@@ -264,7 +264,7 @@ public class RoguelikeManager : MonoBehaviour
     private void DelayPlayerSaverEnemyCancellerObj()
     {
         playerSaverEnemyCancellerObj.SetActive(false);
-        PlayerController.instance.FreezePlayer();
+        PlayerController.instance.UnFreezePlayer();
     }
 
     private void RollCards()
