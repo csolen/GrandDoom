@@ -137,7 +137,6 @@ public class EnemyController : MonoBehaviour
             }
             else
             {
-                Debug.Log("Enemy is activated!");
                 isActivated = true;
             }
         }
@@ -479,8 +478,11 @@ public class EnemyController : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("ShouldStopTheGame") == 1)
         {
-            anim.SetTrigger("shouldIdle");
-            return;
+            fleeFromPlayer = true;
+        }
+        else
+        {
+            fleeFromPlayer = false;
         }
     }
 }

@@ -12,7 +12,6 @@ public class RoguelikeManager : MonoBehaviour
     public Transform cardsParent;
     public SkillOptionUI cardPrefab;
     public GameObject delayerImg;
-    public GameObject playerSaverEnemyCancellerObj;
 
     bool isMenuOpen;
     readonly List<SkillOptionUI> spawnedCards = new();
@@ -52,7 +51,8 @@ public class RoguelikeManager : MonoBehaviour
         }
 
         xpThreshold = PlayerPrefs.GetInt("Roguelike_Required_Xp", xpThreshold);
-        playerSaverEnemyCancellerObj.SetActive(false);
+
+        PlayerPrefs.SetInt("Roguelike_Xp", 0);
 
         foreach (var skill in allSkills)
         {
@@ -62,6 +62,7 @@ public class RoguelikeManager : MonoBehaviour
                 PlayerPrefs.SetInt(key, 0);
             }
         }
+
     }
 
     void ClickDelayer()
@@ -74,8 +75,6 @@ public class RoguelikeManager : MonoBehaviour
         isMenuOpen = true;
 
         PlayerController.instance.FreezePlayer();
-
-        playerSaverEnemyCancellerObj.SetActive(true);
 
         Invoke(nameof(ClickDelayer), 0.45f);
 
@@ -263,7 +262,6 @@ public class RoguelikeManager : MonoBehaviour
 
     private void DelayPlayerSaverEnemyCancellerObj()
     {
-        playerSaverEnemyCancellerObj.SetActive(false);
         PlayerController.instance.UnFreezePlayer();
     }
 
