@@ -46,6 +46,10 @@ public class EnemyController : MonoBehaviour
     public float stuckCheckDelay = 0.4f;
     public float unstuckDuration = 0.5f;
 
+    [Header("Activation")]
+    public float activationDistance = 1f;
+    private bool isActivated = false;
+
     [Header("Xp")]
     public int xpGive = 10;
     public GameObject xpPrefab;
@@ -105,14 +109,35 @@ public class EnemyController : MonoBehaviour
         if (player == null)
         {
             if (PlayerController.instance != null)
+            {
                 player = PlayerController.instance.transform;
+            }
             else
+            {
+                GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+                if (playerObj != null)
+                    player = playerObj.transform;
+                else
+                    return;
+            }
+        }
+
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+        if (!isActivated)
+        {
+            if (distanceToPlayer > activationDistance)
+            {
+                rb.linearVelocity = Vector2.zero;
                 return;
+            }
+            else
+            {
+                isActivated = true;
+            }
         }
 
         ShouldStopTheGame();
-
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
         switch (currentState)
         {
@@ -139,6 +164,12 @@ public class EnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!isActivated)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
         ShouldStopTheGame();
 
         float speed = (currentState == EnemyState.Chasing) ? chaseSpeed : wanderSpeed;

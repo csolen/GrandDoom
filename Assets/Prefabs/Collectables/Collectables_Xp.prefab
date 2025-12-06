@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9162174256736184008}
   - component: {fileID: 5753112877616614111}
   - component: {fileID: 349836908619002853}
+  - component: {fileID: 7971754376654215785}
   m_Layer: 0
   m_Name: Collectables_Xp
   m_TagString: Untagged
@@ -86,6 +87,19 @@ MonoBehaviour:
   amount: 10
   attractionRange: 2.5
   moveSpeed: 6
+--- !u!114 &7971754376654215785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3441535354856443318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a79049b2dd548e299733f447d126d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 30
 --- !u!1 &7882041944001039010
 GameObject:
   m_ObjectHideFlags: 0
