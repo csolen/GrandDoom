@@ -73,6 +73,8 @@ public class RoguelikeManager : MonoBehaviour
     {
         isMenuOpen = true;
 
+        PlayerController.instance.FreezePlayer();
+
         playerSaverEnemyCancellerObj.SetActive(true);
 
         Invoke(nameof(ClickDelayer), 0.45f);
@@ -262,6 +264,7 @@ public class RoguelikeManager : MonoBehaviour
     private void DelayPlayerSaverEnemyCancellerObj()
     {
         playerSaverEnemyCancellerObj.SetActive(false);
+        PlayerController.instance.FreezePlayer();
     }
 
     private void RollCards()

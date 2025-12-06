@@ -365,4 +365,15 @@ public class PlayerController : MonoBehaviour
         return value * (1f + percent / 100f);
     }
 
+    public void FreezePlayer()
+    {
+        rb.constraints = RigidbodyConstraints2D.FreezePositionX |
+                         RigidbodyConstraints2D.FreezePositionY;
+    }
+
+    public void UnFreezePlayer()
+    {
+        rb.constraints = RigidbodyConstraints2D.None;
+        rb.freezeRotation = true;
+    }
 }

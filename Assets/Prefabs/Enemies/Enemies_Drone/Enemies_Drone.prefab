@@ -418,7 +418,7 @@ MonoBehaviour:
   shouldShoot: 1
   bullet: {fileID: 896349609577071788, guid: 355ef1c6fdeb54b89ab064374eedf813, type: 3}
   firePoint: {fileID: 2088578830710004202}
-  fireRate: 0.75
+  fireRate: 0.5
   shootRange: 8
   stuckPositionThreshold: 0.02
   stuckCheckDelay: 0.4
