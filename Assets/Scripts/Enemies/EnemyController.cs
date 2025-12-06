@@ -48,12 +48,15 @@ public class EnemyController : MonoBehaviour
 
     [Header("Xp")]
     public int xpGive = 10;
+    public GameObject xpPrefab;
+    public int minXpOrbs = 3;
+    public int maxXpOrbs = 7;
+    public float xpScatterRadius = 0.6f;
 
     [Header("Drops")]
     public GameObject ammoPrefab;
     public GameObject healthPrefab;
     public float dropChance = 0.2f;
-
 
     private EnemyState currentState = EnemyState.Wandering;
     private Vector2 moveDirection;
@@ -342,9 +345,7 @@ public class EnemyController : MonoBehaviour
             killedEnemyCount++;
             PlayerPrefs.SetInt("KilledEnemies", killedEnemyCount);
 
-            int xp = PlayerPrefs.GetInt("Roguelike_Xp");
-            xp += xpGive;
-            PlayerPrefs.SetInt("Roguelike_Xp", xp);
+            DropXp();
 
             if (Random.value <= dropChance)
             {
@@ -355,7 +356,37 @@ public class EnemyController : MonoBehaviour
 
             Destroy(gameObject);
         }
+    }
 
+    private void DropXp()
+    {
+        if (xpPrefab == null)
+            return;
+
+        int orbCount = Random.Range(minXpOrbs, maxXpOrbs + 1);
+        int totalXp = xpGive;
+
+        int baseXp = Mathf.Max(1, totalXp / Mathf.Max(1, orbCount));
+        int remainder = Mathf.Max(0, totalXp - baseXp * orbCount);
+
+        for (int i = 0; i < orbCount; i++)
+        {
+            Vector2 offset = Random.insideUnitCircle * xpScatterRadius;
+            Vector3 spawnPos = transform.position + new Vector3(offset.x, offset.y, 0f);
+
+            GameObject orbObj = Instantiate(xpPrefab, spawnPos, Quaternion.identity);
+
+            Collectables c = orbObj.GetComponent<Collectables>();
+            if (c != null)
+            {
+                int extra = remainder > 0 ? 1 : 0;
+                if (remainder > 0)
+                    remainder--;
+
+                c.amount = baseXp + extra;
+                c.collectableType = Collectables.CollectableType.Xp;
+            }
+        }
     }
 
     public int IncreaseByPercent(int value, int percent)
