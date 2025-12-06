@@ -50,6 +50,10 @@ public class EnemyController : MonoBehaviour
     public float activationDistance = 1f;
     private bool isActivated = false;
 
+    [Header("Flee")]
+    public bool fleeFromPlayer = false;
+    public float fleeStopDistance = 5f;
+
     [Header("Xp")]
     public int xpGive = 10;
     public GameObject xpPrefab;
@@ -133,21 +137,29 @@ public class EnemyController : MonoBehaviour
             }
             else
             {
+                Debug.Log("Enemy is activated!");
                 isActivated = true;
             }
         }
 
         ShouldStopTheGame();
 
-        switch (currentState)
+        if (fleeFromPlayer)
         {
-            case EnemyState.Wandering:
-                HandleWandering(distanceToPlayer);
-                break;
+            HandleFlee(distanceToPlayer);
+        }
+        else
+        {
+            switch (currentState)
+            {
+                case EnemyState.Wandering:
+                    HandleWandering(distanceToPlayer);
+                    break;
 
-            case EnemyState.Chasing:
-                HandleChasing(distanceToPlayer);
-                break;
+                case EnemyState.Chasing:
+                    HandleChasing(distanceToPlayer);
+                    break;
+            }
         }
 
         UpdateStuckLogic(distanceToPlayer);
@@ -172,7 +184,7 @@ public class EnemyController : MonoBehaviour
 
         ShouldStopTheGame();
 
-        float speed = (currentState == EnemyState.Chasing) ? chaseSpeed : wanderSpeed;
+        float speed = (currentState == EnemyState.Chasing || fleeFromPlayer) ? chaseSpeed : wanderSpeed;
 
         if (moveDirection.sqrMagnitude < 0.01f)
         {
@@ -187,13 +199,20 @@ public class EnemyController : MonoBehaviour
         {
             rb.linearVelocity = moveDirection.normalized * speed;
 
-            if (!isChasing)
+            if (!fleeFromPlayer)
             {
-                anim.SetTrigger("shouldWalk");
+                if (!isChasing)
+                {
+                    anim.SetTrigger("shouldWalk");
+                }
+                else
+                {
+                    anim.SetTrigger("shouldChase");
+                }
             }
             else
             {
-                anim.SetTrigger("shouldChase");
+                anim.SetTrigger("shouldWalk");
             }
         }
     }
@@ -292,6 +311,22 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    private void HandleFlee(float distanceToPlayer)
+    {
+        isChasing = false;
+        isAttacking = false;
+
+        if (distanceToPlayer < fleeStopDistance)
+        {
+            Vector2 dirAway = (transform.position - player.position).normalized;
+            moveDirection = dirAway;
+        }
+        else
+        {
+            moveDirection = Vector2.zero;
+        }
+    }
+
     private void PickNewWanderDirection()
     {
         wanderTimer = wanderChangeTime;
@@ -317,6 +352,7 @@ public class EnemyController : MonoBehaviour
 
         float stopDistance = enemyType == EnemyType.Melee ? meleeStopDistance : rangedStopDistance;
         bool shouldBeMovingToPlayer =
+            !fleeFromPlayer &&
             currentState == EnemyState.Chasing &&
             distanceToPlayer > stopDistance + 0.1f;
 
