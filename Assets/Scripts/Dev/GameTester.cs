@@ -42,6 +42,7 @@ public class GameTester : MonoBehaviour
         GivePlayerHealth();
 
         OpenSkillsSelectionPanel();
+
     }
 
     private void OpenTileMapsWhenGameStarts()
