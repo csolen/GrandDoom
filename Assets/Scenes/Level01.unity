@@ -587,7 +587,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0.2000122, y: 0.18499756}
-  m_SizeDelta: {x: 3.53723, y: 0.63201}
+  m_SizeDelta: {x: 3.53723, y: 0.70667}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &155600532
 MonoBehaviour:
@@ -609,7 +609,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: For Katana press 1 <br>For gun press 2
+  m_text: ------ for MARK ------<br>For Katana press 1<br>For gun press 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -636,12 +636,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.25
+  m_fontSize: 0.2
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 0
-  m_fontSizeMax: 0.37
+  m_fontSizeMax: 1.5
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256

@@ -54,6 +54,11 @@ public class EnemyController : MonoBehaviour
     public bool fleeFromPlayer = false;
     public float fleeStopDistance = 5f;
 
+    [Header("Shoot Delay After Stop")]
+    public float shootResumeDelay = 1f;
+    private float shootBlockedTimer;
+    private bool wasGameStopped;
+
     [Header("Xp")]
     public int xpGive = 10;
     public GameObject xpPrefab;
@@ -106,6 +111,9 @@ public class EnemyController : MonoBehaviour
         enemyCount = PlayerPrefs.GetInt("TotalEnemyCount", 0);
         enemyCount++;
         PlayerPrefs.SetInt("TotalEnemyCount", enemyCount);
+
+        wasGameStopped = PlayerPrefs.GetInt("ShouldStopTheGame") == 1;
+        shootBlockedTimer = 0f;
     }
 
     private void Update()
@@ -142,6 +150,13 @@ public class EnemyController : MonoBehaviour
         }
 
         ShouldStopTheGame();
+
+        if (shootBlockedTimer > 0f)
+        {
+            shootBlockedTimer -= Time.deltaTime;
+            if (shootBlockedTimer < 0f)
+                shootBlockedTimer = 0f;
+        }
 
         if (fleeFromPlayer)
         {
@@ -290,6 +305,9 @@ public class EnemyController : MonoBehaviour
     private void HandleShooting(float distanceToPlayer, Vector2 dirToPlayer)
     {
         if (bullet == null || firePoint == null)
+            return;
+
+        if (shootBlockedTimer > 0f)
             return;
 
         if (distanceToPlayer > shootRange)
@@ -476,13 +494,21 @@ public class EnemyController : MonoBehaviour
 
     private void ShouldStopTheGame()
     {
-        if (PlayerPrefs.GetInt("ShouldStopTheGame") == 1)
+        int val = PlayerPrefs.GetInt("ShouldStopTheGame");
+
+        if (val == 1)
         {
             fleeFromPlayer = true;
+            wasGameStopped = true;
         }
         else
         {
             fleeFromPlayer = false;
+            if (wasGameStopped)
+            {
+                shootBlockedTimer = shootResumeDelay;
+                wasGameStopped = false;
+            }
         }
     }
 }

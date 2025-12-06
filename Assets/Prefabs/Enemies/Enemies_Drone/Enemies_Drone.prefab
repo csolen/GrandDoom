@@ -424,6 +424,9 @@ MonoBehaviour:
   stuckCheckDelay: 0.4
   unstuckDuration: 0.5
   activationDistance: 20
+  fleeFromPlayer: 0
+  fleeStopDistance: 5
+  shootResumeDelay: 1
   xpGive: 10
   xpPrefab: {fileID: 3441535354856443318, guid: 8b7cad32caf06434ebee2626c49390a1, type: 3}
   minXpOrbs: 3
