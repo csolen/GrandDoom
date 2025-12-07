@@ -59,6 +59,13 @@ public class EnemyController : MonoBehaviour
     private float shootBlockedTimer;
     private bool wasGameStopped;
 
+    [Header("Hit Reaction")]
+    public float hitStunDuration = 0.1f;
+    public float knockbackSpeed = 3f;
+    public float sideKnockbackFactor = 0.4f;
+    private float hitStunTimer;
+    private Vector2 knockbackDirection;
+
     [Header("Xp")]
     public int xpGive = 10;
     public GameObject xpPrefab;
@@ -114,6 +121,8 @@ public class EnemyController : MonoBehaviour
 
         wasGameStopped = PlayerPrefs.GetInt("ShouldStopTheGame") == 1;
         shootBlockedTimer = 0f;
+        hitStunTimer = 0f;
+        knockbackDirection = Vector2.zero;
     }
 
     private void Update()
@@ -158,25 +167,35 @@ public class EnemyController : MonoBehaviour
                 shootBlockedTimer = 0f;
         }
 
-        if (fleeFromPlayer)
+        if (hitStunTimer > 0f)
         {
-            HandleFlee(distanceToPlayer);
+            hitStunTimer -= Time.deltaTime;
+            if (hitStunTimer < 0f)
+                hitStunTimer = 0f;
+            moveDirection = Vector2.zero;
         }
         else
         {
-            switch (currentState)
+            if (fleeFromPlayer)
             {
-                case EnemyState.Wandering:
-                    HandleWandering(distanceToPlayer);
-                    break;
-
-                case EnemyState.Chasing:
-                    HandleChasing(distanceToPlayer);
-                    break;
+                HandleFlee(distanceToPlayer);
             }
-        }
+            else
+            {
+                switch (currentState)
+                {
+                    case EnemyState.Wandering:
+                        HandleWandering(distanceToPlayer);
+                        break;
 
-        UpdateStuckLogic(distanceToPlayer);
+                    case EnemyState.Chasing:
+                        HandleChasing(distanceToPlayer);
+                        break;
+                }
+            }
+
+            UpdateStuckLogic(distanceToPlayer);
+        }
 
         if (moveDirection.sqrMagnitude > 0.001f)
         {
@@ -197,6 +216,12 @@ public class EnemyController : MonoBehaviour
         }
 
         ShouldStopTheGame();
+
+        if (hitStunTimer > 0f)
+        {
+            rb.linearVelocity = knockbackDirection * knockbackSpeed;
+            return;
+        }
 
         float speed = (currentState == EnemyState.Chasing || fleeFromPlayer) ? chaseSpeed : wanderSpeed;
 
@@ -408,6 +433,22 @@ public class EnemyController : MonoBehaviour
     public void TakeDamage()
     {
         EnemyHealth -= PlayerController.instance.playerDamage;
+
+        Vector2 dirAway = (transform.position - player.position).normalized;
+        if (dirAway.sqrMagnitude < 0.001f)
+            dirAway = Random.insideUnitCircle.normalized;
+
+        Vector2 perp = new Vector2(-dirAway.y, dirAway.x);
+        float side = Random.Range(-sideKnockbackFactor, sideKnockbackFactor);
+        Vector2 finalDir = dirAway + perp * side;
+        if (finalDir.sqrMagnitude < 0.001f)
+            finalDir = dirAway;
+        knockbackDirection = finalDir.normalized;
+
+        hitStunTimer = hitStunDuration;
+        isChasing = false;
+        isAttacking = false;
+
         ResetTriggers();
         anim.SetTrigger("shouldTakeDamage");
 
