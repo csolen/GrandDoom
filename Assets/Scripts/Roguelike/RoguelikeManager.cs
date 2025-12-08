@@ -226,8 +226,11 @@ public class RoguelikeManager : MonoBehaviour
             case SkillType.CurrentAmmo:
                 PlayerController.instance.AddAmmo((int)skill.value);
                 break;
-            case SkillType.PlayerDamage:
+            case SkillType.PlayerGunDamage:
                 PlayerController.instance.playerDamage = PlayerController.instance.IncreaseByPercent(PlayerController.instance.playerDamage, (int)skill.value);
+                break;
+            case SkillType.PlayerSwordDamage:
+                PlayerController.instance.katanaDamage = PlayerController.instance.IncreaseByPercent(PlayerController.instance.katanaDamage, (int)skill.value);
                 break;
             case SkillType.PlayerMoveSpeed:
                 PlayerController.instance.moveSpeed = PlayerController.instance.IncreaseByPercent(PlayerController.instance.moveSpeed, skill.value);

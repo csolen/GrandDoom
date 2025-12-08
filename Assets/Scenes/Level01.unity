@@ -3788,11 +3788,6 @@ MonoBehaviour:
   reRollButton: {fileID: 1317653354}
   reRollButtonText: {fileID: 1495427050}
   allSkills:
-  - {fileID: 11400000, guid: f4a430e10b3434a7294efac2d76d62ac, type: 2}
-  - {fileID: 11400000, guid: fbe71347683e444e491ff6aefacbd647, type: 2}
-  - {fileID: 11400000, guid: b01028fafc1884050a7d874627a647b0, type: 2}
-  - {fileID: 11400000, guid: cb28d648e48c94c8b9a619caa0308600, type: 2}
-  - {fileID: 11400000, guid: 8cf3335f94bfd4ba5a309a8cba2d94d0, type: 2}
   - {fileID: 11400000, guid: 0d30463f2bd8945ccbf311093803e7f9, type: 2}
   - {fileID: 11400000, guid: 0225c5ab50c7e4014ad3c1add5c3bfa8, type: 2}
   - {fileID: 11400000, guid: 54dd7d162bb994bee8abbcf788f2e965, type: 2}
@@ -3804,6 +3799,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 764dc0b9130974dd9bd0cd4cf4ad15d6, type: 2}
   - {fileID: 11400000, guid: b9821bc3142ef4f3197b17db7b0d18ae, type: 2}
   - {fileID: 11400000, guid: 866290019620346228697ba82c62c997, type: 2}
+  - {fileID: 11400000, guid: f4a430e10b3434a7294efac2d76d62ac, type: 2}
+  - {fileID: 11400000, guid: fbe71347683e444e491ff6aefacbd647, type: 2}
+  - {fileID: 11400000, guid: b01028fafc1884050a7d874627a647b0, type: 2}
+  - {fileID: 11400000, guid: cb28d648e48c94c8b9a619caa0308600, type: 2}
+  - {fileID: 11400000, guid: 8cf3335f94bfd4ba5a309a8cba2d94d0, type: 2}
   - {fileID: 11400000, guid: 8a0e64d992053495797086abcbfff836, type: 2}
   - {fileID: 11400000, guid: 9dc4d98a6c7ee4701acba348ad1ecca8, type: 2}
   - {fileID: 11400000, guid: c603f1b13ff204fd1aa4a346030667a4, type: 2}
@@ -3827,6 +3827,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 028884229b6654364a13c5926e162df5, type: 2}
   - {fileID: 11400000, guid: b77100484feda43c9b9427650eae0177, type: 2}
   - {fileID: 11400000, guid: 7f5a57c25d4fd4c71a2b02500d92db6f, type: 2}
+  - {fileID: 11400000, guid: 5be2af9cccb0d421389f3afff550d1a2, type: 2}
+  - {fileID: 11400000, guid: c3d10e79b31944f2b9ae148a26fc2ea3, type: 2}
+  - {fileID: 11400000, guid: 6b3cc2c6044494d60abb96ccf9092ed7, type: 2}
 --- !u!114 &843172691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25668,7 +25671,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   mouseSensitivity: 10
-  bulletImpact: {fileID: 149344, guid: 617378de28fbaa64c96485d5b0d9169b, type: 3}
   maxHealth: 100
   health: 100
   goldAmount: 50
@@ -25683,6 +25685,7 @@ MonoBehaviour:
   climbSpeed: 2
   muzzleFlash: {fileID: 145172, guid: dbc886d3433d6aa4786fa9807aed6a71, type: 3}
   muzzleFlashPoint: {fileID: 2145224898}
+  bulletImpact: {fileID: 149344, guid: 617378de28fbaa64c96485d5b0d9169b, type: 3}
   camLimiterYMin: 40
   camLimiterYMax: 120
   lifeStealAmount: 5

@@ -11,7 +11,10 @@ public class PlayerController : MonoBehaviour
     public static PlayerController instance;
 
     private Rigidbody2D rb;
+    private Camera viewCam;
+    private Animator anim;
 
+    [Header("Movement")]
     public float moveSpeed = 5f;
 
     private Vector2 moveInput;
@@ -19,10 +22,7 @@ public class PlayerController : MonoBehaviour
 
     public float mouseSensitivity = 1f;
 
-    private Camera viewCam;
-
-    public GameObject bulletImpact;
-
+    [Header("Health & Stats")]
     public int maxHealth = 100;
     public int health = 100;
     public int goldAmount = 50;
@@ -30,37 +30,51 @@ public class PlayerController : MonoBehaviour
     public int maxAmmoAmount = 60;
     public int playerDamage = 40;
 
+    [Header("Weapon Animators")]
     public Animator Gun_01_Anim;
     public Animator Gun_02_Anim;
-    private Animator anim;
 
+    [Header("UI Screens")]
     public GameObject deadScreen;
     public GameObject winScreen;
     public GameObject playerTakeHitScreen;
 
     private bool hasDied;
 
+    [Header("Ladder")]
     public float climbSpeed = 2f;
     private bool isOnLadder = false;
     private Ladder currentLadder;
     private float ladderTargetZ;
     private float ladderStartZ;
 
+    [Header("Gun FX")]
     public GameObject muzzleFlash;
     public Transform muzzleFlashPoint;
+    public GameObject bulletImpact;
 
+    [Header("Camera")]
     private float camY;
     public float camLimiterYMin = 40f;
     public float camLimiterYMax = 120f;
 
+    [Header("Lifesteal")]
     public int lifeStealAmount = 10;
     public float lifeStealChance = 0.1f;
 
+    [Header("Weapons")]
     public WeaponType currentWeapon = WeaponType.Katana;
 
+    [Header("Weapon Objects")]
     public GameObject gunObject;
     public GameObject katanaObject;
 
+    private Vector3 gunDefaultLocalPos;
+    private Quaternion gunDefaultLocalRot;
+    private Vector3 katanaDefaultLocalPos;
+    private Quaternion katanaDefaultLocalRot;
+
+    [Header("Katana Settings")]
     public int katanaDamage = 60;
     public float katanaRange = 2f;
     public float katanaAttackCooldown = 0.4f;
@@ -68,7 +82,6 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        ShowCursorInEditor(false);
         instance = this;
 
         viewCam = Camera.main;
@@ -79,7 +92,20 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        if (gunObject != null)
+        {
+            gunDefaultLocalPos = gunObject.transform.localPosition;
+            gunDefaultLocalRot = gunObject.transform.localRotation;
+        }
+
+        if (katanaObject != null)
+        {
+            katanaDefaultLocalPos = katanaObject.transform.localPosition;
+            katanaDefaultLocalRot = katanaObject.transform.localRotation;
+        }
+
         SetWeapon(WeaponType.Katana);
+        GameTester.Instance.ShouldStopTheGame(false);
     }
 
     private void Update()
@@ -94,8 +120,6 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
             return;
         }
-
-
 
         katanaAttackTimer -= Time.deltaTime;
 
@@ -134,7 +158,6 @@ public class PlayerController : MonoBehaviour
         camRot.y = camY;
         viewCam.transform.localEulerAngles = camRot;
 
-
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             SetWeapon(WeaponType.Katana);
@@ -171,11 +194,40 @@ public class PlayerController : MonoBehaviour
     {
         currentWeapon = weapon;
 
-        if (gunObject != null)
-            gunObject.SetActive(weapon == WeaponType.Gun);
+        if (weapon == WeaponType.Gun)
+        {
+            if (katanaObject != null)
+                katanaObject.SetActive(false);
 
-        if (katanaObject != null)
-            katanaObject.SetActive(weapon == WeaponType.Katana);
+            if (gunObject != null)
+            {
+                gunObject.SetActive(true);
+                gunObject.transform.localPosition = gunDefaultLocalPos;
+                gunObject.transform.localRotation = gunDefaultLocalRot;
+
+                if (Gun_02_Anim != null)
+                {
+                    Gun_02_Anim.Play("Idle", 0, 0f);
+                }
+            }
+        }
+        else
+        {
+            if (gunObject != null)
+                gunObject.SetActive(false);
+
+            if (katanaObject != null)
+            {
+                katanaObject.SetActive(true);
+                katanaObject.transform.localPosition = katanaDefaultLocalPos;
+                katanaObject.transform.localRotation = katanaDefaultLocalRot;
+
+                if (Gun_01_Anim != null)
+                {
+                    Gun_01_Anim.Play("Idle", 0, 0f);
+                }
+            }
+        }
     }
 
     public void SelectGun()
@@ -192,7 +244,6 @@ public class PlayerController : MonoBehaviour
     {
         if (ammoAmount <= 0)
         {
-            SetWeapon(WeaponType.Katana);
             return;
         }
 
@@ -272,8 +323,7 @@ public class PlayerController : MonoBehaviour
         {
             deadScreen.SetActive(true);
             hasDied = true;
-
-            ShowCursorInEditor(true);
+            GameTester.Instance.ShouldStopTheGame(true);
         }
     }
 
@@ -336,24 +386,7 @@ public class PlayerController : MonoBehaviour
     {
         winScreen.SetActive(true);
         hasDied = true;
-
-        ShowCursorInEditor(true);
-    }
-
-    private void ShowCursorInEditor(bool state)
-    {
-#if UNITY_EDITOR
-        if (state)
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-#endif
+        GameTester.Instance.ShouldStopTheGame(true);
     }
 
     public int IncreaseByPercent(int value, int percent)

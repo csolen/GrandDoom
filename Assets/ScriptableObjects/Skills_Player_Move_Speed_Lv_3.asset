@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Increase speed by %7
   description: Increases speed by +%7
   icon: {fileID: 21300000, guid: 82be8bf3268a3124c988b3d9b4154c48, type: 3}
-  type: 5
+  type: 6
   value: 7
   rarity: 0
   levelGroupId: Increase_Damage

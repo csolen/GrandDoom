@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Life Steal Chance
   description: Increases life steal chance by +%3
   icon: {fileID: 21300000, guid: 82be8bf3268a3124c988b3d9b4154c48, type: 3}
-  type: 9
+  type: 10
   value: 3
   rarity: 2
   levelGroupId: Life_Steal_Chance
