@@ -22,10 +22,20 @@ public class LuckyWheelController : MonoBehaviour
     private bool resultReady = false;
     private int lastResultIndex = -1;
 
+    public TextMeshProUGUI[] rewardText;
+
+    private int randomHealth01;
+    private int randomHealth02;
+    private int randomGold01;
+    private int randomGold02;
+    private int randomAmmo01;
+    private int randomAmmo02;
+
     private void Start()
     {
         spinButton.onClick.AddListener(OnSpinButtonPressed);
         SetButtonState_Spin();
+        PlaceRewards();
     }
 
     private void Update()
@@ -34,6 +44,28 @@ public class LuckyWheelController : MonoBehaviour
         {
             OpenWheelMenu();
         }
+    }
+
+    private void PlaceRewards()
+    {
+        randomHealth01 = Random.Range(20, 31);
+        randomHealth02 = Random.Range(20, 31);
+
+        rewardText[0].text = "Health <br> " + randomHealth01.ToString();
+        rewardText[3].text = "Health <br> " + randomHealth02.ToString();
+
+
+        randomGold01 = Random.Range(50, 101);
+        randomGold02 = Random.Range(50, 101);
+
+        rewardText[1].text = "Gold <br> " + randomGold01.ToString();
+        rewardText[4].text = "Gold <br> " + randomGold02.ToString();
+
+        randomAmmo01 = Random.Range(30, 51);
+        randomAmmo02 = Random.Range(30, 51);
+
+        rewardText[2].text = "Ammo <br> " + randomAmmo01.ToString();
+        rewardText[5].text = "Ammo <br> " + randomAmmo02.ToString();
     }
 
     private void OnSpinButtonPressed()
@@ -96,6 +128,8 @@ public class LuckyWheelController : MonoBehaviour
 
     private void CollectRewardAndReset()
     {
+        GiveReward(lastResultIndex);
+
         resultReady = false;
         SetButtonState_Spin();
     }
@@ -122,5 +156,35 @@ public class LuckyWheelController : MonoBehaviour
         PlayerPrefs.SetInt("Open_SpinWheel", 0);
         luckyWheelsPanel.SetActive(false);
         GameTester.Instance.ShouldStopTheGame(false);
+    }
+
+    private void GiveReward(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                PlayerController.instance.AddHealth(randomHealth01);
+                break;
+
+            case 1:
+                PlayerController.instance.goldAmount += randomGold01;
+                break;
+
+            case 2:
+                PlayerController.instance.AddAmmo(randomAmmo01);
+                break;
+
+            case 3:
+                PlayerController.instance.AddHealth(randomHealth02);
+                break;
+
+            case 4:
+                PlayerController.instance.goldAmount += randomGold02;
+                break;
+
+            case 5:
+                PlayerController.instance.AddAmmo(randomAmmo02);
+                break;
+        }
     }
 }
