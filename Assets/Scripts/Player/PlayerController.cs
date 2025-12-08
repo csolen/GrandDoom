@@ -80,6 +80,13 @@ public class PlayerController : MonoBehaviour
     public float katanaAttackCooldown = 0.4f;
     private float katanaAttackTimer = 0f;
 
+    [Header("Weapon Switch")]
+    public float weaponSwitchCooldown = 0.2f;
+    public float weaponSwitchLockDurationGun = 0.35f;
+    public float weaponSwitchLockDurationSword = 0.35f;
+    private float weaponSwitchTimer = 0f;
+    private bool weaponSwitchLocked = false;
+
     private void Awake()
     {
         instance = this;
@@ -92,17 +99,11 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        if (gunObject != null)
-        {
-            gunDefaultLocalPos = gunObject.transform.localPosition;
-            gunDefaultLocalRot = gunObject.transform.localRotation;
-        }
+        gunDefaultLocalPos = gunObject.transform.localPosition;
+        gunDefaultLocalRot = gunObject.transform.localRotation;
 
-        if (swordObject != null)
-        {
-            katanaDefaultLocalPos = swordObject.transform.localPosition;
-            katanaDefaultLocalRot = swordObject.transform.localRotation;
-        }
+        katanaDefaultLocalPos = swordObject.transform.localPosition;
+        katanaDefaultLocalRot = swordObject.transform.localRotation;
 
         SetWeapon(WeaponType.Katana);
         GameTester.Instance.ShouldStopTheGame(false);
@@ -119,6 +120,13 @@ public class PlayerController : MonoBehaviour
         {
             rb.linearVelocity = Vector2.zero;
             return;
+        }
+
+        if (weaponSwitchTimer > 0f)
+        {
+            weaponSwitchTimer -= Time.deltaTime;
+            if (weaponSwitchTimer < 0f)
+                weaponSwitchTimer = 0f;
         }
 
         katanaAttackTimer -= Time.deltaTime;
@@ -192,42 +200,51 @@ public class PlayerController : MonoBehaviour
 
     public void SetWeapon(WeaponType weapon)
     {
+        if (weapon == currentWeapon)
+            return;
+
+        if (weaponSwitchTimer > 0f || weaponSwitchLocked)
+            return;
+
+        weaponSwitchTimer = weaponSwitchCooldown;
         currentWeapon = weapon;
+
+        weaponSwitchLocked = true;
+        CancelInvoke(nameof(UnlockWeaponSwitch));
 
         if (weapon == WeaponType.Gun)
         {
-            if (swordObject != null)
-                swordObject.SetActive(false);
+            swordObject.SetActive(false);
 
-            if (gunObject != null)
-            {
-                gunObject.SetActive(true);
-                gunObject.transform.localPosition = gunDefaultLocalPos;
-                gunObject.transform.localRotation = gunDefaultLocalRot;
+            gunObject.SetActive(true);
+            gunObject.transform.localPosition = gunDefaultLocalPos;
+            gunObject.transform.localRotation = gunDefaultLocalRot;
 
-                if (Player_Weapon_Gun != null)
-                {
-                    Player_Weapon_Gun.Play("Player_Weapon_Gun_Idle", 0, 0f);
-                }
-            }
+            Player_Weapon_Gun.Rebind();
+            Player_Weapon_Gun.Update(0f);
+            Player_Weapon_Gun.Play("Player_Weapon_Gun_Enter", 0, 0f);
+
+            Invoke(nameof(UnlockWeaponSwitch), weaponSwitchLockDurationGun);
         }
         else
         {
-            if (gunObject != null)
-                gunObject.SetActive(false);
+            gunObject.SetActive(false);
 
-            if (swordObject != null)
-            {
-                swordObject.SetActive(true);
-                swordObject.transform.localPosition = katanaDefaultLocalPos;
-                swordObject.transform.localRotation = katanaDefaultLocalRot;
+            swordObject.SetActive(true);
+            swordObject.transform.localPosition = katanaDefaultLocalPos;
+            swordObject.transform.localRotation = katanaDefaultLocalRot;
 
-                if (Player_Weapon_Sword != null)
-                {
-                    Player_Weapon_Sword.Play("Player_Weapon_Sword_Idle", 0, 0f);
-                }
-            }
+            Player_Weapon_Sword.Rebind();
+            Player_Weapon_Sword.Update(0f);
+            Player_Weapon_Sword.Play("Player_Weapon_Sword_Enter", 0, 0f);
+
+            Invoke(nameof(UnlockWeaponSwitch), weaponSwitchLockDurationSword);
         }
+    }
+
+    private void UnlockWeaponSwitch()
+    {
+        weaponSwitchLocked = false;
     }
 
     public void SelectGun()
@@ -242,16 +259,14 @@ public class PlayerController : MonoBehaviour
 
     private void HandleGunShoot()
     {
-        if (ammoAmount <= 0)
-        {
+        if (weaponSwitchLocked)
             return;
-        }
 
-        if (CrosshairRecoil.instance != null)
-        {
-            Player_Weapon_Gun.SetTrigger("isShooting");
-            CrosshairRecoil.instance.OnShoot();
-        }
+        if (ammoAmount <= 0)
+            return;
+
+        Player_Weapon_Gun.SetTrigger("isShooting");
+        CrosshairRecoil.instance.OnShoot();
 
         Instantiate(muzzleFlash, muzzleFlashPoint.position, muzzleFlashPoint.rotation);
 
@@ -284,6 +299,9 @@ public class PlayerController : MonoBehaviour
 
     private void HandleKatanaAttack()
     {
+        if (weaponSwitchLocked)
+            return;
+
         if (katanaAttackTimer > 0f)
             return;
 
