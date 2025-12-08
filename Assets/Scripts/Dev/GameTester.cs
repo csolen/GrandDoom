@@ -42,7 +42,7 @@ public class GameTester : MonoBehaviour
 
         GivePlayerHealth();
 
-        OpenSkillsSelectionPanel();
+        OpenPanels();
 
     }
 
@@ -66,8 +66,8 @@ public class GameTester : MonoBehaviour
     {
         if (!firstTimeOpener)
         {
-            //Cursor.lockState = CursorLockMode.Locked;
-            //Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             firstTimeOpener = true;
         }
     }
@@ -144,19 +144,17 @@ public class GameTester : MonoBehaviour
         }
     }
 
-    private void OpenSkillsSelectionPanel()
+    private void OpenPanels()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             PlayerPrefs.SetInt("Roguelike_Xp", 10000);
         }
 
-        /*
-        if (Input.GetKeyDown(KeyCode.M) || Input.GetMouseButtonDown(1))
+        if (Input.GetKeyDown(KeyCode.K))
         {
-            PlayerPrefs.SetInt("Roguelike_Xp", 10000);
+            PlayerPrefs.SetInt("Open_SpinWheel", 1);
         }
-        */
     }
 
     public void ShowCursorInEditor(bool state)
@@ -167,6 +165,7 @@ public class GameTester : MonoBehaviour
             PlayerController.instance.FreezePlayer();
 
 #if UNITY_EDITOR
+
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 #endif

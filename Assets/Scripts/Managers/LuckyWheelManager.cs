@@ -5,15 +5,15 @@ using TMPro;
 
 public class LuckyWheelController : MonoBehaviour
 {
+    public GameObject luckyWheelsPanel;
     public RectTransform wheel;
     public Button spinButton;
     public TextMeshProUGUI buttonLabel;
 
     public int sliceCount = 6;
-    public float spinDuration = 3f;
-    public int minFullRotations = 8;
+    public float spinDuration = 4.5f;
+    public int minFullRotations = 7;
     public int maxFullRotations = 12;
-    public AnimationCurve spinCurve;
 
     public float pointerAngle = 90f;
     public float wheelDirection = -1f;
@@ -22,18 +22,22 @@ public class LuckyWheelController : MonoBehaviour
     private bool resultReady = false;
     private int lastResultIndex = -1;
 
-    public void OpenWheelMenu()
-    {
-        GameTester.Instance.ShowCursorInEditor(true);
-    }
-
     private void Start()
     {
-        if (spinCurve == null || spinCurve.keys.Length == 0)
-            spinCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
-
         spinButton.onClick.AddListener(OnSpinButtonPressed);
         SetButtonState_Spin();
+    }
+
+    private void Update()
+    {
+        if (PlayerPrefs.GetInt("Open_SpinWheel") == 1)
+        {
+            OpenWheelMenu();
+        }
+        else
+        {
+            CloseWheelMenu();
+        }
     }
 
     private void OnSpinButtonPressed()
@@ -69,7 +73,8 @@ public class LuckyWheelController : MonoBehaviour
         {
             t += Time.deltaTime;
             float n = Mathf.Clamp01(t / spinDuration);
-            float eased = spinCurve.Evaluate(n);
+
+            float eased = EaseOutCubic(n);
 
             float currentZ = Mathf.Lerp(startAngle, endAngle, eased);
             wheel.rotation = Quaternion.Euler(0, 0, currentZ);
@@ -86,6 +91,13 @@ public class LuckyWheelController : MonoBehaviour
         spinButton.gameObject.SetActive(true);
     }
 
+    private float EaseOutCubic(float t)
+    {
+        t = Mathf.Clamp01(t);
+        t = 1f - Mathf.Pow(1f - t, 3f);
+        return t;
+    }
+
     private void CollectRewardAndReset()
     {
         resultReady = false;
@@ -100,5 +112,19 @@ public class LuckyWheelController : MonoBehaviour
     private void SetButtonState_Collect()
     {
         buttonLabel.text = "Collect";
+    }
+
+    public void OpenWheelMenu()
+    {
+        PlayerPrefs.SetInt("Open_SpinWheel", 1);
+        GameTester.Instance.ShowCursorInEditor(true);
+        luckyWheelsPanel.SetActive(true);
+    }
+
+    public void CloseWheelMenu()
+    {
+        PlayerPrefs.SetInt("Open_SpinWheel", 0);
+        GameTester.Instance.ShowCursorInEditor(false);
+        luckyWheelsPanel.SetActive(false);
     }
 }
