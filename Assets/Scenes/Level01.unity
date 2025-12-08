@@ -639,7 +639,7 @@ GameObject:
   - component: {fileID: 121483414}
   - component: {fileID: 121483413}
   m_Layer: 5
-  m_Name: Lucky_Wheels
+  m_Name: Lucky_Wheels_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2948,7 +2948,7 @@ GameObject:
   - component: {fileID: 698893123}
   - component: {fileID: 698893125}
   m_Layer: 5
-  m_Name: DeathPanel
+  m_Name: Death_Screen_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4740,7 +4740,7 @@ GameObject:
   - component: {fileID: 991796058}
   - component: {fileID: 991796060}
   m_Layer: 5
-  m_Name: Player_Gun_02_Submission
+  m_Name: Player_Weapon_Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18824,7 +18824,7 @@ GameObject:
   - component: {fileID: 1305969394}
   - component: {fileID: 1305969393}
   m_Layer: 5
-  m_Name: Player_Gun_01_Katana
+  m_Name: Player_Weapon_Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19487,7 +19487,7 @@ GameObject:
   - component: {fileID: 1337640916}
   - component: {fileID: 1337640915}
   m_Layer: 5
-  m_Name: WinPanel
+  m_Name: Win_Screen_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25677,8 +25677,8 @@ MonoBehaviour:
   ammoAmount: 60
   maxAmmoAmount: 60
   playerDamage: 40
-  Gun_01_Anim: {fileID: 1305969393}
-  Gun_02_Anim: {fileID: 991796060}
+  Player_Weapon_Sword: {fileID: 1305969393}
+  Player_Weapon_Gun: {fileID: 991796060}
   deadScreen: {fileID: 698893121}
   winScreen: {fileID: 1337640913}
   playerTakeHitScreen: {fileID: 855508695}
@@ -25692,7 +25692,7 @@ MonoBehaviour:
   lifeStealChance: 0.2
   currentWeapon: 1
   gunObject: {fileID: 991796056}
-  katanaObject: {fileID: 1305969391}
+  swordObject: {fileID: 1305969391}
   katanaDamage: 60
   katanaRange: 2
   katanaAttackCooldown: 0.4

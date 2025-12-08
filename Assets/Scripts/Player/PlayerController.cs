@@ -31,8 +31,8 @@ public class PlayerController : MonoBehaviour
     public int playerDamage = 40;
 
     [Header("Weapon Animators")]
-    public Animator Gun_01_Anim;
-    public Animator Gun_02_Anim;
+    public Animator Player_Weapon_Sword;
+    public Animator Player_Weapon_Gun;
 
     [Header("UI Screens")]
     public GameObject deadScreen;
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Weapon Objects")]
     public GameObject gunObject;
-    public GameObject katanaObject;
+    public GameObject swordObject;
 
     private Vector3 gunDefaultLocalPos;
     private Quaternion gunDefaultLocalRot;
@@ -98,10 +98,10 @@ public class PlayerController : MonoBehaviour
             gunDefaultLocalRot = gunObject.transform.localRotation;
         }
 
-        if (katanaObject != null)
+        if (swordObject != null)
         {
-            katanaDefaultLocalPos = katanaObject.transform.localPosition;
-            katanaDefaultLocalRot = katanaObject.transform.localRotation;
+            katanaDefaultLocalPos = swordObject.transform.localPosition;
+            katanaDefaultLocalRot = swordObject.transform.localRotation;
         }
 
         SetWeapon(WeaponType.Katana);
@@ -196,8 +196,8 @@ public class PlayerController : MonoBehaviour
 
         if (weapon == WeaponType.Gun)
         {
-            if (katanaObject != null)
-                katanaObject.SetActive(false);
+            if (swordObject != null)
+                swordObject.SetActive(false);
 
             if (gunObject != null)
             {
@@ -205,9 +205,9 @@ public class PlayerController : MonoBehaviour
                 gunObject.transform.localPosition = gunDefaultLocalPos;
                 gunObject.transform.localRotation = gunDefaultLocalRot;
 
-                if (Gun_02_Anim != null)
+                if (Player_Weapon_Gun != null)
                 {
-                    Gun_02_Anim.Play("Idle", 0, 0f);
+                    Player_Weapon_Gun.Play("Player_Weapon_Gun_Idle", 0, 0f);
                 }
             }
         }
@@ -216,15 +216,15 @@ public class PlayerController : MonoBehaviour
             if (gunObject != null)
                 gunObject.SetActive(false);
 
-            if (katanaObject != null)
+            if (swordObject != null)
             {
-                katanaObject.SetActive(true);
-                katanaObject.transform.localPosition = katanaDefaultLocalPos;
-                katanaObject.transform.localRotation = katanaDefaultLocalRot;
+                swordObject.SetActive(true);
+                swordObject.transform.localPosition = katanaDefaultLocalPos;
+                swordObject.transform.localRotation = katanaDefaultLocalRot;
 
-                if (Gun_01_Anim != null)
+                if (Player_Weapon_Sword != null)
                 {
-                    Gun_01_Anim.Play("Idle", 0, 0f);
+                    Player_Weapon_Sword.Play("Player_Weapon_Sword_Idle", 0, 0f);
                 }
             }
         }
@@ -249,7 +249,7 @@ public class PlayerController : MonoBehaviour
 
         if (CrosshairRecoil.instance != null)
         {
-            Gun_02_Anim.SetTrigger("isShooting");
+            Player_Weapon_Gun.SetTrigger("isShooting");
             CrosshairRecoil.instance.OnShoot();
         }
 
@@ -289,7 +289,7 @@ public class PlayerController : MonoBehaviour
 
         katanaAttackTimer = katanaAttackCooldown;
 
-        Gun_01_Anim.SetTrigger("isShooting");
+        Player_Weapon_Sword.SetTrigger("isShooting");
 
         Ray ray = viewCam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
         RaycastHit hit;
