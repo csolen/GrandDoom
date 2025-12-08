@@ -74,11 +74,7 @@ public class RoguelikeManager : MonoBehaviour
     {
         isMenuOpen = true;
 
-        PlayerController.instance.FreezePlayer();
-
         Invoke(nameof(ClickDelayer), 0.45f);
-
-        PlayerPrefs.SetInt("ShouldStopTheGame", 1);
 
         GameTester.Instance.ShowCursorInEditor(true);
 
@@ -100,11 +96,7 @@ public class RoguelikeManager : MonoBehaviour
     {
         selectionPanel.SetActive(false);
 
-        PlayerPrefs.SetInt("ShouldStopTheGame", 0);
-
         isMenuOpen = false;
-
-        Invoke(nameof(DelayPlayerSaverEnemyCancellerObj), .3f);
 
         GameTester.Instance.ShowCursorInEditor(false);
         ClearOldCards();
@@ -260,10 +252,6 @@ public class RoguelikeManager : MonoBehaviour
         }
     }
 
-    private void DelayPlayerSaverEnemyCancellerObj()
-    {
-        PlayerController.instance.UnFreezePlayer();
-    }
 
     private void RollCards()
     {

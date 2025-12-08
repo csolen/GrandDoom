@@ -164,6 +164,7 @@ public class GameTester : MonoBehaviour
         if (state)
         {
             PlayerPrefs.SetInt("ShouldStopTheGame", 1);
+            PlayerController.instance.FreezePlayer();
 
 #if UNITY_EDITOR
             Cursor.lockState = CursorLockMode.None;
@@ -173,6 +174,7 @@ public class GameTester : MonoBehaviour
         else
         {
             PlayerPrefs.SetInt("ShouldStopTheGame", 0);
+            PlayerController.instance.UnFreezePlayer();
 
 #if UNITY_EDITOR
 

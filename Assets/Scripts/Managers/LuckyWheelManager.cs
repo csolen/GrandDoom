@@ -22,10 +22,13 @@ public class LuckyWheelController : MonoBehaviour
     private bool resultReady = false;
     private int lastResultIndex = -1;
 
-    private void Start()
+    public void OpenWheelMenu()
     {
         GameTester.Instance.ShowCursorInEditor(true);
+    }
 
+    private void Start()
+    {
         if (spinCurve == null || spinCurve.keys.Length == 0)
             spinCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
 
