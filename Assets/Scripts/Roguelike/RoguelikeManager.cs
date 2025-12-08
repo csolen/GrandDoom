@@ -32,13 +32,19 @@ public class RoguelikeManager : MonoBehaviour
     void Update()
     {
         if (isMenuOpen) return;
+        /*
 
         int xpCalculator = PlayerPrefs.GetInt("Roguelike_Xp", 0);
 
         if (xpCalculator >= xpThreshold)
         {
             PlayerPrefs.SetInt("Roguelike_Xp", 0);
-            delayerImg.SetActive(true);
+            OpenSelectionMenu();
+        }
+        */
+
+        if (PlayerPrefs.GetInt("Open_Roguelike") == 1)
+        {
             OpenSelectionMenu();
         }
     }
@@ -72,6 +78,10 @@ public class RoguelikeManager : MonoBehaviour
 
     public void OpenSelectionMenu()
     {
+        PlayerPrefs.SetInt("Open_Roguelike", 1);
+        PlayerPrefs.SetInt("Roguelike_Xp", 0);
+        delayerImg.SetActive(true);
+
         isMenuOpen = true;
 
         Invoke(nameof(ClickDelayer), 0.45f);
@@ -94,6 +104,7 @@ public class RoguelikeManager : MonoBehaviour
 
     public void CloseSelectionMenu()
     {
+        PlayerPrefs.SetInt("Open_Roguelike", 0);
         selectionPanel.SetActive(false);
 
         isMenuOpen = false;

@@ -148,7 +148,7 @@ public class GameTester : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
-            PlayerPrefs.SetInt("Roguelike_Xp", 10000);
+            PlayerPrefs.SetInt("Open_Roguelike", 1);
         }
 
         if (Input.GetKeyDown(KeyCode.K))

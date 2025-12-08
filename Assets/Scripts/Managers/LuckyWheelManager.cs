@@ -34,10 +34,6 @@ public class LuckyWheelController : MonoBehaviour
         {
             OpenWheelMenu();
         }
-        else
-        {
-            CloseWheelMenu();
-        }
     }
 
     private void OnSpinButtonPressed()
@@ -117,14 +113,14 @@ public class LuckyWheelController : MonoBehaviour
     public void OpenWheelMenu()
     {
         PlayerPrefs.SetInt("Open_SpinWheel", 1);
-        GameTester.Instance.ShowCursorInEditor(true);
         luckyWheelsPanel.SetActive(true);
+        GameTester.Instance.ShowCursorInEditor(true);
     }
 
     public void CloseWheelMenu()
     {
         PlayerPrefs.SetInt("Open_SpinWheel", 0);
-        GameTester.Instance.ShowCursorInEditor(false);
         luckyWheelsPanel.SetActive(false);
+        GameTester.Instance.ShowCursorInEditor(false);
     }
 }
