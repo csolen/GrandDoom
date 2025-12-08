@@ -6,8 +6,6 @@ public class GameTester : MonoBehaviour
     private static GameTester instance;
 
     private GameObject TileMap;
-
-    private bool seeCursor;
     private bool firstTimeOpener;
     private bool enemiesStopped = false;
 
@@ -27,9 +25,11 @@ public class GameTester : MonoBehaviour
 
     public void Update()
     {
-        FirstTimeOpener();
-
-        OpenTileMapsWhenGameStarts();
+        if (SceneManager.GetActiveScene().name == "Level01")
+        {
+            FirstTimeOpener();
+            OpenTileMapsWhenGameStarts();
+        }
 
         RestartScene();
 
@@ -126,7 +126,6 @@ public class GameTester : MonoBehaviour
         }
     }
 
-
     private void ReloadAmmo()
     {
         if (Input.GetKeyDown(KeyCode.B))
@@ -134,7 +133,6 @@ public class GameTester : MonoBehaviour
             PlayerController.instance.ammoAmount = PlayerController.instance.maxAmmoAmount;
         }
     }
-
 
     private void GivePlayerHealth()
     {

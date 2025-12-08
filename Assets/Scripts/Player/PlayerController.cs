@@ -95,6 +95,8 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+
+
         katanaAttackTimer -= Time.deltaTime;
 
         moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
