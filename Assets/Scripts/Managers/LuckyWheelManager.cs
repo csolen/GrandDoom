@@ -34,15 +34,22 @@ public class LuckyWheelController : MonoBehaviour
     private void Start()
     {
         spinButton.onClick.AddListener(OnSpinButtonPressed);
-        SetButtonState_Spin();
-        PlaceRewards();
     }
 
     private void Update()
     {
+        if (luckyWheelsPanel.activeInHierarchy)
+        {
+            return;
+        }
+
         if (PlayerPrefs.GetInt("Open_SpinWheel") == 1)
         {
             OpenWheelMenu();
+            isSpinning = false;
+            resultReady = false;
+            buttonLabel.text = "Spin";
+            PlaceRewards();
         }
     }
 
@@ -75,7 +82,7 @@ public class LuckyWheelController : MonoBehaviour
         if (!resultReady)
             StartCoroutine(SpinRoutine());
         else
-            CollectRewardAndReset();
+            CollectRewardAndClose();
     }
 
     private IEnumerator SpinRoutine()
@@ -115,7 +122,7 @@ public class LuckyWheelController : MonoBehaviour
         isSpinning = false;
         resultReady = true;
 
-        SetButtonState_Collect();
+        buttonLabel.text = "Collect";
         spinButton.gameObject.SetActive(true);
     }
 
@@ -126,22 +133,41 @@ public class LuckyWheelController : MonoBehaviour
         return t;
     }
 
-    private void CollectRewardAndReset()
+    private void GiveReward(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                PlayerController.instance.health += randomHealth01;
+                break;
+
+            case 1:
+                PlayerController.instance.goldAmount += randomGold01;
+                break;
+
+            case 2:
+                PlayerController.instance.ammoAmount += randomAmmo01;
+                break;
+
+            case 3:
+                PlayerController.instance.health += randomHealth02;
+                break;
+
+            case 4:
+                PlayerController.instance.goldAmount += randomGold02;
+                break;
+
+            case 5:
+                PlayerController.instance.ammoAmount += randomAmmo02;
+                break;
+        }
+    }
+
+    private void CollectRewardAndClose()
     {
         GiveReward(lastResultIndex);
 
-        resultReady = false;
-        SetButtonState_Spin();
-    }
-
-    private void SetButtonState_Spin()
-    {
-        buttonLabel.text = "Spin";
-    }
-
-    private void SetButtonState_Collect()
-    {
-        buttonLabel.text = "Collect";
+        CloseWheelMenu();
     }
 
     public void OpenWheelMenu()
@@ -158,33 +184,4 @@ public class LuckyWheelController : MonoBehaviour
         GameTester.Instance.ShouldStopTheGame(false);
     }
 
-    private void GiveReward(int index)
-    {
-        switch (index)
-        {
-            case 0:
-                PlayerController.instance.AddHealth(randomHealth01);
-                break;
-
-            case 1:
-                PlayerController.instance.goldAmount += randomGold01;
-                break;
-
-            case 2:
-                PlayerController.instance.AddAmmo(randomAmmo01);
-                break;
-
-            case 3:
-                PlayerController.instance.AddHealth(randomHealth02);
-                break;
-
-            case 4:
-                PlayerController.instance.goldAmount += randomGold02;
-                break;
-
-            case 5:
-                PlayerController.instance.AddAmmo(randomAmmo02);
-                break;
-        }
-    }
 }
