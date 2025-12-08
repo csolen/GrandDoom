@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameTester : MonoBehaviour
 {
     private static GameTester instance;
+    public static GameTester Instance => instance;
 
     private GameObject TileMap;
     private bool firstTimeOpener;
@@ -65,8 +66,8 @@ public class GameTester : MonoBehaviour
     {
         if (!firstTimeOpener)
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            //Cursor.lockState = CursorLockMode.Locked;
+            //Cursor.visible = false;
             firstTimeOpener = true;
         }
     }
@@ -156,5 +157,28 @@ public class GameTester : MonoBehaviour
             PlayerPrefs.SetInt("Roguelike_Xp", 10000);
         }
         */
+    }
+
+    public void ShowCursorInEditor(bool state)
+    {
+        if (state)
+        {
+            PlayerPrefs.SetInt("ShouldStopTheGame", 1);
+
+#if UNITY_EDITOR
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+#endif
+        }
+        else
+        {
+            PlayerPrefs.SetInt("ShouldStopTheGame", 0);
+
+#if UNITY_EDITOR
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+#endif
+        }
     }
 }

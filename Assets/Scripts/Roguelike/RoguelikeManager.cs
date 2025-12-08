@@ -80,7 +80,7 @@ public class RoguelikeManager : MonoBehaviour
 
         PlayerPrefs.SetInt("ShouldStopTheGame", 1);
 
-        ShowCursorInEditor(true);
+        GameTester.Instance.ShowCursorInEditor(true);
 
         selectionPanel.SetActive(true);
 
@@ -106,7 +106,7 @@ public class RoguelikeManager : MonoBehaviour
 
         Invoke(nameof(DelayPlayerSaverEnemyCancellerObj), .3f);
 
-        ShowCursorInEditor(false);
+        GameTester.Instance.ShowCursorInEditor(false);
         ClearOldCards();
     }
 
@@ -283,22 +283,6 @@ public class RoguelikeManager : MonoBehaviour
         }
 
         RollCards();
-    }
-
-    void ShowCursorInEditor(bool state)
-    {
-#if UNITY_EDITOR
-        if (state)
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-#endif
     }
 
     public int IncreaseByPercent(int value, int percent)
