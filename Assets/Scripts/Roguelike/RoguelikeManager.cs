@@ -86,7 +86,7 @@ public class RoguelikeManager : MonoBehaviour
 
         Invoke(nameof(ClickDelayer), 0.45f);
 
-        GameTester.Instance.ShowCursorInEditor(true);
+        GameTester.Instance.ShouldStopTheGame(true);
 
         selectionPanel.SetActive(true);
 
@@ -109,7 +109,7 @@ public class RoguelikeManager : MonoBehaviour
 
         isMenuOpen = false;
 
-        GameTester.Instance.ShowCursorInEditor(false);
+        GameTester.Instance.ShouldStopTheGame(false);
         ClearOldCards();
     }
 

@@ -157,7 +157,7 @@ public class GameTester : MonoBehaviour
         }
     }
 
-    public void ShowCursorInEditor(bool state)
+    public void ShouldStopTheGame(bool state)
     {
         if (state)
         {

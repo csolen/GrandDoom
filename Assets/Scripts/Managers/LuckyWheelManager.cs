@@ -114,13 +114,13 @@ public class LuckyWheelController : MonoBehaviour
     {
         PlayerPrefs.SetInt("Open_SpinWheel", 1);
         luckyWheelsPanel.SetActive(true);
-        GameTester.Instance.ShowCursorInEditor(true);
+        GameTester.Instance.ShouldStopTheGame(true);
     }
 
     public void CloseWheelMenu()
     {
         PlayerPrefs.SetInt("Open_SpinWheel", 0);
         luckyWheelsPanel.SetActive(false);
-        GameTester.Instance.ShowCursorInEditor(false);
+        GameTester.Instance.ShouldStopTheGame(false);
     }
 }
