@@ -3845,8 +3845,8 @@ MonoBehaviour:
   buttonLabel: {fileID: 846257456}
   sliceCount: 6
   spinDuration: 3
-  minFullRotations: 3
-  maxFullRotations: 5
+  minFullRotations: 7
+  maxFullRotations: 12
   pointerAngle: 90
   wheelDirection: -1
 --- !u!1 &846257454
