@@ -88,7 +88,9 @@ public class EnemyController : MonoBehaviour
     private bool isAttacking;
 
     public GameObject[] hitVfxs;
+    public GameObject critVfx;
     private int enemyCount;
+
 
     private void Awake()
     {
@@ -433,36 +435,52 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage()
     {
-        int hitVfxNumber = Random.Range(0, hitVfxs.Length);
-
-        if (enemyType == EnemyType.Melee)
+        if (Random.value <= PlayerController.instance.criticalDamageChance)
         {
-            Instantiate(hitVfxs[hitVfxNumber], new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.3f), transform.rotation);
+            EnemyHealth -= 10000;
+
+            if (enemyType == EnemyType.Melee)
+            {
+                Instantiate(critVfx, new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.3f), transform.rotation);
+            }
+            else
+            {
+                Instantiate(critVfx, new Vector3(transform.position.x, transform.position.y, transform.position.z - 1.5f), transform.rotation);
+            }
         }
         else
         {
-            Instantiate(hitVfxs[hitVfxNumber], new Vector3(transform.position.x, transform.position.y, transform.position.z - 1.5f), transform.rotation);
+            int hitVfxNumber = Random.Range(0, hitVfxs.Length);
+
+            if (enemyType == EnemyType.Melee)
+            {
+                Instantiate(hitVfxs[hitVfxNumber], new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.3f), transform.rotation);
+            }
+            else
+            {
+                Instantiate(hitVfxs[hitVfxNumber], new Vector3(transform.position.x, transform.position.y, transform.position.z - 1.5f), transform.rotation);
+            }
+
+            EnemyHealth -= PlayerController.instance.playerDamage;
+
+            Vector2 dirAway = (transform.position - player.position).normalized;
+            if (dirAway.sqrMagnitude < 0.001f)
+                dirAway = Random.insideUnitCircle.normalized;
+
+            Vector2 perp = new Vector2(-dirAway.y, dirAway.x);
+            float side = Random.Range(-sideKnockbackFactor, sideKnockbackFactor);
+            Vector2 finalDir = dirAway + perp * side;
+            if (finalDir.sqrMagnitude < 0.001f)
+                finalDir = dirAway;
+            knockbackDirection = finalDir.normalized;
+
+            hitStunTimer = hitStunDuration;
+            isChasing = false;
+            isAttacking = false;
+
+            ResetTriggers();
+            anim.SetTrigger("shouldTakeDamage");
         }
-
-        EnemyHealth -= PlayerController.instance.playerDamage;
-
-        Vector2 dirAway = (transform.position - player.position).normalized;
-        if (dirAway.sqrMagnitude < 0.001f)
-            dirAway = Random.insideUnitCircle.normalized;
-
-        Vector2 perp = new Vector2(-dirAway.y, dirAway.x);
-        float side = Random.Range(-sideKnockbackFactor, sideKnockbackFactor);
-        Vector2 finalDir = dirAway + perp * side;
-        if (finalDir.sqrMagnitude < 0.001f)
-            finalDir = dirAway;
-        knockbackDirection = finalDir.normalized;
-
-        hitStunTimer = hitStunDuration;
-        isChasing = false;
-        isAttacking = false;
-
-        ResetTriggers();
-        anim.SetTrigger("shouldTakeDamage");
 
         if (EnemyHealth <= 0)
         {

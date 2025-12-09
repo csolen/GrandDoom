@@ -261,6 +261,9 @@ public class RoguelikeManager : MonoBehaviour
                     enemy.chaseSpeed = enemy.IncreaseByPercent(enemy.chaseSpeed, -skill.value);
                 }
                 break;
+            case SkillType.CriticalChance:
+                PlayerController.instance.criticalDamageChance = PlayerController.instance.IncreaseByPercent(PlayerController.instance.criticalDamageChance, skill.value);
+                break;
         }
     }
 
