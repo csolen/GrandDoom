@@ -85,8 +85,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectableType: 3
   amount: 10
-  attractionRange: 2.5
-  moveSpeed: 6
+  attractionRange: 5
+  moveSpeed: 10
 --- !u!114 &7971754376654215785
 MonoBehaviour:
   m_ObjectHideFlags: 0

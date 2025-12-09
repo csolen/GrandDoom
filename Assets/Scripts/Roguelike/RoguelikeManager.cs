@@ -32,8 +32,7 @@ public class RoguelikeManager : MonoBehaviour
     void Update()
     {
         if (isMenuOpen) return;
-        /*
-
+        
         int xpCalculator = PlayerPrefs.GetInt("Roguelike_Xp", 0);
 
         if (xpCalculator >= xpThreshold)
@@ -41,7 +40,6 @@ public class RoguelikeManager : MonoBehaviour
             PlayerPrefs.SetInt("Roguelike_Xp", 0);
             OpenSelectionMenu();
         }
-        */
 
         if (PlayerPrefs.GetInt("Open_Roguelike") == 1)
         {

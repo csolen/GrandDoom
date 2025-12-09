@@ -87,6 +87,7 @@ public class EnemyController : MonoBehaviour
     private bool isChasing;
     private bool isAttacking;
 
+    public GameObject[] hitVfxs;
     private int enemyCount;
 
     private void Awake()
@@ -432,6 +433,17 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage()
     {
+        int hitVfxNumber = Random.Range(0, hitVfxs.Length);
+
+        if (enemyType == EnemyType.Melee)
+        {
+            Instantiate(hitVfxs[hitVfxNumber], new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.3f), transform.rotation);
+        }
+        else
+        {
+            Instantiate(hitVfxs[hitVfxNumber], new Vector3(transform.position.x, transform.position.y, transform.position.z - 1.5f), transform.rotation);
+        }
+
         EnemyHealth -= PlayerController.instance.playerDamage;
 
         Vector2 dirAway = (transform.position - player.position).normalized;
