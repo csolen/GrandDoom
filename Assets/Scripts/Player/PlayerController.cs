@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum WeaponType
 {
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
     public GameObject deadScreen;
     public GameObject winScreen;
     public GameObject playerTakeHitScreen;
+    public GameObject playerCollectItemsScreen;
 
     private bool hasDied;
 
@@ -429,5 +431,13 @@ public class PlayerController : MonoBehaviour
     {
         rb.constraints = RigidbodyConstraints2D.None;
         rb.freezeRotation = true;
+    }
+
+    public void ShowPlayerCollectItemsScreen()
+    {
+        /*
+        playerCollectItemsScreen.GetComponent<Image>().color = new Color(0f,0f,0f);
+        playerCollectItemsScreen.SetActive(true);
+        */
     }
 }

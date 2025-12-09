@@ -184,3 +184,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectableType: 2
   amount: 15
+  attractionRange: 2.5
+  moveSpeed: 6
+  healVfx:
+  - {fileID: 185744, guid: b88a52d0de3924c4db6011de30ecccd0, type: 3}
+  - {fileID: 4569046032541823318, guid: 448ffbcf71db27749b98c4ed68e15143, type: 3}
+  ammoVfx:
+  - {fileID: 159062, guid: e4fc72c1b3da74d4697708bcd2a9db60, type: 3}
+  - {fileID: 115120, guid: f00b7ce74a405d547ad157c971a52fb9, type: 3}
+  goldVfx: []
+  xpVfx: []
