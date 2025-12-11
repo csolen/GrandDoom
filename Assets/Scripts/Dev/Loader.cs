@@ -18,5 +18,6 @@ public class Loader : MonoBehaviour
         
         PlayerPrefs.SetInt("Open_SpinWheel", 0);
         PlayerPrefs.SetInt("Open_Roguelike", 0);
+        PlayerPrefs.SetString("LevelTimer", "00:00:00");
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public enum WeaponType
 {
@@ -42,13 +43,6 @@ public class PlayerController : MonoBehaviour
 
     private bool hasDied;
 
-    [Header("Ladder")]
-    public float climbSpeed = 2f;
-    private bool isOnLadder = false;
-    private Ladder currentLadder;
-    private float ladderTargetZ;
-    private float ladderStartZ;
-
     [Header("Gun FX")]
     public GameObject muzzleFlash;
     public Transform muzzleFlashPoint;
@@ -90,6 +84,12 @@ public class PlayerController : MonoBehaviour
     private float weaponSwitchTimer = 0f;
     private bool weaponSwitchLocked = false;
 
+    [Header("Timer")]
+    private float timer;
+    private bool timerRunning = true;
+    private string levelTimer = "";
+
+
     private enum HitSide
     {
         Front,
@@ -113,6 +113,9 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        timer = 0f;
+        timerRunning = true;
+
         gunDefaultLocalPos = gunObject.transform.localPosition;
         gunDefaultLocalRot = gunObject.transform.localRotation;
 
@@ -125,9 +128,15 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+
         if (hasDied)
         {
             return;
+        }
+
+        if (timerRunning)
+        {
+            timer += Time.deltaTime;
         }
 
         if (PlayerPrefs.GetInt("ShouldStopTheGame") == 1)
@@ -151,19 +160,6 @@ public class PlayerController : MonoBehaviour
         Vector3 moveVertical = transform.right * moveInput.y;
 
         rb.linearVelocity = (moveHorizontal + moveVertical) * moveSpeed;
-
-        if (isOnLadder && currentLadder != null && moveInput.y > 0.1f)
-        {
-            Vector3 pos = transform.position;
-            pos.z = Mathf.MoveTowards(pos.z, ladderTargetZ, climbSpeed * Time.deltaTime);
-            transform.position = pos;
-
-            if (Mathf.Approximately(pos.z, ladderTargetZ))
-            {
-                isOnLadder = false;
-                currentLadder = null;
-            }
-        }
 
         mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y")) * mouseSensitivity;
 
@@ -210,6 +206,19 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("isMoving", false);
         }
+
+        CalculateLevelTimer();
+    }
+
+    private void CalculateLevelTimer()
+    {
+        int hours = Mathf.FloorToInt(timer / 3600f);
+        int minutes = Mathf.FloorToInt((timer % 3600f) / 60f);
+        int seconds = Mathf.FloorToInt(timer % 60f);
+
+        levelTimer = $"{hours:00}:{minutes:00}:{seconds:00}";
+        PlayerPrefs.SetString("LevelTimer", levelTimer);
+
     }
 
     public void SetWeapon(WeaponType weapon)
@@ -461,42 +470,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void EnterLadder(Ladder ladder, float targetZ)
-    {
-        currentLadder = ladder;
-        ladderTargetZ = targetZ;
-
-        ladderStartZ = transform.position.z;
-
-        isOnLadder = true;
-    }
-
-    public void ExitLadder(Ladder ladder)
-    {
-        if (currentLadder == ladder)
-        {
-            float currentZ = transform.position.z;
-
-            float distToStart = Mathf.Abs(currentZ - ladderStartZ);
-            float distToTarget = Mathf.Abs(currentZ - ladderTargetZ);
-
-            float finalZ = distToStart < distToTarget ? ladderStartZ : ladderTargetZ;
-
-            Vector3 pos = transform.position;
-            pos.z = finalZ;
-            transform.position = pos;
-
-            isOnLadder = false;
-            currentLadder = null;
-        }
-    }
-
     private void LevelPassed()
     {
+        timerRunning = false;
+        timer = 0f;
+
         winScreen.SetActive(true);
         hasDied = true;
         GameTester.Instance.ShouldStopTheGame(true);
     }
+
 
     public int IncreaseByPercent(int value, int percent)
     {
