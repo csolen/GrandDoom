@@ -264,6 +264,9 @@ public class RoguelikeManager : MonoBehaviour
             case SkillType.CriticalChance:
                 PlayerController.instance.criticalDamageChance = PlayerController.instance.IncreaseByPercent(PlayerController.instance.criticalDamageChance, skill.value);
                 break;
+            case SkillType.MissChance:
+                PlayerController.instance.playerMissChance = PlayerController.instance.IncreaseByPercent(PlayerController.instance.playerMissChance, -skill.value);
+                break;
         }
     }
 

@@ -5247,6 +5247,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ba8b80fd1d8a34fb19b956d233714257, type: 2}
   - {fileID: 11400000, guid: 15837f2763be145ec8acee3fac16e0ef, type: 2}
   - {fileID: 11400000, guid: 7ba150c172dbe41c2861915ed67bfeca, type: 2}
+  - {fileID: 11400000, guid: 19aba386215694a1f89484d45a6191be, type: 2}
+  - {fileID: 11400000, guid: daa82a908b82f4445b5bfe5e91cf7c56, type: 2}
+  - {fileID: 11400000, guid: ee1df92f54f604db7bf0437c389fc0e7, type: 2}
   - {fileID: 11400000, guid: 71b0b4007cec1497691815f7bc08d9f9, type: 2}
   - {fileID: 11400000, guid: eeff610f6e79247009f21a716c9e1133, type: 2}
   - {fileID: 11400000, guid: 17fe4c68852384004b942be8fb93dbf7, type: 2}
@@ -27669,6 +27672,7 @@ MonoBehaviour:
   lifeStealChance: 0.2
   currentWeapon: 1
   criticalDamageChance: 0.5
+  playerMissChance: 0.1
   gunObject: {fileID: 991796056}
   swordObject: {fileID: 1305969391}
   katanaDamage: 60

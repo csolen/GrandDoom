@@ -15,7 +15,8 @@ public enum SkillType
     LifeStealChance,
     LifeStealAmount,
     EnemySpeed,
-    CriticalChance
+    CriticalChance,
+    MissChance
 }
 
 public enum SkillRarity

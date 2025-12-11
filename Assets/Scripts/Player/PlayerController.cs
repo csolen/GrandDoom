@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
     [Header("Weapons")]
     public WeaponType currentWeapon = WeaponType.Katana;
     public float criticalDamageChance = 0.1f;
+    public float playerMissChance = 0.1f;
 
     [Header("Weapon Objects")]
     public GameObject gunObject;

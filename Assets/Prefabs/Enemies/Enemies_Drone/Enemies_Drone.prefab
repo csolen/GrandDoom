@@ -442,10 +442,10 @@ MonoBehaviour:
   - {fileID: 1269060166065924, guid: 1810168468ffe7b4db7f3c67e0743de4, type: 3}
   - {fileID: 1269060166065924, guid: 1810168468ffe7b4db7f3c67e0743de4, type: 3}
   - {fileID: 1269060166065924, guid: 1810168468ffe7b4db7f3c67e0743de4, type: 3}
-  - {fileID: 1039062483155646, guid: 476c13e09369fbb46b465d409192d06b, type: 3}
   - {fileID: 107418, guid: ea6edc3a0a047a243a9ec62ca1655977, type: 3}
   - {fileID: 1624119753830394, guid: b3317320a28a9414681715fe63910ece, type: 3}
   critVfx: {fileID: 1883610838541854, guid: aa72280b4bb67cb468b0ffc37bcfc9c0, type: 3}
+  missVfx: {fileID: 1039062483155646, guid: 476c13e09369fbb46b465d409192d06b, type: 3}
 --- !u!1 &6487870602573874538
 GameObject:
   m_ObjectHideFlags: 0
