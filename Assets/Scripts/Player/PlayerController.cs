@@ -365,6 +365,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void RevivePlayer()
+    {
+        deadScreen.SetActive(false);
+        health = maxHealth;
+        hasDied = false;
+        GameTester.Instance.ShouldStopTheGame(false);
+    }
+
     public void TakeDamage(int damageAmount)
     {
         TakeDamage(damageAmount, transform.position);
