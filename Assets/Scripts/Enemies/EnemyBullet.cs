@@ -31,7 +31,7 @@ public class EnemyBullet : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PlayerController.instance.TakeDamage(bulletDamage);
+            PlayerController.instance.TakeDamage(bulletDamage, transform.position);
 
             Destroy(gameObject);
         }

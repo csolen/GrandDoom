@@ -13,6 +13,6 @@ public class EnemyDamageEvent : MonoBehaviour
 
     public void DealMeleeDamage()
     {
-        PlayerController.instance.TakeDamage(enemyDamage);
+        PlayerController.instance.TakeDamage(enemyDamage, transform.position);
     }
 }

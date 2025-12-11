@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     [Header("UI Screens")]
     public GameObject deadScreen;
     public GameObject winScreen;
-    public GameObject playerTakeHitScreen;
+    public GameObject[] takeHitPos;
     public GameObject playerCollectItemsScreen;
 
     private bool hasDied;
@@ -90,10 +90,21 @@ public class PlayerController : MonoBehaviour
     private float weaponSwitchTimer = 0f;
     private bool weaponSwitchLocked = false;
 
+    private enum HitSide
+    {
+        Front,
+        Back,
+        Left,
+        Right
+    }
+
+    [Header("Hit Feedback (Debug)")]
+    [SerializeField] private Vector2 lastHitDirection;
+    [SerializeField] private HitSide lastHitSide;
+
     private void Awake()
     {
         instance = this;
-
         viewCam = Camera.main;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -332,12 +343,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(int damageAmount, Vector3 damageSourcePosition)
     {
+        Vector2 hitDir = GetHitDirection2D(damageSourcePosition);
+        lastHitDirection = hitDir;
+
+        HitSide side = GetHitSideFromDirection(hitDir);
+        lastHitSide = side;
+
         if (health - damageAmount > 0)
         {
             health -= damageAmount;
-            playerTakeHitScreen.SetActive(true);
+            ShowHitScreenForSide(side);
             Invoke(nameof(CloseHitAnimation), .4f);
         }
         else
@@ -345,6 +362,62 @@ public class PlayerController : MonoBehaviour
             deadScreen.SetActive(true);
             hasDied = true;
             GameTester.Instance.ShouldStopTheGame(true);
+        }
+    }
+
+    public void TakeDamage(int damageAmount)
+    {
+        TakeDamage(damageAmount, transform.position);
+    }
+
+    private Vector2 GetHitDirection2D(Vector3 damageSourcePosition)
+    {
+        Vector2 attackerPos2D = new (damageSourcePosition.x, damageSourcePosition.y);
+        Vector2 playerPos2D = new (transform.position.x, transform.position.y);
+        Vector2 toAttacker = (attackerPos2D - playerPos2D).normalized;
+        return toAttacker;
+    }
+
+    private HitSide GetHitSideFromDirection(Vector2 toAttacker)
+    {
+        Vector2 forward = transform.right;
+        Vector2 right = new Vector2(forward.y, -forward.x);
+
+        float forwardDot = Vector2.Dot(forward, toAttacker);
+        float rightDot = Vector2.Dot(right, toAttacker);
+
+        if (Mathf.Abs(forwardDot) > Mathf.Abs(rightDot))
+        {
+            if (forwardDot > 0f)
+                return HitSide.Front;
+            else
+                return HitSide.Back;
+        }
+        else
+        {
+            if (rightDot > 0f)
+                return HitSide.Right;
+            else
+                return HitSide.Left;
+        }
+    }
+
+    private void ShowHitScreenForSide(HitSide side)
+    {
+        if (takeHitPos == null || takeHitPos.Length == 0)
+            return;
+
+        for (int i = 0; i < takeHitPos.Length; i++)
+        {
+            if (takeHitPos[i] != null)
+                takeHitPos[i].SetActive(false);
+        }
+
+        int index = (int)side;
+
+        if (index >= 0 && index < takeHitPos.Length && takeHitPos[index] != null)
+        {
+            takeHitPos[index].SetActive(true);
         }
     }
 
@@ -370,7 +443,14 @@ public class PlayerController : MonoBehaviour
 
     private void CloseHitAnimation()
     {
-        playerTakeHitScreen.SetActive(false);
+        if (takeHitPos == null || takeHitPos.Length == 0)
+            return;
+
+        for (int i = 0; i < takeHitPos.Length; i++)
+        {
+            if (takeHitPos[i] != null)
+                takeHitPos[i].SetActive(false);
+        }
     }
 
     public void EnterLadder(Ladder ladder, float targetZ)
