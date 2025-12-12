@@ -6,7 +6,8 @@ public class UI_Sliders : MonoBehaviour
     public enum BarType
     {
         Health,
-        XP
+        XP,
+        Ammo
     }
 
     public BarType barType = BarType.Health;
@@ -23,6 +24,12 @@ public class UI_Sliders : MonoBehaviour
     float previousRawValue;
     bool isHealing;
     bool initialized;
+
+    [Header("Ammo Icons")]
+    public Sprite ammoFullSprite;
+    public Sprite ammoEmptySprite;
+
+    public GameObject[] ammoIcons;
 
     void Start()
     {
@@ -119,5 +126,35 @@ public class UI_Sliders : MonoBehaviour
             backFill.fillAmount = backValue;
             slider.value = frontValue;
         }
+        else if (barType == BarType.Ammo)
+        {
+            if (PlayerController.instance == null)
+                return;
+
+            int ammo = PlayerController.instance.ammoAmount;
+            int maxAmmo = Mathf.Max(1, PlayerController.instance.maxAmmoAmount);
+
+            ammo = Mathf.Clamp(ammo, 0, maxAmmo);
+
+            int iconCount = ammoIcons != null ? ammoIcons.Length : 0;
+            if (iconCount == 0)
+                return;
+
+            float pct = (float)ammo / maxAmmo;
+            int filledCount = Mathf.RoundToInt(pct * iconCount);
+            filledCount = Mathf.Clamp(filledCount, 0, iconCount);
+
+            for (int i = 0; i < iconCount; i++)
+            {
+                if (ammoIcons[i] == null) continue;
+
+                Image img = ammoIcons[i].GetComponent<Image>();
+                if (img == null) continue;
+
+                img.sprite = (i < filledCount) ? ammoFullSprite : ammoEmptySprite;
+            }
+        }
+
+
     }
 }

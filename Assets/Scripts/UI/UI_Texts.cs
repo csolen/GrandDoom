@@ -21,7 +21,7 @@ public class UI_Texts : MonoBehaviour
     {
         if (whatUI == "health")
         {
-            UI_Text.text = "Health: " + PlayerController.instance.health.ToString() + "/" + PlayerController.instance.maxHealth.ToString();
+            UI_Text.text = "Health: " + PlayerController.instance.health.ToString();
         }
         else if (whatUI == "gold")
         {
@@ -29,7 +29,7 @@ public class UI_Texts : MonoBehaviour
         }
         else if (whatUI == "ammo")
         {
-            UI_Text.text = "Ammo: " + PlayerController.instance.ammoAmount.ToString() + " / " + PlayerController.instance.maxAmmoAmount.ToString();
+            UI_Text.text = PlayerController.instance.ammoAmount.ToString();
         }
         else if (whatUI == "enemies")
         {
