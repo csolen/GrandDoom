@@ -267,6 +267,9 @@ public class RoguelikeManager : MonoBehaviour
             case SkillType.MissChance:
                 PlayerController.instance.playerMissChance = PlayerController.instance.IncreaseByPercent(PlayerController.instance.playerMissChance, -skill.value);
                 break;
+            case SkillType.PlayerDodgeChance:
+                PlayerController.instance.playerDodgeChance = PlayerController.instance.IncreaseByPercent(PlayerController.instance.playerDodgeChance, skill.value);
+                break;
         }
     }
 

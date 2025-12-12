@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
     public WeaponType currentWeapon = WeaponType.Katana;
     public float criticalDamageChance = 0.1f;
     public float playerMissChance = 0.1f;
+    public float playerDodgeChance = 0.1f;
 
     [Header("Weapon Objects")]
     public GameObject gunObject;
@@ -354,6 +355,11 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int damageAmount, Vector3 damageSourcePosition)
     {
+        if (Random.value <= playerDodgeChance)
+        {
+            return;
+        }
+
         Vector2 hitDir = GetHitDirection2D(damageSourcePosition);
         lastHitDirection = hitDir;
 
