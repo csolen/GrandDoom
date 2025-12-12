@@ -155,6 +155,7 @@ public class GameTester : MonoBehaviour
         {
             PlayerPrefs.SetInt("Open_SpinWheel", 1);
         }
+
     }
 
     public void ShouldStopTheGame(bool state)
