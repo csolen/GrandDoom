@@ -1,11 +1,16 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
+using System.Collections;
 
 public class UI_Texts : MonoBehaviour
 {
     public string whatUI;
 
     private TextMeshProUGUI UI_Text;
+
+    private int lastValue;
+    private Coroutine scaleRoutine;
 
     private void Awake()
     {
@@ -32,7 +37,15 @@ public class UI_Texts : MonoBehaviour
         }
         else if (whatUI == "killedEnemies")
         {
-            UI_Text.text = PlayerPrefs.GetInt("KilledEnemies").ToString();
+            int currentValue = PlayerPrefs.GetInt("KilledEnemies");
+
+            UI_Text.text = currentValue.ToString();
+
+            if (currentValue != lastValue)
+            {
+                PlayScaleAnimation();
+                lastValue = currentValue;
+            }
         }
         else if (whatUI == "xp")
         {
@@ -45,6 +58,41 @@ public class UI_Texts : MonoBehaviour
         else
         {
             Debug.LogWarning("No such thing as " + whatUI);
+        }
+    }
+
+    private void PlayScaleAnimation()
+    {
+        if (scaleRoutine != null)
+            StopCoroutine(scaleRoutine);
+
+        scaleRoutine = StartCoroutine(ScalePulse());
+    }
+
+    private IEnumerator ScalePulse()
+    {
+        Vector3 normalScale = Vector3.one;
+        Vector3 bigScale = Vector3.one * 1.6f;
+
+        float duration = 0.1f;
+        float t = 0f;
+
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            UI_Text.transform.localScale =
+                Vector3.Lerp(normalScale, bigScale, t / duration);
+            yield return null;
+        }
+
+        t = 0f;
+
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            UI_Text.transform.localScale =
+                Vector3.Lerp(bigScale, normalScale, t / duration);
+            yield return null;
         }
     }
 }
