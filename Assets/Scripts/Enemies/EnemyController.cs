@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public enum EnemyType { Melee, Ranged }
-    private enum EnemyState { Wandering, Chasing }
+    private enum EnemyState { Wandering, Alert, Chasing }
 
     [Header("General")]
     public EnemyType enemyType = EnemyType.Melee;
@@ -32,6 +32,16 @@ public class EnemyController : MonoBehaviour
 
     private bool allowIdleWhileWandering = true;
     private readonly float idleChance = 0.4f;
+
+    [Header("Alert Range")]
+    public float alertRange = 3f;
+    public float alertDelay = 1f;
+
+    private bool hasSpottedOnce = false;
+    private float alertTimer;
+    private bool alertTriggered;
+    private EnemyState stateBeforeAlert;
+    private GameObject spottedVfxInstance;
 
     [Header("Shooting (Ranged)")]
     public bool shouldShoot = false;
@@ -87,11 +97,14 @@ public class EnemyController : MonoBehaviour
     private bool isChasing;
     private bool isAttacking;
 
+    [Header("VFXs")]
     public GameObject[] hitVfxs;
     public GameObject critVfx;
     public GameObject missVfx;
+    public GameObject spottedVfx;
     private int enemyCount;
 
+    private bool idleLogged;
 
     private void Awake()
     {
@@ -127,6 +140,11 @@ public class EnemyController : MonoBehaviour
         shootBlockedTimer = 0f;
         hitStunTimer = 0f;
         knockbackDirection = Vector2.zero;
+
+        alertTriggered = false;
+        alertTimer = 0f;
+        stateBeforeAlert = EnemyState.Wandering;
+        spottedVfxInstance = null;
     }
 
     private void Update()
@@ -186,10 +204,47 @@ public class EnemyController : MonoBehaviour
             }
             else
             {
+                if (currentState != EnemyState.Alert)
+                {
+                    if (!alertTriggered && !hasSpottedOnce && distanceToPlayer <= alertRange)
+                    {
+                        stateBeforeAlert = currentState;
+                        currentState = EnemyState.Alert;
+                        alertTimer = alertDelay;
+                        alertTriggered = true;
+                        hasSpottedOnce = true;
+                        moveDirection = Vector2.zero;
+                        isChasing = false;
+                        isAttacking = false;
+                        idleLogged = false;
+
+                        if (spottedVfxInstance == null && spottedVfx != null)
+                        {
+                            spottedVfxInstance = Instantiate(spottedVfx, transform);
+                            
+                            if (enemyType == EnemyType.Melee)
+                            {
+                                spottedVfxInstance.transform.localPosition = new Vector3(0f, 0.5f, 0f);
+                            }
+                            else
+                            {
+                                spottedVfxInstance.transform.localPosition = new Vector3(0f, 1.75f, 0f);
+                            }
+
+
+                            spottedVfxInstance.transform.localRotation = Quaternion.identity;
+                        }
+                    }
+                }
+
                 switch (currentState)
                 {
                     case EnemyState.Wandering:
                         HandleWandering(distanceToPlayer);
+                        break;
+
+                    case EnemyState.Alert:
+                        HandleAlert(distanceToPlayer);
                         break;
 
                     case EnemyState.Chasing:
@@ -209,6 +264,11 @@ public class EnemyController : MonoBehaviour
                 turnSpeed * Time.deltaTime
             );
         }
+
+        if (distanceToPlayer > alertRange + 0.25f && currentState != EnemyState.Alert)
+        {
+            alertTriggered = false;
+        }
     }
 
     private void FixedUpdate()
@@ -227,11 +287,33 @@ public class EnemyController : MonoBehaviour
             return;
         }
 
+        if (!fleeFromPlayer && currentState == EnemyState.Alert)
+        {
+            rb.linearVelocity = Vector2.zero;
+
+            if (!idleLogged)
+            {
+                idleLogged = true;
+            }
+
+            if (!isAttacking)
+            {
+                anim.SetTrigger("shouldIdle");
+            }
+
+            return;
+        }
+
         float speed = (currentState == EnemyState.Chasing || fleeFromPlayer) ? chaseSpeed : wanderSpeed;
 
         if (moveDirection.sqrMagnitude < 0.01f)
         {
             rb.linearVelocity = Vector2.zero;
+
+            if (!idleLogged)
+            {
+                idleLogged = true;
+            }
 
             if (!isAttacking)
             {
@@ -240,6 +322,8 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
+            idleLogged = false;
+
             rb.linearVelocity = moveDirection.normalized * speed;
 
             if (!fleeFromPlayer)
@@ -257,6 +341,24 @@ public class EnemyController : MonoBehaviour
             {
                 anim.SetTrigger("shouldWalk");
             }
+        }
+    }
+
+    private void HandleAlert(float distanceToPlayer)
+    {
+        moveDirection = Vector2.zero;
+
+        alertTimer -= Time.deltaTime;
+        if (alertTimer <= 0f)
+        {
+            if (spottedVfxInstance != null)
+            {
+                Destroy(spottedVfxInstance);
+                spottedVfxInstance = null;
+            }
+
+            currentState = stateBeforeAlert;
+
         }
     }
 
@@ -285,6 +387,14 @@ public class EnemyController : MonoBehaviour
             PickNewWanderDirection();
             isChasing = false;
             isAttacking = false;
+
+            alertTriggered = false;
+
+            if (spottedVfxInstance != null)
+            {
+                Destroy(spottedVfxInstance);
+                spottedVfxInstance = null;
+            }
             return;
         }
 
@@ -497,7 +607,6 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-
         if (EnemyHealth <= 0)
         {
             float lifeStealChance = PlayerController.instance.lifeStealChance;
@@ -523,6 +632,12 @@ public class EnemyController : MonoBehaviour
                 GameObject drop = (Random.value < 0.5f) ? ammoPrefab : healthPrefab;
                 if (drop != null)
                     Instantiate(drop, transform.position, Quaternion.identity);
+            }
+
+            if (spottedVfxInstance != null)
+            {
+                Destroy(spottedVfxInstance);
+                spottedVfxInstance = null;
             }
 
             Destroy(gameObject);

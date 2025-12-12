@@ -415,6 +415,9 @@ MonoBehaviour:
   rangedStopDistance: 4
   turnSpeed: 3
   wanderChangeTime: 2.2
+  alertRange: 7
+  alertDelay: 0.75
+  spottedVfx: {fileID: 1501396549107500, guid: 05541640f4492734a88f2b15963e15d2, type: 3}
   shouldShoot: 1
   bullet: {fileID: 896349609577071788, guid: 355ef1c6fdeb54b89ab064374eedf813, type: 3}
   firePoint: {fileID: 2088578830710004202}
