@@ -4,10 +4,9 @@ using UnityEngine.SceneManagement;
 public class GameTester : MonoBehaviour
 {
     private static GameTester instance;
+    public static GameTester Instance => instance;
 
     private GameObject TileMap;
-
-    private bool seeCursor;
     private bool firstTimeOpener;
     private bool enemiesStopped = false;
 
@@ -27,9 +26,11 @@ public class GameTester : MonoBehaviour
 
     public void Update()
     {
-        FirstTimeOpener();
-
-        OpenTileMapsWhenGameStarts();
+        if (SceneManager.GetActiveScene().name == "Level01")
+        {
+            FirstTimeOpener();
+            OpenTileMapsWhenGameStarts();
+        }
 
         RestartScene();
 
@@ -41,7 +42,8 @@ public class GameTester : MonoBehaviour
 
         GivePlayerHealth();
 
-        OpenSkillsSelectionPanel();
+        OpenPanels();
+
     }
 
     private void OpenTileMapsWhenGameStarts()
@@ -125,7 +127,6 @@ public class GameTester : MonoBehaviour
         }
     }
 
-
     private void ReloadAmmo()
     {
         if (Input.GetKeyDown(KeyCode.B))
@@ -133,7 +134,6 @@ public class GameTester : MonoBehaviour
             PlayerController.instance.ammoAmount = PlayerController.instance.maxAmmoAmount;
         }
     }
-
 
     private void GivePlayerHealth()
     {
@@ -144,18 +144,43 @@ public class GameTester : MonoBehaviour
         }
     }
 
-    private void OpenSkillsSelectionPanel()
+    private void OpenPanels()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.J))
         {
-            PlayerPrefs.SetInt("Roguelike_Xp", 10000);
+            PlayerPrefs.SetInt("Open_Roguelike", 1);
         }
 
-        /*
-        if (Input.GetKeyDown(KeyCode.M) || Input.GetMouseButtonDown(1))
+        if (Input.GetKeyDown(KeyCode.K))
         {
-            PlayerPrefs.SetInt("Roguelike_Xp", 10000);
+            PlayerPrefs.SetInt("Open_SpinWheel", 1);
         }
-        */
+
+    }
+
+    public void ShouldStopTheGame(bool state)
+    {
+        if (state)
+        {
+            PlayerPrefs.SetInt("ShouldStopTheGame", 1);
+            PlayerController.instance.FreezePlayer();
+
+#if UNITY_EDITOR
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+#endif
+        }
+        else
+        {
+            PlayerPrefs.SetInt("ShouldStopTheGame", 0);
+            PlayerController.instance.UnFreezePlayer();
+
+#if UNITY_EDITOR
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+#endif
+        }
     }
 }

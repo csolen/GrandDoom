@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Reduce Damage
   description: Reduce enemy damage by +%11
   icon: {fileID: 21300000, guid: 82be8bf3268a3124c988b3d9b4154c48, type: 3}
-  type: 8
+  type: 9
   value: 11
   rarity: 0
   levelGroupId: Enemy_Damage

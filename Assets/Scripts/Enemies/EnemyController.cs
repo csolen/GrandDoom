@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public enum EnemyType { Melee, Ranged }
-    private enum EnemyState { Wandering, Chasing }
+    private enum EnemyState { Wandering, Alert, Chasing }
 
     [Header("General")]
     public EnemyType enemyType = EnemyType.Melee;
@@ -33,6 +33,16 @@ public class EnemyController : MonoBehaviour
     private bool allowIdleWhileWandering = true;
     private readonly float idleChance = 0.4f;
 
+    [Header("Alert Range")]
+    public float alertRange = 3f;
+    public float alertDelay = 1f;
+
+    private bool hasSpottedOnce = false;
+    private float alertTimer;
+    private bool alertTriggered;
+    private EnemyState stateBeforeAlert;
+    private GameObject spottedVfxInstance;
+
     [Header("Shooting (Ranged)")]
     public bool shouldShoot = false;
     public GameObject bullet;
@@ -46,14 +56,37 @@ public class EnemyController : MonoBehaviour
     public float stuckCheckDelay = 0.4f;
     public float unstuckDuration = 0.5f;
 
+    [Header("Activation")]
+    public float activationDistance = 1f;
+    private bool isActivated = false;
+
+    [Header("Flee")]
+    public bool fleeFromPlayer = false;
+    public float fleeStopDistance = 5f;
+
+    [Header("Shoot Delay After Stop")]
+    public float shootResumeDelay = 1f;
+    private float shootBlockedTimer;
+    private bool wasGameStopped;
+
+    [Header("Hit Reaction")]
+    public float hitStunDuration = 0.1f;
+    public float knockbackSpeed = 3f;
+    public float sideKnockbackFactor = 0.4f;
+    private float hitStunTimer;
+    private Vector2 knockbackDirection;
+
     [Header("Xp")]
     public int xpGive = 10;
+    public GameObject xpPrefab;
+    public int minXpOrbs = 3;
+    public int maxXpOrbs = 7;
+    public float xpScatterRadius = 0.6f;
 
     [Header("Drops")]
     public GameObject ammoPrefab;
     public GameObject healthPrefab;
     public float dropChance = 0.2f;
-
 
     private EnemyState currentState = EnemyState.Wandering;
     private Vector2 moveDirection;
@@ -64,7 +97,14 @@ public class EnemyController : MonoBehaviour
     private bool isChasing;
     private bool isAttacking;
 
+    [Header("VFXs")]
+    public GameObject[] hitVfxs;
+    public GameObject critVfx;
+    public GameObject missVfx;
+    public GameObject spottedVfx;
     private int enemyCount;
+
+    private bool idleLogged;
 
     private void Awake()
     {
@@ -95,6 +135,16 @@ public class EnemyController : MonoBehaviour
         enemyCount = PlayerPrefs.GetInt("TotalEnemyCount", 0);
         enemyCount++;
         PlayerPrefs.SetInt("TotalEnemyCount", enemyCount);
+
+        wasGameStopped = PlayerPrefs.GetInt("ShouldStopTheGame") == 1;
+        shootBlockedTimer = 0f;
+        hitStunTimer = 0f;
+        knockbackDirection = Vector2.zero;
+
+        alertTriggered = false;
+        alertTimer = 0f;
+        stateBeforeAlert = EnemyState.Wandering;
+        spottedVfxInstance = null;
     }
 
     private void Update()
@@ -102,27 +152,109 @@ public class EnemyController : MonoBehaviour
         if (player == null)
         {
             if (PlayerController.instance != null)
+            {
                 player = PlayerController.instance.transform;
+            }
             else
+            {
+                GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+                if (playerObj != null)
+                    player = playerObj.transform;
+                else
+                    return;
+            }
+        }
+
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+        if (!isActivated)
+        {
+            if (distanceToPlayer > activationDistance)
+            {
+                rb.linearVelocity = Vector2.zero;
                 return;
+            }
+            else
+            {
+                isActivated = true;
+            }
         }
 
         ShouldStopTheGame();
 
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-
-        switch (currentState)
+        if (shootBlockedTimer > 0f)
         {
-            case EnemyState.Wandering:
-                HandleWandering(distanceToPlayer);
-                break;
-
-            case EnemyState.Chasing:
-                HandleChasing(distanceToPlayer);
-                break;
+            shootBlockedTimer -= Time.deltaTime;
+            if (shootBlockedTimer < 0f)
+                shootBlockedTimer = 0f;
         }
 
-        UpdateStuckLogic(distanceToPlayer);
+        if (hitStunTimer > 0f)
+        {
+            hitStunTimer -= Time.deltaTime;
+            if (hitStunTimer < 0f)
+                hitStunTimer = 0f;
+            moveDirection = Vector2.zero;
+        }
+        else
+        {
+            if (fleeFromPlayer)
+            {
+                HandleFlee(distanceToPlayer);
+            }
+            else
+            {
+                if (currentState != EnemyState.Alert)
+                {
+                    if (!alertTriggered && !hasSpottedOnce && distanceToPlayer <= alertRange)
+                    {
+                        stateBeforeAlert = currentState;
+                        currentState = EnemyState.Alert;
+                        alertTimer = alertDelay;
+                        alertTriggered = true;
+                        hasSpottedOnce = true;
+                        moveDirection = Vector2.zero;
+                        isChasing = false;
+                        isAttacking = false;
+                        idleLogged = false;
+
+                        if (spottedVfxInstance == null && spottedVfx != null)
+                        {
+                            spottedVfxInstance = Instantiate(spottedVfx, transform);
+                            
+                            if (enemyType == EnemyType.Melee)
+                            {
+                                spottedVfxInstance.transform.localPosition = new Vector3(0f, 0.5f, 0f);
+                            }
+                            else
+                            {
+                                spottedVfxInstance.transform.localPosition = new Vector3(0f, 1.75f, 0f);
+                            }
+
+
+                            spottedVfxInstance.transform.localRotation = Quaternion.identity;
+                        }
+                    }
+                }
+
+                switch (currentState)
+                {
+                    case EnemyState.Wandering:
+                        HandleWandering(distanceToPlayer);
+                        break;
+
+                    case EnemyState.Alert:
+                        HandleAlert(distanceToPlayer);
+                        break;
+
+                    case EnemyState.Chasing:
+                        HandleChasing(distanceToPlayer);
+                        break;
+                }
+            }
+
+            UpdateStuckLogic(distanceToPlayer);
+        }
 
         if (moveDirection.sqrMagnitude > 0.001f)
         {
@@ -132,17 +264,56 @@ public class EnemyController : MonoBehaviour
                 turnSpeed * Time.deltaTime
             );
         }
+
+        if (distanceToPlayer > alertRange + 0.25f && currentState != EnemyState.Alert)
+        {
+            alertTriggered = false;
+        }
     }
 
     private void FixedUpdate()
     {
+        if (!isActivated)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
         ShouldStopTheGame();
 
-        float speed = (currentState == EnemyState.Chasing) ? chaseSpeed : wanderSpeed;
+        if (hitStunTimer > 0f)
+        {
+            rb.linearVelocity = knockbackDirection * knockbackSpeed;
+            return;
+        }
+
+        if (!fleeFromPlayer && currentState == EnemyState.Alert)
+        {
+            rb.linearVelocity = Vector2.zero;
+
+            if (!idleLogged)
+            {
+                idleLogged = true;
+            }
+
+            if (!isAttacking)
+            {
+                anim.SetTrigger("shouldIdle");
+            }
+
+            return;
+        }
+
+        float speed = (currentState == EnemyState.Chasing || fleeFromPlayer) ? chaseSpeed : wanderSpeed;
 
         if (moveDirection.sqrMagnitude < 0.01f)
         {
             rb.linearVelocity = Vector2.zero;
+
+            if (!idleLogged)
+            {
+                idleLogged = true;
+            }
 
             if (!isAttacking)
             {
@@ -151,16 +322,43 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
+            idleLogged = false;
+
             rb.linearVelocity = moveDirection.normalized * speed;
 
-            if (!isChasing)
+            if (!fleeFromPlayer)
             {
-                anim.SetTrigger("shouldWalk");
+                if (!isChasing)
+                {
+                    anim.SetTrigger("shouldWalk");
+                }
+                else
+                {
+                    anim.SetTrigger("shouldChase");
+                }
             }
             else
             {
-                anim.SetTrigger("shouldChase");
+                anim.SetTrigger("shouldWalk");
             }
+        }
+    }
+
+    private void HandleAlert(float distanceToPlayer)
+    {
+        moveDirection = Vector2.zero;
+
+        alertTimer -= Time.deltaTime;
+        if (alertTimer <= 0f)
+        {
+            if (spottedVfxInstance != null)
+            {
+                Destroy(spottedVfxInstance);
+                spottedVfxInstance = null;
+            }
+
+            currentState = stateBeforeAlert;
+
         }
     }
 
@@ -189,6 +387,14 @@ public class EnemyController : MonoBehaviour
             PickNewWanderDirection();
             isChasing = false;
             isAttacking = false;
+
+            alertTriggered = false;
+
+            if (spottedVfxInstance != null)
+            {
+                Destroy(spottedVfxInstance);
+                spottedVfxInstance = null;
+            }
             return;
         }
 
@@ -240,6 +446,9 @@ public class EnemyController : MonoBehaviour
         if (bullet == null || firePoint == null)
             return;
 
+        if (shootBlockedTimer > 0f)
+            return;
+
         if (distanceToPlayer > shootRange)
             return;
 
@@ -255,6 +464,22 @@ public class EnemyController : MonoBehaviour
             EnemyBullet enemyBulletSr = enemyBulletObj.GetComponent<EnemyBullet>();
             enemyBulletSr.bulletDamage = enemyDamage;
             shotCounter = fireRate;
+        }
+    }
+
+    private void HandleFlee(float distanceToPlayer)
+    {
+        isChasing = false;
+        isAttacking = false;
+
+        if (distanceToPlayer < fleeStopDistance)
+        {
+            Vector2 dirAway = (transform.position - player.position).normalized;
+            moveDirection = dirAway;
+        }
+        else
+        {
+            moveDirection = Vector2.zero;
         }
     }
 
@@ -283,6 +508,7 @@ public class EnemyController : MonoBehaviour
 
         float stopDistance = enemyType == EnemyType.Melee ? meleeStopDistance : rangedStopDistance;
         bool shouldBeMovingToPlayer =
+            !fleeFromPlayer &&
             currentState == EnemyState.Chasing &&
             distanceToPlayer > stopDistance + 0.1f;
 
@@ -320,9 +546,66 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage()
     {
-        EnemyHealth -= PlayerController.instance.playerDamage;
-        ResetTriggers();
-        anim.SetTrigger("shouldTakeDamage");
+        if (Random.value >= PlayerController.instance.playerMissChance)
+        {
+            if (Random.value <= PlayerController.instance.criticalDamageChance)
+            {
+                EnemyHealth -= 10000;
+
+                if (enemyType == EnemyType.Melee)
+                {
+                    Instantiate(critVfx, new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.3f), transform.rotation);
+                }
+                else
+                {
+                    Instantiate(critVfx, new Vector3(transform.position.x, transform.position.y, transform.position.z - 1.5f), transform.rotation);
+                }
+            }
+            else
+            {
+                int hitVfxNumber = Random.Range(0, hitVfxs.Length);
+
+                if (enemyType == EnemyType.Melee)
+                {
+                    Instantiate(hitVfxs[hitVfxNumber], new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.3f), transform.rotation);
+                }
+                else
+                {
+                    Instantiate(hitVfxs[hitVfxNumber], new Vector3(transform.position.x, transform.position.y, transform.position.z - 1.5f), transform.rotation);
+                }
+
+                EnemyHealth -= PlayerController.instance.playerDamage;
+
+                Vector2 dirAway = (transform.position - player.position).normalized;
+                if (dirAway.sqrMagnitude < 0.001f)
+                    dirAway = Random.insideUnitCircle.normalized;
+
+                Vector2 perp = new Vector2(-dirAway.y, dirAway.x);
+                float side = Random.Range(-sideKnockbackFactor, sideKnockbackFactor);
+                Vector2 finalDir = dirAway + perp * side;
+                if (finalDir.sqrMagnitude < 0.001f)
+                    finalDir = dirAway;
+                knockbackDirection = finalDir.normalized;
+
+                hitStunTimer = hitStunDuration;
+                isChasing = false;
+                isAttacking = false;
+
+                ResetTriggers();
+                anim.SetTrigger("shouldTakeDamage");
+            }
+        }
+        else
+        {
+            if (enemyType == EnemyType.Melee)
+            {
+                Instantiate(missVfx, new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.3f), transform.rotation);
+            }
+            else
+            {
+                Instantiate(missVfx, new Vector3(transform.position.x, transform.position.y, transform.position.z - 1.5f), transform.rotation);
+            }
+        }
 
         if (EnemyHealth <= 0)
         {
@@ -342,9 +625,7 @@ public class EnemyController : MonoBehaviour
             killedEnemyCount++;
             PlayerPrefs.SetInt("KilledEnemies", killedEnemyCount);
 
-            int xp = PlayerPrefs.GetInt("Roguelike_Xp");
-            xp += xpGive;
-            PlayerPrefs.SetInt("Roguelike_Xp", xp);
+            DropXp();
 
             if (Random.value <= dropChance)
             {
@@ -353,9 +634,45 @@ public class EnemyController : MonoBehaviour
                     Instantiate(drop, transform.position, Quaternion.identity);
             }
 
+            if (spottedVfxInstance != null)
+            {
+                Destroy(spottedVfxInstance);
+                spottedVfxInstance = null;
+            }
+
             Destroy(gameObject);
         }
+    }
 
+    private void DropXp()
+    {
+        if (xpPrefab == null)
+            return;
+
+        int orbCount = Random.Range(minXpOrbs, maxXpOrbs + 1);
+        int totalXp = xpGive;
+
+        int baseXp = Mathf.Max(1, totalXp / Mathf.Max(1, orbCount));
+        int remainder = Mathf.Max(0, totalXp - baseXp * orbCount);
+
+        for (int i = 0; i < orbCount; i++)
+        {
+            Vector2 offset = Random.insideUnitCircle * xpScatterRadius;
+            Vector3 spawnPos = transform.position + new Vector3(offset.x, offset.y, 0f);
+
+            GameObject orbObj = Instantiate(xpPrefab, spawnPos, Quaternion.identity);
+
+            Collectables c = orbObj.GetComponent<Collectables>();
+            if (c != null)
+            {
+                int extra = remainder > 0 ? 1 : 0;
+                if (remainder > 0)
+                    remainder--;
+
+                c.amount = baseXp + extra;
+                c.collectableType = Collectables.CollectableType.Xp;
+            }
+        }
     }
 
     public int IncreaseByPercent(int value, int percent)
@@ -379,10 +696,21 @@ public class EnemyController : MonoBehaviour
 
     private void ShouldStopTheGame()
     {
-        if (PlayerPrefs.GetInt("ShouldStopTheGame") == 1)
+        int val = PlayerPrefs.GetInt("ShouldStopTheGame");
+
+        if (val == 1)
         {
-            anim.SetTrigger("shouldIdle");
-            return;
+            fleeFromPlayer = true;
+            wasGameStopped = true;
+        }
+        else
+        {
+            fleeFromPlayer = false;
+            if (wasGameStopped)
+            {
+                shootBlockedTimer = shootResumeDelay;
+                wasGameStopped = false;
+            }
         }
     }
 }

@@ -320,7 +320,7 @@ Transform:
   m_GameObject: {fileID: 4453344238553417195}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.76, y: 1.77, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -405,7 +405,7 @@ MonoBehaviour:
   enemyType: 1
   EnemyHealth: 100
   deathAnim: {fileID: 6911088536147646728, guid: 6d8cf0e1132264b6982117aa75c3ba77, type: 3}
-  enemyDamage: 15
+  enemyDamage: 10
   anim: {fileID: 5285022621085959212}
   wanderSpeed: 1.5
   chaseSpeed: 2.3
@@ -415,6 +415,9 @@ MonoBehaviour:
   rangedStopDistance: 4
   turnSpeed: 3
   wanderChangeTime: 2.2
+  alertRange: 7
+  alertDelay: 0.75
+  spottedVfx: {fileID: 1501396549107500, guid: 05541640f4492734a88f2b15963e15d2, type: 3}
   shouldShoot: 1
   bullet: {fileID: 896349609577071788, guid: 355ef1c6fdeb54b89ab064374eedf813, type: 3}
   firePoint: {fileID: 2088578830710004202}
@@ -423,10 +426,29 @@ MonoBehaviour:
   stuckPositionThreshold: 0.02
   stuckCheckDelay: 0.4
   unstuckDuration: 0.5
+  activationDistance: 20
+  fleeFromPlayer: 0
+  fleeStopDistance: 5
+  shootResumeDelay: 1
+  hitStunDuration: 0.1
+  knockbackSpeed: 3
+  sideKnockbackFactor: 0.4
   xpGive: 10
+  xpPrefab: {fileID: 3441535354856443318, guid: 8b7cad32caf06434ebee2626c49390a1, type: 3}
+  minXpOrbs: 3
+  maxXpOrbs: 7
+  xpScatterRadius: 0.6
   ammoPrefab: {fileID: 8028448484693758585, guid: 102c91ba9961f41dcb7eded5ef4dd5cb, type: 3}
   healthPrefab: {fileID: 3441535354856443318, guid: 6c0a2593347274d4590d03bceffc2876, type: 3}
   dropChance: 0.2
+  hitVfxs:
+  - {fileID: 1269060166065924, guid: 1810168468ffe7b4db7f3c67e0743de4, type: 3}
+  - {fileID: 1269060166065924, guid: 1810168468ffe7b4db7f3c67e0743de4, type: 3}
+  - {fileID: 1269060166065924, guid: 1810168468ffe7b4db7f3c67e0743de4, type: 3}
+  - {fileID: 107418, guid: ea6edc3a0a047a243a9ec62ca1655977, type: 3}
+  - {fileID: 1624119753830394, guid: b3317320a28a9414681715fe63910ece, type: 3}
+  critVfx: {fileID: 1883610838541854, guid: aa72280b4bb67cb468b0ffc37bcfc9c0, type: 3}
+  missVfx: {fileID: 1039062483155646, guid: 476c13e09369fbb46b465d409192d06b, type: 3}
 --- !u!1 &6487870602573874538
 GameObject:
   m_ObjectHideFlags: 0

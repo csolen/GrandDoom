@@ -6,14 +6,18 @@ public enum SkillType
     MaxAmmo,
     CurrentHealth,
     CurrentAmmo,
-    PlayerDamage,
+    PlayerSwordDamage,
+    PlayerGunDamage,
     PlayerMoveSpeed,
     RequiredXpAmount,
     EnemyDropChance,
     EnemyDamage,
     LifeStealChance,
     LifeStealAmount,
-    EnemySpeed
+    EnemySpeed,
+    CriticalChance,
+    MissChance,
+    PlayerDodgeChance
 }
 
 public enum SkillRarity

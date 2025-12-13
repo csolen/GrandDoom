@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Life Steal Amount
   description: Increase life steal amount by +%8
   icon: {fileID: 21300000, guid: 82be8bf3268a3124c988b3d9b4154c48, type: 3}
-  type: 10
+  type: 11
   value: 8
   rarity: 1
   levelGroupId: Life_Steal_Amount

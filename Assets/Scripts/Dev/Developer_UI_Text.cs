@@ -38,6 +38,10 @@ public class Developer_UI_Text : MonoBehaviour
         {
             text.text = "Xp: " + PlayerPrefs.GetInt("Roguelike_Xp").ToString() + " / " + PlayerPrefs.GetInt("Roguelike_Required_Xp").ToString();
         }
+        else if (currencyName == "levelTimer")
+        {
+            text.text = "Time: " + PlayerPrefs.GetString("LevelTimer");
+        }
         else
         {
             Debug.LogWarning("No such thing as " + currencyName);

@@ -32,14 +32,17 @@ public class RoguelikeManager : MonoBehaviour
     void Update()
     {
         if (isMenuOpen) return;
-
+        
         int xpCalculator = PlayerPrefs.GetInt("Roguelike_Xp", 0);
 
         if (xpCalculator >= xpThreshold)
         {
             PlayerPrefs.SetInt("Roguelike_Xp", 0);
+            OpenSelectionMenu();
+        }
 
-            delayerImg.SetActive(true);
+        if (PlayerPrefs.GetInt("Open_Roguelike") == 1)
+        {
             OpenSelectionMenu();
         }
     }
@@ -53,6 +56,8 @@ public class RoguelikeManager : MonoBehaviour
 
         xpThreshold = PlayerPrefs.GetInt("Roguelike_Required_Xp", xpThreshold);
 
+        PlayerPrefs.SetInt("Roguelike_Xp", 0);
+
         foreach (var skill in allSkills)
         {
             if (!string.IsNullOrEmpty(skill.levelGroupId))
@@ -61,6 +66,7 @@ public class RoguelikeManager : MonoBehaviour
                 PlayerPrefs.SetInt(key, 0);
             }
         }
+
     }
 
     void ClickDelayer()
@@ -70,13 +76,15 @@ public class RoguelikeManager : MonoBehaviour
 
     public void OpenSelectionMenu()
     {
+        PlayerPrefs.SetInt("Open_Roguelike", 1);
+        PlayerPrefs.SetInt("Roguelike_Xp", 0);
+        delayerImg.SetActive(true);
+
         isMenuOpen = true;
 
         Invoke(nameof(ClickDelayer), 0.45f);
 
-        PlayerPrefs.SetInt("ShouldStopTheGame", 1);
-
-        ShowCursorInEditor(true);
+        GameTester.Instance.ShouldStopTheGame(true);
 
         selectionPanel.SetActive(true);
 
@@ -94,13 +102,12 @@ public class RoguelikeManager : MonoBehaviour
 
     public void CloseSelectionMenu()
     {
+        PlayerPrefs.SetInt("Open_Roguelike", 0);
         selectionPanel.SetActive(false);
-
-        PlayerPrefs.SetInt("ShouldStopTheGame", 0);
 
         isMenuOpen = false;
 
-        ShowCursorInEditor(false);
+        GameTester.Instance.ShouldStopTheGame(false);
         ClearOldCards();
     }
 
@@ -217,8 +224,11 @@ public class RoguelikeManager : MonoBehaviour
             case SkillType.CurrentAmmo:
                 PlayerController.instance.AddAmmo((int)skill.value);
                 break;
-            case SkillType.PlayerDamage:
+            case SkillType.PlayerGunDamage:
                 PlayerController.instance.playerDamage = PlayerController.instance.IncreaseByPercent(PlayerController.instance.playerDamage, (int)skill.value);
+                break;
+            case SkillType.PlayerSwordDamage:
+                PlayerController.instance.katanaDamage = PlayerController.instance.IncreaseByPercent(PlayerController.instance.katanaDamage, (int)skill.value);
                 break;
             case SkillType.PlayerMoveSpeed:
                 PlayerController.instance.moveSpeed = PlayerController.instance.IncreaseByPercent(PlayerController.instance.moveSpeed, skill.value);
@@ -242,7 +252,6 @@ public class RoguelikeManager : MonoBehaviour
             case SkillType.LifeStealChance:
                 PlayerController.instance.lifeStealChance = PlayerController.instance.IncreaseByPercent(PlayerController.instance.lifeStealChance, skill.value);
                 break;
-
             case SkillType.LifeStealAmount:
                 PlayerController.instance.lifeStealAmount = PlayerController.instance.IncreaseByPercent(PlayerController.instance.lifeStealAmount, (int)skill.value);
                 break;
@@ -252,8 +261,18 @@ public class RoguelikeManager : MonoBehaviour
                     enemy.chaseSpeed = enemy.IncreaseByPercent(enemy.chaseSpeed, -skill.value);
                 }
                 break;
+            case SkillType.CriticalChance:
+                PlayerController.instance.criticalDamageChance = PlayerController.instance.IncreaseByPercent(PlayerController.instance.criticalDamageChance, skill.value);
+                break;
+            case SkillType.MissChance:
+                PlayerController.instance.playerMissChance = PlayerController.instance.IncreaseByPercent(PlayerController.instance.playerMissChance, -skill.value);
+                break;
+            case SkillType.PlayerDodgeChance:
+                PlayerController.instance.playerDodgeChance = PlayerController.instance.IncreaseByPercent(PlayerController.instance.playerDodgeChance, skill.value);
+                break;
         }
     }
+
 
     private void RollCards()
     {
@@ -273,22 +292,6 @@ public class RoguelikeManager : MonoBehaviour
         }
 
         RollCards();
-    }
-
-    void ShowCursorInEditor(bool state)
-    {
-#if UNITY_EDITOR
-        if (state)
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-#endif
     }
 
     public int IncreaseByPercent(int value, int percent)
