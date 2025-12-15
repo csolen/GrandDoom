@@ -15,7 +15,7 @@ MonoBehaviour:
   id: enemy_drop_Chance_lv_4
   displayName: Drop Chance
   description: Increase enemy drop chance by +%12
-  icon: {fileID: 21300000, guid: 82be8bf3268a3124c988b3d9b4154c48, type: 3}
+  icon: {fileID: 21300000, guid: c437896b2417e1840b58e9e01d742de4, type: 3}
   type: 8
   value: 12
   rarity: 1
