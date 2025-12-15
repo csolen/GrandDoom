@@ -502,6 +502,8 @@ public class PlayerController : MonoBehaviour
     {
         rb.constraints = RigidbodyConstraints2D.FreezePositionX |
                          RigidbodyConstraints2D.FreezePositionY;
+
+        anim.SetBool("isMoving", false);
     }
 
     public void UnFreezePlayer()
