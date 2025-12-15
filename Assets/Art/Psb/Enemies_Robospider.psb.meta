@@ -95,6 +95,28 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   multiSpriteImportData: []
   layeredSpriteImportData:
+  - name: Hit_Eyes
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 99
+      y: 210
+      width: 56
+      height: 21
+    spriteID: 57416de4a650215479232a18c8f663b8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 99, y: 210}
+    spritePosition: {x: 133, y: 175}
   - name: Closed_Eyes
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -103,8 +125,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 162
-      y: 210
+      x: 99
+      y: 239
       width: 55
       height: 8
     spriteID: 7abe61b2feb6bca40bba8d977025c433
@@ -115,7 +137,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 162, y: 210}
+    uvTransform: {x: 99, y: 239}
     spritePosition: {x: 133, y: 182}
   - name: Eyes
     originalName: 
@@ -125,7 +147,7 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 99
+      x: 163
       y: 210
       width: 55
       height: 16
@@ -137,7 +159,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 99, y: 210}
+    uvTransform: {x: 163, y: 210}
     spritePosition: {x: 133, y: 175}
   - name: Head
     originalName: 
@@ -314,13 +336,23 @@ ScriptedImporter:
   resliceFromLayer: 0
   pSDLayerImportSetting: []
   psdLayers:
+  - name: Hit_Eyes
+    spriteName: Hit_Eyes
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 57416de4a650215479232a18c8f663b8
+    layerID: 19
+    mosaicPosition: {x: 99, y: 210}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: Closed_Eyes
     spriteName: Closed_Eyes
     isGroup: 0
     parentIndex: -1
     spriteID: 7abe61b2feb6bca40bba8d977025c433
     layerID: 7
-    mosaicPosition: {x: 162, y: 210}
+    mosaicPosition: {x: 99, y: 239}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -330,7 +362,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 7b0b66d41786c9e44bb636ad5570be0c
     layerID: 6
-    mosaicPosition: {x: 99, y: 210}
+    mosaicPosition: {x: 163, y: 210}
     flatten: 0
     isImported: 1
     isVisible: 1
