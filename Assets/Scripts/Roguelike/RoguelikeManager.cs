@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class RoguelikeManager : MonoBehaviour
 {
@@ -19,7 +20,9 @@ public class RoguelikeManager : MonoBehaviour
     [Header("Re-Roll Button")]
     public GameObject reRollButton;
     public TextMeshProUGUI reRollButtonText;
+    public int reRollRequiredGold = 20;
     private int reRollCount = 0;
+    private Button reRollBtnButton;
 
     [Header("Skill Pool")]
     public List<SkillData> allSkills;
@@ -27,11 +30,25 @@ public class RoguelikeManager : MonoBehaviour
     private void Awake()
     {
         ResetAllSkillLevels();
+
+        reRollBtnButton = reRollButton.GetComponent<Button>();
     }
 
     void Update()
     {
-        if (isMenuOpen) return;
+        if (isMenuOpen)
+        {
+            if (PlayerController.instance.goldAmount - reRollRequiredGold < 0)
+            {
+                reRollBtnButton.interactable = false;
+            }
+            else
+            {
+                reRollBtnButton.interactable = true;
+            }
+
+            return;
+        } 
         
         int xpCalculator = PlayerPrefs.GetInt("Roguelike_Xp", 0);
 
@@ -45,6 +62,7 @@ public class RoguelikeManager : MonoBehaviour
         {
             OpenSelectionMenu();
         }
+
     }
 
     private void ResetAllSkillLevels()
@@ -283,12 +301,20 @@ public class RoguelikeManager : MonoBehaviour
     public void ReRollCardsButton()
     {
         reRollCount++;
-        reRollButtonText.text = "Re-roll " + "20 Golds";
+        reRollButtonText.text = "Re-roll " + reRollRequiredGold.ToString() + " Golds";
 
         if (reRollCount >= 2)
         {
-            reRollButton.SetActive(false);
-            reRollCount = 1;
+            if (PlayerController.instance.goldAmount - reRollRequiredGold >= 0)
+            {
+                PlayerController.instance.AddGold(-reRollRequiredGold);
+                reRollButton.SetActive(false);
+                reRollCount = 1;
+            }
+            else
+            {
+                return;
+            }
         }
 
         RollCards();
@@ -303,7 +329,7 @@ public class RoguelikeManager : MonoBehaviour
 
     public List<EnemyController> GetAllEnemies()
     {
-        List<EnemyController> enemies = new List<EnemyController>();
+        List<EnemyController> enemies = new();
 
         GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag("Enemy_Holder");
 

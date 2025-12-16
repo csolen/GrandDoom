@@ -404,7 +404,7 @@ public class PlayerController : MonoBehaviour
     private HitSide GetHitSideFromDirection(Vector2 toAttacker)
     {
         Vector2 forward = transform.right;
-        Vector2 right = new Vector2(forward.y, -forward.x);
+        Vector2 right = new (forward.y, -forward.x);
 
         float forwardDot = Vector2.Dot(forward, toAttacker);
         float rightDot = Vector2.Dot(right, toAttacker);
@@ -462,6 +462,11 @@ public class PlayerController : MonoBehaviour
         {
             ammoAmount = maxAmmoAmount;
         }
+    }
+
+    public void AddGold(int gAmount)
+    {
+        goldAmount += gAmount;
     }
 
     private void CloseHitAnimation()
