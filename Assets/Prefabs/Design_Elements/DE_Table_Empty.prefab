@@ -604,8 +604,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e180d82c85b574477ac46ab65a0e24e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sr: {fileID: 15844138216437364}
-  srFront: {fileID: 1387012564875883719}
+  sr: {fileID: 1387012564875883719}
+  srFront: {fileID: 15844138216437364}
   designElementHolder: {fileID: 7045937816826342701}
   anim: {fileID: 3506959945461448640}
   nextStageSr: []
