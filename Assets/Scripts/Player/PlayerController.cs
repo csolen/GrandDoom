@@ -311,6 +311,11 @@ public class PlayerController : MonoBehaviour
             {
                 hit.transform.GetComponent<Design_TileChanger>().ChangeSprite();
             }
+
+            if (hit.transform.CompareTag("Design_Elements"))
+            {
+                hit.transform.GetComponent<Design_Elements>().DesignElementGotHit();
+            }
         }
 
         ammoAmount--;

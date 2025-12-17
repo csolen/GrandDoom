@@ -269,6 +269,7 @@ public class EnemyController : MonoBehaviour
         {
             alertTriggered = false;
         }
+
     }
 
     private void FixedUpdate()
@@ -713,4 +714,5 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
+
 }

@@ -12,6 +12,7 @@ TagManager:
   - Ladder
   - Enemy_Holder
   - Level_Pass_Trigger
+  - Design_Elements
   layers:
   - Default
   - TransparentFX
