@@ -529,6 +529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sr: {fileID: 4814086967532195187}
+  srFront: {fileID: 4814086967532195187}
   designElementHolder: {fileID: 1849666168971740158}
   anim: {fileID: 8762053435555064915}
   nextStageSr: []

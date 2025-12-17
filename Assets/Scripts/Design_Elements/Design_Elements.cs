@@ -3,7 +3,7 @@ using UnityEngine;
 public class Design_Elements : MonoBehaviour
 {
     public SpriteRenderer sr;
-    private SpriteRenderer srBack;
+    public SpriteRenderer srFront;
 
     [SerializeField] private GameObject designElementHolder;
     [SerializeField] private Animator anim;
@@ -13,8 +13,7 @@ public class Design_Elements : MonoBehaviour
 
     private void Awake()
     {
-        srBack = GetComponent<SpriteRenderer>();
-        srBack.enabled = false;
+        srFront.enabled = false;
     }
 
     public void DesignElementGotHit()
