@@ -27,7 +27,6 @@ public enum SkillRarity
     Legendary
 }
 
-[CreateAssetMenu(menuName = "MyGame/Skill", fileName = "NewSkill")]
 public class SkillData : ScriptableObject
 {
     [Header("General")]

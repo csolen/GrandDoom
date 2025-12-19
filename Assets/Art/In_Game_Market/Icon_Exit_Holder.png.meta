@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6724843d769ac4b038d32c550a5abee4
+guid: 1e7a834d6c6de4c9c9cb2db539217e5e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3760814305091956562
-    second: SkillSelection_Border_Top 1_0
+      213: -226021954835208857
+    second: Icon_Exit_Holder_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SkillSelection_Border_Top 1_0
+      name: Icon_Exit_Holder_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 42
-        width: 1920
-        height: 202
+        x: 1
+        y: 0
+        width: 115
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 25fa6315fa8113430800000000000000
-      internalID: 3760814305091956562
+      spriteID: 765ab96ca320ddcf0800000000000000
+      internalID: -226021954835208857
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SkillSelection_Border_Top 1_0: 3760814305091956562
+      Icon_Exit_Holder_0: -226021954835208857
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

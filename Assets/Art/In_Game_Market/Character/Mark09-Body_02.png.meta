@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 6724843d769ac4b038d32c550a5abee4
+guid: 41966545d25b44719a1c3fdadc4fc45f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3760814305091956562
-    second: SkillSelection_Border_Top 1_0
+      213: 3332766428846667409
+    second: Mark09-Body2 1_0
+  - first:
+      213: -1483726465463452683
+    second: Mark09-Body2 1_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SkillSelection_Border_Top 1_0
+      name: Mark09-Body2 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 42
-        width: 1920
-        height: 202
+        y: 664
+        width: 85
+        height: 132
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +144,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 25fa6315fa8113430800000000000000
-      internalID: 3760814305091956562
+      spriteID: 196b0c6c86d504e20800000000000000
+      internalID: 3332766428846667409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mark09-Body2 1_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 49
+        width: 444
+        height: 713
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fb743a04aeb86be0800000000000000
+      internalID: -1483726465463452683
       vertices: []
       indices: 
       edges: []
@@ -161,7 +186,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SkillSelection_Border_Top 1_0: 3760814305091956562
+      Mark09-Body2 1_0: 3332766428846667409
+      Mark09-Body2 1_1: -1483726465463452683
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

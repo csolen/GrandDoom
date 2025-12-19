@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 858d9077ba4a39e45a7809bd0f1212c1
+guid: eccddafb2a8954431a76d939b2f106c3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7967068348158956029
-    second: SkillSelection_BottomBorder_0
+      213: 2926917829666192755
+    second: SkillSelection_Border_Bot 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SkillSelection_BottomBorder_0
+      name: SkillSelection_Border_Bot 1_0
       rect:
         serializedVersion: 2
         x: 158
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 30e2ab67c894f6190800000000000000
-      internalID: -7967068348158956029
+      spriteID: 37db20432408e9820800000000000000
+      internalID: 2926917829666192755
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SkillSelection_BottomBorder_0: -7967068348158956029
+      SkillSelection_Border_Bot 1_0: 2926917829666192755
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

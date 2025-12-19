@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6724843d769ac4b038d32c550a5abee4
+guid: 1db4c1b178d364159ab9a6726951ee9b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3760814305091956562
-    second: SkillSelection_Border_Top 1_0
+      213: -5473707674766922325
+    second: Mark09-Body1 2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SkillSelection_Border_Top 1_0
+      name: Mark09-Body1 2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 42
-        width: 1920
-        height: 202
+        x: 22
+        y: 0
+        width: 1108
+        height: 749
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 25fa6315fa8113430800000000000000
-      internalID: 3760814305091956562
+      spriteID: bad2039eedb7904b0800000000000000
+      internalID: -5473707674766922325
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SkillSelection_Border_Top 1_0: 3760814305091956562
+      Mark09-Body1 2_0: -5473707674766922325
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

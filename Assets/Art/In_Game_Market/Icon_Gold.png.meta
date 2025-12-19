@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6724843d769ac4b038d32c550a5abee4
+guid: 3a846f258ae45453bbdbfb659ddefbab
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3760814305091956562
-    second: SkillSelection_Border_Top 1_0
+      213: -1512068093441800608
+    second: Icon_Gold_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SkillSelection_Border_Top 1_0
+      name: Icon_Gold_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 42
-        width: 1920
-        height: 202
+        x: 14
+        y: 18
+        width: 173
+        height: 176
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 25fa6315fa8113430800000000000000
-      internalID: 3760814305091956562
+      spriteID: 066033e841e040be0800000000000000
+      internalID: -1512068093441800608
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SkillSelection_Border_Top 1_0: 3760814305091956562
+      Icon_Gold_0: -1512068093441800608
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
