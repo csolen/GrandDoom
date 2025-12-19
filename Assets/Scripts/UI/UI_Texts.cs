@@ -25,7 +25,7 @@ public class UI_Texts : MonoBehaviour
         }
         else if (whatUI == "gold")
         {
-            UI_Text.text = "Gold: " + PlayerController.instance.goldAmount.ToString();
+            UI_Text.text = PlayerController.instance.goldAmount.ToString();
         }
         else if (whatUI == "ammo")
         {

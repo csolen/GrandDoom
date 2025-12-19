@@ -156,6 +156,11 @@ public class GameTester : MonoBehaviour
             PlayerPrefs.SetInt("Open_SpinWheel", 1);
         }
 
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            PlayerPrefs.SetInt("Open_InGameMarket", 1);
+        }
+
     }
 
     public void ShouldStopTheGame(bool state)
