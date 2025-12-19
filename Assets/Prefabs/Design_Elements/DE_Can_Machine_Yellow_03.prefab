@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 595edb28e0aad4cbaa8db9d97a52c19a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3e7c4e5e86e5c4a25b0ad1a129d7f8d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -126,8 +126,7 @@ MonoBehaviour:
   srFront: {fileID: 1340975396997001832}
   designElementHolder: {fileID: 2188700593260872290}
   anim: {fileID: 1447445914609393617}
-  nextStageSr:
-  - {fileID: 21300000, guid: 0b95e6aaa1e654573ab5ea425ddd75a9, type: 3}
+  nextStageSr: {fileID: 2188700593260872290, guid: 028a0ab48d06d477595b2495b55014c4, type: 3}
 --- !u!1 &2188700593260872290
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +139,7 @@ GameObject:
   - component: {fileID: 1447445914609393617}
   - component: {fileID: 545829678463412986}
   m_Layer: 0
-  m_Name: DE_Can_Machine_Yellow
+  m_Name: DE_Can_Machine_Yellow_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -296,7 +295,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 595edb28e0aad4cbaa8db9d97a52c19a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3e7c4e5e86e5c4a25b0ad1a129d7f8d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0

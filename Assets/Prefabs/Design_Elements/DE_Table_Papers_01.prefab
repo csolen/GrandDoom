@@ -298,7 +298,7 @@ MonoBehaviour:
   srFront: {fileID: 9007692575583492800}
   designElementHolder: {fileID: 6395891611925845430}
   anim: {fileID: 120048366010256124}
-  nextStageSr: []
+  nextStageSr: {fileID: 1849666168971740158, guid: 78b695720dc4d4eff88ceb69ba6c83ad, type: 3}
 --- !u!1 &4271747695343152971
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,7 +750,7 @@ GameObject:
   - component: {fileID: 120048366010256124}
   - component: {fileID: 3574773842572540278}
   m_Layer: 0
-  m_Name: DE_Table_Papers
+  m_Name: DE_Table_Papers_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

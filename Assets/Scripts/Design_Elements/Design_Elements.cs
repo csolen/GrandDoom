@@ -8,8 +8,7 @@ public class Design_Elements : MonoBehaviour
     [SerializeField] private GameObject designElementHolder;
     [SerializeField] private Animator anim;
 
-    public Sprite[] nextStageSr;
-    private int hitCount = 0;
+    public GameObject nextStageSr;
 
     private void Awake()
     {
@@ -18,16 +17,14 @@ public class Design_Elements : MonoBehaviour
 
     public void DesignElementGotHit()
     {
-        if (hitCount >= nextStageSr.Length)
+        anim.SetTrigger("gotHit");
+
+        if (nextStageSr != null)
         {
+            Instantiate(nextStageSr, designElementHolder.transform.position, Quaternion.identity);
             Destroy(designElementHolder);
         }
-        else
-        {
-            sr.sprite = nextStageSr[hitCount];
-            hitCount++;
-            anim.SetTrigger("gotHit");
-        }
+
     }
 
 

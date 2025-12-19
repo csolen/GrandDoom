@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 03bea657662fd40b6af154ac934640c8
+guid: d900c4efc18f347d0ab92721348ca9cf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7869181671250665863
-    second: DE_Can_Machine_Broken_0
+      213: 1763153049008705787
+    second: DE_TablePC_Broken4_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -50,8 +50,8 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 7
-  spritePivot: {x: 0.5, y: 0}
-  spritePixelsToUnits: 400
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 600
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DE_Can_Machine_Broken_0
+      name: DE_TablePC_Broken4_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 11
-        width: 176
-        height: 301
+        x: 11
+        y: 8
+        width: 610
+        height: 82
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 78129eb8903f43d60800000000000000
-      internalID: 7869181671250665863
+      spriteID: bf09fc24b5af77810800000000000000
+      internalID: 1763153049008705787
       vertices: []
       indices: 
       edges: []
@@ -152,7 +152,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      DE_Can_Machine_Broken_0: 7869181671250665863
+      DE_TablePC_Broken4_0: 1763153049008705787
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

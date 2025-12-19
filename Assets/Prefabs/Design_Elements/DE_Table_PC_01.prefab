@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 8762053435555064915}
   - component: {fileID: 5135166756019240918}
   m_Layer: 0
-  m_Name: DE_Table_PC
+  m_Name: DE_Table_PC_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -532,7 +532,7 @@ MonoBehaviour:
   srFront: {fileID: 7307719897220220611}
   designElementHolder: {fileID: 1849666168971740158}
   anim: {fileID: 8762053435555064915}
-  nextStageSr: []
+  nextStageSr: {fileID: 1849666168971740158, guid: fb5b2eeaef17b44829ee89215b66847f, type: 3}
 --- !u!1 &5417035179011491298
 GameObject:
   m_ObjectHideFlags: 0
