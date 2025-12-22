@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class In_Game_Market_Manager : MonoBehaviour
 {
@@ -7,6 +8,10 @@ public class In_Game_Market_Manager : MonoBehaviour
     public GameObject inGameMarketPanel;
     public Transform cardsParent;
     public MarketItemOptionUI cardPrefab;
+    public GameObject completePurchaseBtn;
+    public TMPTypewriter bubbleText;
+    public Color purchaseBtnNormalColor;
+    public Color purchaseBtnNotEnoughColor;
 
     [Header("Market Pool")]
     public List<InGameMarketData> allMarketItems = new();
@@ -17,15 +22,29 @@ public class In_Game_Market_Manager : MonoBehaviour
     bool isMenuOpen;
     readonly List<MarketItemOptionUI> spawnedCards = new();
 
+    [TextArea(2, 4)]
+    public string[] bubbleTextArea_Health;
+    public string[] bubbleTextArea_Ammo;
+    public string[] bubbleTextArea_RandomSkill;
+
+    InGameMarketData pendingItem;
+
+    Image completePurchaseImage;
+    Button completePurchaseButton;
+
+    private void Awake()
+    {
+        completePurchaseImage = completePurchaseBtn.GetComponent<Image>();
+        completePurchaseButton = completePurchaseBtn.GetComponent<Button>();
+    }
+
     private void Update()
     {
         if (isMenuOpen)
             return;
 
         if (PlayerPrefs.GetInt("Open_InGameMarket") == 1)
-        {
             OpenInGameMarket();
-        }
     }
 
     public void OpenInGameMarket()
@@ -33,10 +52,12 @@ public class In_Game_Market_Manager : MonoBehaviour
         PlayerPrefs.SetInt("Open_InGameMarket", 1);
 
         isMenuOpen = true;
-
         GameTester.Instance.ShouldStopTheGame(true);
 
         inGameMarketPanel.SetActive(true);
+
+        pendingItem = null;
+        completePurchaseBtn.SetActive(false);
 
         RollCards();
     }
@@ -48,10 +69,12 @@ public class In_Game_Market_Manager : MonoBehaviour
         inGameMarketPanel.SetActive(false);
 
         isMenuOpen = false;
-
         GameTester.Instance.ShouldStopTheGame(false);
 
         ClearOldCards();
+
+        pendingItem = null;
+        completePurchaseBtn.SetActive(false);
     }
 
     void RollCards()
@@ -63,21 +86,13 @@ public class In_Game_Market_Manager : MonoBehaviour
     void ClearOldCards()
     {
         foreach (var card in spawnedCards)
-        {
-            if (card != null)
-                Destroy(card.gameObject);
-        }
+            Destroy(card.gameObject);
+
         spawnedCards.Clear();
     }
 
     void SpawnRandomMarketCards(int count)
     {
-        if (allMarketItems == null || allMarketItems.Count == 0)
-        {
-            CloseInGameMarket();
-            return;
-        }
-
         List<InGameMarketData> pool = new(allMarketItems);
         int finalCount = Mathf.Min(count, pool.Count);
 
@@ -96,28 +111,72 @@ public class In_Game_Market_Manager : MonoBehaviour
 
     void OnMarketItemSelected(InGameMarketData chosenItem)
     {
-        ApplyMarketItemToPlayer(chosenItem);
+        pendingItem = chosenItem;
+
+        ShowPreviewForItem(chosenItem);
+        ShowCompletePurchaseButton(chosenItem);
+    }
+
+    void ShowPreviewForItem(InGameMarketData item)
+    {
+        switch (item.type)
+        {
+            case Market_Item_Type.Market_Refill_Health:
+                bubbleText.Play(bubbleTextArea_Health[Random.Range(0, bubbleTextArea_Health.Length)]);
+                break;
+
+            case Market_Item_Type.Market_Refill_Ammo:
+                bubbleText.Play(bubbleTextArea_Ammo[Random.Range(0, bubbleTextArea_Ammo.Length)]);
+                break;
+
+            case Market_Item_Type.Market_Select_RandomSkill:
+                bubbleText.Play(bubbleTextArea_RandomSkill[Random.Range(0, bubbleTextArea_RandomSkill.Length)]);
+                break;
+        }
+    }
+
+    public void ConfirmPurchase()
+    {
+        if (pendingItem == null)
+            return;
+
+        if (PlayerController.instance.goldAmount < pendingItem.price)
+            return;
+
+        PlayerController.instance.AddGold(-pendingItem.price);
+        ApplyMarketItemToPlayer(pendingItem);
+
+        pendingItem = null;
+        completePurchaseBtn.SetActive(false);
+
         CloseInGameMarket();
     }
 
     void ApplyMarketItemToPlayer(InGameMarketData item)
     {
-        if (item == null) return;
-
         switch (item.type)
         {
             case Market_Item_Type.Market_Refill_Health:
-                Debug.Log("Health");
+                PlayerController.instance.health += 100;
                 break;
 
             case Market_Item_Type.Market_Refill_Ammo:
-                Debug.Log("Ammo");
+                PlayerController.instance.ammoAmount += 100;
                 break;
 
             case Market_Item_Type.Market_Select_RandomSkill:
-                Debug.Log("Skill");
-                //PlayerPrefs.SetInt("Open_Roguelike", 1);
+                PlayerPrefs.SetInt("Open_Roguelike", 1);
                 break;
         }
+    }
+
+    void ShowCompletePurchaseButton(InGameMarketData item)
+    {
+        bool canBuy = PlayerController.instance.goldAmount >= item.price;
+
+        completePurchaseImage.color = canBuy ? purchaseBtnNormalColor : purchaseBtnNotEnoughColor;
+        completePurchaseButton.interactable = canBuy;
+
+        completePurchaseBtn.SetActive(true);
     }
 }
