@@ -13,6 +13,8 @@ TagManager:
   - Enemy_Holder
   - Level_Pass_Trigger
   - Design_Elements
+  - UI_Spawn_Point_Gold
+  - UI_Crosshair
   layers:
   - Default
   - TransparentFX

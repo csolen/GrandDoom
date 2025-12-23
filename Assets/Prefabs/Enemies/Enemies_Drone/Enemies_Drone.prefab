@@ -417,7 +417,6 @@ MonoBehaviour:
   wanderChangeTime: 2.2
   alertRange: 7
   alertDelay: 0.75
-  spottedVfx: {fileID: 1501396549107500, guid: 05541640f4492734a88f2b15963e15d2, type: 3}
   shouldShoot: 1
   bullet: {fileID: 896349609577071788, guid: 355ef1c6fdeb54b89ab064374eedf813, type: 3}
   firePoint: {fileID: 2088578830710004202}
@@ -441,6 +440,10 @@ MonoBehaviour:
   ammoPrefab: {fileID: 8028448484693758585, guid: 102c91ba9961f41dcb7eded5ef4dd5cb, type: 3}
   healthPrefab: {fileID: 3441535354856443318, guid: 6c0a2593347274d4590d03bceffc2876, type: 3}
   dropChance: 0.2
+  goldFlyPrefab: {fileID: 9092063544212310973, guid: aa85932d2b7994521a23fba810430a26, type: 3}
+  minGoldOnHit: 2
+  maxGoldOnHit: 10
+  goldSpawnJitter: 2
   hitVfxs:
   - {fileID: 1269060166065924, guid: 1810168468ffe7b4db7f3c67e0743de4, type: 3}
   - {fileID: 1269060166065924, guid: 1810168468ffe7b4db7f3c67e0743de4, type: 3}
@@ -449,6 +452,7 @@ MonoBehaviour:
   - {fileID: 1624119753830394, guid: b3317320a28a9414681715fe63910ece, type: 3}
   critVfx: {fileID: 1883610838541854, guid: aa72280b4bb67cb468b0ffc37bcfc9c0, type: 3}
   missVfx: {fileID: 1039062483155646, guid: 476c13e09369fbb46b465d409192d06b, type: 3}
+  spottedVfx: {fileID: 1501396549107500, guid: 05541640f4492734a88f2b15963e15d2, type: 3}
 --- !u!1 &6487870602573874538
 GameObject:
   m_ObjectHideFlags: 0

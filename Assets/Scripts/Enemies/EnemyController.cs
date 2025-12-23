@@ -88,6 +88,14 @@ public class EnemyController : MonoBehaviour
     public GameObject healthPrefab;
     public float dropChance = 0.2f;
 
+    [Header("Gold On Hit")]
+    public GameObject goldFlyPrefab;
+    public int minGoldOnHit = 2;
+    public int maxGoldOnHit = 6;
+    public float goldJitter = 0.5f;
+    private RectTransform goldSpawnOrigin;
+    private RectTransform goldSpawnPoint;
+
     private EnemyState currentState = EnemyState.Wandering;
     private Vector2 moveDirection;
     private Vector2 lastPosition;
@@ -128,6 +136,8 @@ public class EnemyController : MonoBehaviour
             }
         }
 
+        goldSpawnOrigin = GameObject.FindGameObjectWithTag("UI_Crosshair").GetComponent<RectTransform>();
+
         PickNewWanderDirection();
         shotCounter = fireRate;
         lastPosition = rb.position;
@@ -145,6 +155,11 @@ public class EnemyController : MonoBehaviour
         alertTimer = 0f;
         stateBeforeAlert = EnemyState.Wandering;
         spottedVfxInstance = null;
+
+        GameObject sp = GameObject.FindGameObjectWithTag("UI_Spawn_Point_Gold");
+        if (sp != null)
+            goldSpawnPoint = sp.GetComponent<RectTransform>();
+
     }
 
     private void Update()
@@ -549,6 +564,8 @@ public class EnemyController : MonoBehaviour
     {
         if (Random.value >= PlayerController.instance.playerMissChance)
         {
+            SpawnGoldOnHit();
+
             if (Random.value <= PlayerController.instance.criticalDamageChance)
             {
                 EnemyHealth -= 10000;
@@ -715,4 +732,27 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    private void SpawnGoldOnHit()
+    {
+        if (goldFlyPrefab == null || goldSpawnPoint == null || goldSpawnOrigin == null)
+            return;
+
+        int count = Random.Range(minGoldOnHit, maxGoldOnHit + 1);
+
+        Vector2 basePos = goldSpawnPoint.InverseTransformPoint(goldSpawnOrigin.position);
+
+        for (int i = 0; i < count; i++)
+        {
+            GameObject g = Instantiate(goldFlyPrefab, goldSpawnPoint);
+            RectTransform rt = g.GetComponent<RectTransform>();
+            if (rt == null) continue;
+
+            rt.anchoredPosition = basePos + Random.insideUnitCircle * goldJitter;
+
+            float delay = i * 0.1f;
+            var fly = g.GetComponent<GoldFlyUI>();
+            if (fly != null)
+                fly.flyTime += delay;
+        }
+    }
 }

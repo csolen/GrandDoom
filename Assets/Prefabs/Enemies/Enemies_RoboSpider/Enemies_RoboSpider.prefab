@@ -148,6 +148,10 @@ MonoBehaviour:
   ammoPrefab: {fileID: 8028448484693758585, guid: 102c91ba9961f41dcb7eded5ef4dd5cb, type: 3}
   healthPrefab: {fileID: 3441535354856443318, guid: 6c0a2593347274d4590d03bceffc2876, type: 3}
   dropChance: 0.4
+  goldFlyPrefab: {fileID: 9092063544212310973, guid: aa85932d2b7994521a23fba810430a26, type: 3}
+  minGoldOnHit: 2
+  maxGoldOnHit: 10
+  goldSpawnJitter: 2
   hitVfxs:
   - {fileID: 1269060166065924, guid: 1810168468ffe7b4db7f3c67e0743de4, type: 3}
   - {fileID: 1269060166065924, guid: 1810168468ffe7b4db7f3c67e0743de4, type: 3}
