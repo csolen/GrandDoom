@@ -41,6 +41,21 @@ public class EnemyBullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (other.CompareTag("Design_Elements_Holder"))
+        {
+            Transform t = other.transform.Find("Face_To_Camera/Cube/Design_Element_Sprite_Back");
+            if (t != null)
+            {
+                Design_Elements de = t.GetComponent<Design_Elements>();
+                if (de != null)
+                {
+                    de.DesignElementGotHit();
+                }
+            }
+
+            Destroy(gameObject);
+        }
     }
 
 }

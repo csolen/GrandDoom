@@ -622,7 +622,7 @@ GameObject:
   - component: {fileID: 5430912229237469612}
   m_Layer: 0
   m_Name: DE_Table_Empty_01
-  m_TagString: Untagged
+  m_TagString: Design_Elements_Holder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

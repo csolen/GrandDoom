@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 7752492842209606447}
   m_Layer: 0
   m_Name: DE_Capsule_03
-  m_TagString: Untagged
+  m_TagString: Design_Elements_Holder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -245,8 +245,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.46, y: 0.7800003, z: 0.05}
-  m_Center: {x: 0, y: 0.39000016, z: -0.00000008940696}
+  m_Size: {x: 0.46, y: 0.6062272, z: 0.049999993}
+  m_Center: {x: 0, y: 0.3031136, z: -0.000000091572396}
 --- !u!114 &1794054090973525950
 MonoBehaviour:
   m_ObjectHideFlags: 0

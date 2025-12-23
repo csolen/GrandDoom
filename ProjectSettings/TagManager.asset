@@ -15,6 +15,7 @@ TagManager:
   - Design_Elements
   - UI_Spawn_Point_Gold
   - UI_Crosshair
+  - Design_Elements_Holder
   layers:
   - Default
   - TransparentFX

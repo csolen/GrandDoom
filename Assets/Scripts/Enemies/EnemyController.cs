@@ -564,8 +564,6 @@ public class EnemyController : MonoBehaviour
     {
         if (Random.value >= PlayerController.instance.playerMissChance)
         {
-            SpawnGoldOnHit();
-
             if (Random.value <= PlayerController.instance.criticalDamageChance)
             {
                 EnemyHealth -= 10000;
@@ -658,6 +656,7 @@ public class EnemyController : MonoBehaviour
                 spottedVfxInstance = null;
             }
 
+            SpawnGoldOnHit();
             Destroy(gameObject);
         }
     }
