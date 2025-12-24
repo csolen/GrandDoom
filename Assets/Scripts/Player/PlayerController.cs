@@ -90,6 +90,10 @@ public class PlayerController : MonoBehaviour
     private bool timerRunning = true;
     private string levelTimer = "";
 
+    // ✅ NEW: Aim tolerance settings (merkezin etrafında hedef alanı büyütme)
+    [Header("Aim Assist / Tolerance")]
+    [SerializeField] private float aimRadius = 0.015f; // 0.01 - 0.03 iyi başlangıç (viewport offset)
+    [SerializeField] private int aimSamples = 7;       // 1 = sadece merkez, 5-9 arası genelde ideal
 
     private enum HitSide
     {
@@ -129,7 +133,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-
         if (hasDied)
         {
             return;
@@ -219,7 +222,37 @@ public class PlayerController : MonoBehaviour
 
         levelTimer = $"{hours:00}:{minutes:00}:{seconds:00}";
         PlayerPrefs.SetString("LevelTimer", levelTimer);
+    }
 
+    // ✅ NEW: "Kalın ray" gibi davranan aim hit bulma
+    private bool TryGetAimHit(out RaycastHit bestHit)
+    {
+        bestHit = default;
+
+        bool hitAny = false;
+        float bestDist = float.MaxValue;
+
+        int samples = Mathf.Max(1, aimSamples);
+
+        for (int i = 0; i < samples; i++)
+        {
+            Vector2 offset = (i == 0) ? Vector2.zero : Random.insideUnitCircle * aimRadius;
+            Vector3 vp = new Vector3(0.5f + offset.x, 0.5f + offset.y, 0f);
+
+            Ray ray = viewCam.ViewportPointToRay(vp);
+
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                hitAny = true;
+                if (hit.distance < bestDist)
+                {
+                    bestDist = hit.distance;
+                    bestHit = hit;
+                }
+            }
+        }
+
+        return hitAny;
     }
 
     public void SetWeapon(WeaponType weapon)
@@ -294,12 +327,10 @@ public class PlayerController : MonoBehaviour
 
         Instantiate(muzzleFlash, muzzleFlashPoint.position, muzzleFlashPoint.rotation);
 
-        Ray ray = viewCam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
         RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit))
+        if (TryGetAimHit(out hit))
         {
-            Vector3 bulletImpactOffset = new(-0.1f, 0f, 0f);
+            Vector3 bulletImpactOffset = new Vector3(-0.1f, 0f, 0f);
             Instantiate(bulletImpact, hit.point + bulletImpactOffset, transform.rotation);
 
             if (hit.transform.CompareTag("Enemy"))
@@ -338,14 +369,16 @@ public class PlayerController : MonoBehaviour
 
         Player_Weapon_Sword.SetTrigger("isShooting");
 
-        Ray ray = viewCam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
         RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, katanaRange))
+        if (TryGetAimHit(out hit))
         {
-            if (hit.transform.CompareTag("Enemy"))
+            // katana sadece yakın mesafede geçerli
+            if (hit.distance <= katanaRange)
             {
-                hit.transform.parent.GetComponent<EnemyController>().TakeDamage();
+                if (hit.transform.CompareTag("Enemy"))
+                {
+                    hit.transform.parent.GetComponent<EnemyController>().TakeDamage();
+                }
             }
         }
     }
@@ -400,8 +433,8 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 GetHitDirection2D(Vector3 damageSourcePosition)
     {
-        Vector2 attackerPos2D = new (damageSourcePosition.x, damageSourcePosition.y);
-        Vector2 playerPos2D = new (transform.position.x, transform.position.y);
+        Vector2 attackerPos2D = new Vector2(damageSourcePosition.x, damageSourcePosition.y);
+        Vector2 playerPos2D = new Vector2(transform.position.x, transform.position.y);
         Vector2 toAttacker = (attackerPos2D - playerPos2D).normalized;
         return toAttacker;
     }
@@ -409,7 +442,7 @@ public class PlayerController : MonoBehaviour
     private HitSide GetHitSideFromDirection(Vector2 toAttacker)
     {
         Vector2 forward = transform.right;
-        Vector2 right = new (forward.y, -forward.x);
+        Vector2 right = new Vector2(forward.y, -forward.x);
 
         float forwardDot = Vector2.Dot(forward, toAttacker);
         float rightDot = Vector2.Dot(right, toAttacker);
@@ -495,7 +528,6 @@ public class PlayerController : MonoBehaviour
         hasDied = true;
         GameTester.Instance.ShouldStopTheGame(true);
     }
-
 
     public int IncreaseByPercent(int value, int percent)
     {

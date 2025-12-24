@@ -3159,6 +3159,67 @@ RectTransform:
   m_AnchoredPosition: {x: 8, y: -5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &277799523
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4453344238553417195, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
+      propertyPath: m_Name
+      value: Enemies_Drone
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722612050517647413, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.5325892
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722612050517647413, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3082074
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722612050517647413, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722612050517647413, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722612050517647413, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722612050517647413, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722612050517647413, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722612050517647413, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722612050517647413, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722612050517647413, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8007202467538963898, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
+      propertyPath: shouldShoot
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 90d6c975df69e4b74b8b36274d186e7a, type: 3}
 --- !u!1 &290256525
 GameObject:
   m_ObjectHideFlags: 0
@@ -31532,7 +31593,7 @@ MonoBehaviour:
   lifeStealAmount: 5
   lifeStealChance: 0.2
   currentWeapon: 1
-  criticalDamageChance: 0.2
+  criticalDamageChance: 0.1
   playerMissChance: 0.1
   playerDodgeChance: 0.1
   gunObject: {fileID: 991796056}
@@ -31543,6 +31604,8 @@ MonoBehaviour:
   weaponSwitchCooldown: 0.2
   weaponSwitchLockDurationGun: 0.35
   weaponSwitchLockDurationSword: 0.35
+  aimRadius: 0.05
+  aimSamples: 7
   lastHitDirection: {x: 0, y: 0}
   lastHitSide: 0
 --- !u!50 &2004718025
@@ -32466,3 +32529,4 @@ SceneRoots:
   - {fileID: 230358453}
   - {fileID: 746299789}
   - {fileID: 8014248342297981171}
+  - {fileID: 277799523}
