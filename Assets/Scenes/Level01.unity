@@ -6333,7 +6333,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.2142653, y: -1.5112305}
+  m_AnchoredPosition: {x: 3.2142944, y: -1.5112305}
   m_SizeDelta: {x: -11.13882, y: -6.5593}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &696668365
@@ -31544,7 +31544,7 @@ MonoBehaviour:
   weaponSwitchLockDurationGun: 0.35
   weaponSwitchLockDurationSword: 0.35
   aimRadius: 0.05
-  aimSamples: 7
+  aimSamples: 3
   lastHitDirection: {x: 0, y: 0}
   lastHitSide: 0
 --- !u!50 &2004718025
