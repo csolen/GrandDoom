@@ -32,6 +32,11 @@ public class LuckyWheelController : MonoBehaviour
     private int randomAmmo01;
     private int randomAmmo02;
 
+    private void Awake()
+    {
+        luckyWheelsPanel.SetActive(false);
+    }
+
     private void Start()
     {
         closeButton.onClick.AddListener(CloseWheelMenu);

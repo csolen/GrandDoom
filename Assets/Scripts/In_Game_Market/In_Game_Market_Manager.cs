@@ -36,6 +36,7 @@ public class In_Game_Market_Manager : MonoBehaviour
 
     private void Awake()
     {
+        inGameMarketPanel.SetActive(false);
         completePurchaseImage = completePurchaseBtn.GetComponent<Image>();
         completePurchaseButton = completePurchaseBtn.GetComponent<Button>();
     }

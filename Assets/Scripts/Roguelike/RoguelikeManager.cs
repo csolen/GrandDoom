@@ -29,8 +29,8 @@ public class RoguelikeManager : MonoBehaviour
 
     private void Awake()
     {
+        selectionPanel.SetActive(false);
         ResetAllSkillLevels();
-
         reRollBtnButton = reRollButton.GetComponent<Button>();
     }
 
@@ -126,6 +126,7 @@ public class RoguelikeManager : MonoBehaviour
     public void CloseSelectionMenu()
     {
         PlayerPrefs.SetInt("Open_Roguelike", 0);
+        PlayerPrefs.SetInt("Roguelike_Xp", 0);
         selectionPanel.SetActive(false);
 
         isMenuOpen = false;
