@@ -13,6 +13,11 @@ public class In_Game_Market_Manager : MonoBehaviour
     public Color purchaseBtnNormalColor;
     public Color purchaseBtnNotEnoughColor;
 
+    [Header("Buttons")]
+    public Button closeInGameMarketBtn;
+    Image completePurchaseImage;
+    Button completePurchaseButton;
+
     [Header("Market Pool")]
     public List<InGameMarketData> allMarketItems = new();
 
@@ -29,13 +34,16 @@ public class In_Game_Market_Manager : MonoBehaviour
 
     InGameMarketData pendingItem;
 
-    Image completePurchaseImage;
-    Button completePurchaseButton;
-
     private void Awake()
     {
         completePurchaseImage = completePurchaseBtn.GetComponent<Image>();
         completePurchaseButton = completePurchaseBtn.GetComponent<Button>();
+    }
+
+    private void Start()
+    {
+        closeInGameMarketBtn.onClick.AddListener(CloseInGameMarket);
+        completePurchaseButton.onClick.AddListener(ConfirmPurchase);
     }
 
     private void Update()

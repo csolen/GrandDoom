@@ -34,6 +34,11 @@ public class RoguelikeManager : MonoBehaviour
         reRollBtnButton = reRollButton.GetComponent<Button>();
     }
 
+    private void Start()
+    {
+        reRollBtnButton.onClick.AddListener(ReRollCardsButton);
+    }
+
     void Update()
     {
         if (isMenuOpen)

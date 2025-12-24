@@ -3640,7 +3640,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 843172692}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: In_Game_Market_Manager, Assembly-CSharp
         m_MethodName: ConfirmPurchase
         m_Mode: 1
@@ -4021,7 +4021,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 843172691}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LuckyWheelController, Assembly-CSharp
         m_MethodName: CloseWheelMenu
         m_Mode: 1
@@ -7487,178 +7487,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 828169279}
   m_CullTransparentMesh: 1
---- !u!1 &843172688
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 843172689}
-  - component: {fileID: 843172690}
-  - component: {fileID: 843172691}
-  - component: {fileID: 843172692}
-  m_Layer: 0
-  m_Name: Managers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &843172689
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 843172688}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &843172690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 843172688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f8ec3aa7169b4d6a8e6998262229fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xpThreshold: 100
-  selectionPanel: {fileID: 2143053363}
-  cardsParent: {fileID: 1150719577}
-  cardPrefab: {fileID: 5390892685748198262, guid: 09f0b8ac0a68a4b7ea2631762febe1b7, type: 3}
-  delayerImg: {fileID: 1620958445}
-  reRollButton: {fileID: 1317653354}
-  reRollButtonText: {fileID: 1495427050}
-  reRollRequiredGold: 20
-  allSkills:
-  - {fileID: 11400000, guid: 0d30463f2bd8945ccbf311093803e7f9, type: 2}
-  - {fileID: 11400000, guid: 0225c5ab50c7e4014ad3c1add5c3bfa8, type: 2}
-  - {fileID: 11400000, guid: 54dd7d162bb994bee8abbcf788f2e965, type: 2}
-  - {fileID: 11400000, guid: ace39e0d7f90b4c9c8bd84a128b595fb, type: 2}
-  - {fileID: 11400000, guid: b708a6a3159c443d08c3b4253cb9717c, type: 2}
-  - {fileID: 11400000, guid: c419ce00ade2c4a5c86598bbac0268bb, type: 2}
-  - {fileID: 11400000, guid: 68b213cdd81ec47afabadb01a4625db3, type: 2}
-  - {fileID: 11400000, guid: c78f55d825a2b4d858c6aa47ab222430, type: 2}
-  - {fileID: 11400000, guid: 764dc0b9130974dd9bd0cd4cf4ad15d6, type: 2}
-  - {fileID: 11400000, guid: b9821bc3142ef4f3197b17db7b0d18ae, type: 2}
-  - {fileID: 11400000, guid: 866290019620346228697ba82c62c997, type: 2}
-  - {fileID: 11400000, guid: f4a430e10b3434a7294efac2d76d62ac, type: 2}
-  - {fileID: 11400000, guid: fbe71347683e444e491ff6aefacbd647, type: 2}
-  - {fileID: 11400000, guid: b01028fafc1884050a7d874627a647b0, type: 2}
-  - {fileID: 11400000, guid: cb28d648e48c94c8b9a619caa0308600, type: 2}
-  - {fileID: 11400000, guid: 8cf3335f94bfd4ba5a309a8cba2d94d0, type: 2}
-  - {fileID: 11400000, guid: 8a0e64d992053495797086abcbfff836, type: 2}
-  - {fileID: 11400000, guid: 9dc4d98a6c7ee4701acba348ad1ecca8, type: 2}
-  - {fileID: 11400000, guid: c603f1b13ff204fd1aa4a346030667a4, type: 2}
-  - {fileID: 11400000, guid: 3a561c3856e984cceb32c5e710185f31, type: 2}
-  - {fileID: 11400000, guid: 6f28e1602c3ca4768bafeacf6268cc48, type: 2}
-  - {fileID: 11400000, guid: 5c77ccd942fb64425b7408f8ba659003, type: 2}
-  - {fileID: 11400000, guid: 021b8ab2ecdc5457fb35bbe94bfcf70a, type: 2}
-  - {fileID: 11400000, guid: 4c84b20789c4e4563a34c6dd47bd7b2e, type: 2}
-  - {fileID: 11400000, guid: 7142c676c64764fe5b7320c61aebb61b, type: 2}
-  - {fileID: 11400000, guid: 71f97ff47541e419bbfe433e6e91f056, type: 2}
-  - {fileID: 11400000, guid: b3806f80b9ff84390982446323f71c74, type: 2}
-  - {fileID: 11400000, guid: 570e7db9cfcd44b89ba981a197eaee07, type: 2}
-  - {fileID: 11400000, guid: e0c7bb4844a9d4029a617303deb23605, type: 2}
-  - {fileID: 11400000, guid: 1626cfbc068af4a05a6ed0c283a8303c, type: 2}
-  - {fileID: 11400000, guid: 0d57ce8b1ec904e6c99a1fbfc08f52b2, type: 2}
-  - {fileID: 11400000, guid: ba8b80fd1d8a34fb19b956d233714257, type: 2}
-  - {fileID: 11400000, guid: 15837f2763be145ec8acee3fac16e0ef, type: 2}
-  - {fileID: 11400000, guid: 7ba150c172dbe41c2861915ed67bfeca, type: 2}
-  - {fileID: 11400000, guid: e766e680550134fad94b8c669fe20854, type: 2}
-  - {fileID: 11400000, guid: f298af48adb344004b7cc73bee1663ae, type: 2}
-  - {fileID: 11400000, guid: 90b9860f271914286be87ecb605c1797, type: 2}
-  - {fileID: 11400000, guid: 19aba386215694a1f89484d45a6191be, type: 2}
-  - {fileID: 11400000, guid: daa82a908b82f4445b5bfe5e91cf7c56, type: 2}
-  - {fileID: 11400000, guid: ee1df92f54f604db7bf0437c389fc0e7, type: 2}
-  - {fileID: 11400000, guid: 71b0b4007cec1497691815f7bc08d9f9, type: 2}
-  - {fileID: 11400000, guid: eeff610f6e79247009f21a716c9e1133, type: 2}
-  - {fileID: 11400000, guid: 17fe4c68852384004b942be8fb93dbf7, type: 2}
-  - {fileID: 11400000, guid: c79392959d1e94e079e955c30b50078f, type: 2}
-  - {fileID: 11400000, guid: 80ca9d8c2d882428b90f965c7e6096bc, type: 2}
-  - {fileID: 11400000, guid: 028884229b6654364a13c5926e162df5, type: 2}
-  - {fileID: 11400000, guid: b77100484feda43c9b9427650eae0177, type: 2}
-  - {fileID: 11400000, guid: 7f5a57c25d4fd4c71a2b02500d92db6f, type: 2}
-  - {fileID: 11400000, guid: 5be2af9cccb0d421389f3afff550d1a2, type: 2}
-  - {fileID: 11400000, guid: c3d10e79b31944f2b9ae148a26fc2ea3, type: 2}
-  - {fileID: 11400000, guid: 6b3cc2c6044494d60abb96ccf9092ed7, type: 2}
---- !u!114 &843172691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 843172688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cc9cc57b95b34731970b53186473d8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  luckyWheelsPanel: {fileID: 121483410}
-  wheel: {fileID: 1970126204}
-  spinButton: {fileID: 895673723}
-  buttonLabel: {fileID: 846257456}
-  sliceCount: 6
-  spinDuration: 3
-  minFullRotations: 7
-  maxFullRotations: 12
-  pointerAngle: 90
-  wheelDirection: -1
-  rewardText:
-  - {fileID: 155676828}
-  - {fileID: 525022807}
-  - {fileID: 369450324}
-  - {fileID: 1344860569}
-  - {fileID: 446797691}
-  - {fileID: 175138539}
---- !u!114 &843172692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 843172688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b66e91f91b3af446ebd45a899bc2a769, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inGameMarketPanel: {fileID: 632615156}
-  cardsParent: {fileID: 696668364}
-  cardPrefab: {fileID: 1592171128054536751, guid: 3ae6a3ed16f5e4e95ab7364412a1e58e, type: 3}
-  completePurchaseBtn: {fileID: 312371315}
-  bubbleText: {fileID: 1261117175}
-  purchaseBtnNormalColor: {r: 0.36862746, g: 1, b: 0.45490196, a: 1}
-  purchaseBtnNotEnoughColor: {r: 0.8490566, g: 0, b: 0, a: 1}
-  allMarketItems:
-  - {fileID: 11400000, guid: 1e55303bdb04044fb8bcc564994e2df0, type: 2}
-  - {fileID: 11400000, guid: 3c30fa39a2e744c7dbc458440aa544b4, type: 2}
-  - {fileID: 11400000, guid: 74ee18fb6ff9d4fd1bfb36f9f71047a6, type: 2}
-  spawnCardCount: 3
-  bubbleTextArea_Health:
-  - Haha! Maybe it's not a bad idea for you to heal yourself!
-  - I see... Someone needs health. Someone...
-  - Recover yourself.. Won't last long.
-  bubbleTextArea_Ammo:
-  - Why do you need Ammos. Isn't your sword enough?
-  - Yesss! Let's spread more fear!
-  - How many ammos do you need for a single drone?
-  - 'Will it be a killing spree? Nice one. '
-  bubbleTextArea_RandomSkill:
-  - Do you trust your luck? What skills are you chasing?
-  - Skills are the most important. For someone like you.
-  - You only wish the immortality. Let's see.
 --- !u!1 &846257454
 GameObject:
   m_ObjectHideFlags: 0
@@ -24155,19 +23983,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1317653357}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 843172690}
-        m_TargetAssemblyTypeName: RoguelikeManager, Assembly-CSharp
-        m_MethodName: ReRollCardsButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1317653357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30734,6 +30550,9 @@ GameObject:
   - component: {fileID: 1873478113}
   - component: {fileID: 1873478112}
   - component: {fileID: 1873478111}
+  - component: {fileID: 1873478115}
+  - component: {fileID: 1873478116}
+  - component: {fileID: 1873478117}
   m_Layer: 5
   m_Name: UI_Canvas
   m_TagString: Untagged
@@ -30834,6 +30653,146 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1873478115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873478110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f8ec3aa7169b4d6a8e6998262229fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xpThreshold: 100
+  selectionPanel: {fileID: 2143053363}
+  cardsParent: {fileID: 1150719577}
+  cardPrefab: {fileID: 5390892685748198262, guid: 09f0b8ac0a68a4b7ea2631762febe1b7, type: 3}
+  delayerImg: {fileID: 1620958445}
+  reRollButton: {fileID: 1317653354}
+  reRollButtonText: {fileID: 1495427050}
+  reRollRequiredGold: 20
+  allSkills:
+  - {fileID: 11400000, guid: 0d30463f2bd8945ccbf311093803e7f9, type: 2}
+  - {fileID: 11400000, guid: 0225c5ab50c7e4014ad3c1add5c3bfa8, type: 2}
+  - {fileID: 11400000, guid: 54dd7d162bb994bee8abbcf788f2e965, type: 2}
+  - {fileID: 11400000, guid: ace39e0d7f90b4c9c8bd84a128b595fb, type: 2}
+  - {fileID: 11400000, guid: b708a6a3159c443d08c3b4253cb9717c, type: 2}
+  - {fileID: 11400000, guid: c419ce00ade2c4a5c86598bbac0268bb, type: 2}
+  - {fileID: 11400000, guid: 68b213cdd81ec47afabadb01a4625db3, type: 2}
+  - {fileID: 11400000, guid: c78f55d825a2b4d858c6aa47ab222430, type: 2}
+  - {fileID: 11400000, guid: 764dc0b9130974dd9bd0cd4cf4ad15d6, type: 2}
+  - {fileID: 11400000, guid: b9821bc3142ef4f3197b17db7b0d18ae, type: 2}
+  - {fileID: 11400000, guid: 866290019620346228697ba82c62c997, type: 2}
+  - {fileID: 11400000, guid: f4a430e10b3434a7294efac2d76d62ac, type: 2}
+  - {fileID: 11400000, guid: fbe71347683e444e491ff6aefacbd647, type: 2}
+  - {fileID: 11400000, guid: b01028fafc1884050a7d874627a647b0, type: 2}
+  - {fileID: 11400000, guid: cb28d648e48c94c8b9a619caa0308600, type: 2}
+  - {fileID: 11400000, guid: 8cf3335f94bfd4ba5a309a8cba2d94d0, type: 2}
+  - {fileID: 11400000, guid: 8a0e64d992053495797086abcbfff836, type: 2}
+  - {fileID: 11400000, guid: 9dc4d98a6c7ee4701acba348ad1ecca8, type: 2}
+  - {fileID: 11400000, guid: c603f1b13ff204fd1aa4a346030667a4, type: 2}
+  - {fileID: 11400000, guid: 3a561c3856e984cceb32c5e710185f31, type: 2}
+  - {fileID: 11400000, guid: 6f28e1602c3ca4768bafeacf6268cc48, type: 2}
+  - {fileID: 11400000, guid: 5c77ccd942fb64425b7408f8ba659003, type: 2}
+  - {fileID: 11400000, guid: 021b8ab2ecdc5457fb35bbe94bfcf70a, type: 2}
+  - {fileID: 11400000, guid: 4c84b20789c4e4563a34c6dd47bd7b2e, type: 2}
+  - {fileID: 11400000, guid: 7142c676c64764fe5b7320c61aebb61b, type: 2}
+  - {fileID: 11400000, guid: 71f97ff47541e419bbfe433e6e91f056, type: 2}
+  - {fileID: 11400000, guid: b3806f80b9ff84390982446323f71c74, type: 2}
+  - {fileID: 11400000, guid: 570e7db9cfcd44b89ba981a197eaee07, type: 2}
+  - {fileID: 11400000, guid: e0c7bb4844a9d4029a617303deb23605, type: 2}
+  - {fileID: 11400000, guid: 1626cfbc068af4a05a6ed0c283a8303c, type: 2}
+  - {fileID: 11400000, guid: 0d57ce8b1ec904e6c99a1fbfc08f52b2, type: 2}
+  - {fileID: 11400000, guid: ba8b80fd1d8a34fb19b956d233714257, type: 2}
+  - {fileID: 11400000, guid: 15837f2763be145ec8acee3fac16e0ef, type: 2}
+  - {fileID: 11400000, guid: 7ba150c172dbe41c2861915ed67bfeca, type: 2}
+  - {fileID: 11400000, guid: e766e680550134fad94b8c669fe20854, type: 2}
+  - {fileID: 11400000, guid: f298af48adb344004b7cc73bee1663ae, type: 2}
+  - {fileID: 11400000, guid: 90b9860f271914286be87ecb605c1797, type: 2}
+  - {fileID: 11400000, guid: 19aba386215694a1f89484d45a6191be, type: 2}
+  - {fileID: 11400000, guid: daa82a908b82f4445b5bfe5e91cf7c56, type: 2}
+  - {fileID: 11400000, guid: ee1df92f54f604db7bf0437c389fc0e7, type: 2}
+  - {fileID: 11400000, guid: 71b0b4007cec1497691815f7bc08d9f9, type: 2}
+  - {fileID: 11400000, guid: eeff610f6e79247009f21a716c9e1133, type: 2}
+  - {fileID: 11400000, guid: 17fe4c68852384004b942be8fb93dbf7, type: 2}
+  - {fileID: 11400000, guid: c79392959d1e94e079e955c30b50078f, type: 2}
+  - {fileID: 11400000, guid: 80ca9d8c2d882428b90f965c7e6096bc, type: 2}
+  - {fileID: 11400000, guid: 028884229b6654364a13c5926e162df5, type: 2}
+  - {fileID: 11400000, guid: b77100484feda43c9b9427650eae0177, type: 2}
+  - {fileID: 11400000, guid: 7f5a57c25d4fd4c71a2b02500d92db6f, type: 2}
+  - {fileID: 11400000, guid: 5be2af9cccb0d421389f3afff550d1a2, type: 2}
+  - {fileID: 11400000, guid: c3d10e79b31944f2b9ae148a26fc2ea3, type: 2}
+  - {fileID: 11400000, guid: 6b3cc2c6044494d60abb96ccf9092ed7, type: 2}
+--- !u!114 &1873478116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873478110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b66e91f91b3af446ebd45a899bc2a769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inGameMarketPanel: {fileID: 632615156}
+  cardsParent: {fileID: 696668364}
+  cardPrefab: {fileID: 1592171128054536751, guid: 3ae6a3ed16f5e4e95ab7364412a1e58e, type: 3}
+  completePurchaseBtn: {fileID: 312371315}
+  bubbleText: {fileID: 1261117175}
+  purchaseBtnNormalColor: {r: 0.36862746, g: 1, b: 0.45490196, a: 1}
+  purchaseBtnNotEnoughColor: {r: 0.8490566, g: 0, b: 0, a: 1}
+  closeInGameMarketBtn: {fileID: 2063626720}
+  allMarketItems:
+  - {fileID: 11400000, guid: 1e55303bdb04044fb8bcc564994e2df0, type: 2}
+  - {fileID: 11400000, guid: 3c30fa39a2e744c7dbc458440aa544b4, type: 2}
+  - {fileID: 11400000, guid: 74ee18fb6ff9d4fd1bfb36f9f71047a6, type: 2}
+  spawnCardCount: 3
+  bubbleTextArea_Health:
+  - Haha! Maybe it's not a bad idea for you to heal yourself!
+  - I see... Someone needs health. Someone...
+  - Recover yourself.. Won't last long.
+  bubbleTextArea_Ammo:
+  - Why do you need Ammos. Isn't your sword enough?
+  - Yesss! Let's spread more fear!
+  - How many ammos do you need for a single drone?
+  - 'Will it be a killing spree? Nice one. '
+  bubbleTextArea_RandomSkill:
+  - Do you trust your luck? What skills are you chasing?
+  - Skills are the most important. For someone like you.
+  - You only wish the immortality. Let's see.
+--- !u!114 &1873478117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873478110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc9cc57b95b34731970b53186473d8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  luckyWheelsPanel: {fileID: 121483410}
+  wheel: {fileID: 1970126204}
+  spinButton: {fileID: 895673723}
+  closeButton: {fileID: 356835818}
+  buttonLabel: {fileID: 846257456}
+  sliceCount: 6
+  spinDuration: 3
+  minFullRotations: 7
+  maxFullRotations: 12
+  pointerAngle: 90
+  wheelDirection: -1
+  rewardText:
+  - {fileID: 155676828}
+  - {fileID: 525022807}
+  - {fileID: 369450324}
+  - {fileID: 1344860569}
+  - {fileID: 446797691}
+  - {fileID: 175138539}
 --- !u!1 &1893427988
 GameObject:
   m_ObjectHideFlags: 0
@@ -31509,9 +31468,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2004718023}
   - component: {fileID: 2004718025}
+  - component: {fileID: 2004718027}
   - component: {fileID: 2004718026}
   - component: {fileID: 2004718024}
-  - component: {fileID: 2004718027}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -31829,7 +31788,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 843172692}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: In_Game_Market_Manager, Assembly-CSharp
         m_MethodName: CloseInGameMarket
         m_Mode: 1
@@ -32506,5 +32465,4 @@ SceneRoots:
   - {fileID: 2004718023}
   - {fileID: 230358453}
   - {fileID: 746299789}
-  - {fileID: 843172689}
   - {fileID: 8014248342297981171}

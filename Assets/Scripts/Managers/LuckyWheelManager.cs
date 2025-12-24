@@ -8,6 +8,7 @@ public class LuckyWheelController : MonoBehaviour
     public GameObject luckyWheelsPanel;
     public RectTransform wheel;
     public Button spinButton;
+    public Button closeButton;
     public TextMeshProUGUI buttonLabel;
 
     public int sliceCount = 6;
@@ -33,6 +34,7 @@ public class LuckyWheelController : MonoBehaviour
 
     private void Start()
     {
+        closeButton.onClick.AddListener(CloseWheelMenu);
         spinButton.onClick.AddListener(OnSpinButtonPressed);
     }
 
