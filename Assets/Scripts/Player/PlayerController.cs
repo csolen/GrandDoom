@@ -90,10 +90,9 @@ public class PlayerController : MonoBehaviour
     private bool timerRunning = true;
     private string levelTimer = "";
 
-    // ✅ NEW: Aim tolerance settings (merkezin etrafında hedef alanı büyütme)
     [Header("Aim Assist / Tolerance")]
-    [SerializeField] private float aimRadius = 0.015f; // 0.01 - 0.03 iyi başlangıç (viewport offset)
-    [SerializeField] private int aimSamples = 7;       // 1 = sadece merkez, 5-9 arası genelde ideal
+    [SerializeField] private float aimRadius = 0.015f;
+    [SerializeField] private int aimSamples = 7;
 
     private enum HitSide
     {
@@ -224,13 +223,17 @@ public class PlayerController : MonoBehaviour
         PlayerPrefs.SetString("LevelTimer", levelTimer);
     }
 
-    // ✅ NEW: "Kalın ray" gibi davranan aim hit bulma
     private bool TryGetAimHit(out RaycastHit bestHit)
     {
         bestHit = default;
 
-        bool hitAny = false;
-        float bestDist = float.MaxValue;
+        bool foundAny = false;
+        float bestAnyDist = float.MaxValue;
+        RaycastHit bestAnyHit = default;
+
+        bool foundEnemy = false;
+        float bestEnemyDist = float.MaxValue;
+        RaycastHit bestEnemyHit = default;
 
         int samples = Mathf.Max(1, aimSamples);
 
@@ -241,19 +244,43 @@ public class PlayerController : MonoBehaviour
 
             Ray ray = viewCam.ViewportPointToRay(vp);
 
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
             {
-                hitAny = true;
-                if (hit.distance < bestDist)
+                foundAny = true;
+
+                if (hit.transform.CompareTag("Enemy"))
                 {
-                    bestDist = hit.distance;
-                    bestHit = hit;
+                    if (hit.distance < bestEnemyDist)
+                    {
+                        bestEnemyDist = hit.distance;
+                        bestEnemyHit = hit;
+                        foundEnemy = true;
+                    }
+                }
+
+                if (hit.distance < bestAnyDist)
+                {
+                    bestAnyDist = hit.distance;
+                    bestAnyHit = hit;
                 }
             }
         }
 
-        return hitAny;
+        if (foundEnemy)
+        {
+            bestHit = bestEnemyHit;
+            return true;
+        }
+
+        if (foundAny)
+        {
+            bestHit = bestAnyHit;
+            return true;
+        }
+
+        return false;
     }
+
 
     public void SetWeapon(WeaponType weapon)
     {
@@ -330,7 +357,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if (TryGetAimHit(out hit))
         {
-            Vector3 bulletImpactOffset = new Vector3(-0.1f, 0f, 0f);
+            Vector3 bulletImpactOffset = new (-0.1f, 0f, 0f);
             Instantiate(bulletImpact, hit.point + bulletImpactOffset, transform.rotation);
 
             if (hit.transform.CompareTag("Enemy"))
@@ -372,7 +399,6 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if (TryGetAimHit(out hit))
         {
-            // katana sadece yakın mesafede geçerli
             if (hit.distance <= katanaRange)
             {
                 if (hit.transform.CompareTag("Enemy"))

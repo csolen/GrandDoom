@@ -31544,7 +31544,7 @@ MonoBehaviour:
   weaponSwitchLockDurationGun: 0.35
   weaponSwitchLockDurationSword: 0.35
   aimRadius: 0.05
-  aimSamples: 3
+  aimSamples: 7
   lastHitDirection: {x: 0, y: 0}
   lastHitSide: 0
 --- !u!50 &2004718025

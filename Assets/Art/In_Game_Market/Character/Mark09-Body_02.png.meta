@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 41966545d25b44719a1c3fdadc4fc45f
+guid: 099495a4fc3e5ba4dbfd30f3c740e3f8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3332766428846667409
-    second: Mark09-Body2 1_0
-  - first:
-      213: -1483726465463452683
-    second: Mark09-Body2 1_1
+      213: -2909693900698976264
+    second: Mark09-Body2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mark09-Body2 1_0
+      name: Mark09-Body2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 664
-        width: 85
-        height: 132
+        x: 3
+        y: 0
+        width: 681
+        height: 730
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,30 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 196b0c6c86d504e20800000000000000
-      internalID: 3332766428846667409
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mark09-Body2 1_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 49
-        width: 444
-        height: 713
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5fb743a04aeb86be0800000000000000
-      internalID: -1483726465463452683
+      spriteID: 8ff77b340d0be97d0800000000000000
+      internalID: -2909693900698976264
       vertices: []
       indices: 
       edges: []
@@ -186,8 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Mark09-Body2 1_0: 3332766428846667409
-      Mark09-Body2 1_1: -1483726465463452683
+      Mark09-Body2_0: -2909693900698976264
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
