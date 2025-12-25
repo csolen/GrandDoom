@@ -703,8 +703,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a1a5f9fe7494da6a07e8b64739f24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newMatNormal: {fileID: 2100000, guid: f6d6bbcbbc7f140f9a64f69842aba9cf, type: 2}
-  newmatDarker: {fileID: 2100000, guid: 448a27734d83d4a59a36d367991cf71f, type: 2}
+  newMatNormal: {fileID: 2100000, guid: 653131b8345a5415f88dc5ab60678508, type: 2}
+  newmatDarker: {fileID: 2100000, guid: e8337a3b9bc814a5585003995989ff0f, type: 2}
   destroyingParticle: {fileID: 0}
 --- !u!65 &365244974268793104
 BoxCollider:

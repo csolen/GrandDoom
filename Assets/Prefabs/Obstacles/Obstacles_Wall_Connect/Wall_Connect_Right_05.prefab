@@ -608,8 +608,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a1a5f9fe7494da6a07e8b64739f24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newMatNormal: {fileID: 2100000, guid: f6d6bbcbbc7f140f9a64f69842aba9cf, type: 2}
-  newmatDarker: {fileID: 2100000, guid: 448a27734d83d4a59a36d367991cf71f, type: 2}
+  newMatNormal: {fileID: 2100000, guid: 7dde83d09b68d4519bbd7d191c93b8f8, type: 2}
+  newmatDarker: {fileID: 2100000, guid: 385c72ab678c64422999056e03b81610, type: 2}
   destroyingParticle: {fileID: 0}
 --- !u!1001 &2611641859120317226
 PrefabInstance:

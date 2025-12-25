@@ -724,8 +724,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a1a5f9fe7494da6a07e8b64739f24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newMatNormal: {fileID: 2100000, guid: f6d6bbcbbc7f140f9a64f69842aba9cf, type: 2}
-  newmatDarker: {fileID: 2100000, guid: 448a27734d83d4a59a36d367991cf71f, type: 2}
+  newMatNormal: {fileID: 2100000, guid: d4b5049a4645e4f98bd63cd05755185d, type: 2}
+  newmatDarker: {fileID: 2100000, guid: a3dc49d28d41b4064b79a03c6353b405, type: 2}
   destroyingParticle: {fileID: 0}
 --- !u!4 &7008971705531099184 stripped
 Transform:
