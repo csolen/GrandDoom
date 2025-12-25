@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 4768817123360871444}
   m_Layer: 0
   m_Name: Wall_Ground_Shadow
-  m_TagString: Obstacle_Wall
+  m_TagString: Obstacle_Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
