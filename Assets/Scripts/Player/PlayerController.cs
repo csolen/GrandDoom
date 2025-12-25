@@ -374,6 +374,11 @@ public class PlayerController : MonoBehaviour
             {
                 hit.transform.GetComponent<Design_Elements>().DesignElementGotHit();
             }
+
+            if (hit.transform.CompareTag("Obstacle_Wall"))
+            {
+                hit.transform.GetComponent<Design_WallChanger>().ChangeSprite();
+            }
         }
 
         ammoAmount--;

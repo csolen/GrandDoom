@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 602fc6a5ed84c41288aa819f76c31915
+guid: 9c0a84e764553c44b808fdec9c987f3d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4572003084223016606
-    second: Icon_Star_Empty_0
+      213: 2808052948877674585
+    second: Wall_Tile_Mid_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Icon_Star_Empty_0
+      name: Wall_Tile_Mid_0
       rect:
         serializedVersion: 2
-        x: 58
-        y: 55
-        width: 204
-        height: 197
+        x: 0
+        y: 0
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 26195ec1b6bfc80c0800000000000000
-      internalID: -4572003084223016606
+      spriteID: 9588750874538f620800000000000000
+      internalID: 2808052948877674585
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Icon_Star_Empty_0: -4572003084223016606
+      Wall_Tile_Mid_0: 2808052948877674585
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
