@@ -1,0 +1,1339 @@
+fileFormatVersion: 2
+guid: b76663a283f3c0648ae6291bd27ed77c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4284874749133092135
+    second: DS_HAHAHA_0
+  - first:
+      213: -7459855767599392931
+    second: DS_HAHAHA_1
+  - first:
+      213: -661876661573617288
+    second: DS_HAHAHA_2
+  - first:
+      213: 2260546080742319890
+    second: DS_HAHAHA_3
+  - first:
+      213: -3175451036155628436
+    second: DS_HAHAHA_4
+  - first:
+      213: -892853414247062730
+    second: DS_HAHAHA_5
+  - first:
+      213: -6480137710226003834
+    second: DS_HAHAHA_6
+  - first:
+      213: 8472017078726219003
+    second: DS_HAHAHA_7
+  - first:
+      213: 3187173604403494167
+    second: DS_HAHAHA_8
+  - first:
+      213: 534404726093366228
+    second: DS_HAHAHA_9
+  - first:
+      213: -9092243179289623408
+    second: DS_HAHAHA_10
+  - first:
+      213: 5883319330692131726
+    second: DS_HAHAHA_11
+  - first:
+      213: 7628435151064953828
+    second: DS_HAHAHA_12
+  - first:
+      213: -1593694056992666768
+    second: DS_HAHAHA_13
+  - first:
+      213: -3286786305676479988
+    second: DS_HAHAHA_14
+  - first:
+      213: -6082337910980037080
+    second: DS_HAHAHA_15
+  - first:
+      213: -5149566634374695033
+    second: DS_HAHAHA_16
+  - first:
+      213: 3217971363480220934
+    second: DS_HAHAHA_17
+  - first:
+      213: -3230870305902729717
+    second: DS_HAHAHA_18
+  - first:
+      213: 9176805170496209347
+    second: DS_HAHAHA_19
+  - first:
+      213: -4271441092771358605
+    second: DS_HAHAHA_20
+  - first:
+      213: -4147430568485150825
+    second: DS_HAHAHA_21
+  - first:
+      213: -2265872988803250515
+    second: DS_HAHAHA_22
+  - first:
+      213: -4386610010825324540
+    second: DS_HAHAHA_23
+  - first:
+      213: 4982235159467574802
+    second: DS_HAHAHA_24
+  - first:
+      213: 8350935208700169295
+    second: DS_HAHAHA_25
+  - first:
+      213: -7142084896406885550
+    second: DS_HAHAHA_26
+  - first:
+      213: 5525219207660797961
+    second: DS_HAHAHA_27
+  - first:
+      213: 6823892289451279481
+    second: DS_HAHAHA_28
+  - first:
+      213: -8595369068899207797
+    second: DS_HAHAHA_29
+  - first:
+      213: -6927022568040902751
+    second: DS_HAHAHA_30
+  - first:
+      213: -1499926429451436438
+    second: DS_HAHAHA_31
+  - first:
+      213: -2205532895278166072
+    second: DS_HAHAHA_32
+  - first:
+      213: -7662587653193097354
+    second: DS_HAHAHA_33
+  - first:
+      213: -5918835497252724938
+    second: DS_HAHAHA_34
+  - first:
+      213: -3966314840464002623
+    second: DS_HAHAHA_35
+  - first:
+      213: -418562540660176275
+    second: DS_HAHAHA_36
+  - first:
+      213: 8756704584271418867
+    second: DS_HAHAHA_37
+  - first:
+      213: -4355598745823499447
+    second: DS_HAHAHA_38
+  - first:
+      213: 8550531692652535500
+    second: DS_HAHAHA_39
+  - first:
+      213: 2213986215902060980
+    second: DS_HAHAHA_40
+  - first:
+      213: 4940390679870170720
+    second: DS_HAHAHA_41
+  - first:
+      213: 6913619755474178555
+    second: DS_HAHAHA_42
+  - first:
+      213: -5308256265452123519
+    second: DS_HAHAHA_43
+  - first:
+      213: 6950858790181731328
+    second: DS_HAHAHA_44
+  - first:
+      213: -426370929813842495
+    second: DS_HAHAHA_45
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DS_HAHAHA_0
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 835
+        width: 135
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9da81ee2e111984c0800000000000000
+      internalID: -4284874749133092135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_1
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 835
+        width: 160
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d57d69014b4497890800000000000000
+      internalID: -7459855767599392931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_2
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 835
+        width: 135
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87978cddeaa80d6f0800000000000000
+      internalID: -661876661573617288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_3
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 835
+        width: 160
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2172c0dfea21f5f10800000000000000
+      internalID: 2260546080742319890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_4
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 835
+        width: 135
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c643c4c5b188ee3d0800000000000000
+      internalID: -3175451036155628436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_5
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 835
+        width: 160
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6332f4fdc82fb93f0800000000000000
+      internalID: -892853414247062730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_6
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 835
+        width: 135
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 688ad56f51de116a0800000000000000
+      internalID: -6480137710226003834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_7
+      rect:
+        serializedVersion: 2
+        x: 1138
+        y: 835
+        width: 160
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf4d48c75a6a29570800000000000000
+      internalID: 8472017078726219003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_8
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 835
+        width: 135
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71db8ffb18d1b3c20800000000000000
+      internalID: 3187173604403494167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_9
+      rect:
+        serializedVersion: 2
+        x: 1483
+        y: 835
+        width: 160
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d3c51954469a6700800000000000000
+      internalID: 534404726093366228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_10
+      rect:
+        serializedVersion: 2
+        x: 1652
+        y: 835
+        width: 135
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09449fe400dd1d180800000000000000
+      internalID: -9092243179289623408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_11
+      rect:
+        serializedVersion: 2
+        x: 1795
+        y: 835
+        width: 125
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8be71692cfb5a150800000000000000
+      internalID: 5883319330692131726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 628
+        width: 99
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e3745b4a55add960800000000000000
+      internalID: 7628435151064953828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_13
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 628
+        width: 160
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07b0d4ce2bf02e9e0800000000000000
+      internalID: -1593694056992666768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_14
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 628
+        width: 135
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c02f885e44df262d0800000000000000
+      internalID: -3286786305676479988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_15
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 628
+        width: 160
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 826b42445e1379ba0800000000000000
+      internalID: -6082337910980037080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_16
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 658
+        width: 135
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78774eafd601988b0800000000000000
+      internalID: -5149566634374695033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_17
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 658
+        width: 160
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6053e91d7e788ac20800000000000000
+      internalID: 3217971363480220934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_18
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 658
+        width: 135
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b066f4d1394a923d0800000000000000
+      internalID: -3230870305902729717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_19
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 658
+        width: 160
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c105688eaf8a5f70800000000000000
+      internalID: 9176805170496209347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_20
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 658
+        width: 135
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3785b5a05fac8b4c0800000000000000
+      internalID: -4271441092771358605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_21
+      rect:
+        serializedVersion: 2
+        x: 1387
+        y: 658
+        width: 160
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79f98da3fdd5176c0800000000000000
+      internalID: -4147430568485150825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_22
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 658
+        width: 135
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da6ca3495800e80e0800000000000000
+      internalID: -2265872988803250515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_23
+      rect:
+        serializedVersion: 2
+        x: 1699
+        y: 658
+        width: 160
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4088598bf61af13c0800000000000000
+      internalID: -4386610010825324540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 413
+        width: 72
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 216c6830b74742540800000000000000
+      internalID: 4982235159467574802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_25
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 413
+        width: 160
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4c40e0c35b74e370800000000000000
+      internalID: 8350935208700169295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_26
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 413
+        width: 135
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25b2cf980a732ec90800000000000000
+      internalID: -7142084896406885550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_27
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 413
+        width: 160
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90089c278958dac40800000000000000
+      internalID: 5525219207660797961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_28
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 413
+        width: 135
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 974454af1e553be50800000000000000
+      internalID: 6823892289451279481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_29
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 413
+        width: 160
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b85f1ee3f5d17b880800000000000000
+      internalID: -8595369068899207797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_30
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 211
+        width: 135
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1afcec0eca54edf90800000000000000
+      internalID: -6927022568040902751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_31
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 211
+        width: 160
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6eb35ffbd03f2be0800000000000000
+      internalID: -1499926429451436438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_32
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 211
+        width: 135
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cf8184648f5461e0800000000000000
+      internalID: -2205532895278166072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_33
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 211
+        width: 160
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67f9127a02509a590800000000000000
+      internalID: -7662587653193097354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_34
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 211
+        width: 135
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63f574e79721cdda0800000000000000
+      internalID: -5918835497252724938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_35
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 211
+        width: 160
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c178c2caa1d4f8c0800000000000000
+      internalID: -3966314840464002623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_36
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 211
+        width: 135
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6a4aaf3697f03af0800000000000000
+      internalID: -418562540660176275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_37
+      rect:
+        serializedVersion: 2
+        x: 1151
+        y: 211
+        width: 160
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f55884ac60168970800000000000000
+      internalID: 8756704584271418867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 69
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94bad03840ecd83c0800000000000000
+      internalID: -4355598745823499447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_39
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 0
+        width: 160
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cce1645954799a670800000000000000
+      internalID: 8550531692652535500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_40
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 0
+        width: 135
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b12470bbb8a9be10800000000000000
+      internalID: 2213986215902060980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_41
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 0
+        width: 160
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 066ef45e52bcf8440800000000000000
+      internalID: 4940390679870170720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_42
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 0
+        width: 135
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf15925a98c12ff50800000000000000
+      internalID: 6913619755474178555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_43
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 0
+        width: 160
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18a0cf80d094556b0800000000000000
+      internalID: -5308256265452123519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_44
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 0
+        width: 135
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00cfea01e39667060800000000000000
+      internalID: 6950858790181731328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS_HAHAHA_45
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 0
+        width: 160
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c594e9f5e9351af0800000000000000
+      internalID: -426370929813842495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      DS_HAHAHA_0: -4284874749133092135
+      DS_HAHAHA_1: -7459855767599392931
+      DS_HAHAHA_10: -9092243179289623408
+      DS_HAHAHA_11: 5883319330692131726
+      DS_HAHAHA_12: 7628435151064953828
+      DS_HAHAHA_13: -1593694056992666768
+      DS_HAHAHA_14: -3286786305676479988
+      DS_HAHAHA_15: -6082337910980037080
+      DS_HAHAHA_16: -5149566634374695033
+      DS_HAHAHA_17: 3217971363480220934
+      DS_HAHAHA_18: -3230870305902729717
+      DS_HAHAHA_19: 9176805170496209347
+      DS_HAHAHA_2: -661876661573617288
+      DS_HAHAHA_20: -4271441092771358605
+      DS_HAHAHA_21: -4147430568485150825
+      DS_HAHAHA_22: -2265872988803250515
+      DS_HAHAHA_23: -4386610010825324540
+      DS_HAHAHA_24: 4982235159467574802
+      DS_HAHAHA_25: 8350935208700169295
+      DS_HAHAHA_26: -7142084896406885550
+      DS_HAHAHA_27: 5525219207660797961
+      DS_HAHAHA_28: 6823892289451279481
+      DS_HAHAHA_29: -8595369068899207797
+      DS_HAHAHA_3: 2260546080742319890
+      DS_HAHAHA_30: -6927022568040902751
+      DS_HAHAHA_31: -1499926429451436438
+      DS_HAHAHA_32: -2205532895278166072
+      DS_HAHAHA_33: -7662587653193097354
+      DS_HAHAHA_34: -5918835497252724938
+      DS_HAHAHA_35: -3966314840464002623
+      DS_HAHAHA_36: -418562540660176275
+      DS_HAHAHA_37: 8756704584271418867
+      DS_HAHAHA_38: -4355598745823499447
+      DS_HAHAHA_39: 8550531692652535500
+      DS_HAHAHA_4: -3175451036155628436
+      DS_HAHAHA_40: 2213986215902060980
+      DS_HAHAHA_41: 4940390679870170720
+      DS_HAHAHA_42: 6913619755474178555
+      DS_HAHAHA_43: -5308256265452123519
+      DS_HAHAHA_44: 6950858790181731328
+      DS_HAHAHA_45: -426370929813842495
+      DS_HAHAHA_5: -892853414247062730
+      DS_HAHAHA_6: -6480137710226003834
+      DS_HAHAHA_7: 8472017078726219003
+      DS_HAHAHA_8: 3187173604403494167
+      DS_HAHAHA_9: 534404726093366228
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
