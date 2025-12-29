@@ -3511,14 +3511,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.26415092, g: 0.2629049, b: 0.2629049, a: 0.12156863}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b76663a283f3c0648ae6291bd27ed77c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bf57adb810374724c9b2729c0d07990d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -28758,7 +28758,7 @@ MonoBehaviour:
   m_text: Re-roll
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 70051abc0432c4c80bb7e86a71b61e5f, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: -7799086994758458384, guid: 70051abc0432c4c80bb7e86a71b61e5f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -33809,7 +33809,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.24999523, y: 0}
+  m_AnchoredPosition: {x: -0.25000095, y: 0}
   m_SizeDelta: {x: 3.2000008, y: 2.44}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2056766290
