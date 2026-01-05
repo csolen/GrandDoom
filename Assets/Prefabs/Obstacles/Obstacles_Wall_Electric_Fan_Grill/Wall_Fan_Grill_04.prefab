@@ -237,8 +237,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a1a5f9fe7494da6a07e8b64739f24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newMatNormal: {fileID: 2100000, guid: bd0113cc9310a49d49c427d487c5e0f2, type: 2}
-  newmatDarker: {fileID: 2100000, guid: 2ac0dae2e5dbb44af95482f0fc817b70, type: 2}
+  normalMats:
+  - {fileID: 2100000, guid: bd0113cc9310a49d49c427d487c5e0f2, type: 2}
+  - {fileID: 2100000, guid: 9ef81c202241c49ad8751a58f0fa142f, type: 2}
+  darkMats:
+  - {fileID: 2100000, guid: 2ac0dae2e5dbb44af95482f0fc817b70, type: 2}
+  - {fileID: 2100000, guid: 85dc8d4cd6c8d443bb3ad6aff899f1a5, type: 2}
   destroyingParticle: {fileID: 0}
 --- !u!1001 &1002851259824830848
 PrefabInstance:
@@ -362,8 +366,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a1a5f9fe7494da6a07e8b64739f24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newMatNormal: {fileID: 2100000, guid: f6d6bbcbbc7f140f9a64f69842aba9cf, type: 2}
-  newmatDarker: {fileID: 2100000, guid: 448a27734d83d4a59a36d367991cf71f, type: 2}
+  normalMats:
+  - {fileID: 2100000, guid: f6d6bbcbbc7f140f9a64f69842aba9cf, type: 2}
+  - {fileID: 2100000, guid: ce14e45f010e54bcba9b43b6bb80d4d0, type: 2}
+  - {fileID: 2100000, guid: 1affc50b62abf4f0d9d4136b401ab51f, type: 2}
+  - {fileID: 2100000, guid: 25b37d58d274a43798bad31f1f5b7ab5, type: 2}
+  - {fileID: 2100000, guid: a3539a15a07174db2806be67616d50e1, type: 2}
+  darkMats:
+  - {fileID: 2100000, guid: 448a27734d83d4a59a36d367991cf71f, type: 2}
+  - {fileID: 2100000, guid: c88a57cf287104e36991a5682f1b0857, type: 2}
+  - {fileID: 2100000, guid: c6758c882ef8346448888a5705681720, type: 2}
+  - {fileID: 2100000, guid: 22945f69df7fc4890a75c92eef124ee7, type: 2}
+  - {fileID: 2100000, guid: bdfcdf4e237e74abb80438c4004be367, type: 2}
   destroyingParticle: {fileID: 0}
 --- !u!1001 &1216640766136501405
 PrefabInstance:
@@ -483,8 +497,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a1a5f9fe7494da6a07e8b64739f24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newMatNormal: {fileID: 2100000, guid: f6d6bbcbbc7f140f9a64f69842aba9cf, type: 2}
-  newmatDarker: {fileID: 2100000, guid: 448a27734d83d4a59a36d367991cf71f, type: 2}
+  normalMats:
+  - {fileID: 2100000, guid: f6d6bbcbbc7f140f9a64f69842aba9cf, type: 2}
+  - {fileID: 2100000, guid: ce14e45f010e54bcba9b43b6bb80d4d0, type: 2}
+  - {fileID: 2100000, guid: 1affc50b62abf4f0d9d4136b401ab51f, type: 2}
+  - {fileID: 2100000, guid: 25b37d58d274a43798bad31f1f5b7ab5, type: 2}
+  - {fileID: 2100000, guid: a3539a15a07174db2806be67616d50e1, type: 2}
+  darkMats:
+  - {fileID: 2100000, guid: 448a27734d83d4a59a36d367991cf71f, type: 2}
+  - {fileID: 2100000, guid: c88a57cf287104e36991a5682f1b0857, type: 2}
+  - {fileID: 2100000, guid: c6758c882ef8346448888a5705681720, type: 2}
+  - {fileID: 2100000, guid: 22945f69df7fc4890a75c92eef124ee7, type: 2}
+  - {fileID: 2100000, guid: bdfcdf4e237e74abb80438c4004be367, type: 2}
   destroyingParticle: {fileID: 0}
 --- !u!1001 &1433170876032707540
 PrefabInstance:
@@ -608,8 +632,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a1a5f9fe7494da6a07e8b64739f24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newMatNormal: {fileID: 2100000, guid: f6d6bbcbbc7f140f9a64f69842aba9cf, type: 2}
-  newmatDarker: {fileID: 2100000, guid: 448a27734d83d4a59a36d367991cf71f, type: 2}
+  normalMats:
+  - {fileID: 2100000, guid: f6d6bbcbbc7f140f9a64f69842aba9cf, type: 2}
+  - {fileID: 2100000, guid: ce14e45f010e54bcba9b43b6bb80d4d0, type: 2}
+  - {fileID: 2100000, guid: 1affc50b62abf4f0d9d4136b401ab51f, type: 2}
+  - {fileID: 2100000, guid: 25b37d58d274a43798bad31f1f5b7ab5, type: 2}
+  - {fileID: 2100000, guid: a3539a15a07174db2806be67616d50e1, type: 2}
+  darkMats:
+  - {fileID: 2100000, guid: 448a27734d83d4a59a36d367991cf71f, type: 2}
+  - {fileID: 2100000, guid: c88a57cf287104e36991a5682f1b0857, type: 2}
+  - {fileID: 2100000, guid: c6758c882ef8346448888a5705681720, type: 2}
+  - {fileID: 2100000, guid: 22945f69df7fc4890a75c92eef124ee7, type: 2}
+  - {fileID: 2100000, guid: bdfcdf4e237e74abb80438c4004be367, type: 2}
   destroyingParticle: {fileID: 0}
 --- !u!1001 &2611641859120317226
 PrefabInstance:
@@ -724,8 +758,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a1a5f9fe7494da6a07e8b64739f24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newMatNormal: {fileID: 2100000, guid: f6d6bbcbbc7f140f9a64f69842aba9cf, type: 2}
-  newmatDarker: {fileID: 2100000, guid: 448a27734d83d4a59a36d367991cf71f, type: 2}
+  normalMats:
+  - {fileID: 2100000, guid: f6d6bbcbbc7f140f9a64f69842aba9cf, type: 2}
+  - {fileID: 2100000, guid: ce14e45f010e54bcba9b43b6bb80d4d0, type: 2}
+  - {fileID: 2100000, guid: 1affc50b62abf4f0d9d4136b401ab51f, type: 2}
+  - {fileID: 2100000, guid: 25b37d58d274a43798bad31f1f5b7ab5, type: 2}
+  - {fileID: 2100000, guid: a3539a15a07174db2806be67616d50e1, type: 2}
+  darkMats:
+  - {fileID: 2100000, guid: 448a27734d83d4a59a36d367991cf71f, type: 2}
+  - {fileID: 2100000, guid: c88a57cf287104e36991a5682f1b0857, type: 2}
+  - {fileID: 2100000, guid: c6758c882ef8346448888a5705681720, type: 2}
+  - {fileID: 2100000, guid: 22945f69df7fc4890a75c92eef124ee7, type: 2}
+  - {fileID: 2100000, guid: bdfcdf4e237e74abb80438c4004be367, type: 2}
   destroyingParticle: {fileID: 0}
 --- !u!4 &7008971705531099184 stripped
 Transform:
