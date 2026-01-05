@@ -452,8 +452,8 @@ public class PlayerController : MonoBehaviour
     public void RevivePlayer(int divider)
     {
         deadScreen.SetActive(false);
-        health = maxHealth / 2;
-        ammoAmount = maxAmmoAmount / 2;
+        health = maxHealth / divider;
+        ammoAmount = maxAmmoAmount / divider;
         hasDied = false;
         GameTester.Instance.ShouldStopTheGame(false);
     }
