@@ -372,8 +372,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a1a5f9fe7494da6a07e8b64739f24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalMats: []
-  darkMats: []
+  normalMats:
+  - {fileID: 2100000, guid: 653131b8345a5415f88dc5ab60678508, type: 2}
+  darkMats:
+  - {fileID: 2100000, guid: e8337a3b9bc814a5585003995989ff0f, type: 2}
   destroyingParticle: {fileID: 0}
 --- !u!1001 &1216640766136501405
 PrefabInstance:
