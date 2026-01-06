@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d7c3e837456ff9b43807c99cfd976351
+guid: d3d481f86b772da4197f514364e0d210
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1562686516159264814
-    second: Wall_Tile_Mid_Darker_0
+      213: 4239461213224670091
+    second: Wall_Tile_Mid_Darker_Broken_v1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wall_Tile_Mid_Darker_0
+      name: Wall_Tile_Mid_Darker_Broken_v1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d7c80d94e8305ae0800000000000000
-      internalID: -1562686516159264814
+      spriteID: b839d45038795da30800000000000000
+      internalID: 4239461213224670091
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Wall_Tile_Mid_Darker_0: -1562686516159264814
+      Wall_Tile_Mid_Darker_Broken_v1_0: 4239461213224670091
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

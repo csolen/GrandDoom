@@ -28,7 +28,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: b3b016b0d39824ca5a3afc0e83baa643, type: 3}
+        m_Texture: {fileID: 2800000, guid: dce166a6e8ea403438f219288c0192ab, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
