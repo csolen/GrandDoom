@@ -68,7 +68,6 @@ public class LuckyWheelController : MonoBehaviour
         rewardText[0].text = "Health <br> " + randomHealth01.ToString();
         rewardText[3].text = "Health <br> " + randomHealth02.ToString();
 
-
         randomGold01 = Random.Range(50, 101);
         randomGold02 = Random.Range(50, 101);
 
@@ -161,7 +160,7 @@ public class LuckyWheelController : MonoBehaviour
                 break;
 
             case 4:
-                PlayerController.instance.goldAmount += randomGold02;
+                // NOTHING
                 break;
 
             case 5:

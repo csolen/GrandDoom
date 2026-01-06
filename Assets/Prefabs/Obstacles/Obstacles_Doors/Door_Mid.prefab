@@ -206,8 +206,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 5}
-  m_Center: {x: 0, y: 0, z: -2}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5261161403307477599
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +217,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3448108797370487347}
-  - component: {fileID: 8955629560955999687}
   m_Layer: 0
   m_Name: Col_Holder
   m_TagString: Untagged
@@ -249,27 +248,6 @@ Transform:
   - {fileID: 1082998043154795683}
   m_Father: {fileID: 3805870555479133103}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8955629560955999687
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5261161403307477599}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 4}
-  m_Center: {x: 0, y: 0, z: -3}
 --- !u!1 &5949182393669609991
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,6 +491,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube (1)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 06386c6e2c76a424cade2af9cc6ec392, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle_Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -567,8 +549,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a1a5f9fe7494da6a07e8b64739f24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalMats: []
-  darkMats: []
+  normalMats:
+  - {fileID: 2100000, guid: f6d6bbcbbc7f140f9a64f69842aba9cf, type: 2}
+  - {fileID: 2100000, guid: ce14e45f010e54bcba9b43b6bb80d4d0, type: 2}
+  - {fileID: 2100000, guid: 1affc50b62abf4f0d9d4136b401ab51f, type: 2}
+  - {fileID: 2100000, guid: 25b37d58d274a43798bad31f1f5b7ab5, type: 2}
+  - {fileID: 2100000, guid: a3539a15a07174db2806be67616d50e1, type: 2}
+  - {fileID: 2100000, guid: 41521ae36be35486f9e8f4a7f7f971f4, type: 2}
+  - {fileID: 2100000, guid: 6881eb5bc24b74790927d64bc1f4516e, type: 2}
+  darkMats:
+  - {fileID: 2100000, guid: 448a27734d83d4a59a36d367991cf71f, type: 2}
+  - {fileID: 2100000, guid: c88a57cf287104e36991a5682f1b0857, type: 2}
+  - {fileID: 2100000, guid: c6758c882ef8346448888a5705681720, type: 2}
+  - {fileID: 2100000, guid: 22945f69df7fc4890a75c92eef124ee7, type: 2}
+  - {fileID: 2100000, guid: bdfcdf4e237e74abb80438c4004be367, type: 2}
+  - {fileID: 2100000, guid: dab5cb384ddc04731825994308cc22a5, type: 2}
+  - {fileID: 2100000, guid: 3080221395c7b44de8e6b345507c367a, type: 2}
   destroyingParticle: {fileID: 0}
 --- !u!1001 &1709726117911374332
 PrefabInstance:
@@ -712,6 +708,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube (2)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 06386c6e2c76a424cade2af9cc6ec392, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle_Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -766,8 +766,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a1a5f9fe7494da6a07e8b64739f24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalMats: []
-  darkMats: []
+  normalMats:
+  - {fileID: 2100000, guid: f6d6bbcbbc7f140f9a64f69842aba9cf, type: 2}
+  - {fileID: 2100000, guid: ce14e45f010e54bcba9b43b6bb80d4d0, type: 2}
+  - {fileID: 2100000, guid: 1affc50b62abf4f0d9d4136b401ab51f, type: 2}
+  - {fileID: 2100000, guid: 25b37d58d274a43798bad31f1f5b7ab5, type: 2}
+  - {fileID: 2100000, guid: a3539a15a07174db2806be67616d50e1, type: 2}
+  - {fileID: 2100000, guid: 41521ae36be35486f9e8f4a7f7f971f4, type: 2}
+  - {fileID: 2100000, guid: 6881eb5bc24b74790927d64bc1f4516e, type: 2}
+  darkMats:
+  - {fileID: 2100000, guid: 448a27734d83d4a59a36d367991cf71f, type: 2}
+  - {fileID: 2100000, guid: c88a57cf287104e36991a5682f1b0857, type: 2}
+  - {fileID: 2100000, guid: c6758c882ef8346448888a5705681720, type: 2}
+  - {fileID: 2100000, guid: 22945f69df7fc4890a75c92eef124ee7, type: 2}
+  - {fileID: 2100000, guid: bdfcdf4e237e74abb80438c4004be367, type: 2}
+  - {fileID: 2100000, guid: dab5cb384ddc04731825994308cc22a5, type: 2}
+  - {fileID: 2100000, guid: 3080221395c7b44de8e6b345507c367a, type: 2}
   destroyingParticle: {fileID: 0}
 --- !u!1001 &5303414981072615043
 PrefabInstance:
@@ -829,6 +843,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube (4)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 06386c6e2c76a424cade2af9cc6ec392, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle_Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -883,8 +901,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a1a5f9fe7494da6a07e8b64739f24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalMats: []
-  darkMats: []
+  normalMats:
+  - {fileID: 2100000, guid: f6d6bbcbbc7f140f9a64f69842aba9cf, type: 2}
+  - {fileID: 2100000, guid: ce14e45f010e54bcba9b43b6bb80d4d0, type: 2}
+  - {fileID: 2100000, guid: 1affc50b62abf4f0d9d4136b401ab51f, type: 2}
+  - {fileID: 2100000, guid: 25b37d58d274a43798bad31f1f5b7ab5, type: 2}
+  - {fileID: 2100000, guid: a3539a15a07174db2806be67616d50e1, type: 2}
+  - {fileID: 2100000, guid: 41521ae36be35486f9e8f4a7f7f971f4, type: 2}
+  - {fileID: 2100000, guid: 6881eb5bc24b74790927d64bc1f4516e, type: 2}
+  darkMats:
+  - {fileID: 2100000, guid: 448a27734d83d4a59a36d367991cf71f, type: 2}
+  - {fileID: 2100000, guid: c88a57cf287104e36991a5682f1b0857, type: 2}
+  - {fileID: 2100000, guid: c6758c882ef8346448888a5705681720, type: 2}
+  - {fileID: 2100000, guid: 22945f69df7fc4890a75c92eef124ee7, type: 2}
+  - {fileID: 2100000, guid: bdfcdf4e237e74abb80438c4004be367, type: 2}
+  - {fileID: 2100000, guid: dab5cb384ddc04731825994308cc22a5, type: 2}
+  - {fileID: 2100000, guid: 3080221395c7b44de8e6b345507c367a, type: 2}
   destroyingParticle: {fileID: 0}
 --- !u!1001 &7081262913069374704
 PrefabInstance:
@@ -946,6 +978,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube (3)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 06386c6e2c76a424cade2af9cc6ec392, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle_Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -995,8 +1031,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a1a5f9fe7494da6a07e8b64739f24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalMats: []
-  darkMats: []
+  normalMats:
+  - {fileID: 2100000, guid: f6d6bbcbbc7f140f9a64f69842aba9cf, type: 2}
+  - {fileID: 2100000, guid: ce14e45f010e54bcba9b43b6bb80d4d0, type: 2}
+  - {fileID: 2100000, guid: 1affc50b62abf4f0d9d4136b401ab51f, type: 2}
+  - {fileID: 2100000, guid: 25b37d58d274a43798bad31f1f5b7ab5, type: 2}
+  - {fileID: 2100000, guid: a3539a15a07174db2806be67616d50e1, type: 2}
+  - {fileID: 2100000, guid: 41521ae36be35486f9e8f4a7f7f971f4, type: 2}
+  - {fileID: 2100000, guid: 6881eb5bc24b74790927d64bc1f4516e, type: 2}
+  darkMats:
+  - {fileID: 2100000, guid: 448a27734d83d4a59a36d367991cf71f, type: 2}
+  - {fileID: 2100000, guid: c88a57cf287104e36991a5682f1b0857, type: 2}
+  - {fileID: 2100000, guid: c6758c882ef8346448888a5705681720, type: 2}
+  - {fileID: 2100000, guid: 22945f69df7fc4890a75c92eef124ee7, type: 2}
+  - {fileID: 2100000, guid: bdfcdf4e237e74abb80438c4004be367, type: 2}
+  - {fileID: 2100000, guid: dab5cb384ddc04731825994308cc22a5, type: 2}
+  - {fileID: 2100000, guid: 3080221395c7b44de8e6b345507c367a, type: 2}
   destroyingParticle: {fileID: 0}
 --- !u!4 &2827987712877557738 stripped
 Transform:
