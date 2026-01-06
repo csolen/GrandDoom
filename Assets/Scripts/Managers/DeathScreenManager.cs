@@ -8,11 +8,17 @@ public class DeathScreenManager : MonoBehaviour
     public Button reviveWithAdsBtn;
     public Button restartBtn;
 
+    public GameObject RewardedAdsHolder;
+
+    private bool hideRewardedAds;
+
     public void Start()
     {
         restartBtn.onClick.AddListener(RestartCurrentScene);
         reviveBtn.onClick.AddListener(RevivePlayerWithGold);
-        reviveBtn.onClick.AddListener(RevivePlayerWithAds);
+        reviveWithAdsBtn.onClick.AddListener(RevivePlayerWithAds);
+
+        CheckRewardedAdsVisibility();
     }
 
     private void RevivePlayerWithGold()
@@ -28,5 +34,19 @@ public class DeathScreenManager : MonoBehaviour
     private void RevivePlayerWithAds()
     {
         PlayerController.instance.RevivePlayer(2);
+        hideRewardedAds = true;
+        CheckRewardedAdsVisibility();
+    }
+
+    private void CheckRewardedAdsVisibility()
+    {
+        if (hideRewardedAds)
+        {
+            RewardedAdsHolder.SetActive(false);
+        }
+        else
+        {
+            RewardedAdsHolder.SetActive(true);
+        }
     }
 }
