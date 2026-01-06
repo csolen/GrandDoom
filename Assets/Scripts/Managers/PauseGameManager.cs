@@ -3,17 +3,40 @@ using UnityEngine.UI;
 
 public class PauseGameManager : MonoBehaviour
 {
-    public Button pauseGameBtn;
-    public Button closeGameBtn;
-    public Button returnMainPageBtn;
-
     public GameObject pauseTheGamePanel;
+
+    public Button pauseGameBtn;
+    public Button returnMainPageBtn;
+    public Button[] resumeGameBtn;
+
+    public Button soundButton;
+    public Button musicButton;
 
     private void Start()
     {
         pauseGameBtn.onClick.AddListener(OpenPauseGamePanel);
-        closeGameBtn.onClick.AddListener(ClosePauseGamePanel);
         returnMainPageBtn.onClick.AddListener(ReturnToMainGame);
+
+        soundButton.onClick.AddListener(() => ChangeMusicAndSoundButtons("isSoundOn"));
+        musicButton.onClick.AddListener(() => ChangeMusicAndSoundButtons("isMusicOn"));
+
+        for (int i = 0; i < resumeGameBtn.Length; i++)
+        {
+            resumeGameBtn[i].onClick.AddListener(ClosePauseGamePanel);
+        }
+    }
+
+    private void Update()
+    {
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!pauseTheGamePanel.activeInHierarchy)
+            {
+                OpenPauseGamePanel();
+            }
+        }
+#endif
     }
 
     private void OpenPauseGamePanel()
@@ -35,16 +58,15 @@ public class PauseGameManager : MonoBehaviour
         Debug.Log("Go back to main menu");
     }
 
-    private void Update()
+    private void ChangeMusicAndSoundButtons(string keyName)
     {
-#if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (PlayerPrefs.GetInt(keyName) == 0)
         {
-            if (!pauseTheGamePanel.activeInHierarchy)
-            {
-                OpenPauseGamePanel();
-            }
+            PlayerPrefs.SetInt(keyName, 1);
         }
-#endif
+        else
+        {
+            PlayerPrefs.SetInt(keyName, 0);
+        }
     }
 }

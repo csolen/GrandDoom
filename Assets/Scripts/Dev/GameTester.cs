@@ -72,7 +72,6 @@ public class GameTester : MonoBehaviour
         }
     }
 
-
     private void PauseTheGame()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
