@@ -227,9 +227,8 @@ public class PlayerController : MonoBehaviour
     {
         bestHit = default;
 
-        bool foundAny = false;
-        float bestAnyDist = float.MaxValue;
-        RaycastHit bestAnyHit = default;
+        Ray centerRay = viewCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+        bool hasCenterHit = Physics.Raycast(centerRay, out RaycastHit centerHit, Mathf.Infinity);
 
         bool foundEnemy = false;
         float bestEnemyDist = float.MaxValue;
@@ -246,8 +245,6 @@ public class PlayerController : MonoBehaviour
 
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
             {
-                foundAny = true;
-
                 if (hit.transform.CompareTag("Enemy"))
                 {
                     if (hit.distance < bestEnemyDist)
@@ -256,12 +253,6 @@ public class PlayerController : MonoBehaviour
                         bestEnemyHit = hit;
                         foundEnemy = true;
                     }
-                }
-
-                if (hit.distance < bestAnyDist)
-                {
-                    bestAnyDist = hit.distance;
-                    bestAnyHit = hit;
                 }
             }
         }
@@ -272,15 +263,14 @@ public class PlayerController : MonoBehaviour
             return true;
         }
 
-        if (foundAny)
+        if (hasCenterHit)
         {
-            bestHit = bestAnyHit;
+            bestHit = centerHit;
             return true;
         }
 
         return false;
     }
-
 
     public void SetWeapon(WeaponType weapon)
     {
