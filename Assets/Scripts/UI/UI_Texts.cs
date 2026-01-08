@@ -55,6 +55,10 @@ public class UI_Texts : MonoBehaviour
         {
             UI_Text.text = "Time: " + PlayerPrefs.GetString("LevelTimer");
         }
+        else if (whatUI == "WheelTicket")
+        {
+            UI_Text.text = PlayerPrefs.GetInt("WheelTicket").ToString();
+        }
         else
         {
             Debug.LogWarning("No such thing as " + whatUI);

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0a80f20e93b3f414292f7a409ba0dbd4
+guid: 0cf16ce124f4b45d6a7c6f5f29c4ddde
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3583105382318162184
-    second: LW_Icon_Ticket_x5_0
+      213: 2890080106114671464
+    second: WhatsApp Image 2025-12-31 at 03.56.57_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LW_Icon_Ticket_x5_0
+      name: WhatsApp Image 2025-12-31 at 03.56.57_0
       rect:
         serializedVersion: 2
-        x: 71
-        y: 24
-        width: 435
-        height: 398
+        x: 0
+        y: 0
+        width: 1328
+        height: 767
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8feb22e83a0464ec0800000000000000
-      internalID: -3583105382318162184
+      spriteID: 86363615b80ab1820800000000000000
+      internalID: 2890080106114671464
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      LW_Icon_Ticket_x5_0: -3583105382318162184
+      WhatsApp Image 2025-12-31 at 03.56.57_0: 2890080106114671464
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
