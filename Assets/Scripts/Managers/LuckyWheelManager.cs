@@ -12,7 +12,7 @@ public class LuckyWheelController : MonoBehaviour
     public Button spinButton;
     public Button closeButton;
     public TextMeshProUGUI buttonLabel;
-    public TextMeshProUGUI bankLabel;
+    public TextMeshProUGUI ticketCount;
 
     private const int SliceCount = 6;
     public TextMeshProUGUI[] rewardText;
@@ -21,14 +21,19 @@ public class LuckyWheelController : MonoBehaviour
     public int minFullRotations = 7;
     public int maxFullRotations = 12;
 
+    private const float PointerAngle = 90f;
+    private const float WheelDirection = -1f;
+    private const int SliceIndexOffset = 0;
+
     public int spinCostGold = 20;
-    public bool firstSpinFree = true;
 
     public Vector2Int turn1TicketRange = new(1, 4);
     public Vector2Int turn2TicketRange = new(2, 6);
     public Vector2Int turn3TicketRange = new(3, 8);
     public Vector2Int turn4TicketRange = new(5, 10);
     public Vector2Int turn5TicketRange = new(8, 15);
+
+    private const float WheelDefaultZ = 0f;
 
     public enum RewardType { Gold, Health, Ammo }
 
@@ -38,7 +43,7 @@ public class LuckyWheelController : MonoBehaviour
         public Button button;
         public Image blockerImage;
         public TextMeshProUGUI rewardText;
-        public TextMeshProUGUI costLabel;
+        public TextMeshProUGUI RequiredTicketText;
 
         public int requiredTurn = 1;
         public int ticketCost = 0;
@@ -72,7 +77,6 @@ public class LuckyWheelController : MonoBehaviour
     private int currentTurn;
     private int bankedTickets;
     private RunState state;
-    private bool hasSpunAtLeastOnceThisRun;
 
     private void Awake()
     {
@@ -112,7 +116,6 @@ public class LuckyWheelController : MonoBehaviour
         currentTurn = 1;
         bankedTickets = 0;
         state = RunState.ReadyToSpin;
-        hasSpunAtLeastOnceThisRun = false;
         isSpinning = false;
 
         SetupStreakRewardsForRun();
@@ -148,7 +151,7 @@ public class LuckyWheelController : MonoBehaviour
         int n = Mathf.Min(rewardText.Length, SliceCount);
         for (int i = 0; i < n; i++)
         {
-            int dataIndex = Mod(i, SliceCount);
+            int dataIndex = Mod(i + SliceIndexOffset, SliceCount);
             var d = slices[dataIndex];
             rewardText[i].text = d.type == SliceType.Skull ? "x" : $"Ticket\n{d.tickets}";
         }
@@ -161,11 +164,6 @@ public class LuckyWheelController : MonoBehaviour
         if (turn == 3) return turn3TicketRange;
         if (turn == 4) return turn4TicketRange;
         return turn5TicketRange;
-    }
-
-    private int GetSpinCost()
-    {
-        return firstSpinFree && !hasSpunAtLeastOnceThisRun ? 0 : spinCostGold;
     }
 
     private bool TryPayGold(int cost)
@@ -182,7 +180,6 @@ public class LuckyWheelController : MonoBehaviour
 
         if (state == RunState.ReadyToSpin)
         {
-            if (!TryPayGold(GetSpinCost())) return;
             StartCoroutine(SpinRoutine());
             return;
         }
@@ -190,6 +187,12 @@ public class LuckyWheelController : MonoBehaviour
         if (state == RunState.CanGoNextTurnOrCashOut)
         {
             if (currentTurn >= 5) return;
+
+            if (!TryPayGold(spinCostGold))
+            {
+                RefreshUI();
+                return;
+            }
 
             currentTurn++;
             state = RunState.ReadyToSpin;
@@ -213,14 +216,15 @@ public class LuckyWheelController : MonoBehaviour
         RefreshUI();
 
         float sliceAngle = 360f / SliceCount;
+
         int dataIndex = UnityEngine.Random.Range(0, SliceCount);
-        int visualIndex = Mod(dataIndex, SliceCount);
+        int visualIndex = Mod(dataIndex - SliceIndexOffset, SliceCount);
 
         float sliceCenter = visualIndex * sliceAngle + sliceAngle / 2f;
-        float targetAngle = 90f - sliceCenter;
+        float targetAngle = PointerAngle - sliceCenter;
 
         int fullRotations = UnityEngine.Random.Range(minFullRotations, maxFullRotations + 1);
-        float totalAngle = (fullRotations * 360f + targetAngle) * -1f;
+        float totalAngle = (fullRotations * 360f + targetAngle) * WheelDirection;
 
         float start = wheel.eulerAngles.z;
         float end = start + totalAngle;
@@ -238,7 +242,6 @@ public class LuckyWheelController : MonoBehaviour
         wheel.rotation = Quaternion.Euler(0, 0, end);
 
         isSpinning = false;
-        hasSpunAtLeastOnceThisRun = true;
 
         ApplyResultByDataIndex(dataIndex);
 
@@ -271,14 +274,30 @@ public class LuckyWheelController : MonoBehaviour
                 ? randomTypes[UnityEngine.Random.Range(0, randomTypes.Length)]
                 : s.fixedType;
 
-            s.chosenAmount = UnityEngine.Random.Range(
-                Mathf.Min(s.minAmount, s.maxAmount),
-                Mathf.Max(s.minAmount, s.maxAmount) + 1
-            );
+            s.chosenAmount = GetRandomMultipleOfFiveInRange(s.minAmount, s.maxAmount);
 
             s.rewardText.text = $"x{s.chosenAmount}";
-            s.costLabel.text = s.ticketCost > 0 ? $"{s.ticketCost} Tickets" : "Free";
+            s.RequiredTicketText.text = s.ticketCost > 0 ? "x" + s.ticketCost.ToString() : "Free";
         }
+    }
+
+    private int GetRandomMultipleOfFiveInRange(int a, int b)
+    {
+        int min = Mathf.Min(a, b);
+        int max = Mathf.Max(a, b);
+
+        int first = ((min + 4) / 5) * 5;
+        int last = (max / 5) * 5;
+
+        if (first > last)
+        {
+            int snapped = ((max) / 5) * 5;
+            return Mathf.Max(5, snapped);
+        }
+
+        int lo = first / 5;
+        int hi = last / 5;
+        return UnityEngine.Random.Range(lo, hi + 1) * 5;
     }
 
     private void RefreshStreakUI()
@@ -316,16 +335,24 @@ public class LuckyWheelController : MonoBehaviour
 
     private void RefreshUI()
     {
-        bankLabel.text = bankedTickets.ToString();
+        ticketCount.text = bankedTickets.ToString();
 
         if (state == RunState.ReadyToSpin)
-            buttonLabel.text = GetSpinCost() == 0 ? "Spin (FREE)" : $"Spin ({GetSpinCost()}G)";
+        {
+            buttonLabel.text = "Spin";
+            spinButton.interactable = !isSpinning;
+        }
         else if (state == RunState.CanGoNextTurnOrCashOut)
-            buttonLabel.text = currentTurn < 5 ? "Continue?" : "Max Turn";
+        {
+            buttonLabel.text = currentTurn < 5 ? $"Continue? ({spinCostGold}G)" : "Max Turn";
+            spinButton.interactable = !isSpinning && currentTurn < 5 && PlayerController.instance.goldAmount >= spinCostGold;
+        }
         else
+        {
             buttonLabel.text = $"Restart ({spinCostGold}G)";
+            spinButton.interactable = !isSpinning && PlayerController.instance.goldAmount >= spinCostGold;
+        }
 
-        spinButton.interactable = !isSpinning;
         RefreshStreakUI();
     }
 
@@ -346,7 +373,7 @@ public class LuckyWheelController : MonoBehaviour
 
     private void ResetWheelVisual()
     {
-        wheel.rotation = Quaternion.Euler(0, 0, 0f);
+        wheel.rotation = Quaternion.Euler(0, 0, WheelDefaultZ);
     }
 
     public void OpenWheelMenu()
