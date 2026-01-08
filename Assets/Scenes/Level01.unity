@@ -1820,7 +1820,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &121483411
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40435,6 +40435,7 @@ GameObject:
   - component: {fileID: 1873478113}
   - component: {fileID: 1873478112}
   - component: {fileID: 1873478111}
+  - component: {fileID: 1873478120}
   - component: {fileID: 1873478115}
   - component: {fileID: 1873478116}
   - component: {fileID: 1873478117}
@@ -40692,11 +40693,9 @@ MonoBehaviour:
     RequiredTicketText: {fileID: 1383712973}
     requiredTurn: 1
     ticketCost: 5
-    randomizeThisSlot: 0
     fixedType: 2
     minAmount: 10
     maxAmount: 30
-    chosenType: 0
     chosenAmount: 0
     claimed: 0
   - button: {fileID: 1534264132}
@@ -40705,11 +40704,9 @@ MonoBehaviour:
     RequiredTicketText: {fileID: 459499814}
     requiredTurn: 2
     ticketCost: 6
-    randomizeThisSlot: 0
     fixedType: 0
     minAmount: 25
     maxAmount: 45
-    chosenType: 0
     chosenAmount: 0
     claimed: 0
   - button: {fileID: 859696569}
@@ -40718,11 +40715,9 @@ MonoBehaviour:
     RequiredTicketText: {fileID: 361028542}
     requiredTurn: 3
     ticketCost: 7
-    randomizeThisSlot: 0
     fixedType: 1
     minAmount: 50
     maxAmount: 75
-    chosenType: 0
     chosenAmount: 0
     claimed: 0
   - button: {fileID: 1787953491}
@@ -40731,11 +40726,9 @@ MonoBehaviour:
     RequiredTicketText: {fileID: 787517725}
     requiredTurn: 4
     ticketCost: 8
-    randomizeThisSlot: 0
     fixedType: 0
     minAmount: 75
     maxAmount: 90
-    chosenType: 0
     chosenAmount: 0
     claimed: 0
   - button: {fileID: 1771464322}
@@ -40744,14 +40737,11 @@ MonoBehaviour:
     RequiredTicketText: {fileID: 1048160979}
     requiredTurn: 5
     ticketCost: 9
-    randomizeThisSlot: 0
-    fixedType: 0
+    fixedType: 3
     minAmount: 100
     maxAmount: 125
-    chosenType: 0
     chosenAmount: 0
     claimed: 0
-  randomTypes: 000000000100000002000000
 --- !u!114 &1873478118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40793,6 +40783,24 @@ MonoBehaviour:
   musicButton: {fileID: 698138410}
   cardsParentObj: {fileID: 2104863595}
   selectedSkillIconPrefab: {fileID: 767159449627960036, guid: 2bb38b0c4455a4399acf6961926b0f17, type: 3}
+--- !u!114 &1873478120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873478110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04f49cb3f87284a4dba2604648b7ff64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  luckyWheelsPanel: {fileID: 1873478117}
+  skillSelectionPanel: {fileID: 1873478115}
+  inGameMarket: {fileID: 1873478116}
+  pauseTheGamePanel: {fileID: 1873478119}
+  deathScreen: {fileID: 329091230}
+  winScreen: {fileID: 1337640913}
 --- !u!1 &1893427988
 GameObject:
   m_ObjectHideFlags: 0

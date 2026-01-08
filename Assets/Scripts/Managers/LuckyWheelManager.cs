@@ -35,7 +35,7 @@ public class LuckyWheelController : MonoBehaviour
 
     private const float WheelDefaultZ = 0f;
 
-    public enum RewardType { Gold, Health, Ammo }
+    public enum RewardType { Gold, Health, Ammo, Bundle }
 
     [Serializable]
     public class StreakRewardSlot
@@ -48,19 +48,16 @@ public class LuckyWheelController : MonoBehaviour
         public int requiredTurn = 1;
         public int ticketCost = 0;
 
-        public bool randomizeThisSlot = true;
         public RewardType fixedType = RewardType.Gold;
 
         public int minAmount = 1;
         public int maxAmount = 5;
 
-        [HideInInspector] public RewardType chosenType;
         [HideInInspector] public int chosenAmount;
         [HideInInspector] public bool claimed;
     }
 
     public StreakRewardSlot[] streakSlots = new StreakRewardSlot[5];
-    public RewardType[] randomTypes = { RewardType.Gold, RewardType.Health, RewardType.Ammo };
 
     private enum RunState { ReadyToSpin, CanGoNextTurnOrCashOut, Busted }
     private enum SliceType { Skull, Ticket }
@@ -95,20 +92,6 @@ public class LuckyWheelController : MonoBehaviour
         }
 
         RefreshUI();
-    }
-
-    private void Update()
-    {
-        if (luckyWheelsPanel.activeInHierarchy)
-        {
-            return;
-        }
-
-        if (PlayerPrefs.GetInt("Open_SpinWheel") == 1)
-        {
-            OpenWheelMenu();
-            StartNewRun();
-        }
     }
 
     private void StartNewRun()
@@ -270,10 +253,6 @@ public class LuckyWheelController : MonoBehaviour
         {
             s.claimed = false;
 
-            s.chosenType = s.randomizeThisSlot
-                ? randomTypes[UnityEngine.Random.Range(0, randomTypes.Length)]
-                : s.fixedType;
-
             s.chosenAmount = GetRandomMultipleOfFiveInRange(s.minAmount, s.maxAmount);
 
             s.rewardText.text = $"x{s.chosenAmount}";
@@ -291,7 +270,7 @@ public class LuckyWheelController : MonoBehaviour
 
         if (first > last)
         {
-            int snapped = ((max) / 5) * 5;
+            int snapped = (max / 5) * 5;
             return Mathf.Max(5, snapped);
         }
 
@@ -321,7 +300,7 @@ public class LuckyWheelController : MonoBehaviour
             return;
 
         bankedTickets -= s.ticketCost;
-        GiveReward(s.chosenType, s.chosenAmount);
+        GiveReward(s.fixedType, s.chosenAmount);
         s.claimed = true;
         RefreshUI();
     }
@@ -329,8 +308,14 @@ public class LuckyWheelController : MonoBehaviour
     private void GiveReward(RewardType type, int amount)
     {
         if (type == RewardType.Gold) PlayerController.instance.goldAmount += amount;
-        if (type == RewardType.Health) PlayerController.instance.health += amount;
-        if (type == RewardType.Ammo) PlayerController.instance.ammoAmount += amount;
+        else if (type == RewardType.Health) PlayerController.instance.health += amount;
+        else if (type == RewardType.Ammo) PlayerController.instance.ammoAmount += amount;
+        else if (type == RewardType.Bundle)
+        {
+            PlayerController.instance.goldAmount += amount;
+            PlayerController.instance.health += amount;
+            PlayerController.instance.ammoAmount += amount;
+        }
     }
 
     private void RefreshUI()
@@ -381,6 +366,7 @@ public class LuckyWheelController : MonoBehaviour
         PlayerPrefs.SetInt("Open_SpinWheel", 1);
         luckyWheelsPanel.SetActive(true);
         GameTester.Instance.ShouldStopTheGame(true);
+        StartNewRun();
     }
 
     public void CloseWheelMenu()

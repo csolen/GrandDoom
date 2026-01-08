@@ -46,7 +46,7 @@ public class PauseGameManager : MonoBehaviour
 #endif
     }
 
-    private void OpenPauseGamePanel()
+    public void OpenPauseGamePanel()
     {
         pauseTheGamePanel.SetActive(true);
         RefreshSelectedSkillIcons();

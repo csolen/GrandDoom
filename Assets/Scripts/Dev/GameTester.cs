@@ -147,17 +147,20 @@ public class GameTester : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
-            PlayerPrefs.SetInt("Open_Roguelike", 1);
+            //PlayerPrefs.SetInt("Open_Roguelike", 1);
+            UI_Canvas.instance.OpenSkillSelection();
         }
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            PlayerPrefs.SetInt("Open_SpinWheel", 1);
+            //PlayerPrefs.SetInt("Open_SpinWheel", 1);
+            UI_Canvas.instance.OpenLuckyWheels();
         }
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            PlayerPrefs.SetInt("Open_InGameMarket", 1);
+            //PlayerPrefs.SetInt("Open_InGameMarket", 1);
+            UI_Canvas.instance.OpenInGameMarket();
         }
 
     }
