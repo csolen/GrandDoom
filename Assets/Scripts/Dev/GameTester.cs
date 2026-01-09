@@ -52,7 +52,7 @@ public class GameTester : MonoBehaviour
     {
         if (TileMap == null)
         {
-            TileMap = GameObject.Find("Tilemap");
+            TileMap = GameObject.Find("Tilemaps");
 
             if (TileMap != null)
             {
