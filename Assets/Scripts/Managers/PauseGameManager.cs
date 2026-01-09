@@ -50,7 +50,8 @@ public class PauseGameManager : MonoBehaviour
 
     public void ReturnToMainGame()
     {
-        Debug.Log("Go back to main menu");
+        UI_Canvas.instance.GoToAnotherSceneByIndex(0);
+        Time.timeScale = 1f;
     }
 
     private void ChangeMusicAndSoundButtons(string keyName)
