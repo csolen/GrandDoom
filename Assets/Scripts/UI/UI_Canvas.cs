@@ -37,59 +37,76 @@ public class UI_Canvas : MonoBehaviour
         PlayerPrefs.SetString("LevelTimer", "00:00:00");
     }
 
-    public void OpenLuckyWheels()
+    public void LuckyWheelsPanelState(bool isActive)
     {
-        luckyWheelsPanel.OpenWheelMenu();
+        if (isActive)
+        {
+            luckyWheelsPanel.OpenWheelMenu();
+        }
+        else
+        {
+            luckyWheelsPanel.CloseWheelMenu();
+        }
     }
 
-    public void OpenSkillSelection()
+    public void SkillSelectionPanelState(bool isActive)
     {
-        skillSelectionPanel.OpenSelectionMenu();
+        if (isActive)
+        {
+            skillSelectionPanel.OpenSelectionMenu();
+        }
+        else
+        {
+            skillSelectionPanel.CloseSelectionMenu();
+        }
     }
 
-    public void OpenInGameMarket()
+    public void InGameMarketPanelState(bool isActive)
     {
-        inGameMarket.OpenInGameMarket();
+        if (isActive)
+        {
+            inGameMarket.OpenInGameMarket();
+        }
+        else
+        {
+            inGameMarket.CloseInGameMarket();
+        }
     }
 
-    public void OpenPauseMenu()
+    public void PauseMenuState(bool isActive)
     {
-        pauseTheGamePanel.OpenPauseGamePanel();
+        if (isActive)
+        {
+            pauseTheGamePanel.OpenPauseGamePanel();
+        }
+        else
+        {
+            pauseTheGamePanel.ClosePauseGamePanel();
+        }
     }
 
-    public void OpenDeathScreen()
+    public void DeathScreenState(bool isActive)
     {
-        deathScreen.SetActive(true);
+        if (isActive)
+        {
+            deathScreen.SetActive(true);
+        }
+        else
+        {
+            deathScreen.SetActive(false);
+        }
     }
 
-    public void OpenWinScreen()
+    public void WinScreenState(bool isActive)
     {
-        winScreen.SetActive(true);
-    }
-
-    public void CloseLuckyWheels()
-    {
-        luckyWheelsPanel.CloseWheelMenu();
-    }
-
-    public void CloseSkillSelection()
-    {
-        skillSelectionPanel.CloseSelectionMenu();
-    }
-
-    public void CloseInGameMarket()
-    {
-        inGameMarket.CloseInGameMarket();
-    }
-
-    public void ClosePauseMenu()
-    {
-        pauseTheGamePanel.ClosePauseGamePanel();
-    }
-
-    public void CloseDeathScreen()
-    {
-        deathScreen.SetActive(false);
+        if (isActive)
+        {
+            winScreen.SetActive(true);
+        }
+        else
+        {
+            winScreen.SetActive(false);
+        }
     }
 
     public void ShouldStopTheGame(bool state)

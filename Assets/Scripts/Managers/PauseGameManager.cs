@@ -37,14 +37,14 @@ public class PauseGameManager : MonoBehaviour
     {
         pauseTheGamePanel.SetActive(true);
         RefreshSelectedSkillIcons();
-        GameTester.Instance.ShouldStopTheGame(true);
+        UI_Canvas.instance.ShouldStopTheGame(true);
         Time.timeScale = 0f;
     }
 
     public void ClosePauseGamePanel()
     {
         pauseTheGamePanel.SetActive(false);
-        GameTester.Instance.ShouldStopTheGame(false);
+        UI_Canvas.instance.ShouldStopTheGame(false);
         Time.timeScale = 1f;
     }
 

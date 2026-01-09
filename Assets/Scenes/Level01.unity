@@ -1768,10 +1768,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 117550591}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c02ec9d76d4884325824f9245cf7c2dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d37b7df0dac4444ab71f20970453dd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currencyName: gold
+  whatUI: gold
 --- !u!1 &120316473
 GameObject:
   m_ObjectHideFlags: 0
@@ -5206,7 +5206,7 @@ GameObject:
   - component: {fileID: 328374618}
   - component: {fileID: 328374621}
   - component: {fileID: 328374620}
-  - component: {fileID: 328374619}
+  - component: {fileID: 328374622}
   m_Layer: 5
   m_Name: Death_Text (1)
   m_TagString: Untagged
@@ -5233,19 +5233,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.000000042841}
   m_SizeDelta: {x: 6.07157, y: 0.45268}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &328374619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 328374617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c02ec9d76d4884325824f9245cf7c2dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currencyName: levelTimer
 --- !u!114 &328374620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5345,6 +5332,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 328374617}
   m_CullTransparentMesh: 1
+--- !u!114 &328374622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328374617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d37b7df0dac4444ab71f20970453dd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatUI: levelTimer
 --- !u!1 &329091230
 GameObject:
   m_ObjectHideFlags: 0
@@ -36693,7 +36693,7 @@ GameObject:
   - component: {fileID: 1645113694}
   - component: {fileID: 1645113697}
   - component: {fileID: 1645113696}
-  - component: {fileID: 1645113695}
+  - component: {fileID: 1645113698}
   m_Layer: 5
   m_Name: Death_Text (1)
   m_TagString: Untagged
@@ -36720,19 +36720,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.019999921}
   m_SizeDelta: {x: 5.43316, y: 0.45268}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1645113695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1645113693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c02ec9d76d4884325824f9245cf7c2dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currencyName: killedEnemies
 --- !u!114 &1645113696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36832,6 +36819,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645113693}
   m_CullTransparentMesh: 1
+--- !u!114 &1645113698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645113693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d37b7df0dac4444ab71f20970453dd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatUI: killedEnemies
 --- !u!1 &1654667958
 GameObject:
   m_ObjectHideFlags: 0
@@ -40541,7 +40541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8ec3aa7169b4d6a8e6998262229fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredXP: 20
+  requiredXP: 100
   selectionPanel: {fileID: 2143053363}
   cardsParent: {fileID: 1150719577}
   cardPrefab: {fileID: 5390892685748198262, guid: 09f0b8ac0a68a4b7ea2631762febe1b7, type: 3}
@@ -42258,8 +42258,6 @@ MonoBehaviour:
   playerDamage: 40
   Player_Weapon_Sword: {fileID: 1305969393}
   Player_Weapon_Gun: {fileID: 991796060}
-  deadScreen: {fileID: 698893121}
-  winScreen: {fileID: 1337640913}
   takeHitPos:
   - {fileID: 164698190}
   - {fileID: 187358649}
@@ -42287,8 +42285,6 @@ MonoBehaviour:
   weaponSwitchLockDurationSword: 0.35
   aimRadius: 0.1
   aimSamples: 7
-  lastHitDirection: {x: 0, y: 0}
-  lastHitSide: 0
 --- !u!50 &2004718025
 Rigidbody2D:
   serializedVersion: 5
@@ -43140,7 +43136,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.25, y: 0}
+  m_AnchoredPosition: {x: -0.24999952, y: 0}
   m_SizeDelta: {x: 3.2000008, y: 2.44}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2056766290

@@ -48,8 +48,7 @@ public class In_Game_Market_Manager : MonoBehaviour
 
     public void OpenInGameMarket()
     {
-        GameTester.Instance.ShouldStopTheGame(true);
-
+        UI_Canvas.instance.ShouldStopTheGame(true);
         inGameMarketPanel.SetActive(true);
 
         pendingItem = null;
@@ -61,8 +60,7 @@ public class In_Game_Market_Manager : MonoBehaviour
     public void CloseInGameMarket()
     {
         inGameMarketPanel.SetActive(false);
-
-        GameTester.Instance.ShouldStopTheGame(false);
+        UI_Canvas.instance.ShouldStopTheGame(false);
 
         ClearOldCards();
 
@@ -158,7 +156,7 @@ public class In_Game_Market_Manager : MonoBehaviour
                 break;
 
             case Market_Item_Type.Market_Select_RandomSkill:
-                UI_Canvas.instance.OpenSkillSelection();
+                UI_Canvas.instance.SkillSelectionPanelState(true);
                 break;
         }
     }

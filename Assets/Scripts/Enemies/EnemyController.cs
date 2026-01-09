@@ -284,7 +284,6 @@ public class EnemyController : MonoBehaviour
         {
             alertTriggered = false;
         }
-
     }
 
     private void FixedUpdate()
@@ -374,7 +373,6 @@ public class EnemyController : MonoBehaviour
             }
 
             currentState = stateBeforeAlert;
-
         }
     }
 
@@ -459,9 +457,6 @@ public class EnemyController : MonoBehaviour
 
     private void HandleShooting(float distanceToPlayer, Vector2 dirToPlayer)
     {
-        if (bullet == null || firePoint == null)
-            return;
-
         if (shootBlockedTimer > 0f)
             return;
 
@@ -663,9 +658,6 @@ public class EnemyController : MonoBehaviour
 
     private void DropXp()
     {
-        if (xpPrefab == null)
-            return;
-
         int orbCount = Random.Range(minXpOrbs, maxXpOrbs + 1);
         int totalXp = xpGive;
 
@@ -733,9 +725,6 @@ public class EnemyController : MonoBehaviour
 
     private void SpawnGoldOnHit()
     {
-        if (goldFlyPrefab == null || goldSpawnPoint == null || goldSpawnOrigin == null)
-            return;
-
         int count = Random.Range(minGoldOnHit, maxGoldOnHit + 1);
 
         Vector2 basePos = goldSpawnPoint.InverseTransformPoint(goldSpawnOrigin.position);

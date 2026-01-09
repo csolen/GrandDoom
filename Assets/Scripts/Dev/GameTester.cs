@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -81,7 +82,7 @@ public class GameTester : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            UI_Canvas.instance.OpenPauseMenu();
+            UI_Canvas.instance.PauseMenuState(true);
         }
     }
 
@@ -152,44 +153,21 @@ public class GameTester : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
-            UI_Canvas.instance.OpenSkillSelection();
+            UI_Canvas.instance.SkillSelectionPanelState(true);
         }
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            UI_Canvas.instance.OpenLuckyWheels();
+            UI_Canvas.instance.LuckyWheelsPanelState(true);
         }
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            UI_Canvas.instance.OpenInGameMarket();
+            UI_Canvas.instance.InGameMarketPanelState(true);
         }
 
     }
 
-    public void ShouldStopTheGame(bool state)
-    {
-        if (state)
-        {
-            PlayerPrefs.SetInt("ShouldStopTheGame", 1);
-            PlayerController.instance.FreezePlayer();
-
-#if UNITY_EDITOR
-
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-#endif
-        }
-        else
-        {
-            PlayerPrefs.SetInt("ShouldStopTheGame", 0);
-            PlayerController.instance.UnFreezePlayer();
-
-#if UNITY_EDITOR
-
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-#endif
-        }
-    }
 }
+
+#endif
