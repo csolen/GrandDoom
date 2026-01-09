@@ -35,6 +35,11 @@ public class LuckyWheelController : MonoBehaviour
 
     private const float WheelDefaultZ = 0f;
 
+    [Header("Cover Animation")]
+    public GameObject wheelCover;
+    public float coverAnimTime = 1f;
+
+
     public enum RewardType { Gold, Health, Ammo, Bundle }
 
     [Serializable]
@@ -179,18 +184,24 @@ public class LuckyWheelController : MonoBehaviour
                 return;
             }
 
-            currentTurn++;
-            state = RunState.ReadyToSpin;
-            ResetWheelVisual();
-            BuildSlicesForTurn(currentTurn);
-            RefreshUI();
+            StartCoroutine(GoNextTurnWithCover(() =>
+            {
+                currentTurn++;
+                state = RunState.ReadyToSpin;
+                ResetWheelVisual();
+                BuildSlicesForTurn(currentTurn);
+            }));
             return;
         }
 
         if (state == RunState.Busted)
         {
             if (!TryPayGold(spinCostGold)) return;
-            StartNewRun();
+            StartCoroutine(GoNextTurnWithCover(() =>
+            {
+                StartNewRun();
+            }));
+
         }
     }
 
@@ -377,4 +388,22 @@ public class LuckyWheelController : MonoBehaviour
         luckyWheelsPanel.SetActive(false);
         UI_Canvas.instance.ShouldStopTheGame(false);
     }
+
+    private IEnumerator GoNextTurnWithCover(Action action)
+    {
+        spinButton.interactable = false;
+        wheelCover.SetActive(true);
+
+        yield return new WaitForSeconds(coverAnimTime);
+
+        action?.Invoke();
+        RefreshUI();
+
+        yield return new WaitForSeconds(1f);
+
+        wheelCover.SetActive(false);
+        spinButton.interactable = true;
+        RefreshUI();
+    }
+
 }
