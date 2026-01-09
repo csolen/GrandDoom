@@ -38,7 +38,7 @@ public class UI_Texts : MonoBehaviour
         {
             int currentValue = PlayerPrefs.GetInt("KilledEnemies");
 
-            UI_Text.text = currentValue.ToString();
+            UI_Text.text = "Enemies Killed: " + currentValue.ToString();
 
             if (currentValue != lastValue)
             {
