@@ -45,6 +45,8 @@ public class LuckyWheelController : MonoBehaviour
         public TextMeshProUGUI rewardText;
         public TextMeshProUGUI RequiredTicketText;
 
+        public GameObject tickIcon;
+
         public int requiredTurn = 1;
         public int ticketCost = 0;
 
@@ -252,7 +254,7 @@ public class LuckyWheelController : MonoBehaviour
         foreach (var s in streakSlots)
         {
             s.claimed = false;
-
+            s.tickIcon.SetActive(false);
             s.chosenAmount = GetRandomMultipleOfFiveInRange(s.minAmount, s.maxAmount);
 
             s.rewardText.text = $"x{s.chosenAmount}";
@@ -290,6 +292,7 @@ public class LuckyWheelController : MonoBehaviour
             bool canBuy = allowClaiming && unlocked && affordable && !s.claimed;
 
             s.blockerImage.gameObject.SetActive(!canBuy);
+            s.tickIcon.SetActive(s.claimed);
         }
     }
 
@@ -302,6 +305,7 @@ public class LuckyWheelController : MonoBehaviour
         bankedTickets -= s.ticketCost;
         GiveReward(s.fixedType, s.chosenAmount);
         s.claimed = true;
+        s.tickIcon.SetActive(true);
         RefreshUI();
     }
 
