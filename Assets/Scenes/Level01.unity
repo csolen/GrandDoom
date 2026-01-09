@@ -40786,7 +40786,7 @@ MonoBehaviour:
   skillSelectionPanel: {fileID: 1873478115}
   inGameMarket: {fileID: 1873478116}
   pauseTheGamePanel: {fileID: 1873478119}
-  deathScreen: {fileID: 329091230}
+  deathScreen: {fileID: 698893121}
   winScreen: {fileID: 1337640913}
 --- !u!1 &1893427988
 GameObject:
@@ -43136,7 +43136,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.24999952, y: 0}
+  m_AnchoredPosition: {x: -0.25000048, y: 0}
   m_SizeDelta: {x: 3.2000008, y: 2.44}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2056766290
