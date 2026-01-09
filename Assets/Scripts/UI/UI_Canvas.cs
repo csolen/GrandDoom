@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UI_Canvas : MonoBehaviour
 {
@@ -133,5 +134,20 @@ public class UI_Canvas : MonoBehaviour
             Cursor.visible = false;
 #endif
         }
+    }
+
+    public void GoToAnotherSceneByName(string levelName)
+    {
+        SceneManager.LoadScene(levelName);
+    }
+
+    public void GoToAnotherSceneByIndex(int levelIndex)
+    {
+        SceneManager.LoadScene(levelIndex);
+    }
+
+    public void RestartCurrentScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

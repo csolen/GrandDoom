@@ -45,6 +45,7 @@ public class GameTester : MonoBehaviour
 
         OpenPanels();
 
+        GeneralTest();
     }
 
     private void OpenTileMapsWhenGameStarts()
@@ -168,6 +169,9 @@ public class GameTester : MonoBehaviour
 
     }
 
+    private void GeneralTest()
+    {
+    }
 }
 
 #endif

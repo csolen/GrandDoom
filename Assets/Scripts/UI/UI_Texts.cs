@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using System.Collections.Generic;
 using System.Collections;
 
 public class UI_Texts : MonoBehaviour
