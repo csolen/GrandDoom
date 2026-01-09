@@ -19,6 +19,6 @@ MonoBehaviour:
   type: 6
   value: 7
   rarity: 0
-  levelGroupId: Increase_Damage
+  levelGroupId: Player_Move_Speed
   levelIndex: 3
   maxLevel: 3

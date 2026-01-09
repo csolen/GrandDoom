@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using System.Collections.Generic;
 using System.Collections;
 
 public class UI_Texts : MonoBehaviour
@@ -39,7 +38,7 @@ public class UI_Texts : MonoBehaviour
         {
             int currentValue = PlayerPrefs.GetInt("KilledEnemies");
 
-            UI_Text.text = currentValue.ToString();
+            UI_Text.text = "Enemies Killed: " + currentValue.ToString();
 
             if (currentValue != lastValue)
             {
@@ -54,6 +53,10 @@ public class UI_Texts : MonoBehaviour
         else if (whatUI == "levelTimer")
         {
             UI_Text.text = "Time: " + PlayerPrefs.GetString("LevelTimer");
+        }
+        else if (whatUI == "WheelTicket")
+        {
+            UI_Text.text = PlayerPrefs.GetInt("WheelTicket").ToString();
         }
         else
         {

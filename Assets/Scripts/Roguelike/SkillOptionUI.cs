@@ -30,6 +30,10 @@ public class SkillOptionUI : MonoBehaviour
     public RarityColors[] rarityColors;
     public Color cardLevelSpriteFullColor;
 
+    [Header("Blocker")]
+    public GameObject blockerRoot;
+    public TMP_Text blockerText;
+
     SkillData skillData;
     Action<SkillData> onSelected;
 
@@ -50,6 +54,7 @@ public class SkillOptionUI : MonoBehaviour
         selectButton.onClick.AddListener(OnClick);
 
         SetupStars(data, currentLevel);
+        CheckIfBlocked(data);
     }
 
     void ApplyRarityColors(SkillRarity rarity)
@@ -68,7 +73,6 @@ public class SkillOptionUI : MonoBehaviour
             return;
         }
 
-        // fallback
         backgroundImage.color = Color.white;
         if (titleAreaImage != null)
             titleAreaImage.color = Color.white;
@@ -117,5 +121,43 @@ public class SkillOptionUI : MonoBehaviour
     {
         onSelected?.Invoke(skillData);
     }
+
+    void CheckIfBlocked(SkillData data)
+    {
+        bool isBlocked = false;
+        string reason = "";
+
+        switch (data.type)
+        {
+            case SkillType.CurrentHealth:
+                if (PlayerController.instance.health >= PlayerController.instance.maxHealth)
+                {
+                    isBlocked = true;
+                    reason = "HEALTH FULL";
+                }
+                break;
+
+            case SkillType.CurrentAmmo:
+                if (PlayerController.instance.ammoAmount >= PlayerController.instance.maxAmmoAmount)
+                {
+                    isBlocked = true;
+                    reason = "AMMO FULL";
+                }
+                break;
+        }
+
+        if (isBlocked)
+        {
+            blockerRoot.SetActive(true);
+            blockerText.text = reason;
+            selectButton.interactable = false;
+        }
+        else
+        {
+            blockerRoot.SetActive(false);
+            selectButton.interactable = true;
+        }
+    }
+
 }
 

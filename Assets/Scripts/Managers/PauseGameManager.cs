@@ -33,37 +33,25 @@ public class PauseGameManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-#if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (!pauseTheGamePanel.activeInHierarchy)
-            {
-                OpenPauseGamePanel();
-            }
-        }
-#endif
-    }
-
-    private void OpenPauseGamePanel()
+    public void OpenPauseGamePanel()
     {
         pauseTheGamePanel.SetActive(true);
         RefreshSelectedSkillIcons();
-        GameTester.Instance.ShouldStopTheGame(true);
+        UI_Canvas.instance.ShouldStopTheGame(true);
         Time.timeScale = 0f;
     }
 
     public void ClosePauseGamePanel()
     {
         pauseTheGamePanel.SetActive(false);
-        GameTester.Instance.ShouldStopTheGame(false);
+        UI_Canvas.instance.ShouldStopTheGame(false);
         Time.timeScale = 1f;
     }
 
     public void ReturnToMainGame()
     {
-        Debug.Log("Go back to main menu");
+        UI_Canvas.instance.GoToAnotherSceneByIndex(0);
+        Time.timeScale = 1f;
     }
 
     private void ChangeMusicAndSoundButtons(string keyName)

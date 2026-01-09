@@ -49,7 +49,7 @@ public class LuckyWheels : MonoBehaviour
             if (!triggeredThisStay && n >= 1f)
             {
                 triggeredThisStay = true;
-                PlayerPrefs.SetInt("Open_SpinWheel", 1);
+                UI_Canvas.instance.LuckyWheelsPanelState(true);
                 ResetProgress();
             }
         }

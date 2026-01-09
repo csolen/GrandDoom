@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 621ab856683675444a104ff4ae5d1405
+guid: 42c2ff04c84e23648a0dfce9af3e9d35
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7838256791284968784
-    second: LW_Icon_Ticket_x3_0
+      213: 527519120956526126
+    second: LW_BG_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LW_Icon_Ticket_x3_0
+      name: LW_BG_0
       rect:
         serializedVersion: 2
-        x: 104
-        y: 67
-        width: 339
-        height: 345
+        x: 0
+        y: 0
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 05d65d6d50517cc60800000000000000
-      internalID: 7838256791284968784
+      spriteID: e2e07d878df125700800000000000000
+      internalID: 527519120956526126
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      LW_Icon_Ticket_x3_0: 7838256791284968784
+      LW_BG_0: 527519120956526126
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

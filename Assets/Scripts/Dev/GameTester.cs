@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -44,13 +45,14 @@ public class GameTester : MonoBehaviour
 
         OpenPanels();
 
+        GeneralTest();
     }
 
     private void OpenTileMapsWhenGameStarts()
     {
         if (TileMap == null)
         {
-            TileMap = GameObject.Find("Tilemap");
+            TileMap = GameObject.Find("Tilemaps");
 
             if (TileMap != null)
             {
@@ -77,6 +79,11 @@ public class GameTester : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             UnityEditor.EditorApplication.isPaused = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            UI_Canvas.instance.PauseMenuState(true);
         }
     }
 
@@ -147,44 +154,24 @@ public class GameTester : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
-            PlayerPrefs.SetInt("Open_Roguelike", 1);
+            UI_Canvas.instance.SkillSelectionPanelState(true);
         }
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            PlayerPrefs.SetInt("Open_SpinWheel", 1);
+            UI_Canvas.instance.LuckyWheelsPanelState(true);
         }
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            PlayerPrefs.SetInt("Open_InGameMarket", 1);
+            UI_Canvas.instance.InGameMarketPanelState(true);
         }
 
     }
 
-    public void ShouldStopTheGame(bool state)
+    private void GeneralTest()
     {
-        if (state)
-        {
-            PlayerPrefs.SetInt("ShouldStopTheGame", 1);
-            PlayerController.instance.FreezePlayer();
-
-#if UNITY_EDITOR
-
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-#endif
-        }
-        else
-        {
-            PlayerPrefs.SetInt("ShouldStopTheGame", 0);
-            PlayerController.instance.UnFreezePlayer();
-
-#if UNITY_EDITOR
-
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-#endif
-        }
     }
 }
+
+#endif

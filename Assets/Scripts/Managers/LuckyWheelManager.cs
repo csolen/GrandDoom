@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -10,27 +12,75 @@ public class LuckyWheelController : MonoBehaviour
     public Button spinButton;
     public Button closeButton;
     public TextMeshProUGUI buttonLabel;
+    public TextMeshProUGUI ticketCount;
 
-    public int sliceCount = 6;
+    private const int SliceCount = 6;
+    public TextMeshProUGUI[] rewardText;
+
     public float spinDuration = 4.5f;
     public int minFullRotations = 7;
     public int maxFullRotations = 12;
 
-    public float pointerAngle = 90f;
-    public float wheelDirection = -1f;
+    private const float PointerAngle = 90f;
+    private const float WheelDirection = -1f;
+    private const int SliceIndexOffset = 0;
 
-    private bool isSpinning = false;
-    private bool resultReady = false;
-    private int lastResultIndex = -1;
+    public int spinCostGold = 20;
 
-    public TextMeshProUGUI[] rewardText;
+    public Vector2Int turn1TicketRange = new(1, 4);
+    public Vector2Int turn2TicketRange = new(2, 6);
+    public Vector2Int turn3TicketRange = new(3, 8);
+    public Vector2Int turn4TicketRange = new(5, 10);
+    public Vector2Int turn5TicketRange = new(8, 15);
 
-    private int randomHealth01;
-    private int randomHealth02;
-    private int randomGold01;
-    private int randomGold02;
-    private int randomAmmo01;
-    private int randomAmmo02;
+    private const float WheelDefaultZ = 0f;
+
+    [Header("Cover Animation")]
+    public GameObject wheelCover;
+    public float coverAnimTime = 1f;
+
+
+    public enum RewardType { Gold, Health, Ammo, Bundle }
+
+    [Serializable]
+    public class StreakRewardSlot
+    {
+        public Button button;
+        public Image blockerImage;
+        public TextMeshProUGUI rewardText;
+        public TextMeshProUGUI RequiredTicketText;
+
+        public GameObject tickIcon;
+
+        public int requiredTurn = 1;
+        public int ticketCost = 0;
+
+        public RewardType fixedType = RewardType.Gold;
+
+        public int minAmount = 1;
+        public int maxAmount = 5;
+
+        [HideInInspector] public int chosenAmount;
+        [HideInInspector] public bool claimed;
+    }
+
+    public StreakRewardSlot[] streakSlots = new StreakRewardSlot[5];
+
+    private enum RunState { ReadyToSpin, CanGoNextTurnOrCashOut, Busted }
+    private enum SliceType { Skull, Ticket }
+
+    private class SliceData
+    {
+        public SliceType type;
+        public int tickets;
+    }
+
+    private readonly List<SliceData> slices = new();
+
+    private bool isSpinning;
+    private int currentTurn;
+    private int bankedTickets;
+    private RunState state;
 
     private void Awake()
     {
@@ -39,155 +89,321 @@ public class LuckyWheelController : MonoBehaviour
 
     private void Start()
     {
-        closeButton.onClick.AddListener(CloseWheelMenu);
         spinButton.onClick.AddListener(OnSpinButtonPressed);
-    }
+        closeButton.onClick.AddListener(CloseWheelMenu);
 
-    private void Update()
-    {
-        if (luckyWheelsPanel.activeInHierarchy)
+        for (int i = 0; i < streakSlots.Length; i++)
         {
-            return;
+            int idx = i;
+            streakSlots[i].button.onClick.AddListener(() => TryBuyStreakReward(idx));
         }
 
-        if (PlayerPrefs.GetInt("Open_SpinWheel") == 1)
+        RefreshUI();
+    }
+
+    private void StartNewRun()
+    {
+        currentTurn = 1;
+        bankedTickets = 0;
+        state = RunState.ReadyToSpin;
+        isSpinning = false;
+
+        SetupStreakRewardsForRun();
+        ResetWheelVisual();
+        BuildSlicesForTurn(currentTurn);
+        RefreshUI();
+    }
+
+    private void BuildSlicesForTurn(int turn)
+    {
+        slices.Clear();
+
+        int skullCount = Mathf.Clamp(turn, 1, SliceCount - 1);
+        int ticketCount = SliceCount - skullCount;
+
+        for (int i = 0; i < skullCount; i++)
+            slices.Add(new SliceData { type = SliceType.Skull });
+
+        Vector2Int range = GetTicketRangeForTurn(turn);
+        for (int i = 0; i < ticketCount; i++)
+            slices.Add(new SliceData
+            {
+                type = SliceType.Ticket,
+                tickets = UnityEngine.Random.Range(range.x, range.y + 1)
+            });
+
+        Shuffle(slices);
+        RenderWheelLabels();
+    }
+
+    private void RenderWheelLabels()
+    {
+        int n = Mathf.Min(rewardText.Length, SliceCount);
+        for (int i = 0; i < n; i++)
         {
-            OpenWheelMenu();
-            isSpinning = false;
-            resultReady = false;
-            buttonLabel.text = "Spin";
-            PlaceRewards();
+            int dataIndex = Mod(i + SliceIndexOffset, SliceCount);
+            var d = slices[dataIndex];
+            rewardText[i].text = d.type == SliceType.Skull ? "x" : $"Ticket\n{d.tickets}";
         }
     }
 
-    private void PlaceRewards()
+    private Vector2Int GetTicketRangeForTurn(int turn)
     {
-        randomHealth01 = Random.Range(20, 31);
-        randomHealth02 = Random.Range(20, 31);
+        if (turn == 1) return turn1TicketRange;
+        if (turn == 2) return turn2TicketRange;
+        if (turn == 3) return turn3TicketRange;
+        if (turn == 4) return turn4TicketRange;
+        return turn5TicketRange;
+    }
 
-        rewardText[0].text = "Health <br> " + randomHealth01.ToString();
-        rewardText[3].text = "Health <br> " + randomHealth02.ToString();
-
-        randomGold01 = Random.Range(50, 101);
-        randomGold02 = Random.Range(50, 101);
-
-        rewardText[1].text = "Gold <br> " + randomGold01.ToString();
-        rewardText[4].text = "Gold <br> " + randomGold02.ToString();
-
-        randomAmmo01 = Random.Range(30, 51);
-        randomAmmo02 = Random.Range(30, 51);
-
-        rewardText[2].text = "Ammo <br> " + randomAmmo01.ToString();
-        rewardText[5].text = "Ammo <br> " + randomAmmo02.ToString();
+    private bool TryPayGold(int cost)
+    {
+        if (cost <= 0) return true;
+        if (PlayerController.instance.goldAmount < cost) return false;
+        PlayerController.instance.goldAmount -= cost;
+        return true;
     }
 
     private void OnSpinButtonPressed()
     {
         if (isSpinning) return;
 
-        if (!resultReady)
+        if (state == RunState.ReadyToSpin)
+        {
             StartCoroutine(SpinRoutine());
-        else
-            CollectRewardAndClose();
+            return;
+        }
+
+        if (state == RunState.CanGoNextTurnOrCashOut)
+        {
+            if (currentTurn >= 5) return;
+
+            if (!TryPayGold(spinCostGold))
+            {
+                RefreshUI();
+                return;
+            }
+
+            StartCoroutine(GoNextTurnWithCover(() =>
+            {
+                currentTurn++;
+                state = RunState.ReadyToSpin;
+                ResetWheelVisual();
+                BuildSlicesForTurn(currentTurn);
+            }));
+            return;
+        }
+
+        if (state == RunState.Busted)
+        {
+            if (!TryPayGold(spinCostGold)) return;
+            StartCoroutine(GoNextTurnWithCover(() =>
+            {
+                StartNewRun();
+            }));
+
+        }
     }
 
     private IEnumerator SpinRoutine()
     {
         isSpinning = true;
-        resultReady = false;
         spinButton.gameObject.SetActive(false);
+        RefreshUI();
 
-        float sliceAngle = 360f / sliceCount;
-        lastResultIndex = Random.Range(0, sliceCount);
+        float sliceAngle = 360f / SliceCount;
 
-        float sliceCenter = lastResultIndex * sliceAngle + sliceAngle / 2f;
-        float targetAngle = pointerAngle - sliceCenter;
+        int dataIndex = UnityEngine.Random.Range(0, SliceCount);
+        int visualIndex = Mod(dataIndex - SliceIndexOffset, SliceCount);
 
-        int fullRotations = Random.Range(minFullRotations, maxFullRotations + 1);
-        float totalAngle = (fullRotations * 360f + targetAngle) * wheelDirection;
+        float sliceCenter = visualIndex * sliceAngle + sliceAngle / 2f;
+        float targetAngle = PointerAngle - sliceCenter;
 
-        float startAngle = wheel.eulerAngles.z;
-        float endAngle = startAngle + totalAngle;
+        int fullRotations = UnityEngine.Random.Range(minFullRotations, maxFullRotations + 1);
+        float totalAngle = (fullRotations * 360f + targetAngle) * WheelDirection;
+
+        float start = wheel.eulerAngles.z;
+        float end = start + totalAngle;
 
         float t = 0f;
         while (t < spinDuration)
         {
             t += Time.deltaTime;
             float n = Mathf.Clamp01(t / spinDuration);
-
-            float eased = EaseOutCubic(n);
-
-            float currentZ = Mathf.Lerp(startAngle, endAngle, eased);
-            wheel.rotation = Quaternion.Euler(0, 0, currentZ);
-
+            float eased = 1f - Mathf.Pow(1f - n, 3f);
+            wheel.rotation = Quaternion.Euler(0, 0, Mathf.Lerp(start, end, eased));
             yield return null;
         }
 
-        wheel.rotation = Quaternion.Euler(0, 0, endAngle);
+        wheel.rotation = Quaternion.Euler(0, 0, end);
 
         isSpinning = false;
-        resultReady = true;
 
-        buttonLabel.text = "Collect";
+        ApplyResultByDataIndex(dataIndex);
+
         spinButton.gameObject.SetActive(true);
+        RefreshUI();
     }
 
-    private float EaseOutCubic(float t)
+    private void ApplyResultByDataIndex(int dataIndex)
     {
-        t = Mathf.Clamp01(t);
-        t = 1f - Mathf.Pow(1f - t, 3f);
-        return t;
-    }
+        var landed = slices[dataIndex];
 
-    private void GiveReward(int index)
-    {
-        switch (index)
+        if (landed.type == SliceType.Skull)
         {
-            case 0:
-                PlayerController.instance.health += randomHealth01;
-                break;
+            bankedTickets = 0;
+            state = RunState.Busted;
+            return;
+        }
 
-            case 1:
-                PlayerController.instance.goldAmount += randomGold01;
-                break;
+        bankedTickets += landed.tickets;
+        state = RunState.CanGoNextTurnOrCashOut;
+    }
 
-            case 2:
-                PlayerController.instance.ammoAmount += randomAmmo01;
-                break;
+    private void SetupStreakRewardsForRun()
+    {
+        foreach (var s in streakSlots)
+        {
+            s.claimed = false;
+            s.tickIcon.SetActive(false);
+            s.chosenAmount = GetRandomMultipleOfFiveInRange(s.minAmount, s.maxAmount);
 
-            case 3:
-                PlayerController.instance.health += randomHealth02;
-                break;
-
-            case 4:
-                // NOTHING
-                break;
-
-            case 5:
-                PlayerController.instance.ammoAmount += randomAmmo02;
-                break;
+            s.rewardText.text = $"x{s.chosenAmount}";
+            s.RequiredTicketText.text = s.ticketCost > 0 ? "x" + s.ticketCost.ToString() : "Free";
         }
     }
 
-    private void CollectRewardAndClose()
+    private int GetRandomMultipleOfFiveInRange(int a, int b)
     {
-        GiveReward(lastResultIndex);
+        int min = Mathf.Min(a, b);
+        int max = Mathf.Max(a, b);
 
-        CloseWheelMenu();
+        int first = ((min + 4) / 5) * 5;
+        int last = (max / 5) * 5;
+
+        if (first > last)
+        {
+            int snapped = (max / 5) * 5;
+            return Mathf.Max(5, snapped);
+        }
+
+        int lo = first / 5;
+        int hi = last / 5;
+        return UnityEngine.Random.Range(lo, hi + 1) * 5;
+    }
+
+    private void RefreshStreakUI()
+    {
+        bool allowClaiming = !isSpinning && state == RunState.CanGoNextTurnOrCashOut;
+
+        foreach (var s in streakSlots)
+        {
+            bool unlocked = currentTurn >= s.requiredTurn;
+            bool affordable = bankedTickets >= s.ticketCost;
+            bool canBuy = allowClaiming && unlocked && affordable && !s.claimed;
+
+            s.blockerImage.gameObject.SetActive(!canBuy);
+            s.tickIcon.SetActive(s.claimed);
+        }
+    }
+
+    private void TryBuyStreakReward(int index)
+    {
+        var s = streakSlots[index];
+        if (s.claimed || bankedTickets < s.ticketCost || currentTurn < s.requiredTurn || state != RunState.CanGoNextTurnOrCashOut)
+            return;
+
+        bankedTickets -= s.ticketCost;
+        GiveReward(s.fixedType, s.chosenAmount);
+        s.claimed = true;
+        s.tickIcon.SetActive(true);
+        RefreshUI();
+    }
+
+    private void GiveReward(RewardType type, int amount)
+    {
+        if (type == RewardType.Gold) PlayerController.instance.goldAmount += amount;
+        else if (type == RewardType.Health) PlayerController.instance.health += amount;
+        else if (type == RewardType.Ammo) PlayerController.instance.ammoAmount += amount;
+        else if (type == RewardType.Bundle)
+        {
+            PlayerController.instance.goldAmount += amount;
+            PlayerController.instance.health += amount;
+            PlayerController.instance.ammoAmount += amount;
+        }
+    }
+
+    private void RefreshUI()
+    {
+        ticketCount.text = bankedTickets.ToString();
+
+        if (state == RunState.ReadyToSpin)
+        {
+            buttonLabel.text = "Spin";
+            spinButton.interactable = !isSpinning;
+        }
+        else if (state == RunState.CanGoNextTurnOrCashOut)
+        {
+            buttonLabel.text = currentTurn < 5 ? $"Continue? ({spinCostGold}G)" : "Max Turn";
+            spinButton.interactable = !isSpinning && currentTurn < 5 && PlayerController.instance.goldAmount >= spinCostGold;
+        }
+        else
+        {
+            buttonLabel.text = $"Restart ({spinCostGold}G)";
+            spinButton.interactable = !isSpinning && PlayerController.instance.goldAmount >= spinCostGold;
+        }
+
+        RefreshStreakUI();
+    }
+
+    private void Shuffle<T>(IList<T> list)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            int j = UnityEngine.Random.Range(i, list.Count);
+            (list[i], list[j]) = (list[j], list[i]);
+        }
+    }
+
+    private int Mod(int a, int m)
+    {
+        int r = a % m;
+        return r < 0 ? r + m : r;
+    }
+
+    private void ResetWheelVisual()
+    {
+        wheel.rotation = Quaternion.Euler(0, 0, WheelDefaultZ);
     }
 
     public void OpenWheelMenu()
     {
-        PlayerPrefs.SetInt("Open_SpinWheel", 1);
         luckyWheelsPanel.SetActive(true);
-        GameTester.Instance.ShouldStopTheGame(true);
+        UI_Canvas.instance.ShouldStopTheGame(true);
+        StartNewRun();
     }
 
     public void CloseWheelMenu()
     {
-        PlayerPrefs.SetInt("Open_SpinWheel", 0);
         luckyWheelsPanel.SetActive(false);
-        GameTester.Instance.ShouldStopTheGame(false);
+        UI_Canvas.instance.ShouldStopTheGame(false);
+    }
+
+    private IEnumerator GoNextTurnWithCover(Action action)
+    {
+        spinButton.interactable = false;
+        wheelCover.SetActive(true);
+
+        yield return new WaitForSeconds(coverAnimTime);
+
+        action?.Invoke();
+        RefreshUI();
+
+        yield return new WaitForSeconds(1f);
+
+        wheelCover.SetActive(false);
+        spinButton.interactable = true;
+        RefreshUI();
     }
 
 }

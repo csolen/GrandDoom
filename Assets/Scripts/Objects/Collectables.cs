@@ -57,9 +57,6 @@ public class Collectables : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (!col.CompareTag("Player"))
-            return;
-        
         switch (collectableType)
         {
             case CollectableType.Health:
@@ -99,6 +96,11 @@ public class Collectables : MonoBehaviour
                 int xp = PlayerPrefs.GetInt("Roguelike_Xp");
                 xp += amount;
                 PlayerPrefs.SetInt("Roguelike_Xp", xp);
+
+                if (xp >= PlayerPrefs.GetInt("Roguelike_Required_Xp"))
+                {
+                    UI_Canvas.instance.SkillSelectionPanelState(true);
+                }
                 break;
         }
 

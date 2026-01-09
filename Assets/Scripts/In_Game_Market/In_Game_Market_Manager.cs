@@ -24,7 +24,6 @@ public class In_Game_Market_Manager : MonoBehaviour
     [Header("Spawn")]
     public int spawnCardCount = 3;
 
-    bool isMenuOpen;
     readonly List<MarketItemOptionUI> spawnedCards = new();
 
     [TextArea(2, 4)]
@@ -47,22 +46,9 @@ public class In_Game_Market_Manager : MonoBehaviour
         completePurchaseButton.onClick.AddListener(ConfirmPurchase);
     }
 
-    private void Update()
-    {
-        if (isMenuOpen)
-            return;
-
-        if (PlayerPrefs.GetInt("Open_InGameMarket") == 1)
-            OpenInGameMarket();
-    }
-
     public void OpenInGameMarket()
     {
-        PlayerPrefs.SetInt("Open_InGameMarket", 1);
-
-        isMenuOpen = true;
-        GameTester.Instance.ShouldStopTheGame(true);
-
+        UI_Canvas.instance.ShouldStopTheGame(true);
         inGameMarketPanel.SetActive(true);
 
         pendingItem = null;
@@ -73,12 +59,8 @@ public class In_Game_Market_Manager : MonoBehaviour
 
     public void CloseInGameMarket()
     {
-        PlayerPrefs.SetInt("Open_InGameMarket", 0);
-
         inGameMarketPanel.SetActive(false);
-
-        isMenuOpen = false;
-        GameTester.Instance.ShouldStopTheGame(false);
+        UI_Canvas.instance.ShouldStopTheGame(false);
 
         ClearOldCards();
 
@@ -174,7 +156,7 @@ public class In_Game_Market_Manager : MonoBehaviour
                 break;
 
             case Market_Item_Type.Market_Select_RandomSkill:
-                PlayerPrefs.SetInt("Open_Roguelike", 1);
+                UI_Canvas.instance.SkillSelectionPanelState(true);
                 break;
         }
     }

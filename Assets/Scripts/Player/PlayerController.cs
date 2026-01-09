@@ -1,5 +1,4 @@
 using UnityEngine;
-using TMPro;
 
 public enum WeaponType
 {
@@ -36,8 +35,6 @@ public class PlayerController : MonoBehaviour
     public Animator Player_Weapon_Gun;
 
     [Header("UI Screens")]
-    public GameObject deadScreen;
-    public GameObject winScreen;
     public GameObject[] takeHitPos;
     public GameObject playerCollectItemsScreen;
 
@@ -102,10 +99,6 @@ public class PlayerController : MonoBehaviour
         Right
     }
 
-    [Header("Hit Feedback (Debug)")]
-    [SerializeField] private Vector2 lastHitDirection;
-    [SerializeField] private HitSide lastHitSide;
-
     private void Awake()
     {
         instance = this;
@@ -127,7 +120,7 @@ public class PlayerController : MonoBehaviour
         katanaDefaultLocalRot = swordObject.transform.localRotation;
 
         SetWeapon(WeaponType.Katana);
-        GameTester.Instance.ShouldStopTheGame(false);
+        UI_Canvas.instance.ShouldStopTheGame(false);
     }
 
     private void Update()
@@ -420,10 +413,8 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector2 hitDir = GetHitDirection2D(damageSourcePosition);
-        lastHitDirection = hitDir;
 
         HitSide side = GetHitSideFromDirection(hitDir);
-        lastHitSide = side;
 
         if (health - damageAmount > 0)
         {
@@ -433,19 +424,19 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            deadScreen.SetActive(true);
+            UI_Canvas.instance.DeathScreenState(true);
             hasDied = true;
-            GameTester.Instance.ShouldStopTheGame(true);
+            UI_Canvas.instance.ShouldStopTheGame(true);
         }
     }
 
     public void RevivePlayer(int divider)
     {
-        deadScreen.SetActive(false);
+        UI_Canvas.instance.DeathScreenState(false);
         health = maxHealth / divider;
         ammoAmount = maxAmmoAmount / divider;
         hasDied = false;
-        GameTester.Instance.ShouldStopTheGame(false);
+        UI_Canvas.instance.ShouldStopTheGame(false);
     }
 
     public void TakeDamage(int damageAmount)
@@ -455,8 +446,8 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 GetHitDirection2D(Vector3 damageSourcePosition)
     {
-        Vector2 attackerPos2D = new Vector2(damageSourcePosition.x, damageSourcePosition.y);
-        Vector2 playerPos2D = new Vector2(transform.position.x, transform.position.y);
+        Vector2 attackerPos2D = new (damageSourcePosition.x, damageSourcePosition.y);
+        Vector2 playerPos2D = new (transform.position.x, transform.position.y);
         Vector2 toAttacker = (attackerPos2D - playerPos2D).normalized;
         return toAttacker;
     }
@@ -546,9 +537,9 @@ public class PlayerController : MonoBehaviour
         timerRunning = false;
         timer = 0f;
 
-        winScreen.SetActive(true);
+        UI_Canvas.instance.WinScreenState(true);
         hasDied = true;
-        GameTester.Instance.ShouldStopTheGame(true);
+        UI_Canvas.instance.ShouldStopTheGame(true);
     }
 
     public int IncreaseByPercent(int value, int percent)

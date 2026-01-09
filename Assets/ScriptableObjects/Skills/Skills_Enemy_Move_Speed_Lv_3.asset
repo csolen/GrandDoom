@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1075b986a655c4eaa96d8e7bc5a76bee, type: 3}
   m_Name: Skills_Enemy_Move_Speed_Lv_3
   m_EditorClassIdentifier: 
-  id: Enemy_move_speed_lv_1
+  id: Enemy_move_speed_lv_3
   displayName: Enemy Speed
-  description: Reduce enemy speed by +%4
+  description: Reduce enemy speed by +%6
   icon: {fileID: 21300000, guid: c437896b2417e1840b58e9e01d742de4, type: 3}
-  type: 6
-  value: 1
+  type: 12
+  value: 6
   rarity: 0
   levelGroupId: Enemy_Speed
-  levelIndex: 1
+  levelIndex: 4
   maxLevel: 3
