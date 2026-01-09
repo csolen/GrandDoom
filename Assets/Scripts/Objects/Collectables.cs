@@ -99,6 +99,11 @@ public class Collectables : MonoBehaviour
                 int xp = PlayerPrefs.GetInt("Roguelike_Xp");
                 xp += amount;
                 PlayerPrefs.SetInt("Roguelike_Xp", xp);
+
+                if (xp >= PlayerPrefs.GetInt("Roguelike_Required_Xp"))
+                {
+                    UI_Canvas.instance.OpenSkillSelection();
+                }
                 break;
         }
 

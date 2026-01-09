@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class RoguelikeManager : MonoBehaviour
 {
     [Header("Xp")]
-    public int xpThreshold = 100;
+    public int requiredXP = 100;
 
     [Header("UI")]
     public GameObject selectionPanel;
@@ -39,7 +39,7 @@ public class RoguelikeManager : MonoBehaviour
         reRollBtnButton.onClick.AddListener(ReRollCardsButton);
     }
 
-    void Update()
+    private void Update()
     {
         if (isMenuOpen)
         {
@@ -53,33 +53,18 @@ public class RoguelikeManager : MonoBehaviour
             }
 
             return;
-        } 
-        
-        int xpCalculator = PlayerPrefs.GetInt("Roguelike_Xp", 0);
-
-        if (xpCalculator >= xpThreshold)
-        {
-            PlayerPrefs.SetInt("Roguelike_Xp", 0);
-            OpenSelectionMenu();
         }
-
-        if (PlayerPrefs.GetInt("Open_Roguelike") == 1)
-        {
-            OpenSelectionMenu();
-        }
-
     }
 
     private void ResetAllSkillLevels()
     {
         if (PlayerPrefs.GetInt("RerollButtonFreeState") == 0)
         {
-            reRollButtonText.text = "Re-roll (1)";
+            reRollButtonText.text = "Re-roll (FREE)";
         }
 
-        xpThreshold = PlayerPrefs.GetInt("Roguelike_Required_Xp", xpThreshold);
-
         PlayerPrefs.SetInt("Roguelike_Xp", 0);
+        PlayerPrefs.SetInt("Roguelike_Required_Xp", requiredXP);
 
         foreach (var skill in allSkills)
         {
@@ -99,7 +84,6 @@ public class RoguelikeManager : MonoBehaviour
 
     public void OpenSelectionMenu()
     {
-        PlayerPrefs.SetInt("Open_Roguelike", 1);
         PlayerPrefs.SetInt("Roguelike_Xp", 0);
         delayerImg.SetActive(true);
 
@@ -125,7 +109,6 @@ public class RoguelikeManager : MonoBehaviour
 
     public void CloseSelectionMenu()
     {
-        PlayerPrefs.SetInt("Open_Roguelike", 0);
         PlayerPrefs.SetInt("Roguelike_Xp", 0);
         selectionPanel.SetActive(false);
 
@@ -258,7 +241,7 @@ public class RoguelikeManager : MonoBehaviour
                 PlayerController.instance.moveSpeed = PlayerController.instance.IncreaseByPercent(PlayerController.instance.moveSpeed, skill.value);
                 break;
             case SkillType.RequiredXpAmount:
-                xpThreshold = IncreaseByPercent(PlayerPrefs.GetInt("Roguelike_Required_Xp"), -(int)skill.value);
+                int xpThreshold = IncreaseByPercent(PlayerPrefs.GetInt("Roguelike_Required_Xp"), -(int)skill.value);
                 PlayerPrefs.SetInt("Roguelike_Required_Xp", xpThreshold);
                 break;
             case SkillType.EnemyDropChance:

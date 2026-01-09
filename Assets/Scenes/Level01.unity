@@ -10428,7 +10428,6 @@ GameObject:
   - component: {fileID: 769163417}
   - component: {fileID: 769163416}
   - component: {fileID: 769163415}
-  - component: {fileID: 769163418}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -10497,18 +10496,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &769163418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 769163414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9e743a7e7230495d94181b3c95f2051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &787517723
 GameObject:
   m_ObjectHideFlags: 0
@@ -40554,7 +40541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8ec3aa7169b4d6a8e6998262229fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xpThreshold: 100
+  requiredXP: 20
   selectionPanel: {fileID: 2143053363}
   cardsParent: {fileID: 1150719577}
   cardPrefab: {fileID: 5390892685748198262, guid: 09f0b8ac0a68a4b7ea2631762febe1b7, type: 3}

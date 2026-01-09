@@ -78,6 +78,11 @@ public class GameTester : MonoBehaviour
         {
             UnityEditor.EditorApplication.isPaused = true;
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            UI_Canvas.instance.OpenPauseMenu();
+        }
     }
 
     private void StopAllEnemies()
@@ -147,19 +152,16 @@ public class GameTester : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
-            //PlayerPrefs.SetInt("Open_Roguelike", 1);
             UI_Canvas.instance.OpenSkillSelection();
         }
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            //PlayerPrefs.SetInt("Open_SpinWheel", 1);
             UI_Canvas.instance.OpenLuckyWheels();
         }
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            //PlayerPrefs.SetInt("Open_InGameMarket", 1);
             UI_Canvas.instance.OpenInGameMarket();
         }
 

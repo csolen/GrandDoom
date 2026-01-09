@@ -33,19 +33,6 @@ public class PauseGameManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-#if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (!pauseTheGamePanel.activeInHierarchy)
-            {
-                OpenPauseGamePanel();
-            }
-        }
-#endif
-    }
-
     public void OpenPauseGamePanel()
     {
         pauseTheGamePanel.SetActive(true);
