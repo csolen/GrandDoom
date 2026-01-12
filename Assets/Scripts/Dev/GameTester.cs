@@ -171,6 +171,10 @@ public class GameTester : MonoBehaviour
 
     private void GeneralTest()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            EnergyManager.Instance.SpendEnergy(5);
+        }
     }
 }
 
