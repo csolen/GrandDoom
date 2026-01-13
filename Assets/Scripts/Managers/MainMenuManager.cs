@@ -8,50 +8,43 @@ public class MainMenuManager : MonoBehaviour
     [Header("Panels")]
     [SerializeField] private GameObject[] panels;
 
-    [Header("Menu Buttons (same order as panels)")]
+    [Header("Menu Buttons")]
     [SerializeField] private Button[] menuButtons;
 
-    [Header("Button Colors")]
+    [Header("Button Texts")]
+    [SerializeField] private TMP_Text[] buttonTexts;
+
+    [Header("Button Icons")]
+    [SerializeField] private GameObject[] selectedIcons;
+    [SerializeField] private GameObject[] unselectedIcons;
+
+    [Header("Button Background Colors")]
     [SerializeField] private Color selectedColor = Color.white;
     [SerializeField] private Color normalColor = Color.gray;
 
-    private TMP_Text[] buttonTmp;
-
-    private void Awake()
-    {
-        buttonTmp = new TMP_Text[menuButtons.Length];
-        for (int i = 0; i < menuButtons.Length; i++)
-        {
-            if (menuButtons[i] == null) continue;
-            buttonTmp[i] = menuButtons[i].GetComponentInChildren<TMP_Text>(true);
-        }
-    }
-
     private void Start()
     {
-        if (panels != null && panels.Length > 0)
-            OpenPanel(0);
+        OpenPanel(0);
     }
 
     public void OpenPanel(int index)
     {
         for (int i = 0; i < panels.Length; i++)
-        {
-            if (panels[i] != null)
-                panels[i].SetActive(i == index);
-        }
+            panels[i].SetActive(i == index);
 
         for (int i = 0; i < menuButtons.Length; i++)
         {
             var btn = menuButtons[i];
-            if (btn == null) continue;
+            btn.targetGraphic.color = (i == index) ? selectedColor : normalColor;
 
-            var graphic = btn.targetGraphic;
-            if (graphic != null)
-                graphic.color = (i == index) ? selectedColor : normalColor;
+            if (buttonTexts != null && i < buttonTexts.Length && buttonTexts[i] != null)
+                buttonTexts[i].gameObject.SetActive(i == index);
 
-            if (buttonTmp != null && i < buttonTmp.Length && buttonTmp[i] != null)
-                buttonTmp[i].gameObject.SetActive(i == index);
+            if (selectedIcons != null && i < selectedIcons.Length && selectedIcons[i] != null)
+                selectedIcons[i].SetActive(i == index);
+
+            if (unselectedIcons != null && i < unselectedIcons.Length && unselectedIcons[i] != null)
+                unselectedIcons[i].SetActive(i != index);
         }
     }
 

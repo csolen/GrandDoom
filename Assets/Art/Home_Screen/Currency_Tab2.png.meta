@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4fd9dc436a499458fa8de1e2dc79970c
+guid: a196cc93eb2ed4694a2e52fa652db177
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7643904186738975657
-    second: HS_TopSide_Button_0
+      213: 13737186520962360
+    second: Currency_Tab2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HS_TopSide_Button_0
+      name: Currency_Tab2_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 0
-        width: 172
-        height: 142
+        x: 0
+        y: 1
+        width: 244
+        height: 78
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9a3a2b3db5a941a60800000000000000
-      internalID: 7643904186738975657
+      spriteID: 8359bcaf5edc03000800000000000000
+      internalID: 13737186520962360
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      HS_TopSide_Button_0: 7643904186738975657
+      Currency_Tab2_0: 13737186520962360
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

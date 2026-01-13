@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4fd9dc436a499458fa8de1e2dc79970c
+guid: a4c75729c7bcd4284bb35fa45922ec1b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7643904186738975657
-    second: HS_TopSide_Button_0
+      213: 2823027141189273826
+    second: Campaign_BW_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HS_TopSide_Button_0
+      name: Campaign_BW_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 0
-        width: 172
-        height: 142
+        x: 10
+        y: 21
+        width: 125
+        height: 101
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9a3a2b3db5a941a60800000000000000
-      internalID: 7643904186738975657
+      spriteID: 2e88fd55a386d2720800000000000000
+      internalID: 2823027141189273826
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      HS_TopSide_Button_0: 7643904186738975657
+      Campaign_BW_0: 2823027141189273826
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
