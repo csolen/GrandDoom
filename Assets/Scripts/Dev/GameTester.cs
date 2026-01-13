@@ -174,6 +174,9 @@ public class GameTester : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             EnergyManager.Instance.SpendEnergy(5);
+            CurrencyManager.instance.AddDiamond(-10);
+            CurrencyManager.instance.AddSilver(100);
+
         }
     }
 }

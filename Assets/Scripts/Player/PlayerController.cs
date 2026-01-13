@@ -536,7 +536,7 @@ public class PlayerController : MonoBehaviour
     {
         timerRunning = false;
         timer = 0f;
-
+        CurrencyManager.instance.SetChapter(1);
         UI_Canvas.instance.WinScreenState(true);
         hasDied = true;
         UI_Canvas.instance.ShouldStopTheGame(true);

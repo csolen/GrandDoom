@@ -57,7 +57,7 @@ public class MainMenuManager : MonoBehaviour
     {
         if (EnergyManager.Instance.Energy >= 5)
         {
-            SceneManager.LoadScene("Level01");
+            SceneManager.LoadScene(CurrencyManager.instance.chapterCount);
             EnergyManager.Instance.SpendEnergy(5);
         }
         else

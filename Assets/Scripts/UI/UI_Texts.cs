@@ -58,6 +58,18 @@ public class UI_Texts : MonoBehaviour
         {
             UI_Text.text = PlayerPrefs.GetInt("WheelTicket").ToString();
         }
+        else if (whatUI == "silverCount")
+        {
+            UI_Text.text = CurrencyManager.instance.silverCount.ToString();
+        }
+        else if (whatUI == "diamondCount")
+        {
+            UI_Text.text = CurrencyManager.instance.diamondCount.ToString();
+        }
+        else if (whatUI == "chapterCount")
+        {
+            UI_Text.text = "Chapter " + CurrencyManager.instance.chapterCount.ToString();
+        }
         else
         {
             Debug.LogWarning("No such thing as " + whatUI);
