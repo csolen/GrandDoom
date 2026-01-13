@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 41682f4040cba4128aa6f1b45ede88cd
+guid: fa5f5804a6fc2483cbf8b91f9e5d761a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4284703620058282503
-    second: Shop_Tent_0
+      213: 1902324471684661506
+    second: Shop_Roof_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 700
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Shop_Tent_0
+      name: Shop_Roof_0
       rect:
         serializedVersion: 2
-        x: 139
-        y: 326
-        width: 488
-        height: 215
+        x: 169
+        y: 479
+        width: 419
+        height: 121
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 70a7769bd33567b30800000000000000
-      internalID: 4284703620058282503
+      spriteID: 2010c4e270a666a10800000000000000
+      internalID: 1902324471684661506
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Shop_Tent_0: 4284703620058282503
+      Shop_Roof_0: 1902324471684661506
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
