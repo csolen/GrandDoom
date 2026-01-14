@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 08604bc8be334f443a14be9283e2154f
+guid: 4fbdc75e86dff44beab8d24248c55c57
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7488752255115372737
-    second: HS_FEATURE_BUTTON_0
+      213: -2545692342053469445
+    second: NOTIF_ICON_0
+  - first:
+      213: -3093943398788321104
+    second: NOTIF_ICON_1
+  - first:
+      213: -3965106640869972054
+    second: NOTIF_ICON_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +132,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HS_FEATURE_BUTTON_0
+      name: NOTIF_ICON_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 10
-        width: 405
-        height: 104
+        x: 2
+        y: 73
+        width: 37
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +147,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f3751f6408b921890800000000000000
-      internalID: -7488752255115372737
+      spriteID: bf288747d42ebacd0800000000000000
+      internalID: -2545692342053469445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NOTIF_ICON_1
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 72
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b0be080fda1015d0800000000000000
+      internalID: -3093943398788321104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NOTIF_ICON_2
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 2
+        width: 55
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa72766a48c19f8c0800000000000000
+      internalID: -3965106640869972054
       vertices: []
       indices: 
       edges: []
@@ -161,7 +211,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      HS_FEATURE_BUTTON_0: -7488752255115372737
+      NOTIF_ICON_0: -2545692342053469445
+      NOTIF_ICON_1: -3093943398788321104
+      NOTIF_ICON_2: -3965106640869972054
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -22,6 +22,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Color selectedColor = Color.white;
     [SerializeField] private Color normalColor = Color.gray;
 
+    public GameObject settingsMenus;
+
     private void Start()
     {
         OpenPanel(0);
@@ -46,6 +48,8 @@ public class MainMenuManager : MonoBehaviour
             if (unselectedIcons != null && i < unselectedIcons.Length && unselectedIcons[i] != null)
                 unselectedIcons[i].SetActive(i != index);
         }
+
+        CloseSettingsMenus();
     }
 
     public void BuyEnergy()
@@ -64,5 +68,15 @@ public class MainMenuManager : MonoBehaviour
         {
             OpenPanel(2);
         }
+    }
+
+    public void OpenSettingsMenus()
+    {
+        settingsMenus.SetActive(true);
+    }
+
+    public void CloseSettingsMenus()
+    {
+        settingsMenus.SetActive(false);
     }
 }
